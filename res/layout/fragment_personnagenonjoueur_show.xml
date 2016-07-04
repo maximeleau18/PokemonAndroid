@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:id="@+id/personnagenonjoueur_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" >
+            <TextView
+                android:id="@+id/personnagenonjoueur_nom_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/personnagenonjoueur_nom_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_nom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_nom_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_description_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_nom"
+                android:text="@string/personnagenonjoueur_description_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_description_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_profession_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_description"
+                android:text="@string/personnagenonjoueur_profession_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_profession"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_profession_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_objets_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_profession"
+                android:text="@string/personnagenonjoueur_objets_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_objets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_objets_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_dresseur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_objets"
+                android:text="@string/personnagenonjoueur_dresseur_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_dresseur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_dresseur_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_arenes_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_dresseur"
+                android:text="@string/personnagenonjoueur_arenes_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_arenes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_arenes_label" />
+            <TextView
+                android:id="@+id/personnagenonjoueur_pokemons_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personnagenonjoueur_arenes"
+                android:text="@string/personnagenonjoueur_pokemons_label"/>
+            <TextView
+                android:id="@+id/personnagenonjoueur_pokemons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/personnagenonjoueur_pokemons_label" />
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/personnagenonjoueur_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/personnagenonjoueur_not_found" />
+</RelativeLayout>

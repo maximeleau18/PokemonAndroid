@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TextView
+        android:id="@+id/dresseur_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/dresseur_nom_label"/>
+    <EditText
+        android:id="@+id/dresseur_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/dresseur_nom_label" />
+   <TextView
+        android:id="@+id/dresseur_prenom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresseur_nom"
+        android:text="@string/dresseur_prenom_label"/>
+    <EditText
+        android:id="@+id/dresseur_prenom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/dresseur_prenom_label" />
+   <TextView
+        android:id="@+id/dresseur_login_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresseur_prenom"
+        android:text="@string/dresseur_login_label"/>
+    <EditText
+        android:id="@+id/dresseur_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/dresseur_login_label" />
+   <TextView
+        android:id="@+id/dresseur_motdepasse_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresseur_login"
+        android:text="@string/dresseur_motdepasse_label"/>
+    <EditText
+        android:id="@+id/dresseur_motdepasse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/dresseur_motdepasse_label" />
+    <TextView
+        android:id="@+id/dresseur_personnagenonjoueur_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresseur_motdepasse"
+        android:text="@string/dresseur_personnagenonjoueur_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/dresseur_personnagenonjoueur_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresseur_personnagenonjoueur_label" />
+</RelativeLayout>

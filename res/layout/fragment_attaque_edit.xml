@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TextView
+        android:id="@+id/attaque_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/attaque_nom_label"/>
+    <EditText
+        android:id="@+id/attaque_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/attaque_nom_label" />
+   <TextView
+        android:id="@+id/attaque_puissance_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attaque_nom"
+        android:text="@string/attaque_puissance_label"/>
+    <EditText
+        android:id="@+id/attaque_puissance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/attaque_puissance_label" />
+   <TextView
+        android:id="@+id/attaque_degats_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attaque_puissance"
+        android:text="@string/attaque_degats_label"/>
+    <EditText
+        android:id="@+id/attaque_degats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/attaque_degats_label" />
+    <TextView
+        android:id="@+id/attaque_typeattaque_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attaque_degats"
+        android:text="@string/attaque_typeattaque_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/attaque_typeattaque_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/attaque_typeattaque_label" />
+</RelativeLayout>

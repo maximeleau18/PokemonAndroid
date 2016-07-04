@@ -22,5 +22,611 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.personnagenonjoueur.PersonnageNonJoueurCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueur.PersonnageNonJoueurEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueur.PersonnageNonJoueurShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueur.PersonnageNonJoueurListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badge.BadgeCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badge.BadgeEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badge.BadgeShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.badge.BadgeListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Badge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.position.PositionCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.position.PositionEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.position.PositionShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.position.PositionListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Position" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arene.AreneCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arene.AreneEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arene.AreneShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.arene.AreneListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Arene" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeattaque.TypeAttaqueCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeattaque.TypeAttaqueEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeattaque.TypeAttaqueShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeattaque.TypeAttaqueListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaque.AttaqueCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaque.AttaqueEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaque.AttaqueShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.attaque.AttaqueListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Attaque" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseur.DresseurCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseur.DresseurEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseur.DresseurShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.dresseur.DresseurListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Dresseur" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjet.TypeObjetCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjet.TypeObjetEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjet.TypeObjetShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typeobjet.TypeObjetListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeObjet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objet.ObjetCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objet.ObjetEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objet.ObjetShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.objet.ObjetListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Objet" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.profession.ProfessionCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.profession.ProfessionEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.profession.ProfessionShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.profession.ProfessionListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Profession" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemon.PokemonCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemon.PokemonEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemon.PokemonShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.pokemon.PokemonListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Pokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueurbadge.PersonnageNonJoueurBadgeCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueurbadge.PersonnageNonJoueurBadgeEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueurbadge.PersonnageNonJoueurBadgeShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.personnagenonjoueurbadge.PersonnageNonJoueurBadgeListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemon.TypeDePokemonCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemon.TypeDePokemonEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemon.TypeDePokemonShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemon.TypeDePokemonListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zone.ZoneCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zone.ZoneEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zone.ZoneShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.zone.ZoneListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Zone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemonzone.TypeDePokemonZoneCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemonzone.TypeDePokemonZoneEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemonzone.TypeDePokemonZoneShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.typedepokemonzone.TypeDePokemonZoneListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="com.maximeleau.harmony.android.pokemon.provider.PokemonProvider"
+            android:authorities="com.maximeleau.harmony.android.pokemon.provider"
+            android:label="@string/app_provider_name"
+            android:description="@string/app_provider_description"
+            android:exported="false" />
     </application>
 </manifest>

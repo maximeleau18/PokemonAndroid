@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/objet_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/objet_nom_label"/>
+    <EditText
+        android:id="@+id/objet_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/objet_nom_label" />
+    <TextView
+        android:id="@+id/objet_quantite_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_nom"
+        android:text="@string/objet_quantite_label"/>
+    <EditText
+        android:id="@+id/objet_quantite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/objet_quantite_label" />
+    <TextView
+        android:id="@+id/objet_typeobjet_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_quantite"
+        android:text="@string/objet_typeobjet_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/objet_typeobjet_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_typeobjet_label" />
+    <TextView
+        android:id="@+id/objet_personnagenonjoueur_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_typeobjet_button"
+        android:text="@string/objet_personnagenonjoueur_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/objet_personnagenonjoueur_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_personnagenonjoueur_label" />
+</RelativeLayout>
