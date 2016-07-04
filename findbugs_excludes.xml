@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <Match>
+    <Class name="~.*\.R\$.*"/>
+  </Match>
+  <Match>
+    <Or>
+    <Package name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]criterias[.]base([.].*)?" />
+    <Package name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]data[.]base([.].*)?" />
+    <Package name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]harmony([.].*)?" />
+    <Package name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]provider[.]base([.].*)?" />
+    <Package name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]provider[.]utils[.]base([.].*)?" />
+    <Class name="~com[.]maximeleau[.]harmony[.]android[.]pokemon[.]PokemonApplicationBase.java"/>
+    </Or>
+  </Match>
+</FindBugsFilter>
