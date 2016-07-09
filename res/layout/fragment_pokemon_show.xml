@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:id="@+id/pokemon_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" >
+            <TextView
+                android:id="@+id/pokemon_surnom_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pokemon_surnom_label"/>
+            <TextView
+                android:id="@+id/pokemon_surnom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_surnom_label" />
+            <TextView
+                android:id="@+id/pokemon_niveau_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_surnom"
+                android:text="@string/pokemon_niveau_label"/>
+            <TextView
+                android:id="@+id/pokemon_niveau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_niveau_label" />
+            <TextView
+                android:id="@+id/pokemon_capturele_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_niveau"
+                android:text="@string/pokemon_capturele_label"/>
+            <TextView
+                android:id="@+id/pokemon_capturele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_capturele_label" />
+            <TextView
+                android:id="@+id/pokemon_attaque1_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_capturele"
+                android:text="@string/pokemon_attaque1_label"/>
+            <TextView
+                android:id="@+id/pokemon_attaque1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_attaque1_label" />
+            <TextView
+                android:id="@+id/pokemon_attaque2_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_attaque1"
+                android:text="@string/pokemon_attaque2_label"/>
+            <TextView
+                android:id="@+id/pokemon_attaque2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_attaque2_label" />
+            <TextView
+                android:id="@+id/pokemon_attaque3_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_attaque2"
+                android:text="@string/pokemon_attaque3_label"/>
+            <TextView
+                android:id="@+id/pokemon_attaque3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_attaque3_label" />
+            <TextView
+                android:id="@+id/pokemon_attaque4_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_attaque3"
+                android:text="@string/pokemon_attaque4_label"/>
+            <TextView
+                android:id="@+id/pokemon_attaque4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_attaque4_label" />
+            <TextView
+                android:id="@+id/pokemon_typedepokemon_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_attaque4"
+                android:text="@string/pokemon_typedepokemon_label"/>
+            <TextView
+                android:id="@+id/pokemon_typedepokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_typedepokemon_label" />
+            <TextView
+                android:id="@+id/pokemon_personnagenonjoueur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pokemon_typedepokemon"
+                android:text="@string/pokemon_personnagenonjoueur_label"/>
+            <TextView
+                android:id="@+id/pokemon_personnagenonjoueur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/pokemon_personnagenonjoueur_label" />
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/pokemon_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/pokemon_not_found" />
+</RelativeLayout>

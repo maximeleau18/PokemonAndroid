@@ -1,5 +1,10 @@
 package com.maximeleau.harmony.android.pokemon.entity;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import java.util.List;
+import java.util.ArrayList;
+import java.io.Serializable;
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Entity;
 import com.tactfactory.harmony.annotation.GeneratedValue;
@@ -9,7 +14,11 @@ import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.ManyToOne;
 
 @Entity
-public class Attaque {
+public class Attaque  implements Serializable , Parcelable {
+
+    /** Parent parcelable for parcellisation purposes. */
+    protected List<Parcelable> parcelableParents;
+
 
 	@Id
     @Column(type = Type.INTEGER, hidden = true)
@@ -28,5 +37,189 @@ public class Attaque {
 	@ManyToOne(targetEntity="TypeAttaque")
 	@Column(nullable = false)
 	private TypeAttaque typeAttaque;
+
+
+    /**
+     * Default constructor.
+     */
+    public Attaque() {
+
+    }
+
+     /**
+     * Get the Id.
+     * @return the id
+     */
+    public int getId() {
+         return this.id;
+    }
+     /**
+     * Set the Id.
+     * @param value the id to set
+     */
+    public void setId(final int value) {
+         this.id = value;
+    }
+     /**
+     * Get the Nom.
+     * @return the nom
+     */
+    public String getNom() {
+         return this.nom;
+    }
+     /**
+     * Set the Nom.
+     * @param value the nom to set
+     */
+    public void setNom(final String value) {
+         this.nom = value;
+    }
+     /**
+     * Get the Puissance.
+     * @return the puissance
+     */
+    public int getPuissance() {
+         return this.puissance;
+    }
+     /**
+     * Set the Puissance.
+     * @param value the puissance to set
+     */
+    public void setPuissance(final int value) {
+         this.puissance = value;
+    }
+     /**
+     * Get the Degats.
+     * @return the degats
+     */
+    public int getDegats() {
+         return this.degats;
+    }
+     /**
+     * Set the Degats.
+     * @param value the degats to set
+     */
+    public void setDegats(final int value) {
+         this.degats = value;
+    }
+     /**
+     * Get the TypeAttaque.
+     * @return the typeAttaque
+     */
+    public TypeAttaque getTypeAttaque() {
+         return this.typeAttaque;
+    }
+     /**
+     * Set the TypeAttaque.
+     * @param value the typeAttaque to set
+     */
+    public void setTypeAttaque(final TypeAttaque value) {
+         this.typeAttaque = value;
+    }
+    /**
+     * This stub of code is regenerated. DO NOT MODIFY.
+     * 
+     * @param dest Destination parcel
+     * @param flags flags
+     */
+    public void writeToParcelRegen(Parcel dest, int flags) {
+        if (this.parcelableParents == null) {
+            this.parcelableParents = new ArrayList<Parcelable>();
+        }
+        if (!this.parcelableParents.contains(this)) {
+            this.parcelableParents.add(this);
+        }
+        dest.writeInt(this.getId());
+        if (this.getNom() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getNom());
+        } else {
+            dest.writeInt(0);
+        }
+        dest.writeInt(this.getPuissance());
+        dest.writeInt(this.getDegats());
+        if (this.getTypeAttaque() != null
+                    && !this.parcelableParents.contains(this.getTypeAttaque())) {
+            this.getTypeAttaque().writeToParcel(this.parcelableParents, dest, flags);
+        } else {
+            dest.writeParcelable(null, flags);
+        }
+    }
+
+    /**
+     * Regenerated Parcel Constructor. 
+     *
+     * This stub of code is regenerated. DO NOT MODIFY THIS METHOD.
+     *
+     * @param parc The parcel to read from
+     */
+    public void readFromParcel(Parcel parc) {
+        this.setId(parc.readInt());
+        int nomBool = parc.readInt();
+        if (nomBool == 1) {
+            this.setNom(parc.readString());
+        }
+        this.setPuissance(parc.readInt());
+        this.setDegats(parc.readInt());
+        this.setTypeAttaque((TypeAttaque) parc.readParcelable(TypeAttaque.class.getClassLoader()));
+    }
+
+    /**
+     * Parcel Constructor.
+     *
+     * @param parc The parcel to read from
+     */
+    public Attaque(Parcel parc) {
+        // You can chose not to use harmony's generated parcel.
+        // To do this, remove this line.
+        this.readFromParcel(parc);
+
+        // You can  implement your own parcel mechanics here.
+
+    }
+
+    /* This method is not regenerated. You can implement your own parcel mechanics here. */
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        // You can chose not to use harmony's generated parcel.
+        // To do this, remove this line.
+        this.writeToParcelRegen(dest, flags);
+        // You can  implement your own parcel mechanics here.
+    }
+
+    /**
+     * Use this method to write this entity to a parcel from another entity.
+     * (Useful for relations)
+     *
+     * @param parent The entity being parcelled that need to parcel this one
+     * @param dest The destination parcel
+     * @param flags The flags
+     */
+    public synchronized void writeToParcel(List<Parcelable> parents, Parcel dest, int flags) {
+        this.parcelableParents = new ArrayList<Parcelable>(parents);
+        dest.writeParcelable(this, flags);
+        this.parcelableParents = null;
+    }
+
+    @Override
+    public int describeContents() {
+        // This should return 0 
+        // or CONTENTS_FILE_DESCRIPTOR if your entity is a FileDescriptor.
+        return 0;
+    }
+
+    /**
+     * Parcelable creator.
+     */
+    public static final Parcelable.Creator<Attaque> CREATOR
+        = new Parcelable.Creator<Attaque>() {
+        public Attaque createFromParcel(Parcel in) {
+            return new Attaque(in);
+        }
+        
+        public Attaque[] newArray(int size) {
+            return new Attaque[size];
+        }
+    };
 
 }
