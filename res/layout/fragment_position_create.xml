@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/position_x_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/position_x_label"/>
+    <EditText
+        android:id="@+id/position_x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/position_x_label" />
+    <TextView
+        android:id="@+id/position_y_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/position_x"
+        android:text="@string/position_y_label"/>
+    <EditText
+        android:id="@+id/position_y"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/position_y_label" />
+    <TextView
+        android:id="@+id/position_zone_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/position_y"
+        android:text="@string/position_zone_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/position_zone_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/position_zone_label" />
+</RelativeLayout>

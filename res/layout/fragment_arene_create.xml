@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/arene_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/arene_nom_label"/>
+    <EditText
+        android:id="@+id/arene_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/arene_nom_label" />
+    <TextView
+        android:id="@+id/arene_maitre_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_nom"
+        android:text="@string/arene_maitre_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/arene_maitre_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_maitre_label" />
+    <TextView
+        android:id="@+id/arene_badge_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_maitre_button"
+        android:text="@string/arene_badge_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/arene_badge_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_badge_label" />
+    <TextView
+        android:id="@+id/arene_position_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_badge_button"
+        android:text="@string/arene_position_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/arene_position_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/arene_position_label" />
+</RelativeLayout>

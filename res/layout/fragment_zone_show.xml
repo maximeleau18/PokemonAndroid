@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:id="@+id/zone_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" >
+            <TextView
+                android:id="@+id/zone_nom_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/zone_nom_label"/>
+            <TextView
+                android:id="@+id/zone_nom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/zone_nom_label" />
+            <TextView
+                android:id="@+id/zone_arenes_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zone_nom"
+                android:text="@string/zone_arenes_label"/>
+            <TextView
+                android:id="@+id/zone_arenes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/zone_arenes_label" />
+            <TextView
+                android:id="@+id/zone_badges_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zone_arenes"
+                android:text="@string/zone_badges_label"/>
+            <TextView
+                android:id="@+id/zone_badges"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/zone_badges_label" />
+            <TextView
+                android:id="@+id/zone_positions_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/zone_badges"
+                android:text="@string/zone_positions_label"/>
+            <TextView
+                android:id="@+id/zone_positions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/zone_positions_label" />
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/zone_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/zone_not_found" />
+</RelativeLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/typedepokemonzone_zone_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/typedepokemonzone_zone_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/typedepokemonzone_zone_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemonzone_zone_label" />
+    <TextView
+        android:id="@+id/typedepokemonzone_typedepokemon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemonzone_zone_button"
+        android:text="@string/typedepokemonzone_typedepokemon_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/typedepokemonzone_typedepokemon_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemonzone_typedepokemon_label" />
+</RelativeLayout>

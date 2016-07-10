@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TextView
+        android:id="@+id/typedepokemon_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/typedepokemon_nom_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/typedepokemon_nom_label" />
+   <TextView
+        android:id="@+id/typedepokemon_attaque_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_nom"
+        android:text="@string/typedepokemon_attaque_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_attaque"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/typedepokemon_attaque_label" />
+   <TextView
+        android:id="@+id/typedepokemon_defense_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_attaque"
+        android:text="@string/typedepokemon_defense_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_defense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/typedepokemon_defense_label" />
+   <TextView
+        android:id="@+id/typedepokemon_pv_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_defense"
+        android:text="@string/typedepokemon_pv_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_pv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/typedepokemon_pv_label" />
+   <TextView
+        android:id="@+id/typedepokemon_numpokedex_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_pv"
+        android:text="@string/typedepokemon_numpokedex_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_numpokedex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/typedepokemon_numpokedex_label" />
+    <TextView
+        android:id="@+id/typedepokemon_pokemons_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_numpokedex"
+        android:text="@string/typedepokemon_pokemons_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/typedepokemon_pokemons_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_pokemons_label" />
+</RelativeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+   <TextView
+        android:id="@+id/zone_nom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/zone_nom_label"/>
+    <EditText
+        android:id="@+id/zone_nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/zone_nom_label" />
+    <TextView
+        android:id="@+id/zone_arenes_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_nom"
+        android:text="@string/zone_arenes_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/zone_arenes_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_arenes_label" />
+    <TextView
+        android:id="@+id/zone_badges_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_arenes_button"
+        android:text="@string/zone_badges_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/zone_badges_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_badges_label" />
+    <TextView
+        android:id="@+id/zone_positions_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_badges_button"
+        android:text="@string/zone_positions_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/zone_positions_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zone_positions_label" />
+</RelativeLayout>

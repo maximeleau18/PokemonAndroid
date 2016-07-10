@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:harmony="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/pokemon_surnom_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pokemon_surnom_label"/>
+    <EditText
+        android:id="@+id/pokemon_surnom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/pokemon_surnom_label" />
+    <TextView
+        android:id="@+id/pokemon_niveau_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_surnom"
+        android:text="@string/pokemon_niveau_label"/>
+    <EditText
+        android:id="@+id/pokemon_niveau"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/pokemon_niveau_label" />
+    <TextView
+        android:id="@+id/pokemon_capturele_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_niveau"
+        android:text="@string/pokemon_capturele_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.DateTimeWidget
+        android:id="@+id/pokemon_capturele"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_capturele_label"
+        harmony:dateTimeWidget_dateDialogTitle="@string/pokemon_capturele_date_title"
+        harmony:dateTimeWidget_timeDialogTitle="@string/pokemon_capturele_time_title" />
+    <TextView
+        android:id="@+id/pokemon_attaque1_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_capturele"
+        android:text="@string/pokemon_attaque1_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_attaque1_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque1_label" />
+    <TextView
+        android:id="@+id/pokemon_attaque2_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque1_button"
+        android:text="@string/pokemon_attaque2_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_attaque2_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque2_label" />
+    <TextView
+        android:id="@+id/pokemon_attaque3_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque2_button"
+        android:text="@string/pokemon_attaque3_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_attaque3_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque3_label" />
+    <TextView
+        android:id="@+id/pokemon_attaque4_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque3_button"
+        android:text="@string/pokemon_attaque4_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_attaque4_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque4_label" />
+    <TextView
+        android:id="@+id/pokemon_typedepokemon_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_attaque4_button"
+        android:text="@string/pokemon_typedepokemon_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_typedepokemon_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_typedepokemon_label" />
+    <TextView
+        android:id="@+id/pokemon_personnagenonjoueur_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_typedepokemon_button"
+        android:text="@string/pokemon_personnagenonjoueur_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
+        android:id="@+id/pokemon_personnagenonjoueur_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pokemon_personnagenonjoueur_label" />
+</RelativeLayout>
