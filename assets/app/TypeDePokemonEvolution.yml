@@ -1,301 +1,301 @@
 TypeDePokemonEvolution:
-	TypeDePokemonEvolution1:
-		id: 1
-		evolueEn: TypeDePokemon1
-		estEvolueEn: TypeDePokemon2
-	TypeDePokemonEvolution2:
-		id: 2
-		evolueEn: TypeDePokemon2
-		estEvolueEn: TypeDePokemon3
-	TypeDePokemonEvolution3:
-		id: 3
-		evolueEn: TypeDePokemon4
-		estEvolueEn: TypeDePokemon5
-	TypeDePokemonEvolution4:
-		id: 4
-		evolueEn: TypeDePokemon5
-		estEvolueEn: TypeDePokemon6
-	TypeDePokemonEvolution5:
-		id: 5
-		evolueEn: TypeDePokemon7
-		estEvolueEn: TypeDePokemon8
-	TypeDePokemonEvolution6:
-		id: 6
-		evolueEn: TypeDePokemon8
-		estEvolueEn: TypeDePokemon9
-	TypeDePokemonEvolution7:
-		id: 7
-		evolueEn: TypeDePokemon10
-		estEvolueEn: TypeDePokemon11
-	TypeDePokemonEvolution8:
-		id: 8
-		evolueEn: TypeDePokemon11
-		estEvolueEn: TypeDePokemon12
-	TypeDePokemonEvolution9:
-		id: 9
-		evolueEn: TypeDePokemon13
-		estEvolueEn: TypeDePokemon14
-	TypeDePokemonEvolution10:
-		id: 10
-		evolueEn: TypeDePokemon14
-		estEvolueEn: TypeDePokemon15
-	TypeDePokemonEvolution11:
-		id: 11
-		evolueEn: TypeDePokemon16
-		estEvolueEn: TypeDePokemon17
-	TypeDePokemonEvolution12:
-		id: 12
-		evolueEn: TypeDePokemon17
-		estEvolueEn: TypeDePokemon18
-	TypeDePokemonEvolution13:
-		id: 13
-		evolueEn: TypeDePokemon19
-		estEvolueEn: TypeDePokemon20
-	TypeDePokemonEvolution14:
-		id: 14
-		evolueEn: TypeDePokemon21
-		estEvolueEn: TypeDePokemon22
-	TypeDePokemonEvolution15:
-		id: 15
-		evolueEn: TypeDePokemon23
-		estEvolueEn: TypeDePokemon24
-	TypeDePokemonEvolution16:
-		id: 16
-		evolueEn: TypeDePokemon25
-		estEvolueEn: TypeDePokemon26
-	TypeDePokemonEvolution17:
-		id: 17
-		evolueEn: TypeDePokemon27
-		estEvolueEn: TypeDePokemon28
-	TypeDePokemonEvolution18:
-		id: 18
-		evolueEn: TypeDePokemon29
-		estEvolueEn: TypeDePokemon30
-	TypeDePokemonEvolution19:
-		id: 19
-		evolueEn: TypeDePokemon30
-		estEvolueEn: TypeDePokemon31
-	TypeDePokemonEvolution20:
-		id: 20
-		evolueEn: TypeDePokemon32
-		estEvolueEn: TypeDePokemon33
-	TypeDePokemonEvolution21:
-		id: 21
-		evolueEn: TypeDePokemon33
-		estEvolueEn: TypeDePokemon34
-	TypeDePokemonEvolution22:
-		id: 22
-		evolueEn: TypeDePokemon35
-		estEvolueEn: TypeDePokemon36
-	TypeDePokemonEvolution23:
-		id: 23
-		evolueEn: TypeDePokemon37
-		estEvolueEn: TypeDePokemon38
-	TypeDePokemonEvolution24:
-		id: 24
-		evolueEn: TypeDePokemon39
-		estEvolueEn: TypeDePokemon40
-	TypeDePokemonEvolution25:
-		id: 25
-		evolueEn: TypeDePokemon41
-		estEvolueEn: TypeDePokemon42
-	TypeDePokemonEvolution26:
-		id: 26
-		evolueEn: TypeDePokemon43
-		estEvolueEn: TypeDePokemon44
-	TypeDePokemonEvolution27:
-		id: 27
-		evolueEn: TypeDePokemon44
-		estEvolueEn: TypeDePokemon45
-	TypeDePokemonEvolution28:
-		id: 28
-		evolueEn: TypeDePokemon46
-		estEvolueEn: TypeDePokemon47
-	TypeDePokemonEvolution29:
-		id: 29
-		evolueEn: TypeDePokemon47
-		estEvolueEn: TypeDePokemon48
-	TypeDePokemonEvolution30:
-		id: 30
-		evolueEn: TypeDePokemon48
-		estEvolueEn: TypeDePokemon49
-	TypeDePokemonEvolution31:
-		id: 31
-		evolueEn: TypeDePokemon49
-		estEvolueEn: TypeDePokemon50
-	TypeDePokemonEvolution32:
-		id: 32
-		evolueEn: TypeDePokemon50
-		estEvolueEn: TypeDePokemon51
-	TypeDePokemonEvolution33:
-		id: 33
-		evolueEn: TypeDePokemon52
-		estEvolueEn: TypeDePokemon53
-	TypeDePokemonEvolution34:
-		id: 34
-		evolueEn: TypeDePokemon54
-		estEvolueEn: TypeDePokemon55
-	TypeDePokemonEvolution35:
-		id: 35
-		evolueEn: TypeDePokemon56
-		estEvolueEn: TypeDePokemon57
-	TypeDePokemonEvolution36:
-		id: 36
-		evolueEn: TypeDePokemon58
-		estEvolueEn: TypeDePokemon59
-	TypeDePokemonEvolution37:
-		id: 37
-		evolueEn: TypeDePokemon60
-		estEvolueEn: TypeDePokemon61
-	TypeDePokemonEvolution38:
-		id: 38
-		evolueEn: TypeDePokemon61
-		estEvolueEn: TypeDePokemon62
-	TypeDePokemonEvolution39:
-		id: 39
-		evolueEn: TypeDePokemon63
-		estEvolueEn: TypeDePokemon64
-	TypeDePokemonEvolution40:
-		id: 40
-		evolueEn: TypeDePokemon64
-		estEvolueEn: TypeDePokemon65
-	TypeDePokemonEvolution41:
-		id: 41
-		evolueEn: TypeDePokemon66
-		estEvolueEn: TypeDePokemon67
-	TypeDePokemonEvolution42:
-		id: 42
-		evolueEn: TypeDePokemon67
-		estEvolueEn: TypeDePokemon68
-	TypeDePokemonEvolution43:
-		id: 43
-		evolueEn: TypeDePokemon69
-		estEvolueEn: TypeDePokemon70
-	TypeDePokemonEvolution44:
-		id: 44
-		evolueEn: TypeDePokemon70
-		estEvolueEn: TypeDePokemon71
-	TypeDePokemonEvolution45:
-		id: 45
-		evolueEn: TypeDePokemon72
-		estEvolueEn: TypeDePokemon73
-	TypeDePokemonEvolution46:
-		id: 46
-		evolueEn: TypeDePokemon74
-		estEvolueEn: TypeDePokemon75
-	TypeDePokemonEvolution47:
-		id: 47
-		evolueEn: TypeDePokemon75
-		estEvolueEn: TypeDePokemon76
-	TypeDePokemonEvolution48:
-		id: 48
-		evolueEn: TypeDePokemon77
-		estEvolueEn: TypeDePokemon78
-	TypeDePokemonEvolution49:
-		id: 49
-		evolueEn: TypeDePokemon79
-		estEvolueEn: TypeDePokemon80
-	TypeDePokemonEvolution50:
-		id: 50
-		evolueEn: TypeDePokemon81
-		estEvolueEn: TypeDePokemon82
-	TypeDePokemonEvolution51:
-		id: 51
-		evolueEn: TypeDePokemon84
-		estEvolueEn: TypeDePokemon85
-	TypeDePokemonEvolution52:
-		id: 52
-		evolueEn: TypeDePokemon86
-		estEvolueEn: TypeDePokemon87
-	TypeDePokemonEvolution53:
-		id: 53
-		evolueEn: TypeDePokemon88
-		estEvolueEn: TypeDePokemon89
-	TypeDePokemonEvolution54:
-		id: 54
-		evolueEn: TypeDePokemon90
-		estEvolueEn: TypeDePokemon91
-	TypeDePokemonEvolution55:
-		id: 55
-		evolueEn: TypeDePokemon92
-		estEvolueEn: TypeDePokemon93
-	TypeDePokemonEvolution56:
-		id: 56
-		evolueEn: TypeDePokemon93
-		estEvolueEn: TypeDePokemon94
-	TypeDePokemonEvolution57:
-		id: 57
-		evolueEn: TypeDePokemon94
-		estEvolueEn: TypeDePokemon94
-	TypeDePokemonEvolution58:
-		id: 58
-		evolueEn: TypeDePokemon96
-		estEvolueEn: TypeDePokemon97
-	TypeDePokemonEvolution59:
-		id: 59
-		evolueEn: TypeDePokemon98
-		estEvolueEn: TypeDePokemon99
-	TypeDePokemonEvolution60:
-		id: 60
-		evolueEn: TypeDePokemon100
-		estEvolueEn: TypeDePokemon101
-	TypeDePokemonEvolution61:
-		id: 61
-		evolueEn: TypeDePokemon102
-		estEvolueEn: TypeDePokemon103
-	TypeDePokemonEvolution62:
-		id: 62
-		evolueEn: TypeDePokemon104
-		estEvolueEn: TypeDePokemon105
-	TypeDePokemonEvolution63:
-		id: 63
-		evolueEn: TypeDePokemon106
-		estEvolueEn: TypeDePokemon107
-	TypeDePokemonEvolution64:
-		id: 64
-		evolueEn: TypeDePokemon109
-		estEvolueEn: TypeDePokemon110
-	TypeDePokemonEvolution65:
-		id: 65
-		evolueEn: TypeDePokemon111
-		estEvolueEn: TypeDePokemon112
-	TypeDePokemonEvolution66:
-		id: 66
-		evolueEn: TypeDePokemon116
-		estEvolueEn: TypeDePokemon117
-	TypeDePokemonEvolution67:
-		id: 67
-		evolueEn: TypeDePokemon118
-		estEvolueEn: TypeDePokemon119
-	TypeDePokemonEvolution68:
-		id: 68
-		evolueEn: TypeDePokemon120
-		estEvolueEn: TypeDePokemon121
-	TypeDePokemonEvolution69:
-		id: 69
-		evolueEn: TypeDePokemon129
-		estEvolueEn: TypeDePokemon130
-	TypeDePokemonEvolution70:
-		id: 70
-		evolueEn: TypeDePokemon133
-		estEvolueEn: TypeDePokemon134
-	TypeDePokemonEvolution71:
-		id: 71
-		evolueEn: TypeDePokemon133
-		estEvolueEn: TypeDePokemon135
-	TypeDePokemonEvolution72:
-		id: 72
-		evolueEn: TypeDePokemon133
-		estEvolueEn: TypeDePokemon136
-	TypeDePokemonEvolution73:
-		id: 73
-		evolueEn: TypeDePokemon138
-		estEvolueEn: TypeDePokemon139
-	TypeDePokemonEvolution74:
-		id: 74
-		evolueEn: TypeDePokemon147
-		estEvolueEn: TypeDePokemon148
-	TypeDePokemonEvolution75:
-		id: 75
-		evolueEn: TypeDePokemon148
-		estEvolueEn: TypeDePokemon149
+   TypeDePokemonEvolution1:
+      id: 1
+      evolueEn: TypeDePokemon1
+      estEvolueEn: TypeDePokemon2
+   TypeDePokemonEvolution2:
+      id: 2
+      evolueEn: TypeDePokemon2
+      estEvolueEn: TypeDePokemon3
+   TypeDePokemonEvolution3:
+      id: 3
+      evolueEn: TypeDePokemon4
+      estEvolueEn: TypeDePokemon5
+   TypeDePokemonEvolution4:
+      id: 4
+      evolueEn: TypeDePokemon5
+      estEvolueEn: TypeDePokemon6
+   TypeDePokemonEvolution5:
+      id: 5
+      evolueEn: TypeDePokemon7
+      estEvolueEn: TypeDePokemon8
+   TypeDePokemonEvolution6:
+      id: 6
+      evolueEn: TypeDePokemon8
+      estEvolueEn: TypeDePokemon9
+   TypeDePokemonEvolution7:
+      id: 7
+      evolueEn: TypeDePokemon10
+      estEvolueEn: TypeDePokemon11
+   TypeDePokemonEvolution8:
+      id: 8
+      evolueEn: TypeDePokemon11
+      estEvolueEn: TypeDePokemon12
+   TypeDePokemonEvolution9:
+      id: 9
+      evolueEn: TypeDePokemon13
+      estEvolueEn: TypeDePokemon14
+   TypeDePokemonEvolution10:
+      id: 10
+      evolueEn: TypeDePokemon14
+      estEvolueEn: TypeDePokemon15
+   TypeDePokemonEvolution11:
+      id: 11
+      evolueEn: TypeDePokemon16
+      estEvolueEn: TypeDePokemon17
+   TypeDePokemonEvolution12:
+      id: 12
+      evolueEn: TypeDePokemon17
+      estEvolueEn: TypeDePokemon18
+   TypeDePokemonEvolution13:
+      id: 13
+      evolueEn: TypeDePokemon19
+      estEvolueEn: TypeDePokemon20
+   TypeDePokemonEvolution14:
+      id: 14
+      evolueEn: TypeDePokemon21
+      estEvolueEn: TypeDePokemon22
+   TypeDePokemonEvolution15:
+      id: 15
+      evolueEn: TypeDePokemon23
+      estEvolueEn: TypeDePokemon24
+   TypeDePokemonEvolution16:
+      id: 16
+      evolueEn: TypeDePokemon25
+      estEvolueEn: TypeDePokemon26
+   TypeDePokemonEvolution17:
+      id: 17
+      evolueEn: TypeDePokemon27
+      estEvolueEn: TypeDePokemon28
+   TypeDePokemonEvolution18:
+      id: 18
+      evolueEn: TypeDePokemon29
+      estEvolueEn: TypeDePokemon30
+   TypeDePokemonEvolution19:
+      id: 19
+      evolueEn: TypeDePokemon30
+      estEvolueEn: TypeDePokemon31
+   TypeDePokemonEvolution20:
+      id: 20
+      evolueEn: TypeDePokemon32
+      estEvolueEn: TypeDePokemon33
+   TypeDePokemonEvolution21:
+      id: 21
+      evolueEn: TypeDePokemon33
+      estEvolueEn: TypeDePokemon34
+   TypeDePokemonEvolution22:
+      id: 22
+      evolueEn: TypeDePokemon35
+      estEvolueEn: TypeDePokemon36
+   TypeDePokemonEvolution23:
+      id: 23
+      evolueEn: TypeDePokemon37
+      estEvolueEn: TypeDePokemon38
+   TypeDePokemonEvolution24:
+      id: 24
+      evolueEn: TypeDePokemon39
+      estEvolueEn: TypeDePokemon40
+   TypeDePokemonEvolution25:
+      id: 25
+      evolueEn: TypeDePokemon41
+      estEvolueEn: TypeDePokemon42
+   TypeDePokemonEvolution26:
+      id: 26
+      evolueEn: TypeDePokemon43
+      estEvolueEn: TypeDePokemon44
+   TypeDePokemonEvolution27:
+      id: 27
+      evolueEn: TypeDePokemon44
+      estEvolueEn: TypeDePokemon45
+   TypeDePokemonEvolution28:
+      id: 28
+      evolueEn: TypeDePokemon46
+      estEvolueEn: TypeDePokemon47
+   TypeDePokemonEvolution29:
+      id: 29
+      evolueEn: TypeDePokemon47
+      estEvolueEn: TypeDePokemon48
+   TypeDePokemonEvolution30:
+      id: 30
+      evolueEn: TypeDePokemon48
+      estEvolueEn: TypeDePokemon49
+   TypeDePokemonEvolution31:
+      id: 31
+      evolueEn: TypeDePokemon49
+      estEvolueEn: TypeDePokemon50
+   TypeDePokemonEvolution32:
+      id: 32
+      evolueEn: TypeDePokemon50
+      estEvolueEn: TypeDePokemon51
+   TypeDePokemonEvolution33:
+      id: 33
+      evolueEn: TypeDePokemon52
+      estEvolueEn: TypeDePokemon53
+   TypeDePokemonEvolution34:
+      id: 34
+      evolueEn: TypeDePokemon54
+      estEvolueEn: TypeDePokemon55
+   TypeDePokemonEvolution35:
+      id: 35
+      evolueEn: TypeDePokemon56
+      estEvolueEn: TypeDePokemon57
+   TypeDePokemonEvolution36:
+      id: 36
+      evolueEn: TypeDePokemon58
+      estEvolueEn: TypeDePokemon59
+   TypeDePokemonEvolution37:
+      id: 37
+      evolueEn: TypeDePokemon60
+      estEvolueEn: TypeDePokemon61
+   TypeDePokemonEvolution38:
+      id: 38
+      evolueEn: TypeDePokemon61
+      estEvolueEn: TypeDePokemon62
+   TypeDePokemonEvolution39:
+      id: 39
+      evolueEn: TypeDePokemon63
+      estEvolueEn: TypeDePokemon64
+   TypeDePokemonEvolution40:
+      id: 40
+      evolueEn: TypeDePokemon64
+      estEvolueEn: TypeDePokemon65
+   TypeDePokemonEvolution41:
+      id: 41
+      evolueEn: TypeDePokemon66
+      estEvolueEn: TypeDePokemon67
+   TypeDePokemonEvolution42:
+      id: 42
+      evolueEn: TypeDePokemon67
+      estEvolueEn: TypeDePokemon68
+   TypeDePokemonEvolution43:
+      id: 43
+      evolueEn: TypeDePokemon69
+      estEvolueEn: TypeDePokemon70
+   TypeDePokemonEvolution44:
+      id: 44
+      evolueEn: TypeDePokemon70
+      estEvolueEn: TypeDePokemon71
+   TypeDePokemonEvolution45:
+      id: 45
+      evolueEn: TypeDePokemon72
+      estEvolueEn: TypeDePokemon73
+   TypeDePokemonEvolution46:
+      id: 46
+      evolueEn: TypeDePokemon74
+      estEvolueEn: TypeDePokemon75
+   TypeDePokemonEvolution47:
+      id: 47
+      evolueEn: TypeDePokemon75
+      estEvolueEn: TypeDePokemon76
+   TypeDePokemonEvolution48:
+      id: 48
+      evolueEn: TypeDePokemon77
+      estEvolueEn: TypeDePokemon78
+   TypeDePokemonEvolution49:
+      id: 49
+      evolueEn: TypeDePokemon79
+      estEvolueEn: TypeDePokemon80
+   TypeDePokemonEvolution50:
+      id: 50
+      evolueEn: TypeDePokemon81
+      estEvolueEn: TypeDePokemon82
+   TypeDePokemonEvolution51:
+      id: 51
+      evolueEn: TypeDePokemon84
+      estEvolueEn: TypeDePokemon85
+   TypeDePokemonEvolution52:
+      id: 52
+      evolueEn: TypeDePokemon86
+      estEvolueEn: TypeDePokemon87
+   TypeDePokemonEvolution53:
+      id: 53
+      evolueEn: TypeDePokemon88
+      estEvolueEn: TypeDePokemon89
+   TypeDePokemonEvolution54:
+      id: 54
+      evolueEn: TypeDePokemon90
+      estEvolueEn: TypeDePokemon91
+   TypeDePokemonEvolution55:
+      id: 55
+      evolueEn: TypeDePokemon92
+      estEvolueEn: TypeDePokemon93
+   TypeDePokemonEvolution56:
+      id: 56
+      evolueEn: TypeDePokemon93
+      estEvolueEn: TypeDePokemon94
+   TypeDePokemonEvolution57:
+      id: 57
+      evolueEn: TypeDePokemon94
+      estEvolueEn: TypeDePokemon94
+   TypeDePokemonEvolution58:
+      id: 58
+      evolueEn: TypeDePokemon96
+      estEvolueEn: TypeDePokemon97
+   TypeDePokemonEvolution59:
+      id: 59
+      evolueEn: TypeDePokemon98
+      estEvolueEn: TypeDePokemon99
+   TypeDePokemonEvolution60:
+      id: 60
+      evolueEn: TypeDePokemon100
+      estEvolueEn: TypeDePokemon101
+   TypeDePokemonEvolution61:
+      id: 61
+      evolueEn: TypeDePokemon102
+      estEvolueEn: TypeDePokemon103
+   TypeDePokemonEvolution62:
+      id: 62
+      evolueEn: TypeDePokemon104
+      estEvolueEn: TypeDePokemon105
+   TypeDePokemonEvolution63:
+      id: 63
+      evolueEn: TypeDePokemon106
+      estEvolueEn: TypeDePokemon107
+   TypeDePokemonEvolution64:
+      id: 64
+      evolueEn: TypeDePokemon109
+      estEvolueEn: TypeDePokemon110
+   TypeDePokemonEvolution65:
+      id: 65
+      evolueEn: TypeDePokemon111
+      estEvolueEn: TypeDePokemon112
+   TypeDePokemonEvolution66:
+      id: 66
+      evolueEn: TypeDePokemon116
+      estEvolueEn: TypeDePokemon117
+   TypeDePokemonEvolution67:
+      id: 67
+      evolueEn: TypeDePokemon118
+      estEvolueEn: TypeDePokemon119
+   TypeDePokemonEvolution68:
+      id: 68
+      evolueEn: TypeDePokemon120
+      estEvolueEn: TypeDePokemon121
+   TypeDePokemonEvolution69:
+      id: 69
+      evolueEn: TypeDePokemon129
+      estEvolueEn: TypeDePokemon130
+   TypeDePokemonEvolution70:
+      id: 70
+      evolueEn: TypeDePokemon133
+      estEvolueEn: TypeDePokemon134
+   TypeDePokemonEvolution71:
+      id: 71
+      evolueEn: TypeDePokemon133
+      estEvolueEn: TypeDePokemon135
+   TypeDePokemonEvolution72:
+      id: 72
+      evolueEn: TypeDePokemon133
+      estEvolueEn: TypeDePokemon136
+   TypeDePokemonEvolution73:
+      id: 73
+      evolueEn: TypeDePokemon138
+      estEvolueEn: TypeDePokemon139
+   TypeDePokemonEvolution74:
+      id: 74
+      evolueEn: TypeDePokemon147
+      estEvolueEn: TypeDePokemon148
+   TypeDePokemonEvolution75:
+      id: 75
+      evolueEn: TypeDePokemon148
+      estEvolueEn: TypeDePokemon149
