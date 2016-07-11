@@ -3,7 +3,7 @@ Zone:
       id: 1
       nom: "Celadopole"
       arenes:
-      badges: 
+      badges:
          badge: Badge4
       positions:
    Zone2:
@@ -16,7 +16,7 @@ Zone:
       id: 3
       nom: "Parmanie"
       arenes:
-      badges: 
+      badges:
          badge: Badge5
       positions:
    Zone4:
