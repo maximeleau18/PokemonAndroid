@@ -1,0 +1,55 @@
+Zone:
+	Zone﻿1:
+		id: ﻿1
+		nom: "Celadopole"
+		arenes:
+		badges:Badge4
+		positions:
+	Zone2:
+		id: 2
+		nom: "Lavanville"
+		arenes:
+		badges:
+		positions:
+	Zone3:
+		id: 3
+		nom: "Parmanie"
+		arenes:
+		badges:Badge5
+		positions:
+	Zone4:
+		id: 4
+		nom: "Safrania"
+		arenes:
+		badges:Badge6
+		positions:
+	Zone5:
+		id: 5
+		nom: "Argenta"
+		arenes:
+		badges:Badge1
+		positions:
+	Zone6:
+		id: 6
+		nom: "Azuria"
+		arenes:
+		badges:Badge2
+		positions:
+	Zone7:
+		id: 7
+		nom: "Carmin Sur Mer"
+		arenes:
+		badges:Badge3
+		positions:
+	Zone8:
+		id: 8
+		nom: "Cramois'Île"
+		arenes:
+		badges:Badge7
+		positions:
+	Zone9:
+		id: 9
+		nom: "Jadielle"
+		arenes:
+		badges:Badge8
+		positions:

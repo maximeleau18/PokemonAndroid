@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,16 +17,21 @@ import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Profession;
+import com.maximeleau.harmony.android.pokemon.fixture.ProfessionDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.ProfessionUtils;
 import com.maximeleau.harmony.android.pokemon.entity.Objet;
-import com.maximeleau.harmony.android.pokemon.test.utils.ObjetUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.ObjetDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.DresseurUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
+import com.maximeleau.harmony.android.pokemon.fixture.DresseurDataLoader;
+
 import com.maximeleau.harmony.android.pokemon.entity.Arene;
-import com.maximeleau.harmony.android.pokemon.test.utils.AreneUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.AreneDataLoader;
+
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
-import com.maximeleau.harmony.android.pokemon.test.utils.PokemonUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.PokemonDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -44,17 +49,42 @@ public abstract class PersonnageNonJoueurUtilsBase {
         personnageNonJoueur.setId(TestUtils.generateRandomInt(0,100) + 1);
         personnageNonJoueur.setNom("nom_"+TestUtils.generateRandomString(10));
         personnageNonJoueur.setDescription("description_"+TestUtils.generateRandomString(10));
-        personnageNonJoueur.setProfession(ProfessionUtils.generateRandom(ctx));
+        ArrayList<Profession> professions =
+            new ArrayList<Profession>();
+        professions.addAll(ProfessionDataLoader.getInstance(ctx).getMap().values());
+        if (!professions.isEmpty()) {
+            personnageNonJoueur.setProfession(professions.get(TestUtils.generateRandomInt(0, professions.size())));
+        }
+        ArrayList<Objet> objetss =
+            new ArrayList<Objet>();
+        objetss.addAll(ObjetDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Objet> relatedObjetss = new ArrayList<Objet>();
-        relatedObjetss.add(ObjetUtils.generateRandom(ctx));
-        personnageNonJoueur.setObjets(relatedObjetss);
-        personnageNonJoueur.setDresseur(DresseurUtils.generateRandom(ctx));
+        if (!objetss.isEmpty()) {
+            relatedObjetss.add(objetss.get(TestUtils.generateRandomInt(0, objetss.size())));
+            personnageNonJoueur.setObjets(relatedObjetss);
+        }
+        ArrayList<Dresseur> dresseurs =
+            new ArrayList<Dresseur>();
+        dresseurs.addAll(DresseurDataLoader.getInstance(ctx).getMap().values());
+        if (!dresseurs.isEmpty()) {
+            personnageNonJoueur.setDresseur(dresseurs.get(TestUtils.generateRandomInt(0, dresseurs.size())));
+        }
+        ArrayList<Arene> areness =
+            new ArrayList<Arene>();
+        areness.addAll(AreneDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Arene> relatedAreness = new ArrayList<Arene>();
-        relatedAreness.add(AreneUtils.generateRandom(ctx));
-        personnageNonJoueur.setArenes(relatedAreness);
+        if (!areness.isEmpty()) {
+            relatedAreness.add(areness.get(TestUtils.generateRandomInt(0, areness.size())));
+            personnageNonJoueur.setArenes(relatedAreness);
+        }
+        ArrayList<Pokemon> pokemonss =
+            new ArrayList<Pokemon>();
+        pokemonss.addAll(PokemonDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Pokemon> relatedPokemonss = new ArrayList<Pokemon>();
-        relatedPokemonss.add(PokemonUtils.generateRandom(ctx));
-        personnageNonJoueur.setPokemons(relatedPokemonss);
+        if (!pokemonss.isEmpty()) {
+            relatedPokemonss.add(pokemonss.get(TestUtils.generateRandomInt(0, pokemonss.size())));
+            personnageNonJoueur.setPokemons(relatedPokemonss);
+        }
 
         return personnageNonJoueur;
     }

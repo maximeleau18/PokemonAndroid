@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,13 +17,17 @@ import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Attaque;
+import com.maximeleau.harmony.android.pokemon.fixture.AttaqueDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.AttaqueUtils;
+import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
+import com.maximeleau.harmony.android.pokemon.fixture.TypeDePokemonDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.TypeDePokemonUtils;
+import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PersonnageNonJoueurUtils;
 
+import java.util.ArrayList;
 
 public abstract class PokemonUtilsBase {
 
@@ -40,12 +44,42 @@ public abstract class PokemonUtilsBase {
         pokemon.setSurnom("surnom_"+TestUtils.generateRandomString(10));
         pokemon.setNiveau(TestUtils.generateRandomInt(0,100));
         pokemon.setCaptureLe(TestUtils.generateRandomDateTime());
-        pokemon.setAttaque1(AttaqueUtils.generateRandom(ctx));
-        pokemon.setAttaque2(AttaqueUtils.generateRandom(ctx));
-        pokemon.setAttaque3(AttaqueUtils.generateRandom(ctx));
-        pokemon.setAttaque4(AttaqueUtils.generateRandom(ctx));
-        pokemon.setTypeDePokemon(TypeDePokemonUtils.generateRandom(ctx));
-        pokemon.setPersonnageNonJoueur(PersonnageNonJoueurUtils.generateRandom(ctx));
+        ArrayList<Attaque> attaque1s =
+            new ArrayList<Attaque>();
+        attaque1s.addAll(AttaqueDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque1s.isEmpty()) {
+            pokemon.setAttaque1(attaque1s.get(TestUtils.generateRandomInt(0, attaque1s.size())));
+        }
+        ArrayList<Attaque> attaque2s =
+            new ArrayList<Attaque>();
+        attaque2s.addAll(AttaqueDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque2s.isEmpty()) {
+            pokemon.setAttaque2(attaque2s.get(TestUtils.generateRandomInt(0, attaque2s.size())));
+        }
+        ArrayList<Attaque> attaque3s =
+            new ArrayList<Attaque>();
+        attaque3s.addAll(AttaqueDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque3s.isEmpty()) {
+            pokemon.setAttaque3(attaque3s.get(TestUtils.generateRandomInt(0, attaque3s.size())));
+        }
+        ArrayList<Attaque> attaque4s =
+            new ArrayList<Attaque>();
+        attaque4s.addAll(AttaqueDataLoader.getInstance(ctx).getMap().values());
+        if (!attaque4s.isEmpty()) {
+            pokemon.setAttaque4(attaque4s.get(TestUtils.generateRandomInt(0, attaque4s.size())));
+        }
+        ArrayList<TypeDePokemon> typeDePokemons =
+            new ArrayList<TypeDePokemon>();
+        typeDePokemons.addAll(TypeDePokemonDataLoader.getInstance(ctx).getMap().values());
+        if (!typeDePokemons.isEmpty()) {
+            pokemon.setTypeDePokemon(typeDePokemons.get(TestUtils.generateRandomInt(0, typeDePokemons.size())));
+        }
+        ArrayList<PersonnageNonJoueur> personnageNonJoueurs =
+            new ArrayList<PersonnageNonJoueur>();
+        personnageNonJoueurs.addAll(PersonnageNonJoueurDataLoader.getInstance(ctx).getMap().values());
+        if (!personnageNonJoueurs.isEmpty()) {
+            pokemon.setPersonnageNonJoueur(personnageNonJoueurs.get(TestUtils.generateRandomInt(0, personnageNonJoueurs.size())));
+        }
 
         return pokemon;
     }

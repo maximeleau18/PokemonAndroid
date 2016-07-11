@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,9 +17,11 @@ import com.maximeleau.harmony.android.pokemon.entity.Attaque;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.TypeAttaque;
+import com.maximeleau.harmony.android.pokemon.fixture.TypeAttaqueDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.TypeAttaqueUtils;
 
+import java.util.ArrayList;
 
 public abstract class AttaqueUtilsBase {
 
@@ -36,7 +38,12 @@ public abstract class AttaqueUtilsBase {
         attaque.setNom("nom_"+TestUtils.generateRandomString(10));
         attaque.setPuissance(TestUtils.generateRandomInt(0,100));
         attaque.setDegats(TestUtils.generateRandomInt(0,100));
-        attaque.setTypeAttaque(TypeAttaqueUtils.generateRandom(ctx));
+        ArrayList<TypeAttaque> typeAttaques =
+            new ArrayList<TypeAttaque>();
+        typeAttaques.addAll(TypeAttaqueDataLoader.getInstance(ctx).getMap().values());
+        if (!typeAttaques.isEmpty()) {
+            attaque.setTypeAttaque(typeAttaques.get(TestUtils.generateRandomInt(0, typeAttaques.size())));
+        }
 
         return attaque;
     }

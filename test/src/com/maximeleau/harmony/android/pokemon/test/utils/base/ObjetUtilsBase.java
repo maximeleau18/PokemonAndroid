@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,11 +17,14 @@ import com.maximeleau.harmony.android.pokemon.entity.Objet;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.TypeObjet;
+import com.maximeleau.harmony.android.pokemon.fixture.TypeObjetDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.TypeObjetUtils;
+import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PersonnageNonJoueurUtils;
 
+import java.util.ArrayList;
 
 public abstract class ObjetUtilsBase {
 
@@ -37,8 +40,18 @@ public abstract class ObjetUtilsBase {
         objet.setId(TestUtils.generateRandomInt(0,100) + 1);
         objet.setNom("nom_"+TestUtils.generateRandomString(10));
         objet.setQuantite(TestUtils.generateRandomInt(0,100));
-        objet.setTypeObjet(TypeObjetUtils.generateRandom(ctx));
-        objet.setPersonnageNonJoueur(PersonnageNonJoueurUtils.generateRandom(ctx));
+        ArrayList<TypeObjet> typeObjets =
+            new ArrayList<TypeObjet>();
+        typeObjets.addAll(TypeObjetDataLoader.getInstance(ctx).getMap().values());
+        if (!typeObjets.isEmpty()) {
+            objet.setTypeObjet(typeObjets.get(TestUtils.generateRandomInt(0, typeObjets.size())));
+        }
+        ArrayList<PersonnageNonJoueur> personnageNonJoueurs =
+            new ArrayList<PersonnageNonJoueur>();
+        personnageNonJoueurs.addAll(PersonnageNonJoueurDataLoader.getInstance(ctx).getMap().values());
+        if (!personnageNonJoueurs.isEmpty()) {
+            objet.setPersonnageNonJoueur(personnageNonJoueurs.get(TestUtils.generateRandomInt(0, personnageNonJoueurs.size())));
+        }
 
         return objet;
     }

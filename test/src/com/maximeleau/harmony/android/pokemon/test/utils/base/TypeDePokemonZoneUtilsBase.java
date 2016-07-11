@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,11 +17,14 @@ import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemonZone;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Zone;
+import com.maximeleau.harmony.android.pokemon.fixture.ZoneDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.ZoneUtils;
+import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
+import com.maximeleau.harmony.android.pokemon.fixture.TypeDePokemonDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.TypeDePokemonUtils;
 
+import java.util.ArrayList;
 
 public abstract class TypeDePokemonZoneUtilsBase {
 
@@ -35,8 +38,18 @@ public abstract class TypeDePokemonZoneUtilsBase {
         TypeDePokemonZone typeDePokemonZone = new TypeDePokemonZone();
 
         typeDePokemonZone.setId(TestUtils.generateRandomInt(0,100) + 1);
-        typeDePokemonZone.setZone(ZoneUtils.generateRandom(ctx));
-        typeDePokemonZone.setTypeDePokemon(TypeDePokemonUtils.generateRandom(ctx));
+        ArrayList<Zone> zones =
+            new ArrayList<Zone>();
+        zones.addAll(ZoneDataLoader.getInstance(ctx).getMap().values());
+        if (!zones.isEmpty()) {
+            typeDePokemonZone.setZone(zones.get(TestUtils.generateRandomInt(0, zones.size())));
+        }
+        ArrayList<TypeDePokemon> typeDePokemons =
+            new ArrayList<TypeDePokemon>();
+        typeDePokemons.addAll(TypeDePokemonDataLoader.getInstance(ctx).getMap().values());
+        if (!typeDePokemons.isEmpty()) {
+            typeDePokemonZone.setTypeDePokemon(typeDePokemons.get(TestUtils.generateRandomInt(0, typeDePokemons.size())));
+        }
 
         return typeDePokemonZone;
     }

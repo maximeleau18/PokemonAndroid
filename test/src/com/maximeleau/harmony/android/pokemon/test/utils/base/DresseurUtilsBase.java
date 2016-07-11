@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,9 +17,11 @@ import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PersonnageNonJoueurUtils;
 
+import java.util.ArrayList;
 
 public abstract class DresseurUtilsBase {
 
@@ -37,7 +39,12 @@ public abstract class DresseurUtilsBase {
         dresseur.setPrenom("prenom_"+TestUtils.generateRandomString(10));
         dresseur.setLogin("login_"+TestUtils.generateRandomString(10));
         dresseur.setMotDePasse("motDePasse_"+TestUtils.generateRandomString(10));
-        dresseur.setPersonnageNonJoueur(PersonnageNonJoueurUtils.generateRandom(ctx));
+        ArrayList<PersonnageNonJoueur> personnageNonJoueurs =
+            new ArrayList<PersonnageNonJoueur>();
+        personnageNonJoueurs.addAll(PersonnageNonJoueurDataLoader.getInstance(ctx).getMap().values());
+        if (!personnageNonJoueurs.isEmpty()) {
+            dresseur.setPersonnageNonJoueur(personnageNonJoueurs.get(TestUtils.generateRandomInt(0, personnageNonJoueurs.size())));
+        }
 
         return dresseur;
     }

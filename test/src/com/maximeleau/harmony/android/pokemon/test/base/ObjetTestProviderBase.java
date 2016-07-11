@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -20,6 +20,7 @@ import com.maximeleau.harmony.android.pokemon.data.ObjetSQLiteAdapter;
 
 import com.maximeleau.harmony.android.pokemon.entity.Objet;
 
+import com.maximeleau.harmony.android.pokemon.fixture.ObjetDataLoader;
 
 import java.util.ArrayList;
 import com.maximeleau.harmony.android.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class ObjetTestProviderBase extends TestDBBase {
 
         this.adapter = new ObjetSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Objet>();
+        this.entities.addAll(ObjetDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += ObjetDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new ObjetProviderUtils(this.getContext());
     }

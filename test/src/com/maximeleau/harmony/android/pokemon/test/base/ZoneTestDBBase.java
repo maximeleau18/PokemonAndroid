@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -17,6 +17,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.maximeleau.harmony.android.pokemon.data.ZoneSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.Zone;
 
+import com.maximeleau.harmony.android.pokemon.fixture.ZoneDataLoader;
 
 import com.maximeleau.harmony.android.pokemon.test.utils.*;
 
@@ -45,6 +46,13 @@ public abstract class ZoneTestDBBase extends TestDBBase {
         this.adapter = new ZoneSQLiteAdapter(this.ctx);
         this.adapter.open();
 
+        this.entities = new ArrayList<Zone>();        
+        this.entities.addAll(ZoneDataLoader.getInstance(this.ctx).getMap().values());
+        if (entities.size()>0){
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += ZoneDataLoader.getInstance(this.ctx).getMap().size();
     }
 
     /* (non-Javadoc)

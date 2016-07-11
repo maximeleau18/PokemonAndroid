@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,13 +17,17 @@ import com.maximeleau.harmony.android.pokemon.entity.Arene;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PersonnageNonJoueurUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Badge;
+import com.maximeleau.harmony.android.pokemon.fixture.BadgeDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.BadgeUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Position;
+import com.maximeleau.harmony.android.pokemon.fixture.PositionDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PositionUtils;
 
+import java.util.ArrayList;
 
 public abstract class AreneUtilsBase {
 
@@ -38,9 +42,24 @@ public abstract class AreneUtilsBase {
 
         arene.setId(TestUtils.generateRandomInt(0,100) + 1);
         arene.setNom("nom_"+TestUtils.generateRandomString(10));
-        arene.setMaitre(PersonnageNonJoueurUtils.generateRandom(ctx));
-        arene.setBadge(BadgeUtils.generateRandom(ctx));
-        arene.setPosition(PositionUtils.generateRandom(ctx));
+        ArrayList<PersonnageNonJoueur> maitres =
+            new ArrayList<PersonnageNonJoueur>();
+        maitres.addAll(PersonnageNonJoueurDataLoader.getInstance(ctx).getMap().values());
+        if (!maitres.isEmpty()) {
+            arene.setMaitre(maitres.get(TestUtils.generateRandomInt(0, maitres.size())));
+        }
+        ArrayList<Badge> badges =
+            new ArrayList<Badge>();
+        badges.addAll(BadgeDataLoader.getInstance(ctx).getMap().values());
+        if (!badges.isEmpty()) {
+            arene.setBadge(badges.get(TestUtils.generateRandomInt(0, badges.size())));
+        }
+        ArrayList<Position> positions =
+            new ArrayList<Position>();
+        positions.addAll(PositionDataLoader.getInstance(ctx).getMap().values());
+        if (!positions.isEmpty()) {
+            arene.setPosition(positions.get(TestUtils.generateRandomInt(0, positions.size())));
+        }
 
         return arene;
     }

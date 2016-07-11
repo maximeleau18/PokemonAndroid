@@ -1,0 +1,1209 @@
+TypeDePokemon:
+	TypeDePokemon1:
+		id: 1
+		nom: "Bulbizarre"
+		attaque: 49
+		defense: 49
+		pv: 45
+		numPokedex: 1
+		pokemons:
+	TypeDePokemon2:
+		id: 2
+		nom: "Herbizarre"
+		attaque: 62
+		defense: 63
+		pv: 60
+		numPokedex: 2
+		pokemons:
+	TypeDePokemon3:
+		id: 3
+		nom: "Florizarre"
+		attaque: 82
+		defense: 83
+		pv: 80
+		numPokedex: 3
+		pokemons:
+	TypeDePokemon4:
+		id: 4
+		nom: "Salamèche"
+		attaque: 52
+		defense: 43
+		pv: 39
+		numPokedex: 4
+		pokemons:
+	TypeDePokemon5:
+		id: 5
+		nom: "Reptincel"
+		attaque: 64
+		defense: 58
+		pv: 58
+		numPokedex: 5
+		pokemons:
+	TypeDePokemon6:
+		id: 6
+		nom: "Dracaufeu"
+		attaque: 84
+		defense: 78
+		pv: 78
+		numPokedex: 6
+		pokemons:
+	TypeDePokemon7:
+		id: 7
+		nom: "Carapuce"
+		attaque: 48
+		defense: 65
+		pv: 44
+		numPokedex: 7
+		pokemons:
+	TypeDePokemon8:
+		id: 8
+		nom: "Carabaffe"
+		attaque: 63
+		defense: 80
+		pv: 59
+		numPokedex: 8
+		pokemons:
+	TypeDePokemon9:
+		id: 9
+		nom: "Tortank"
+		attaque: 83
+		defense: 100
+		pv: 79
+		numPokedex: 9
+		pokemons:
+	TypeDePokemon10:
+		id: 10
+		nom: "Chenipan"
+		attaque: 30
+		defense: 35
+		pv: 45
+		numPokedex: 10
+		pokemons:
+	TypeDePokemon11:
+		id: 11
+		nom: "Chrysacier"
+		attaque: 20
+		defense: 55
+		pv: 50
+		numPokedex: 11
+		pokemons:
+	TypeDePokemon12:
+		id: 12
+		nom: "Papilusion"
+		attaque: 45
+		defense: 50
+		pv: 60
+		numPokedex: 12
+		pokemons:
+	TypeDePokemon13:
+		id: 13
+		nom: "Aspicot"
+		attaque: 35
+		defense: 30
+		pv: 40
+		numPokedex: 13
+		pokemons:
+	TypeDePokemon14:
+		id: 14
+		nom: "Coconfort"
+		attaque: 25
+		defense: 50
+		pv: 45
+		numPokedex: 14
+		pokemons:
+	TypeDePokemon15:
+		id: 15
+		nom: "Dardargnan"
+		attaque: 90
+		defense: 40
+		pv: 65
+		numPokedex: 15
+		pokemons:
+	TypeDePokemon16:
+		id: 16
+		nom: "Roucool"
+		attaque: 45
+		defense: 40
+		pv: 40
+		numPokedex: 16
+		pokemons:
+	TypeDePokemon17:
+		id: 17
+		nom: "Roucoups"
+		attaque: 60
+		defense: 55
+		pv: 63
+		numPokedex: 17
+		pokemons:
+	TypeDePokemon18:
+		id: 18
+		nom: "Roucarnage"
+		attaque: 80
+		defense: 75
+		pv: 83
+		numPokedex: 18
+		pokemons:
+	TypeDePokemon19:
+		id: 19
+		nom: "Rattata"
+		attaque: 56
+		defense: 35
+		pv: 30
+		numPokedex: 19
+		pokemons:
+	TypeDePokemon20:
+		id: 20
+		nom: "Rattatac"
+		attaque: 81
+		defense: 60
+		pv: 55
+		numPokedex: 20
+		pokemons:
+	TypeDePokemon21:
+		id: 21
+		nom: "Piafabec"
+		attaque: 60
+		defense: 30
+		pv: 40
+		numPokedex: 21
+		pokemons:
+	TypeDePokemon22:
+		id: 22
+		nom: "Rapasdepic"
+		attaque: 90
+		defense: 65
+		pv: 65
+		numPokedex: 22
+		pokemons:
+	TypeDePokemon23:
+		id: 23
+		nom: "Abo"
+		attaque: 60
+		defense: 44
+		pv: 35
+		numPokedex: 23
+		pokemons:
+	TypeDePokemon24:
+		id: 24
+		nom: "Arbok"
+		attaque: 85
+		defense: 69
+		pv: 60
+		numPokedex: 24
+		pokemons:
+	TypeDePokemon25:
+		id: 25
+		nom: "Pikachu"
+		attaque: 55
+		defense: 40
+		pv: 35
+		numPokedex: 25
+		pokemons:
+	TypeDePokemon26:
+		id: 26
+		nom: "Raichu"
+		attaque: 90
+		defense: 55
+		pv: 60
+		numPokedex: 26
+		pokemons:
+	TypeDePokemon27:
+		id: 27
+		nom: "Sabelette"
+		attaque: 75
+		defense: 85
+		pv: 50
+		numPokedex: 27
+		pokemons:
+	TypeDePokemon28:
+		id: 28
+		nom: "Sablaireau"
+		attaque: 100
+		defense: 110
+		pv: 75
+		numPokedex: 28
+		pokemons:
+	TypeDePokemon29:
+		id: 29
+		nom: "Nidoran♀"
+		attaque: 47
+		defense: 52
+		pv: 55
+		numPokedex: 29
+		pokemons:
+	TypeDePokemon30:
+		id: 30
+		nom: "Nidorina"
+		attaque: 62
+		defense: 67
+		pv: 70
+		numPokedex: 30
+		pokemons:
+	TypeDePokemon31:
+		id: 31
+		nom: "Nidoqueen"
+		attaque: 92
+		defense: 87
+		pv: 90
+		numPokedex: 31
+		pokemons:
+	TypeDePokemon32:
+		id: 32
+		nom: "Nidorano"
+		attaque: 57
+		defense: 40
+		pv: 46
+		numPokedex: 32
+		pokemons:
+	TypeDePokemon33:
+		id: 33
+		nom: "Nidorino"
+		attaque: 72
+		defense: 57
+		pv: 61
+		numPokedex: 33
+		pokemons:
+	TypeDePokemon34:
+		id: 34
+		nom: "Nidoking"
+		attaque: 102
+		defense: 77
+		pv: 81
+		numPokedex: 34
+		pokemons:
+	TypeDePokemon35:
+		id: 35
+		nom: "Mélofée"
+		attaque: 45
+		defense: 48
+		pv: 70
+		numPokedex: 35
+		pokemons:
+	TypeDePokemon36:
+		id: 36
+		nom: "Mélodelfe"
+		attaque: 70
+		defense: 73
+		pv: 95
+		numPokedex: 36
+		pokemons:
+	TypeDePokemon37:
+		id: 37
+		nom: "Goupix"
+		attaque: 41
+		defense: 40
+		pv: 38
+		numPokedex: 37
+		pokemons:
+	TypeDePokemon38:
+		id: 38
+		nom: "Feunard"
+		attaque: 76
+		defense: 75
+		pv: 73
+		numPokedex: 38
+		pokemons:
+	TypeDePokemon39:
+		id: 39
+		nom: "Rondoudou"
+		attaque: 45
+		defense: 20
+		pv: 115
+		numPokedex: 39
+		pokemons:
+	TypeDePokemon40:
+		id: 40
+		nom: "Grodoudou"
+		attaque: 70
+		defense: 45
+		pv: 140
+		numPokedex: 40
+		pokemons:
+	TypeDePokemon41:
+		id: 41
+		nom: "Nosferapti"
+		attaque: 45
+		defense: 35
+		pv: 40
+		numPokedex: 41
+		pokemons:
+	TypeDePokemon42:
+		id: 42
+		nom: "Nosferalto"
+		attaque: 80
+		defense: 70
+		pv: 75
+		numPokedex: 42
+		pokemons:
+	TypeDePokemon43:
+		id: 43
+		nom: "Mystherbe"
+		attaque: 50
+		defense: 55
+		pv: 45
+		numPokedex: 43
+		pokemons:
+	TypeDePokemon44:
+		id: 44
+		nom: "Ortide"
+		attaque: 65
+		defense: 70
+		pv: 60
+		numPokedex: 44
+		pokemons:
+	TypeDePokemon45:
+		id: 45
+		nom: "Rafflesia"
+		attaque: 80
+		defense: 85
+		pv: 75
+		numPokedex: 45
+		pokemons:
+	TypeDePokemon46:
+		id: 46
+		nom: "Paras"
+		attaque: 70
+		defense: 55
+		pv: 35
+		numPokedex: 46
+		pokemons:
+	TypeDePokemon47:
+		id: 47
+		nom: "Parasect"
+		attaque: 95
+		defense: 80
+		pv: 60
+		numPokedex: 47
+		pokemons:
+	TypeDePokemon48:
+		id: 48
+		nom: "Mimitoss"
+		attaque: 55
+		defense: 50
+		pv: 60
+		numPokedex: 48
+		pokemons:
+	TypeDePokemon49:
+		id: 49
+		nom: "Aéromite"
+		attaque: 65
+		defense: 60
+		pv: 70
+		numPokedex: 49
+		pokemons:
+	TypeDePokemon50:
+		id: 50
+		nom: "Taupiqueur"
+		attaque: 55
+		defense: 25
+		pv: 10
+		numPokedex: 50
+		pokemons:
+	TypeDePokemon51:
+		id: 51
+		nom: "Triopikeur"
+		attaque: 80
+		defense: 50
+		pv: 35
+		numPokedex: 51
+		pokemons:
+	TypeDePokemon52:
+		id: 52
+		nom: "Miaouss"
+		attaque: 45
+		defense: 35
+		pv: 40
+		numPokedex: 52
+		pokemons:
+	TypeDePokemon53:
+		id: 53
+		nom: "Persian"
+		attaque: 70
+		defense: 60
+		pv: 65
+		numPokedex: 53
+		pokemons:
+	TypeDePokemon54:
+		id: 54
+		nom: "Psykokwak"
+		attaque: 52
+		defense: 48
+		pv: 50
+		numPokedex: 54
+		pokemons:
+	TypeDePokemon55:
+		id: 55
+		nom: "Akwakwak"
+		attaque: 82
+		defense: 78
+		pv: 80
+		numPokedex: 55
+		pokemons:
+	TypeDePokemon56:
+		id: 56
+		nom: "Férosinge"
+		attaque: 80
+		defense: 35
+		pv: 40
+		numPokedex: 56
+		pokemons:
+	TypeDePokemon57:
+		id: 57
+		nom: "Colossinge"
+		attaque: 105
+		defense: 60
+		pv: 65
+		numPokedex: 57
+		pokemons:
+	TypeDePokemon58:
+		id: 58
+		nom: "Caninos"
+		attaque: 70
+		defense: 45
+		pv: 55
+		numPokedex: 58
+		pokemons:
+	TypeDePokemon59:
+		id: 59
+		nom: "Arcanin"
+		attaque: 110
+		defense: 80
+		pv: 90
+		numPokedex: 59
+		pokemons:
+	TypeDePokemon60:
+		id: 60
+		nom: "Ptitard"
+		attaque: 50
+		defense: 40
+		pv: 40
+		numPokedex: 60
+		pokemons:
+	TypeDePokemon61:
+		id: 61
+		nom: "Têtarte"
+		attaque: 65
+		defense: 65
+		pv: 65
+		numPokedex: 61
+		pokemons:
+	TypeDePokemon62:
+		id: 62
+		nom: "Tartard"
+		attaque: 95
+		defense: 95
+		pv: 90
+		numPokedex: 62
+		pokemons:
+	TypeDePokemon63:
+		id: 63
+		nom: "Abra"
+		attaque: 20
+		defense: 15
+		pv: 25
+		numPokedex: 63
+		pokemons:
+	TypeDePokemon64:
+		id: 64
+		nom: "Kadabra"
+		attaque: 35
+		defense: 30
+		pv: 40
+		numPokedex: 64
+		pokemons:
+	TypeDePokemon65:
+		id: 65
+		nom: "Alakazam"
+		attaque: 50
+		defense: 45
+		pv: 55
+		numPokedex: 65
+		pokemons:
+	TypeDePokemon66:
+		id: 66
+		nom: "Machoc"
+		attaque: 80
+		defense: 50
+		pv: 70
+		numPokedex: 66
+		pokemons:
+	TypeDePokemon67:
+		id: 67
+		nom: "Machopeur"
+		attaque: 100
+		defense: 70
+		pv: 80
+		numPokedex: 67
+		pokemons:
+	TypeDePokemon68:
+		id: 68
+		nom: "Mackogneur"
+		attaque: 130
+		defense: 80
+		pv: 90
+		numPokedex: 68
+		pokemons:
+	TypeDePokemon69:
+		id: 69
+		nom: "Chétiflor"
+		attaque: 75
+		defense: 35
+		pv: 50
+		numPokedex: 69
+		pokemons:
+	TypeDePokemon70:
+		id: 70
+		nom: "Boustiflor"
+		attaque: 90
+		defense: 50
+		pv: 65
+		numPokedex: 70
+		pokemons:
+	TypeDePokemon71:
+		id: 71
+		nom: "Empiflor"
+		attaque: 105
+		defense: 65
+		pv: 80
+		numPokedex: 71
+		pokemons:
+	TypeDePokemon72:
+		id: 72
+		nom: "Tentacool"
+		attaque: 40
+		defense: 35
+		pv: 40
+		numPokedex: 72
+		pokemons:
+	TypeDePokemon73:
+		id: 73
+		nom: "Tentacruel"
+		attaque: 70
+		defense: 65
+		pv: 80
+		numPokedex: 73
+		pokemons:
+	TypeDePokemon74:
+		id: 74
+		nom: "Racaillou"
+		attaque: 80
+		defense: 100
+		pv: 40
+		numPokedex: 74
+		pokemons:
+	TypeDePokemon75:
+		id: 75
+		nom: "Gravalanch"
+		attaque: 95
+		defense: 115
+		pv: 55
+		numPokedex: 75
+		pokemons:
+	TypeDePokemon76:
+		id: 76
+		nom: "Grolem"
+		attaque: 120
+		defense: 130
+		pv: 80
+		numPokedex: 76
+		pokemons:
+	TypeDePokemon77:
+		id: 77
+		nom: "Ponyta"
+		attaque: 85
+		defense: 55
+		pv: 50
+		numPokedex: 77
+		pokemons:
+	TypeDePokemon78:
+		id: 78
+		nom: "Galopa"
+		attaque: 100
+		defense: 70
+		pv: 65
+		numPokedex: 78
+		pokemons:
+	TypeDePokemon79:
+		id: 79
+		nom: "Ramoloss"
+		attaque: 65
+		defense: 65
+		pv: 90
+		numPokedex: 79
+		pokemons:
+	TypeDePokemon80:
+		id: 80
+		nom: "Flagadoss"
+		attaque: 75
+		defense: 110
+		pv: 95
+		numPokedex: 80
+		pokemons:
+	TypeDePokemon81:
+		id: 81
+		nom: "Magnéti"
+		attaque: 35
+		defense: 70
+		pv: 25
+		numPokedex: 81
+		pokemons:
+	TypeDePokemon82:
+		id: 82
+		nom: "Magnéton"
+		attaque: 60
+		defense: 95
+		pv: 50
+		numPokedex: 82
+		pokemons:
+	TypeDePokemon83:
+		id: 83
+		nom: "Canarticho"
+		attaque: 65
+		defense: 55
+		pv: 52
+		numPokedex: 83
+		pokemons:
+	TypeDePokemon84:
+		id: 84
+		nom: "Doduo"
+		attaque: 85
+		defense: 45
+		pv: 35
+		numPokedex: 84
+		pokemons:
+	TypeDePokemon85:
+		id: 85
+		nom: "Dodrio"
+		attaque: 110
+		defense: 70
+		pv: 60
+		numPokedex: 85
+		pokemons:
+	TypeDePokemon86:
+		id: 86
+		nom: "Otaria"
+		attaque: 45
+		defense: 55
+		pv: 65
+		numPokedex: 86
+		pokemons:
+	TypeDePokemon87:
+		id: 87
+		nom: "Lamantine"
+		attaque: 70
+		defense: 80
+		pv: 90
+		numPokedex: 87
+		pokemons:
+	TypeDePokemon88:
+		id: 88
+		nom: "Tadmorv"
+		attaque: 80
+		defense: 50
+		pv: 80
+		numPokedex: 88
+		pokemons:
+	TypeDePokemon89:
+		id: 89
+		nom: "Grotadmorv"
+		attaque: 105
+		defense: 75
+		pv: 105
+		numPokedex: 89
+		pokemons:
+	TypeDePokemon90:
+		id: 90
+		nom: "Kokiyas"
+		attaque: 65
+		defense: 100
+		pv: 30
+		numPokedex: 90
+		pokemons:
+	TypeDePokemon91:
+		id: 91
+		nom: "Crustabri"
+		attaque: 95
+		defense: 180
+		pv: 50
+		numPokedex: 91
+		pokemons:
+	TypeDePokemon92:
+		id: 92
+		nom: "Fantominus"
+		attaque: 35
+		defense: 30
+		pv: 30
+		numPokedex: 92
+		pokemons:
+	TypeDePokemon93:
+		id: 93
+		nom: "Spectrum"
+		attaque: 50
+		defense: 45
+		pv: 45
+		numPokedex: 93
+		pokemons:
+	TypeDePokemon94:
+		id: 94
+		nom: "Ectoplasma"
+		attaque: 65
+		defense: 60
+		pv: 60
+		numPokedex: 94
+		pokemons:
+	TypeDePokemon95:
+		id: 95
+		nom: "Onix"
+		attaque: 45
+		defense: 160
+		pv: 35
+		numPokedex: 95
+		pokemons:
+	TypeDePokemon96:
+		id: 96
+		nom: "Soporifik"
+		attaque: 48
+		defense: 45
+		pv: 60
+		numPokedex: 96
+		pokemons:
+	TypeDePokemon97:
+		id: 97
+		nom: "Hypnomade"
+		attaque: 73
+		defense: 70
+		pv: 85
+		numPokedex: 97
+		pokemons:
+	TypeDePokemon98:
+		id: 98
+		nom: "Krabby"
+		attaque: 105
+		defense: 90
+		pv: 30
+		numPokedex: 98
+		pokemons:
+	TypeDePokemon99:
+		id: 99
+		nom: "Krabboss"
+		attaque: 130
+		defense: 115
+		pv: 55
+		numPokedex: 99
+		pokemons:
+	TypeDePokemon100:
+		id: 100
+		nom: "Voltorbe"
+		attaque: 30
+		defense: 50
+		pv: 40
+		numPokedex: 100
+		pokemons:
+	TypeDePokemon101:
+		id: 101
+		nom: "Électrode"
+		attaque: 50
+		defense: 70
+		pv: 60
+		numPokedex: 101
+		pokemons:
+	TypeDePokemon102:
+		id: 102
+		nom: "Nœunœuf"
+		attaque: 40
+		defense: 80
+		pv: 60
+		numPokedex: 102
+		pokemons:
+	TypeDePokemon103:
+		id: 103
+		nom: "Noadkoko"
+		attaque: 95
+		defense: 85
+		pv: 95
+		numPokedex: 103
+		pokemons:
+	TypeDePokemon104:
+		id: 104
+		nom: "Osselait"
+		attaque: 50
+		defense: 95
+		pv: 50
+		numPokedex: 104
+		pokemons:
+	TypeDePokemon105:
+		id: 105
+		nom: "Ossatueur"
+		attaque: 80
+		defense: 110
+		pv: 60
+		numPokedex: 105
+		pokemons:
+	TypeDePokemon106:
+		id: 106
+		nom: "Kicklee"
+		attaque: 120
+		defense: 53
+		pv: 50
+		numPokedex: 106
+		pokemons:
+	TypeDePokemon107:
+		id: 107
+		nom: "Tygnon"
+		attaque: 105
+		defense: 79
+		pv: 50
+		numPokedex: 107
+		pokemons:
+	TypeDePokemon108:
+		id: 108
+		nom: "Excelangue"
+		attaque: 55
+		defense: 75
+		pv: 90
+		numPokedex: 108
+		pokemons:
+	TypeDePokemon109:
+		id: 109
+		nom: "Smogo"
+		attaque: 65
+		defense: 95
+		pv: 40
+		numPokedex: 109
+		pokemons:
+	TypeDePokemon110:
+		id: 110
+		nom: "Smogogo"
+		attaque: 90
+		defense: 120
+		pv: 65
+		numPokedex: 110
+		pokemons:
+	TypeDePokemon111:
+		id: 111
+		nom: "Rhinocorne"
+		attaque: 85
+		defense: 95
+		pv: 80
+		numPokedex: 111
+		pokemons:
+	TypeDePokemon112:
+		id: 112
+		nom: "Rhinoféros"
+		attaque: 130
+		defense: 120
+		pv: 105
+		numPokedex: 112
+		pokemons:
+	TypeDePokemon113:
+		id: 113
+		nom: "Leveinard"
+		attaque: 5
+		defense: 5
+		pv: 250
+		numPokedex: 113
+		pokemons:
+	TypeDePokemon114:
+		id: 114
+		nom: "Saquedeneu"
+		attaque: 55
+		defense: 115
+		pv: 65
+		numPokedex: 114
+		pokemons:
+	TypeDePokemon115:
+		id: 115
+		nom: "Kangourex"
+		attaque: 95
+		defense: 80
+		pv: 105
+		numPokedex: 115
+		pokemons:
+	TypeDePokemon116:
+		id: 116
+		nom: "Hypotrempe"
+		attaque: 40
+		defense: 70
+		pv: 30
+		numPokedex: 116
+		pokemons:
+	TypeDePokemon117:
+		id: 117
+		nom: "Hypocéan"
+		attaque: 55
+		defense: 65
+		pv: 55
+		numPokedex: 117
+		pokemons:
+	TypeDePokemon118:
+		id: 118
+		nom: "Poissirène"
+		attaque: 67
+		defense: 60
+		pv: 45
+		numPokedex: 118
+		pokemons:
+	TypeDePokemon119:
+		id: 119
+		nom: "Poissoroy"
+		attaque: 92
+		defense: 65
+		pv: 80
+		numPokedex: 119
+		pokemons:
+	TypeDePokemon120:
+		id: 120
+		nom: "Stari"
+		attaque: 45
+		defense: 55
+		pv: 30
+		numPokedex: 120
+		pokemons:
+	TypeDePokemon121:
+		id: 121
+		nom: "Staross"
+		attaque: 75
+		defense: 85
+		pv: 60
+		numPokedex: 121
+		pokemons:
+	TypeDePokemon122:
+		id: 122
+		nom: "M. Mime"
+		attaque: 45
+		defense: 65
+		pv: 40
+		numPokedex: 122
+		pokemons:
+	TypeDePokemon123:
+		id: 123
+		nom: "Insécateur"
+		attaque: 110
+		defense: 80
+		pv: 70
+		numPokedex: 123
+		pokemons:
+	TypeDePokemon124:
+		id: 124
+		nom: "Lippoutou"
+		attaque: 50
+		defense: 35
+		pv: 65
+		numPokedex: 124
+		pokemons:
+	TypeDePokemon125:
+		id: 125
+		nom: "Élektek"
+		attaque: 83
+		defense: 57
+		pv: 65
+		numPokedex: 125
+		pokemons:
+	TypeDePokemon126:
+		id: 126
+		nom: "Magmar"
+		attaque: 95
+		defense: 57
+		pv: 65
+		numPokedex: 126
+		pokemons:
+	TypeDePokemon127:
+		id: 127
+		nom: "Scarabrute"
+		attaque: 125
+		defense: 100
+		pv: 65
+		numPokedex: 127
+		pokemons:
+	TypeDePokemon128:
+		id: 128
+		nom: "Tauros"
+		attaque: 100
+		defense: 95
+		pv: 75
+		numPokedex: 128
+		pokemons:
+	TypeDePokemon129:
+		id: 129
+		nom: "Magicarpe"
+		attaque: 10
+		defense: 55
+		pv: 20
+		numPokedex: 129
+		pokemons:
+	TypeDePokemon130:
+		id: 130
+		nom: "Léviator"
+		attaque: 125
+		defense: 79
+		pv: 95
+		numPokedex: 130
+		pokemons:
+	TypeDePokemon131:
+		id: 131
+		nom: "Lokhlass"
+		attaque: 85
+		defense: 80
+		pv: 130
+		numPokedex: 131
+		pokemons:
+	TypeDePokemon132:
+		id: 132
+		nom: "Métamorph"
+		attaque: 48
+		defense: 48
+		pv: 48
+		numPokedex: 132
+		pokemons:
+	TypeDePokemon133:
+		id: 133
+		nom: "Évoli"
+		attaque: 55
+		defense: 50
+		pv: 55
+		numPokedex: 133
+		pokemons:
+	TypeDePokemon134:
+		id: 134
+		nom: "Aquali"
+		attaque: 65
+		defense: 60
+		pv: 130
+		numPokedex: 134
+		pokemons:
+	TypeDePokemon135:
+		id: 135
+		nom: "Voltali"
+		attaque: 65
+		defense: 60
+		pv: 65
+		numPokedex: 135
+		pokemons:
+	TypeDePokemon136:
+		id: 136
+		nom: "Pyroli"
+		attaque: 130
+		defense: 60
+		pv: 65
+		numPokedex: 136
+		pokemons:
+	TypeDePokemon137:
+		id: 137
+		nom: "Porygon"
+		attaque: 60
+		defense: 70
+		pv: 65
+		numPokedex: 137
+		pokemons:
+	TypeDePokemon138:
+		id: 138
+		nom: "Amonita"
+		attaque: 40
+		defense: 100
+		pv: 35
+		numPokedex: 138
+		pokemons:
+	TypeDePokemon139:
+		id: 139
+		nom: "Amonistar"
+		attaque: 60
+		defense: 125
+		pv: 70
+		numPokedex: 139
+		pokemons:
+	TypeDePokemon140:
+		id: 140
+		nom: "Kabuto"
+		attaque: 80
+		defense: 90
+		pv: 30
+		numPokedex: 140
+		pokemons:
+	TypeDePokemon141:
+		id: 141
+		nom: "Kabutops"
+		attaque: 115
+		defense: 105
+		pv: 60
+		numPokedex: 141
+		pokemons:
+	TypeDePokemon142:
+		id: 142
+		nom: "Ptéra"
+		attaque: 105
+		defense: 65
+		pv: 80
+		numPokedex: 142
+		pokemons:
+	TypeDePokemon143:
+		id: 143
+		nom: "Ronflex"
+		attaque: 110
+		defense: 65
+		pv: 160
+		numPokedex: 143
+		pokemons:
+	TypeDePokemon144:
+		id: 144
+		nom: "Artikodin"
+		attaque: 85
+		defense: 100
+		pv: 90
+		numPokedex: 144
+		pokemons:
+	TypeDePokemon145:
+		id: 145
+		nom: "Électhor"
+		attaque: 90
+		defense: 85
+		pv: 90
+		numPokedex: 145
+		pokemons:
+	TypeDePokemon146:
+		id: 146
+		nom: "Sulfura"
+		attaque: 100
+		defense: 90
+		pv: 90
+		numPokedex: 146
+		pokemons:
+	TypeDePokemon147:
+		id: 147
+		nom: "Minidraco"
+		attaque: 64
+		defense: 45
+		pv: 41
+		numPokedex: 147
+		pokemons:
+	TypeDePokemon148:
+		id: 148
+		nom: "Draco"
+		attaque: 84
+		defense: 65
+		pv: 61
+		numPokedex: 148
+		pokemons:
+	TypeDePokemon149:
+		id: 149
+		nom: "Dracolosse"
+		attaque: 134
+		defense: 95
+		pv: 91
+		numPokedex: 149
+		pokemons:
+	TypeDePokemon150:
+		id: 150
+		nom: "Mewtwo"
+		attaque: 110
+		defense: 90
+		pv: 106
+		numPokedex: 150
+		pokemons:
+	TypeDePokemon151:
+		id: 151
+		nom: "Mew"
+		attaque: 100
+		defense: 100
+		pv: 100
+		numPokedex: 151
+		pokemons:

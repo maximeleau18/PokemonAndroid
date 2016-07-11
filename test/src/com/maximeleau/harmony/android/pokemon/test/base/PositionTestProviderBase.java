@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -20,6 +20,7 @@ import com.maximeleau.harmony.android.pokemon.data.PositionSQLiteAdapter;
 
 import com.maximeleau.harmony.android.pokemon.entity.Position;
 
+import com.maximeleau.harmony.android.pokemon.fixture.PositionDataLoader;
 
 import java.util.ArrayList;
 import com.maximeleau.harmony.android.pokemon.test.utils.*;
@@ -59,6 +60,13 @@ public abstract class PositionTestProviderBase extends TestDBBase {
 
         this.adapter = new PositionSQLiteAdapter(this.ctx);
 
+        this.entities = new ArrayList<Position>();
+        this.entities.addAll(PositionDataLoader.getInstance(this.ctx).getMap().values());
+        if (this.entities.size()>0) {
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += PositionDataLoader.getInstance(this.ctx).getMap().size();
         this.provider = this.getContext().getContentResolver();
         this.providerUtils = new PositionProviderUtils(this.getContext());
     }

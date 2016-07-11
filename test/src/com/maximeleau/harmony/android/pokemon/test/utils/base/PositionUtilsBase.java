@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,9 +17,11 @@ import com.maximeleau.harmony.android.pokemon.entity.Position;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Zone;
+import com.maximeleau.harmony.android.pokemon.fixture.ZoneDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.ZoneUtils;
 
+import java.util.ArrayList;
 
 public abstract class PositionUtilsBase {
 
@@ -35,7 +37,12 @@ public abstract class PositionUtilsBase {
         position.setId(TestUtils.generateRandomInt(0,100) + 1);
         position.setX(TestUtils.generateRandomInt(0,100));
         position.setY(TestUtils.generateRandomInt(0,100));
-        position.setZone(ZoneUtils.generateRandom(ctx));
+        ArrayList<Zone> zones =
+            new ArrayList<Zone>();
+        zones.addAll(ZoneDataLoader.getInstance(ctx).getMap().values());
+        if (!zones.isEmpty()) {
+            position.setZone(zones.get(TestUtils.generateRandomInt(0, zones.size())));
+        }
 
         return position;
     }

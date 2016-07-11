@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -17,6 +17,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 import com.maximeleau.harmony.android.pokemon.data.TypeDePokemonSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
 
+import com.maximeleau.harmony.android.pokemon.fixture.TypeDePokemonDataLoader;
 
 import com.maximeleau.harmony.android.pokemon.test.utils.*;
 
@@ -45,6 +46,13 @@ public abstract class TypeDePokemonTestDBBase extends TestDBBase {
         this.adapter = new TypeDePokemonSQLiteAdapter(this.ctx);
         this.adapter.open();
 
+        this.entities = new ArrayList<TypeDePokemon>();        
+        this.entities.addAll(TypeDePokemonDataLoader.getInstance(this.ctx).getMap().values());
+        if (entities.size()>0){
+            this.entity = this.entities.get(TestUtils.generateRandomInt(0,entities.size()-1));
+        }
+
+        this.nbEntities += TypeDePokemonDataLoader.getInstance(this.ctx).getMap().size();
     }
 
     /* (non-Javadoc)

@@ -1,0 +1,19 @@
+TypeObjet:
+   TypeObjet1:
+      id: 1
+      nom: "Standards"
+   TypeObjet2:
+      id: 2
+      nom: "Médicaments"
+   TypeObjet3:
+      id: 3
+      nom: "Balls"
+   TypeObjet4:
+      id: 4
+      nom: "CT/CS"
+	TypeObjet5:
+      id: 5
+      nom: "Combat"
+   TypeObjet6:
+      id: 6
+      nom: "Rares"

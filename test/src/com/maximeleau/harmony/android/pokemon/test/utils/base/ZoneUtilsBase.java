@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -18,11 +18,14 @@ import com.maximeleau.harmony.android.pokemon.entity.Zone;
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
 import com.maximeleau.harmony.android.pokemon.entity.Arene;
-import com.maximeleau.harmony.android.pokemon.test.utils.AreneUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.AreneDataLoader;
+
 import com.maximeleau.harmony.android.pokemon.entity.Badge;
-import com.maximeleau.harmony.android.pokemon.test.utils.BadgeUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.BadgeDataLoader;
+
 import com.maximeleau.harmony.android.pokemon.entity.Position;
-import com.maximeleau.harmony.android.pokemon.test.utils.PositionUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.PositionDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -39,15 +42,30 @@ public abstract class ZoneUtilsBase {
 
         zone.setId(TestUtils.generateRandomInt(0,100) + 1);
         zone.setNom("nom_"+TestUtils.generateRandomString(10));
+        ArrayList<Arene> areness =
+            new ArrayList<Arene>();
+        areness.addAll(AreneDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Arene> relatedAreness = new ArrayList<Arene>();
-        relatedAreness.add(AreneUtils.generateRandom(ctx));
-        zone.setArenes(relatedAreness);
+        if (!areness.isEmpty()) {
+            relatedAreness.add(areness.get(TestUtils.generateRandomInt(0, areness.size())));
+            zone.setArenes(relatedAreness);
+        }
+        ArrayList<Badge> badgess =
+            new ArrayList<Badge>();
+        badgess.addAll(BadgeDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Badge> relatedBadgess = new ArrayList<Badge>();
-        relatedBadgess.add(BadgeUtils.generateRandom(ctx));
-        zone.setBadges(relatedBadgess);
+        if (!badgess.isEmpty()) {
+            relatedBadgess.add(badgess.get(TestUtils.generateRandomInt(0, badgess.size())));
+            zone.setBadges(relatedBadgess);
+        }
+        ArrayList<Position> positionss =
+            new ArrayList<Position>();
+        positionss.addAll(PositionDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Position> relatedPositionss = new ArrayList<Position>();
-        relatedPositionss.add(PositionUtils.generateRandom(ctx));
-        zone.setPositions(relatedPositionss);
+        if (!positionss.isEmpty()) {
+            relatedPositionss.add(positionss.get(TestUtils.generateRandomInt(0, positionss.size())));
+            zone.setPositions(relatedPositionss);
+        }
 
         return zone;
     }

@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,11 +17,14 @@ import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueurBadge;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.PersonnageNonJoueurUtils;
+import com.maximeleau.harmony.android.pokemon.entity.Badge;
+import com.maximeleau.harmony.android.pokemon.fixture.BadgeDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.BadgeUtils;
 
+import java.util.ArrayList;
 
 public abstract class PersonnageNonJoueurBadgeUtilsBase {
 
@@ -35,8 +38,18 @@ public abstract class PersonnageNonJoueurBadgeUtilsBase {
         PersonnageNonJoueurBadge personnageNonJoueurBadge = new PersonnageNonJoueurBadge();
 
         personnageNonJoueurBadge.setId(TestUtils.generateRandomInt(0,100) + 1);
-        personnageNonJoueurBadge.setPersonnageNonJoueur(PersonnageNonJoueurUtils.generateRandom(ctx));
-        personnageNonJoueurBadge.setBadge(BadgeUtils.generateRandom(ctx));
+        ArrayList<PersonnageNonJoueur> personnageNonJoueurs =
+            new ArrayList<PersonnageNonJoueur>();
+        personnageNonJoueurs.addAll(PersonnageNonJoueurDataLoader.getInstance(ctx).getMap().values());
+        if (!personnageNonJoueurs.isEmpty()) {
+            personnageNonJoueurBadge.setPersonnageNonJoueur(personnageNonJoueurs.get(TestUtils.generateRandomInt(0, personnageNonJoueurs.size())));
+        }
+        ArrayList<Badge> badges =
+            new ArrayList<Badge>();
+        badges.addAll(BadgeDataLoader.getInstance(ctx).getMap().values());
+        if (!badges.isEmpty()) {
+            personnageNonJoueurBadge.setBadge(badges.get(TestUtils.generateRandomInt(0, badges.size())));
+        }
 
         return personnageNonJoueurBadge;
     }

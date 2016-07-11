@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -17,9 +17,11 @@ import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemonEvolution;
 
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
+import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
+import com.maximeleau.harmony.android.pokemon.fixture.TypeDePokemonDataLoader;
 
-import com.maximeleau.harmony.android.pokemon.test.utils.TypeDePokemonUtils;
 
+import java.util.ArrayList;
 
 public abstract class TypeDePokemonEvolutionUtilsBase {
 
@@ -33,8 +35,18 @@ public abstract class TypeDePokemonEvolutionUtilsBase {
         TypeDePokemonEvolution typeDePokemonEvolution = new TypeDePokemonEvolution();
 
         typeDePokemonEvolution.setId(TestUtils.generateRandomInt(0,100) + 1);
-        typeDePokemonEvolution.setEvolueEn(TypeDePokemonUtils.generateRandom(ctx));
-        typeDePokemonEvolution.setEstEvolueEn(TypeDePokemonUtils.generateRandom(ctx));
+        ArrayList<TypeDePokemon> evolueEns =
+            new ArrayList<TypeDePokemon>();
+        evolueEns.addAll(TypeDePokemonDataLoader.getInstance(ctx).getMap().values());
+        if (!evolueEns.isEmpty()) {
+            typeDePokemonEvolution.setEvolueEn(evolueEns.get(TestUtils.generateRandomInt(0, evolueEns.size())));
+        }
+        ArrayList<TypeDePokemon> estEvolueEns =
+            new ArrayList<TypeDePokemon>();
+        estEvolueEns.addAll(TypeDePokemonDataLoader.getInstance(ctx).getMap().values());
+        if (!estEvolueEns.isEmpty()) {
+            typeDePokemonEvolution.setEstEvolueEn(estEvolueEns.get(TestUtils.generateRandomInt(0, estEvolueEns.size())));
+        }
 
         return typeDePokemonEvolution;
     }

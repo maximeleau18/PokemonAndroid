@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 10, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -18,7 +18,8 @@ import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
 
 import com.maximeleau.harmony.android.pokemon.test.utils.TestUtils;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
-import com.maximeleau.harmony.android.pokemon.test.utils.PokemonUtils;
+import com.maximeleau.harmony.android.pokemon.fixture.PokemonDataLoader;
+
 
 import java.util.ArrayList;
 
@@ -39,9 +40,14 @@ public abstract class TypeDePokemonUtilsBase {
         typeDePokemon.setDefense(TestUtils.generateRandomInt(0,100));
         typeDePokemon.setPv(TestUtils.generateRandomInt(0,100));
         typeDePokemon.setNumPokedex(TestUtils.generateRandomInt(0,100));
+        ArrayList<Pokemon> pokemonss =
+            new ArrayList<Pokemon>();
+        pokemonss.addAll(PokemonDataLoader.getInstance(ctx).getMap().values());
         ArrayList<Pokemon> relatedPokemonss = new ArrayList<Pokemon>();
-        relatedPokemonss.add(PokemonUtils.generateRandom(ctx));
-        typeDePokemon.setPokemons(relatedPokemonss);
+        if (!pokemonss.isEmpty()) {
+            relatedPokemonss.add(pokemonss.get(TestUtils.generateRandomInt(0, pokemonss.size())));
+            typeDePokemon.setPokemons(relatedPokemonss);
+        }
 
         return typeDePokemon;
     }

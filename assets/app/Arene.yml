@@ -1,0 +1,49 @@
+Arene:
+	Arene1:
+		id: 1
+		nom: "Arène d'Argenta"
+		maitre: PersonnageNonJoueur1
+		badge: Badge1
+		position: Position1
+	Arene2:
+		id: 2
+		nom: "Arène d'Azuria"
+		maitre: PersonnageNonJoueur2
+		badge: Badge2
+		position: Position2
+	Arene3:
+		id: 3
+		nom: "Arène de Carmin Sur Mer"
+		maitre: PersonnageNonJoueur3
+		badge: Badge3
+		position: Position3
+	Arene4:
+		id: 4
+		nom: "Arène de Céladopole"
+		maitre: PersonnageNonJoueur4
+		badge: Badge4
+		position: Position4
+	Arene5:
+		id: 5
+		nom: "Arène de Parmanie"
+		maitre: PersonnageNonJoueur5
+		badge: Badge5
+		position: Position5
+	Arene6:
+		id: 6
+		nom: "Arène de Safrania"
+		maitre: PersonnageNonJoueur6
+		badge: Badge6
+		position: Position6
+	Arene7:
+		id: 7
+		nom: "Arène de Cramois'Île"
+		maitre: PersonnageNonJoueur7
+		badge: Badge7
+		position: Position7
+	Arene8:
+		id: 8
+		nom: "Arène de Jadielle"
+		maitre: PersonnageNonJoueur8
+		badge: Badge8
+		position: Position8
