@@ -11,7 +11,7 @@ TypeObjet:
    TypeObjet4:
       id: 4
       nom: "CT/CS"
-	TypeObjet5:
+   TypeObjet5:
       id: 5
       nom: "Combat"
    TypeObjet6:
