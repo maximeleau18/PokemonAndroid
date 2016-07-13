@@ -2,6 +2,7 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -13,7 +14,9 @@ import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.OneToMany;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
+@Rest
 @Entity
 public class TypeDePokemon  implements Serializable , Parcelable {
 

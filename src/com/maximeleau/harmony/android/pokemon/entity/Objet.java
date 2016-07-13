@@ -2,9 +2,11 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
+
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.Entity;
@@ -12,7 +14,9 @@ import com.tactfactory.harmony.annotation.GeneratedValue;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.ManyToOne;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
+@Rest
 @Entity
 public class Objet  implements Serializable , Parcelable {
 

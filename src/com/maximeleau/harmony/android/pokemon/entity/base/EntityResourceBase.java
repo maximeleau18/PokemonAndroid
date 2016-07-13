@@ -5,20 +5,21 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 13, 2016
  *
  **************************************************************************/
 
 package com.maximeleau.harmony.android.pokemon.entity.base;
 
-import com.maximeleau.harmony.android.pokemon.entity.base.Resource;
+import com.maximeleau.harmony.android.pokemon.entity.base.RestResource;
 
-public class EntityResourceBase implements Resource {
+public class EntityResourceBase implements  RestResource {
 
     protected String path;
 
     private int id;
 
+    private String localPath;
 
     @Override
     public int getId() {
@@ -30,6 +31,15 @@ public class EntityResourceBase implements Resource {
          this.id = value;
     }
 
+    @Override
+    public String getLocalPath() {
+         return this.localPath;
+    }
+
+    @Override
+    public void setLocalPath(final String value) {
+         this.localPath = value;
+    }
 
     @Override
     public String getPath() {
