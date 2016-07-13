@@ -32,6 +32,7 @@ import com.maximeleau.harmony.android.pokemon.entity.Position;
 import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PositionContract;
 
+import com.maximeleau.harmony.android.pokemon.entity.Zone;
 
 
 /**
@@ -53,6 +54,8 @@ public abstract class PositionWebServiceClientAdapterBase
     protected static String JSON_X = "x";
     /** JSON_Y attributes. */
     protected static String JSON_Y = "y";
+    /** JSON_ZONE attributes. */
+    protected static String JSON_ZONE = "zone";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -64,7 +67,8 @@ public abstract class PositionWebServiceClientAdapterBase
     public static String[] REST_COLS = new String[]{
             PositionContract.COL_ID,
             PositionContract.COL_X,
-            PositionContract.COL_Y
+            PositionContract.COL_Y,
+            PositionContract.COL_ZONE_ID
         };
 
     /**
@@ -270,6 +274,64 @@ public abstract class PositionWebServiceClientAdapterBase
         return result;
     }
 
+    /**
+     * Get the Positions associated with a Zone. Uses the route : zone/%Zone_id%/position.
+     * @param positions : The list in which the Positions will be returned
+     * @param zone : The associated zone
+     * @return The number of Positions returned
+     */
+    public int getByZone(List<Position> positions, Zone zone) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        zone.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Positions", positions);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                positions = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Positions associated with a Zone. Uses the route : zone/%Zone_id%/position.
+     * @param positions : The list in which the Positions will be returned
+     * @param zone : The associated zone
+     * @return The number of Positions returned
+     */
+    public int getByZonepositionsInternal(List<Position> positions, Zone zone) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        zone.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Positions", positions);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                positions = null;
+            }
+        }
+
+        return result;
+    }
+
 
     /**
      * Tests if the json is a valid Position Object.
@@ -313,6 +375,26 @@ public abstract class PositionWebServiceClientAdapterBase
                     position.setY(
                             json.getInt(PositionWebServiceClientAdapter.JSON_Y));
                 }
+
+                if (json.has(PositionWebServiceClientAdapter.JSON_ZONE)
+                        && !json.isNull(PositionWebServiceClientAdapter.JSON_ZONE)) {
+
+                    try {
+                        ZoneWebServiceClientAdapter zoneAdapter =
+                                new ZoneWebServiceClientAdapter(this.context);
+                        Zone zone =
+                                new Zone();
+
+                        if (zoneAdapter.extract(
+                                json.optJSONObject(
+                                        PositionWebServiceClientAdapter.JSON_ZONE),
+                                        zone)) {
+                            position.setZone(zone);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Zone data");
+                    }
+                }
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
             }
@@ -327,7 +409,7 @@ public abstract class PositionWebServiceClientAdapterBase
         String id = json.optString(PositionWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[3];
+                String[] row = new String[4];
                 if (json.has(PositionWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(PositionWebServiceClientAdapter.JSON_ID);
                 }
@@ -336,6 +418,12 @@ public abstract class PositionWebServiceClientAdapterBase
                 }
                 if (json.has(PositionWebServiceClientAdapter.JSON_Y)) {
                     row[2] = json.getString(PositionWebServiceClientAdapter.JSON_Y);
+                }
+                if (json.has(PositionWebServiceClientAdapter.JSON_ZONE)) {
+                    JSONObject zoneJson = json.getJSONObject(
+                            PositionWebServiceClientAdapter.JSON_ZONE);
+                    row[3] = zoneJson.getString(
+                            ZoneWebServiceClientAdapter.JSON_ID);
                 }
 
                 cursor.addRow(row);
@@ -362,6 +450,14 @@ public abstract class PositionWebServiceClientAdapterBase
                     position.getX());
             params.put(PositionWebServiceClientAdapter.JSON_Y,
                     position.getY());
+
+            if (position.getZone() != null) {
+                ZoneWebServiceClientAdapter zoneAdapter =
+                        new ZoneWebServiceClientAdapter(this.context);
+
+                params.put(PositionWebServiceClientAdapter.JSON_ZONE,
+                        zoneAdapter.itemIdToJson(position.getZone()));
+            }
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -402,6 +498,11 @@ public abstract class PositionWebServiceClientAdapterBase
                     values.get(PositionContract.COL_X));
             params.put(PositionWebServiceClientAdapter.JSON_Y,
                     values.get(PositionContract.COL_Y));
+            ZoneWebServiceClientAdapter zoneAdapter =
+                    new ZoneWebServiceClientAdapter(this.context);
+
+            params.put(PositionWebServiceClientAdapter.JSON_ZONE,
+                    zoneAdapter.contentValuesToJson(values));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

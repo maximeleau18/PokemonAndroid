@@ -13,7 +13,9 @@ import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.OneToMany;
+import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
+@Rest
 @Entity
 public class Zone  implements Serializable , Parcelable {
 

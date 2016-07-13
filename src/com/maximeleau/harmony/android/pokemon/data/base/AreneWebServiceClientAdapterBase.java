@@ -35,6 +35,7 @@ import com.maximeleau.harmony.android.pokemon.provider.contract.AreneContract;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
 import com.maximeleau.harmony.android.pokemon.entity.Badge;
 import com.maximeleau.harmony.android.pokemon.entity.Position;
+import com.maximeleau.harmony.android.pokemon.entity.Zone;
 
 
 /**
@@ -362,6 +363,35 @@ public abstract class AreneWebServiceClientAdapterBase
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
                 arene = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Arenes associated with a Zone. Uses the route : zone/%Zone_id%/arene.
+     * @param arenes : The list in which the Arenes will be returned
+     * @param zone : The associated zone
+     * @return The number of Arenes returned
+     */
+    public int getByZonearenesInternal(List<Arene> arenes, Zone zone) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        zone.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Arenes", arenes);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                arenes = null;
             }
         }
 

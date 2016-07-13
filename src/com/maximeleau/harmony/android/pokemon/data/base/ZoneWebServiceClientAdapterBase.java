@@ -1,5 +1,5 @@
 /**************************************************************************
- * BadgeWebServiceClientAdapterBase.java, pokemon Android
+ * ZoneWebServiceClientAdapterBase.java, pokemon Android
  *
  * Copyright 2016
  * Description : 
@@ -12,7 +12,7 @@
 package com.maximeleau.harmony.android.pokemon.data.base;
 
 import java.util.List;
-
+import java.util.ArrayList;
 
 import org.joda.time.DateTime;
 import org.joda.time.format.ISODateTimeFormat;
@@ -28,30 +28,38 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 
 import com.maximeleau.harmony.android.pokemon.data.*;
-import com.maximeleau.harmony.android.pokemon.entity.Badge;
-import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
-import com.maximeleau.harmony.android.pokemon.provider.contract.BadgeContract;
-
 import com.maximeleau.harmony.android.pokemon.entity.Zone;
+import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
+import com.maximeleau.harmony.android.pokemon.provider.contract.ZoneContract;
+
+import com.maximeleau.harmony.android.pokemon.entity.Arene;
+import com.maximeleau.harmony.android.pokemon.entity.Badge;
+import com.maximeleau.harmony.android.pokemon.entity.Position;
 
 
 /**
  *
  * <b><i>This class will be overwrited whenever you regenerate the project with Harmony.
- * You should edit BadgeWebServiceClientAdapter class instead of this one or you will lose all your modifications.</i></b>
+ * You should edit ZoneWebServiceClientAdapter class instead of this one or you will lose all your modifications.</i></b>
  *
  */
-public abstract class BadgeWebServiceClientAdapterBase
-        extends WebServiceClientAdapter<Badge> {
-    /** BadgeWebServiceClientAdapterBase TAG. */
-    protected static final String TAG = "BadgeWSClientAdapter";
+public abstract class ZoneWebServiceClientAdapterBase
+        extends WebServiceClientAdapter<Zone> {
+    /** ZoneWebServiceClientAdapterBase TAG. */
+    protected static final String TAG = "ZoneWSClientAdapter";
 
-    /** JSON Object Badge pattern. */
-    protected static String JSON_OBJECT_BADGE = "Badge";
+    /** JSON Object Zone pattern. */
+    protected static String JSON_OBJECT_ZONE = "Zone";
     /** JSON_ID attributes. */
     protected static String JSON_ID = "id";
     /** JSON_NOM attributes. */
     protected static String JSON_NOM = "nom";
+    /** JSON_ARENES attributes. */
+    protected static String JSON_ARENES = "arenes";
+    /** JSON_BADGES attributes. */
+    protected static String JSON_BADGES = "badges";
+    /** JSON_POSITIONS attributes. */
+    protected static String JSON_POSITIONS = "positions";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -59,10 +67,10 @@ public abstract class BadgeWebServiceClientAdapterBase
     /** Time pattern.*/
     public static final String TIME_FORMAT = "HH:mm:ss";
 
-    /** Badge REST Columns. */
+    /** Zone REST Columns. */
     public static String[] REST_COLS = new String[]{
-            BadgeContract.COL_ID,
-            BadgeContract.COL_NOM
+            ZoneContract.COL_ID,
+            ZoneContract.COL_NOM
         };
 
     /**
@@ -70,7 +78,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      *
      * @param context The context
      */
-    public BadgeWebServiceClientAdapterBase(Context context) {
+    public ZoneWebServiceClientAdapterBase(Context context) {
         this(context, null);
     }
 
@@ -80,7 +88,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @param context The context
      * @param port The overriden port
      */
-    public BadgeWebServiceClientAdapterBase(Context context,
+    public ZoneWebServiceClientAdapterBase(Context context,
         Integer port) {
         this(context, null, port);
     }
@@ -92,7 +100,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @param host The overriden host
      * @param port The overriden port
      */
-    public BadgeWebServiceClientAdapterBase(Context context,
+    public ZoneWebServiceClientAdapterBase(Context context,
             String host, Integer port) {
         this(context, host, port, null);
     }
@@ -105,7 +113,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @param port The overriden port
      * @param scheme The overriden scheme
      */
-    public BadgeWebServiceClientAdapterBase(Context context,
+    public ZoneWebServiceClientAdapterBase(Context context,
             String host, Integer port, String scheme) {
         this(context, host, port, scheme, null);
     }
@@ -119,7 +127,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @param scheme The overriden scheme
      * @param prefix The overriden prefix
      */
-    public BadgeWebServiceClientAdapterBase(Context context,
+    public ZoneWebServiceClientAdapterBase(Context context,
             String host, Integer port, String scheme, String prefix) {
         super(context, host, port, scheme, prefix);
 
@@ -127,11 +135,11 @@ public abstract class BadgeWebServiceClientAdapterBase
     }
 
     /**
-     * Retrieve all the Badges in the given list. Uses the route : Badge.
-     * @param badges : The list in which the Badges will be returned
-     * @return The number of Badges returned
+     * Retrieve all the Zones in the given list. Uses the route : Zone.
+     * @param zones : The list in which the Zones will be returned
+     * @return The number of Zones returned
      */
-    public int getAll(List<Badge> badges) {
+    public int getAll(List<Zone> zones) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
@@ -143,10 +151,10 @@ public abstract class BadgeWebServiceClientAdapterBase
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
                 JSONObject json = new JSONObject(response);
-                result = extractItems(json, "Badges", badges);
+                result = extractItems(json, "Zones", zones);
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
-                badges = null;
+                zones = null;
             }
         }
 
@@ -157,33 +165,33 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @return the URI.
      */
     public String getUri() {
-        return "badge";
+        return "zone";
     }
 
     /**
-     * Retrieve one Badge. Uses the route : Badge/%id%.
-     * @param badge : The Badge to retrieve (set the ID)
+     * Retrieve one Zone. Uses the route : Zone/%id%.
+     * @param zone : The Zone to retrieve (set the ID)
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int get(Badge badge) {
+    public int get(Zone zone) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
                     String.format(
                         this.getUri() + "/%s%s",
-                        badge.getId(),
+                        zone.getId(),
                         REST_FORMAT),
                     null);
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
                 JSONObject json = new JSONObject(response);
-                if (extract(json, badge)) {
+                if (extract(json, zone)) {
                     result = 0;
                 }
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
-                badge = null;
+                zone = null;
             }
         }
 
@@ -191,8 +199,8 @@ public abstract class BadgeWebServiceClientAdapterBase
     }
 
     /**
-     * Retrieve one Badge. Uses the route : Badge/%id%.
-     * @param badge : The Badge to retrieve (set the  ID)
+     * Retrieve one Zone. Uses the route : Zone/%id%.
+     * @param zone : The Zone to retrieve (set the  ID)
      * @return -1 if an error has occurred. 0 if not.
      */
     public Cursor query(final int id) {
@@ -219,24 +227,24 @@ public abstract class BadgeWebServiceClientAdapterBase
     }
 
     /**
-     * Update a Badge. Uses the route : Badge/%id%.
-     * @param badge : The Badge to update
+     * Update a Zone. Uses the route : Zone/%id%.
+     * @param zone : The Zone to update
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int update(Badge badge) {
+    public int update(Zone zone) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.PUT,
                     String.format(
                         this.getUri() + "/%s%s",
-                        badge.getId(),
+                        zone.getId(),
                         REST_FORMAT),
-                    itemToJson(badge));
+                    itemToJson(zone));
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
                 JSONObject json = new JSONObject(response);
-                this.extract(json, badge);
+                this.extract(json, zone);
                 result = 0;
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
@@ -247,17 +255,17 @@ public abstract class BadgeWebServiceClientAdapterBase
     }
 
     /**
-     * Delete a Badge. Uses the route : Badge/%id%.
-     * @param badge : The Badge to delete (only the id is necessary)
+     * Delete a Zone. Uses the route : Zone/%id%.
+     * @param zone : The Zone to delete (only the id is necessary)
      * @return -1 if an error has occurred. 0 if not.
      */
-    public int delete(Badge badge) {
+    public int delete(Zone zone) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.DELETE,
                     String.format(
                         this.getUri() + "/%s%s",
-                        badge.getId(),
+                        zone.getId(),
                         REST_FORMAT),
                     null);
 
@@ -268,38 +276,12 @@ public abstract class BadgeWebServiceClientAdapterBase
         return result;
     }
 
-    /**
-     * Get the Badges associated with a Zone. Uses the route : zone/%Zone_id%/badge.
-     * @param badges : The list in which the Badges will be returned
-     * @param zone : The associated zone
-     * @return The number of Badges returned
-     */
-    public int getByZonebadgesInternal(List<Badge> badges, Zone zone) {
-        int result = -1;
-        String response = this.invokeRequest(
-                    Verb.GET,
-                    String.format(
-                        this.getUri() + "/%s%s",
-                        zone.getId(),
-                        REST_FORMAT),
-                    null);
 
-        if (this.isValidResponse(response) && this.isValidRequest()) {
-            try {
-                JSONObject json = new JSONObject(response);
-                result = this.extractItems(json, "Badges", badges);
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage());
-                badges = null;
-            }
-        }
 
-        return result;
-    }
 
 
     /**
-     * Tests if the json is a valid Badge Object.
+     * Tests if the json is a valid Zone Object.
      *
      * @param json The json
      *
@@ -307,32 +289,86 @@ public abstract class BadgeWebServiceClientAdapterBase
      */
     public boolean isValidJSON(JSONObject json) {
         boolean result = true;
-        result = result && json.has(BadgeWebServiceClientAdapter.JSON_ID);
+        result = result && json.has(ZoneWebServiceClientAdapter.JSON_ID);
 
         return result;
     }
 
     /**
-     * Extract a Badge from a JSONObject describing a Badge.
-     * @param json The JSONObject describing the Badge
-     * @param badge The returned Badge
-     * @return true if a Badge was found. false if not
+     * Extract a Zone from a JSONObject describing a Zone.
+     * @param json The JSONObject describing the Zone
+     * @param zone The returned Zone
+     * @return true if a Zone was found. false if not
      */
-    public boolean extract(JSONObject json, Badge badge) {
+    public boolean extract(JSONObject json, Zone zone) {
         boolean result = this.isValidJSON(json);
         if (result) {
             try {
 
-                if (json.has(BadgeWebServiceClientAdapter.JSON_ID)
-                        && !json.isNull(BadgeWebServiceClientAdapter.JSON_ID)) {
-                    badge.setId(
-                            json.getInt(BadgeWebServiceClientAdapter.JSON_ID));
+                if (json.has(ZoneWebServiceClientAdapter.JSON_ID)
+                        && !json.isNull(ZoneWebServiceClientAdapter.JSON_ID)) {
+                    zone.setId(
+                            json.getInt(ZoneWebServiceClientAdapter.JSON_ID));
                 }
 
-                if (json.has(BadgeWebServiceClientAdapter.JSON_NOM)
-                        && !json.isNull(BadgeWebServiceClientAdapter.JSON_NOM)) {
-                    badge.setNom(
-                            json.getString(BadgeWebServiceClientAdapter.JSON_NOM));
+                if (json.has(ZoneWebServiceClientAdapter.JSON_NOM)
+                        && !json.isNull(ZoneWebServiceClientAdapter.JSON_NOM)) {
+                    zone.setNom(
+                            json.getString(ZoneWebServiceClientAdapter.JSON_NOM));
+                }
+
+                if (json.has(ZoneWebServiceClientAdapter.JSON_ARENES)
+                        && !json.isNull(ZoneWebServiceClientAdapter.JSON_ARENES)) {
+                    ArrayList<Arene> arenes =
+                            new ArrayList<Arene>();
+                    AreneWebServiceClientAdapter arenesAdapter =
+                            new AreneWebServiceClientAdapter(this.context);
+
+                    try {
+                        //.optJSONObject(ZoneWebServiceClientAdapter.JSON_ARENES);
+                        arenesAdapter.extractItems(
+                                json, ZoneWebServiceClientAdapter.JSON_ARENES,
+                                arenes);
+                        zone.setArenes(arenes);
+                    } catch (JSONException e) {
+                        Log.e(TAG, e.getMessage());
+                    }
+                }
+
+                if (json.has(ZoneWebServiceClientAdapter.JSON_BADGES)
+                        && !json.isNull(ZoneWebServiceClientAdapter.JSON_BADGES)) {
+                    ArrayList<Badge> badges =
+                            new ArrayList<Badge>();
+                    BadgeWebServiceClientAdapter badgesAdapter =
+                            new BadgeWebServiceClientAdapter(this.context);
+
+                    try {
+                        //.optJSONObject(ZoneWebServiceClientAdapter.JSON_BADGES);
+                        badgesAdapter.extractItems(
+                                json, ZoneWebServiceClientAdapter.JSON_BADGES,
+                                badges);
+                        zone.setBadges(badges);
+                    } catch (JSONException e) {
+                        Log.e(TAG, e.getMessage());
+                    }
+                }
+
+                if (json.has(ZoneWebServiceClientAdapter.JSON_POSITIONS)
+                        && !json.isNull(ZoneWebServiceClientAdapter.JSON_POSITIONS)) {
+                    ArrayList<Position> positions =
+                            new ArrayList<Position>();
+                    PositionWebServiceClientAdapter positionsAdapter =
+                            new PositionWebServiceClientAdapter(this.context);
+
+                    try {
+                        //.optJSONObject(ZoneWebServiceClientAdapter.JSON_POSITIONS);
+                        positionsAdapter.extractItems(
+                                json, ZoneWebServiceClientAdapter.JSON_POSITIONS,
+                                positions);
+                        zone.setPositions(positions);
+                    } catch (JSONException e) {
+                        Log.e(TAG, e.getMessage());
+                    }
                 }
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
@@ -345,15 +381,15 @@ public abstract class BadgeWebServiceClientAdapterBase
     @Override
     public boolean extractCursor(JSONObject json, MatrixCursor cursor) {
         boolean result = false;
-        String id = json.optString(BadgeWebServiceClientAdapter.JSON_ID, null);
+        String id = json.optString(ZoneWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
                 String[] row = new String[2];
-                if (json.has(BadgeWebServiceClientAdapter.JSON_ID)) {
-                    row[0] = json.getString(BadgeWebServiceClientAdapter.JSON_ID);
+                if (json.has(ZoneWebServiceClientAdapter.JSON_ID)) {
+                    row[0] = json.getString(ZoneWebServiceClientAdapter.JSON_ID);
                 }
-                if (json.has(BadgeWebServiceClientAdapter.JSON_NOM)) {
-                    row[1] = json.getString(BadgeWebServiceClientAdapter.JSON_NOM);
+                if (json.has(ZoneWebServiceClientAdapter.JSON_NOM)) {
+                    row[1] = json.getString(ZoneWebServiceClientAdapter.JSON_NOM);
                 }
 
                 cursor.addRow(row);
@@ -367,17 +403,41 @@ public abstract class BadgeWebServiceClientAdapterBase
     }
 
     /**
-     * Convert a Badge to a JSONObject.
-     * @param badge The Badge to convert
-     * @return The converted Badge
+     * Convert a Zone to a JSONObject.
+     * @param zone The Zone to convert
+     * @return The converted Zone
      */
-    public JSONObject itemToJson(Badge badge) {
+    public JSONObject itemToJson(Zone zone) {
         JSONObject params = new JSONObject();
         try {
-            params.put(BadgeWebServiceClientAdapter.JSON_ID,
-                    badge.getId());
-            params.put(BadgeWebServiceClientAdapter.JSON_NOM,
-                    badge.getNom());
+            params.put(ZoneWebServiceClientAdapter.JSON_ID,
+                    zone.getId());
+            params.put(ZoneWebServiceClientAdapter.JSON_NOM,
+                    zone.getNom());
+
+            if (zone.getArenes() != null) {
+                AreneWebServiceClientAdapter arenesAdapter =
+                        new AreneWebServiceClientAdapter(this.context);
+
+                params.put(ZoneWebServiceClientAdapter.JSON_ARENES,
+                        arenesAdapter.itemsIdToJson(zone.getArenes()));
+            }
+
+            if (zone.getBadges() != null) {
+                BadgeWebServiceClientAdapter badgesAdapter =
+                        new BadgeWebServiceClientAdapter(this.context);
+
+                params.put(ZoneWebServiceClientAdapter.JSON_BADGES,
+                        badgesAdapter.itemsIdToJson(zone.getBadges()));
+            }
+
+            if (zone.getPositions() != null) {
+                PositionWebServiceClientAdapter positionsAdapter =
+                        new PositionWebServiceClientAdapter(this.context);
+
+                params.put(ZoneWebServiceClientAdapter.JSON_POSITIONS,
+                        positionsAdapter.itemsIdToJson(zone.getPositions()));
+            }
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -391,10 +451,10 @@ public abstract class BadgeWebServiceClientAdapterBase
      * @param item The <T> to convert
      * @return The converted <T>
      */
-    public JSONObject itemIdToJson(Badge item) {
+    public JSONObject itemIdToJson(Zone item) {
         JSONObject params = new JSONObject();
         try {
-            params.put(BadgeWebServiceClientAdapter.JSON_ID, item.getId());
+            params.put(ZoneWebServiceClientAdapter.JSON_ID, item.getId());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -404,7 +464,7 @@ public abstract class BadgeWebServiceClientAdapterBase
 
 
     /**
-     * Converts a content value reprensenting a Badge to a JSONObject.
+     * Converts a content value reprensenting a Zone to a JSONObject.
      * @param The content values
      * @return The JSONObject
      */
@@ -412,10 +472,10 @@ public abstract class BadgeWebServiceClientAdapterBase
         JSONObject params = new JSONObject();
 
         try {
-            params.put(BadgeWebServiceClientAdapter.JSON_ID,
-                    values.get(BadgeContract.COL_ID));
-            params.put(BadgeWebServiceClientAdapter.JSON_NOM,
-                    values.get(BadgeContract.COL_NOM));
+            params.put(ZoneWebServiceClientAdapter.JSON_ID,
+                    values.get(ZoneContract.COL_ID));
+            params.put(ZoneWebServiceClientAdapter.JSON_NOM,
+                    values.get(ZoneContract.COL_NOM));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -434,7 +494,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      */
     public int extractItems(JSONObject json,
             String paramName,
-            List<Badge> items,
+            List<Zone> items,
             int limit) throws JSONException {
 
         JSONArray itemArray = json.optJSONArray(paramName);
@@ -450,7 +510,7 @@ public abstract class BadgeWebServiceClientAdapterBase
 
             for (int i = 0; i < count; i++) {
                 JSONObject jsonItem = itemArray.getJSONObject(i);
-                Badge item = new Badge();
+                Zone item = new Zone();
                 this.extract(jsonItem, item);
                 if (item!=null) {
                     synchronized (items) {
@@ -477,7 +537,7 @@ public abstract class BadgeWebServiceClientAdapterBase
      */
     public int extractItems(JSONObject json,
             String paramName,
-            List<Badge> items) throws JSONException {
+            List<Zone> items) throws JSONException {
 
         return this.extractItems(json, paramName, items, 0);
     }

@@ -32,6 +32,7 @@ import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemonZone;
 import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
 import com.maximeleau.harmony.android.pokemon.provider.contract.TypeDePokemonZoneContract;
 
+import com.maximeleau.harmony.android.pokemon.entity.Zone;
 import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
 
 
@@ -50,6 +51,8 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
     protected static String JSON_OBJECT_TYPEDEPOKEMONZONE = "TypeDePokemonZone";
     /** JSON_ID attributes. */
     protected static String JSON_ID = "id";
+    /** JSON_ZONE attributes. */
+    protected static String JSON_ZONE = "zone";
     /** JSON_TYPEDEPOKEMON attributes. */
     protected static String JSON_TYPEDEPOKEMON = "typeDePokemon";
 
@@ -62,6 +65,7 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
     /** TypeDePokemonZone REST Columns. */
     public static String[] REST_COLS = new String[]{
             TypeDePokemonZoneContract.COL_ID,
+            TypeDePokemonZoneContract.COL_ZONE_ID,
             TypeDePokemonZoneContract.COL_TYPEDEPOKEMON_ID
         };
 
@@ -269,6 +273,35 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
     }
 
     /**
+     * Get the TypeDePokemonZones associated with a Zone. Uses the route : zone/%Zone_id%/typedepokemonzone.
+     * @param typeDePokemonZones : The list in which the TypeDePokemonZones will be returned
+     * @param zone : The associated zone
+     * @return The number of TypeDePokemonZones returned
+     */
+    public int getByZone(List<TypeDePokemonZone> typeDePokemonZones, Zone zone) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        zone.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "TypeDePokemonZones", typeDePokemonZones);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                typeDePokemonZones = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * Get the TypeDePokemonZones associated with a TypeDePokemon. Uses the route : typedepokemon/%TypeDePokemon_id%/typedepokemonzone.
      * @param typeDePokemonZones : The list in which the TypeDePokemonZones will be returned
      * @param typedepokemon : The associated typedepokemon
@@ -329,6 +362,26 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
                             json.getInt(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID));
                 }
 
+                if (json.has(TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE)
+                        && !json.isNull(TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE)) {
+
+                    try {
+                        ZoneWebServiceClientAdapter zoneAdapter =
+                                new ZoneWebServiceClientAdapter(this.context);
+                        Zone zone =
+                                new Zone();
+
+                        if (zoneAdapter.extract(
+                                json.optJSONObject(
+                                        TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE),
+                                        zone)) {
+                            typeDePokemonZone.setZone(zone);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Zone data");
+                    }
+                }
+
                 if (json.has(TypeDePokemonZoneWebServiceClientAdapter.JSON_TYPEDEPOKEMON)
                         && !json.isNull(TypeDePokemonZoneWebServiceClientAdapter.JSON_TYPEDEPOKEMON)) {
 
@@ -362,14 +415,20 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
         String id = json.optString(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[2];
+                String[] row = new String[3];
                 if (json.has(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID);
+                }
+                if (json.has(TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE)) {
+                    JSONObject zoneJson = json.getJSONObject(
+                            TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE);
+                    row[1] = zoneJson.getString(
+                            ZoneWebServiceClientAdapter.JSON_ID);
                 }
                 if (json.has(TypeDePokemonZoneWebServiceClientAdapter.JSON_TYPEDEPOKEMON)) {
                     JSONObject typeDePokemonJson = json.getJSONObject(
                             TypeDePokemonZoneWebServiceClientAdapter.JSON_TYPEDEPOKEMON);
-                    row[1] = typeDePokemonJson.getString(
+                    row[2] = typeDePokemonJson.getString(
                             TypeDePokemonWebServiceClientAdapter.JSON_ID);
                 }
 
@@ -393,6 +452,14 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
         try {
             params.put(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID,
                     typeDePokemonZone.getId());
+
+            if (typeDePokemonZone.getZone() != null) {
+                ZoneWebServiceClientAdapter zoneAdapter =
+                        new ZoneWebServiceClientAdapter(this.context);
+
+                params.put(TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE,
+                        zoneAdapter.itemIdToJson(typeDePokemonZone.getZone()));
+            }
 
             if (typeDePokemonZone.getTypeDePokemon() != null) {
                 TypeDePokemonWebServiceClientAdapter typeDePokemonAdapter =
@@ -437,6 +504,11 @@ public abstract class TypeDePokemonZoneWebServiceClientAdapterBase
         try {
             params.put(TypeDePokemonZoneWebServiceClientAdapter.JSON_ID,
                     values.get(TypeDePokemonZoneContract.COL_ID));
+            ZoneWebServiceClientAdapter zoneAdapter =
+                    new ZoneWebServiceClientAdapter(this.context);
+
+            params.put(TypeDePokemonZoneWebServiceClientAdapter.JSON_ZONE,
+                    zoneAdapter.contentValuesToJson(values));
             TypeDePokemonWebServiceClientAdapter typeDePokemonAdapter =
                     new TypeDePokemonWebServiceClientAdapter(this.context);
 
