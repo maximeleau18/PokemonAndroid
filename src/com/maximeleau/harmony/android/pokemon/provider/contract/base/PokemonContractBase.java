@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -34,7 +34,21 @@ import com.maximeleau.harmony.android.pokemon.harmony.util.DateUtils;
 public abstract class PokemonContractBase {
 
 
-        /** id. */
+        /** Combatpokemon1Internal_id. */
+    public static final String COL_COMBATPOKEMON1INTERNAL_ID =
+            "Combat_pokemon1_internal_id";
+    /** Alias. */
+    public static final String ALIASED_COL_COMBATPOKEMON1INTERNAL_ID =
+            PokemonContract.TABLE_NAME + "." + COL_COMBATPOKEMON1INTERNAL_ID;
+
+    /** Combatpokemon2Internal_id. */
+    public static final String COL_COMBATPOKEMON2INTERNAL_ID =
+            "Combat_pokemon2_internal_id";
+    /** Alias. */
+    public static final String ALIASED_COL_COMBATPOKEMON2INTERNAL_ID =
+            PokemonContract.TABLE_NAME + "." + COL_COMBATPOKEMON2INTERNAL_ID;
+
+    /** id. */
     public static final String COL_ID =
             "id";
     /** Alias. */
@@ -115,6 +129,10 @@ public abstract class PokemonContractBase {
     public static final String[] COLS = new String[] {
 
         
+        PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID,
+        
+        PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID,
+        
         PokemonContract.COL_ID,
         
         PokemonContract.COL_SURNOM,
@@ -139,6 +157,10 @@ public abstract class PokemonContractBase {
     /** Global Fields. */
     public static final String[] ALIASED_COLS = new String[] {
         
+        PokemonContract.ALIASED_COL_COMBATPOKEMON1INTERNAL_ID,
+        
+        PokemonContract.ALIASED_COL_COMBATPOKEMON2INTERNAL_ID,
+        
         PokemonContract.ALIASED_COL_ID,
         
         PokemonContract.ALIASED_COL_SURNOM,
@@ -160,6 +182,23 @@ public abstract class PokemonContractBase {
         PokemonContract.ALIASED_COL_PERSONNAGENONJOUEUR_ID
     };
 
+    /** Convert Pokemon entity to Content Values for database.
+     *
+     * @param item Pokemon entity object
+     * @param combatId combat id
+     * @param combatId combat id
+     * @return ContentValues object
+     */
+    public static ContentValues itemToContentValues(final Pokemon item,
+                final int combatpokemon1InternalId,
+                final int combatpokemon2InternalId) {
+        final ContentValues result = PokemonContract.itemToContentValues(item);
+        result.put(PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID,
+                String.valueOf(combatpokemon1InternalId));
+        result.put(PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID,
+                String.valueOf(combatpokemon2InternalId));
+        return result;
+    }
 
     /**
      * Converts a Pokemon into a content values.
@@ -171,7 +210,7 @@ public abstract class PokemonContractBase {
     public static ContentValues itemToContentValues(final Pokemon item) {
         final ContentValues result = new ContentValues();
 
-             result.put(PokemonContract.COL_ID,
+               result.put(PokemonContract.COL_ID,
                 String.valueOf(item.getId()));
 
              if (item.getSurnom() != null) {

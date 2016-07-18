@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="2.5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="2.5dp"
+    android:background="@drawable/list_item_activated_background" >
+        <TextView
+            android:id="@+id/row_combat_lancele"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/row_combat_duree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_combat_lancele" />
+        <CheckBox
+            android:id="@+id/row_combat_dresseur1vainqueur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:layout_below="@+id/row_combat_duree" />
+        <CheckBox
+            android:id="@+id/row_combat_dresseur2vainqueur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:layout_below="@+id/row_combat_dresseur1vainqueur" />
+        <CheckBox
+            android:id="@+id/row_combat_pokemon1vainqueur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:layout_below="@+id/row_combat_dresseur2vainqueur" />
+        <CheckBox
+            android:id="@+id/row_combat_pokemon2vainqueur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:enabled="false"
+            android:layout_below="@+id/row_combat_pokemon1vainqueur" />
+
+</RelativeLayout>

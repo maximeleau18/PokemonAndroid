@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.utils.base;
@@ -34,6 +34,7 @@ import com.maximeleau.harmony.android.pokemon.provider.DresseurProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PersonnageNonJoueurProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PokemonProvider;
 import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
+import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJoueurContract;
 
 /**
@@ -92,6 +93,47 @@ public abstract class DresseurProviderUtilsBase
         return result;
     }
 
+    /**
+     * Insert into DB.
+     * @param item Dresseur to insert
+     * @param combatdresseur1InternalId combatdresseur1Internal Id* @param combatdresseur2InternalId combatdresseur2Internal Id
+     * @return number of rows affected
+     */
+    public Uri insert(final Dresseur item,
+                             final int combatdresseur1InternalId,
+                             final int combatdresseur2InternalId) {
+        Uri result = null;
+        ArrayList<ContentProviderOperation> operations =
+                new ArrayList<ContentProviderOperation>();
+        ContentResolver prov = this.getContext().getContentResolver();
+
+        ContentValues itemValues = DresseurContract.itemToContentValues(item,
+                    combatdresseur1InternalId,
+                    combatdresseur2InternalId);
+        itemValues.remove(DresseurContract.COL_ID);
+
+        operations.add(ContentProviderOperation.newInsert(
+                DresseurProviderAdapter.DRESSEUR_URI)
+                    .withValues(itemValues)
+                    .build());
+
+
+
+        try {
+            ContentProviderResult[] results =
+                prov.applyBatch(PokemonProvider.authority, operations);
+            if (results[0] != null) {
+                result = results[0].uri;
+                item.setId(Integer.parseInt(result.getLastPathSegment()));
+            }
+        } catch (RemoteException e) {
+            android.util.Log.e(TAG, e.getMessage());
+        } catch (OperationApplicationException e) {
+            android.util.Log.e(TAG, e.getMessage());
+        }
+
+        return result;
+    }
 
     /**
      * Delete from DB.
@@ -209,7 +251,6 @@ public abstract class DresseurProviderUtilsBase
     /**
      * Updates the DB.
      * @param item Dresseur
-     
      * @return number of rows updated
      */
     public int update(final Dresseur item) {
@@ -217,8 +258,47 @@ public abstract class DresseurProviderUtilsBase
         ArrayList<ContentProviderOperation> operations =
                 new ArrayList<ContentProviderOperation>();
         ContentResolver prov = this.getContext().getContentResolver();
+        ContentValues itemValues = DresseurContract.itemToContentValues(item);
+
+        Uri uri = DresseurProviderAdapter.DRESSEUR_URI;
+        uri = Uri.withAppendedPath(uri, String.valueOf(item.getId()));
+
+
+        operations.add(ContentProviderOperation.newUpdate(uri)
+                .withValues(itemValues)
+                .build());
+
+
+
+        try {
+            ContentProviderResult[] results = prov.applyBatch(PokemonProvider.authority, operations);
+            result = results[0].count;
+        } catch (RemoteException e) {
+            android.util.Log.e(TAG, e.getMessage());
+        } catch (OperationApplicationException e) {
+            android.util.Log.e(TAG, e.getMessage());
+        }
+
+        return result;
+    }
+
+    /**
+     * Updates the DB.
+     * @param item Dresseur
+     * @param combatdresseur1InternalId combatdresseur1Internal Id* @param combatdresseur2InternalId combatdresseur2Internal Id
+     * @return number of rows updated
+     */
+    public int update(final Dresseur item,
+                             final int combatdresseur1InternalId,
+                             final int combatdresseur2InternalId) {
+        int result = -1;
+        ArrayList<ContentProviderOperation> operations =
+                new ArrayList<ContentProviderOperation>();
+        ContentResolver prov = this.getContext().getContentResolver();
         ContentValues itemValues = DresseurContract.itemToContentValues(
-                item);
+                item,
+                combatdresseur1InternalId,
+                combatdresseur2InternalId);
 
         Uri uri = DresseurProviderAdapter.DRESSEUR_URI;
         uri = Uri.withAppendedPath(uri, String.valueOf(item.getId()));

@@ -180,6 +180,7 @@ public class Arene  implements Serializable , Parcelable {
         this.setPosition((Position) parc.readParcelable(Position.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

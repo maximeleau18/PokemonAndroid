@@ -164,6 +164,11 @@
                 android:layout_height="wrap_content"
                 android:text="List all Attaque" />
             <Button
+                android:id="@+id/combat_list_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="List all Combat" />
+            <Button
                 android:id="@+id/typedepokemonzone_list_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

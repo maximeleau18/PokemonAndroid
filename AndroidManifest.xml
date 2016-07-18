@@ -664,6 +664,46 @@
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.combat.CombatCreateActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="INSERT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.combat.CombatEditActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="EDIT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.combat.CombatShowActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.combat.CombatListActivity"
+            android:label="@string/app_name"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Combat" />
+            </intent-filter>
+        </activity>
         <provider
             android:name="com.maximeleau.harmony.android.pokemon.provider.PokemonProvider"
             android:authorities="com.maximeleau.harmony.android.pokemon.provider"

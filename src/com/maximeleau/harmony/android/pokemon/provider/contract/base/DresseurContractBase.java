@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -29,7 +29,21 @@ import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract
 public abstract class DresseurContractBase {
 
 
-        /** id. */
+        /** Combatdresseur1Internal_id. */
+    public static final String COL_COMBATDRESSEUR1INTERNAL_ID =
+            "Combat_dresseur1_internal_id";
+    /** Alias. */
+    public static final String ALIASED_COL_COMBATDRESSEUR1INTERNAL_ID =
+            DresseurContract.TABLE_NAME + "." + COL_COMBATDRESSEUR1INTERNAL_ID;
+
+    /** Combatdresseur2Internal_id. */
+    public static final String COL_COMBATDRESSEUR2INTERNAL_ID =
+            "Combat_dresseur2_internal_id";
+    /** Alias. */
+    public static final String ALIASED_COL_COMBATDRESSEUR2INTERNAL_ID =
+            DresseurContract.TABLE_NAME + "." + COL_COMBATDRESSEUR2INTERNAL_ID;
+
+    /** id. */
     public static final String COL_ID =
             "id";
     /** Alias. */
@@ -82,6 +96,10 @@ public abstract class DresseurContractBase {
     public static final String[] COLS = new String[] {
 
         
+        DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID,
+        
+        DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID,
+        
         DresseurContract.COL_ID,
         
         DresseurContract.COL_NOM,
@@ -98,6 +116,10 @@ public abstract class DresseurContractBase {
     /** Global Fields. */
     public static final String[] ALIASED_COLS = new String[] {
         
+        DresseurContract.ALIASED_COL_COMBATDRESSEUR1INTERNAL_ID,
+        
+        DresseurContract.ALIASED_COL_COMBATDRESSEUR2INTERNAL_ID,
+        
         DresseurContract.ALIASED_COL_ID,
         
         DresseurContract.ALIASED_COL_NOM,
@@ -111,6 +133,23 @@ public abstract class DresseurContractBase {
         DresseurContract.ALIASED_COL_PERSONNAGENONJOUEUR_ID
     };
 
+    /** Convert Dresseur entity to Content Values for database.
+     *
+     * @param item Dresseur entity object
+     * @param combatId combat id
+     * @param combatId combat id
+     * @return ContentValues object
+     */
+    public static ContentValues itemToContentValues(final Dresseur item,
+                final int combatdresseur1InternalId,
+                final int combatdresseur2InternalId) {
+        final ContentValues result = DresseurContract.itemToContentValues(item);
+        result.put(DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID,
+                String.valueOf(combatdresseur1InternalId));
+        result.put(DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID,
+                String.valueOf(combatdresseur2InternalId));
+        return result;
+    }
 
     /**
      * Converts a Dresseur into a content values.
@@ -122,7 +161,7 @@ public abstract class DresseurContractBase {
     public static ContentValues itemToContentValues(final Dresseur item) {
         final ContentValues result = new ContentValues();
 
-             result.put(DresseurContract.COL_ID,
+               result.put(DresseurContract.COL_ID,
                 String.valueOf(item.getId()));
 
              if (item.getNom() != null) {

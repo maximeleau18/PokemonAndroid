@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -88,7 +88,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
             Dresseur dresseur = DresseurUtils.generateRandom(this.ctx);
 
             try {
-                ContentValues values = DresseurContract.itemToContentValues(dresseur);
+                ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
                 values.remove(DresseurContract.COL_ID);
                 result = this.provider.insert(DresseurProviderAdapter.DRESSEUR_URI, values);
 
@@ -156,7 +156,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
             try {
                 dresseur.setId(this.entity.getId());
 
-                ContentValues values = DresseurContract.itemToContentValues(dresseur);
+                ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
                 result = this.provider.update(
                     Uri.parse(DresseurProviderAdapter.DRESSEUR_URI
                         + "/"
@@ -182,7 +182,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
                 Dresseur dresseur = DresseurUtils.generateRandom(this.ctx);
     
                 try {
-                    ContentValues values = DresseurContract.itemToContentValues(dresseur);
+                    ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
                     values.remove(DresseurContract.COL_ID);
     
                     result = this.provider.update(DresseurProviderAdapter.DRESSEUR_URI, values, null, null);

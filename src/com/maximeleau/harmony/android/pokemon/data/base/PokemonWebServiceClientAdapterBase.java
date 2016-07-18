@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 
@@ -34,6 +34,7 @@ import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
 
+import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.entity.Attaque;
 import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemon;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
@@ -291,6 +292,64 @@ public abstract class PokemonWebServiceClientAdapterBase
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             result = 0;
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Pokemons associated with a Combat. Uses the route : combat/%Combat_id%/pokemon.
+     * @param pokemons : The list in which the Pokemons will be returned
+     * @param combat : The associated combat
+     * @return The number of Pokemons returned
+     */
+    public int getByCombatpokemon1Internal(List<Pokemon> pokemons, Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        combat.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Pokemons", pokemons);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                pokemons = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Pokemons associated with a Combat. Uses the route : combat/%Combat_id%/pokemon.
+     * @param pokemons : The list in which the Pokemons will be returned
+     * @param combat : The associated combat
+     * @return The number of Pokemons returned
+     */
+    public int getByCombatpokemon2Internal(List<Pokemon> pokemons, Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        combat.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Pokemons", pokemons);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                pokemons = null;
+            }
         }
 
         return result;

@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 
@@ -32,6 +32,7 @@ import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.data.RestClient.Verb;
 import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
 
+import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
 
 
@@ -275,6 +276,64 @@ public abstract class DresseurWebServiceClientAdapterBase
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             result = 0;
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Dresseurs associated with a Combat. Uses the route : combat/%Combat_id%/dresseur.
+     * @param dresseurs : The list in which the Dresseurs will be returned
+     * @param combat : The associated combat
+     * @return The number of Dresseurs returned
+     */
+    public int getByCombatdresseur1Internal(List<Dresseur> dresseurs, Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        combat.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Dresseurs", dresseurs);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                dresseurs = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Dresseurs associated with a Combat. Uses the route : combat/%Combat_id%/dresseur.
+     * @param dresseurs : The list in which the Dresseurs will be returned
+     * @param combat : The associated combat
+     * @return The number of Dresseurs returned
+     */
+    public int getByCombatdresseur2Internal(List<Dresseur> dresseurs, Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        combat.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Dresseurs", dresseurs);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                dresseurs = null;
+            }
         }
 
         return result;

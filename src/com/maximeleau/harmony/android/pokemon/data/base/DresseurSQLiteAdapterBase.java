@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -24,6 +24,7 @@ import com.maximeleau.harmony.android.pokemon.data.SQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.DresseurSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
+import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJoueurContract;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
@@ -80,6 +81,8 @@ public abstract class DresseurSQLiteAdapterBase
         return "CREATE TABLE "
         + DresseurContract.TABLE_NAME    + " ("
         
+         + DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID    + " INTEGER,"
+         + DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID    + " INTEGER,"
          + DresseurContract.COL_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
          + DresseurContract.COL_NOM    + " VARCHAR NOT NULL,"
          + DresseurContract.COL_PRENOM    + " VARCHAR NOT NULL,"
@@ -88,6 +91,12 @@ public abstract class DresseurSQLiteAdapterBase
          + DresseurContract.COL_PERSONNAGENONJOUEUR_ID    + " INTEGER NOT NULL,"
 
         
+         + "FOREIGN KEY(" + DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID + ") REFERENCES " 
+             + CombatContract.TABLE_NAME 
+                + " (" + CombatContract.COL_ID + "),"
+         + "FOREIGN KEY(" + DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID + ") REFERENCES " 
+             + CombatContract.TABLE_NAME 
+                + " (" + CombatContract.COL_ID + "),"
          + "FOREIGN KEY(" + DresseurContract.COL_PERSONNAGENONJOUEUR_ID + ") REFERENCES " 
              + PersonnageNonJoueurContract.TABLE_NAME 
                 + " (" + PersonnageNonJoueurContract.COL_ID + ")"
@@ -160,6 +169,58 @@ public abstract class DresseurSQLiteAdapterBase
     }
 
     /**
+     * Find & read Dresseur by Combatdresseur1Internal.
+     * @param combatdresseur1internalId combatdresseur1internalId
+     * @param orderBy Order by string (can be null)
+     * @return List of Dresseur entities
+     */
+     public android.database.Cursor getByCombatdresseur1Internal(final int combatdresseur1internalId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID + "= ?";
+        String idSelectionArgs = String.valueOf(combatdresseur1internalId);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
+    /**
+     * Find & read Dresseur by Combatdresseur2Internal.
+     * @param combatdresseur2internalId combatdresseur2internalId
+     * @param orderBy Order by string (can be null)
+     * @return List of Dresseur entities
+     */
+     public android.database.Cursor getByCombatdresseur2Internal(final int combatdresseur2internalId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID + "= ?";
+        String idSelectionArgs = String.valueOf(combatdresseur2internalId);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
+    /**
      * Find & read Dresseur by personnageNonJoueur.
      * @param personnagenonjoueurId personnagenonjoueurId
      * @param orderBy Order by string (can be null)
@@ -213,7 +274,7 @@ public abstract class DresseurSQLiteAdapterBase
         }
 
         final ContentValues values =
-                DresseurContract.itemToContentValues(item);
+                DresseurContract.itemToContentValues(item, 0, 0);
         values.remove(DresseurContract.COL_ID);
         int insertResult;
         if (values.size() != 0) {
@@ -264,7 +325,7 @@ public abstract class DresseurSQLiteAdapterBase
         }
 
         final ContentValues values =
-                DresseurContract.itemToContentValues(item);
+                DresseurContract.itemToContentValues(item, 0, 0);
         final String whereClause =
                  DresseurContract.COL_ID
                  + " = ?";
@@ -275,6 +336,178 @@ public abstract class DresseurSQLiteAdapterBase
                 values,
                 whereClause,
                 whereArgs);
+    }
+
+
+    /**
+     * Update a Dresseur entity into database.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return count of updated entities
+     */
+    public int updateWithCombatDresseur1(
+                    Dresseur item,
+                    int combatdresseur1InternalId) {
+        if (PokemonApplication.DEBUG) {
+            android.util.Log.d(TAG, "Update DB(" + DresseurContract.TABLE_NAME + ")");
+        }
+
+        ContentValues values =
+                DresseurContract.itemToContentValues(item);
+        values.put(
+                DresseurContract.COL_COMBATDRESSEUR1INTERNAL_ID,
+                combatdresseur1InternalId);
+        String whereClause =
+                 DresseurContract.COL_ID
+                 + "=?";
+        String[] whereArgs =
+                new String[] {String.valueOf(item.getId())};
+
+        return this.update(
+                values,
+                whereClause,
+                whereArgs);
+    }
+
+
+    /**
+     * Either insert or update a Dresseur entity into database whether.
+     * it already exists or not.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return 1 if everything went well, 0 otherwise
+     */
+    public int insertOrUpdateWithCombatDresseur1(
+            Dresseur item, int combatId) {
+        int result = 0;
+        if (this.getByID(item.getId()) != null) {
+            // Item already exists => update it
+            result = this.updateWithCombatDresseur1(item,
+                    combatId);
+        } else {
+            // Item doesn't exist => create it
+            long id = this.insertWithCombatDresseur1(item,
+                    combatId);
+            if (id != 0) {
+                result = 1;
+            }
+        }
+
+        return result;
+    }
+
+
+    /**
+     * Insert a Dresseur entity into database.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return Id of the Dresseur entity
+     */
+    public long insertWithCombatDresseur1(
+            Dresseur item, int combatId) {
+        if (PokemonApplication.DEBUG) {
+            android.util.Log.d(TAG, "Insert DB(" + DresseurContract.TABLE_NAME + ")");
+        }
+
+        ContentValues values = DresseurContract.itemToContentValues(item,
+                combatId,
+                0);
+        values.remove(DresseurContract.COL_ID);
+        int newid = (int) this.insert(
+            null,
+            values);
+
+
+        return newid;
+    }
+
+
+    /**
+     * Update a Dresseur entity into database.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return count of updated entities
+     */
+    public int updateWithCombatDresseur2(
+                    Dresseur item,
+                    int combatdresseur2InternalId) {
+        if (PokemonApplication.DEBUG) {
+            android.util.Log.d(TAG, "Update DB(" + DresseurContract.TABLE_NAME + ")");
+        }
+
+        ContentValues values =
+                DresseurContract.itemToContentValues(item);
+        values.put(
+                DresseurContract.COL_COMBATDRESSEUR2INTERNAL_ID,
+                combatdresseur2InternalId);
+        String whereClause =
+                 DresseurContract.COL_ID
+                 + "=?";
+        String[] whereArgs =
+                new String[] {String.valueOf(item.getId())};
+
+        return this.update(
+                values,
+                whereClause,
+                whereArgs);
+    }
+
+
+    /**
+     * Either insert or update a Dresseur entity into database whether.
+     * it already exists or not.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return 1 if everything went well, 0 otherwise
+     */
+    public int insertOrUpdateWithCombatDresseur2(
+            Dresseur item, int combatId) {
+        int result = 0;
+        if (this.getByID(item.getId()) != null) {
+            // Item already exists => update it
+            result = this.updateWithCombatDresseur2(item,
+                    combatId);
+        } else {
+            // Item doesn't exist => create it
+            long id = this.insertWithCombatDresseur2(item,
+                    combatId);
+            if (id != 0) {
+                result = 1;
+            }
+        }
+
+        return result;
+    }
+
+
+    /**
+     * Insert a Dresseur entity into database.
+     *
+     * @param item The Dresseur entity to persist
+     * @param combatId The combat id
+     * @return Id of the Dresseur entity
+     */
+    public long insertWithCombatDresseur2(
+            Dresseur item, int combatId) {
+        if (PokemonApplication.DEBUG) {
+            android.util.Log.d(TAG, "Insert DB(" + DresseurContract.TABLE_NAME + ")");
+        }
+
+        ContentValues values = DresseurContract.itemToContentValues(item,
+                0,
+                combatId);
+        values.remove(DresseurContract.COL_ID);
+        int newid = (int) this.insert(
+            null,
+            values);
+
+
+        return newid;
     }
 
 

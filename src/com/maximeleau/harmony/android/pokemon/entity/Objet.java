@@ -174,6 +174,7 @@ public class Objet  implements Serializable , Parcelable {
         this.setPersonnageNonJoueur((PersonnageNonJoueur) parc.readParcelable(PersonnageNonJoueur.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

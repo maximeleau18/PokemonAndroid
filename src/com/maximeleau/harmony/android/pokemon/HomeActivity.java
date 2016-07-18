@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon;
@@ -24,6 +24,7 @@ import com.maximeleau.harmony.android.pokemon.view.typeobjet.TypeObjetListActivi
 import com.maximeleau.harmony.android.pokemon.view.personnagenonjoueurbadge.PersonnageNonJoueurBadgeListActivity;
 import com.maximeleau.harmony.android.pokemon.view.profession.ProfessionListActivity;
 import com.maximeleau.harmony.android.pokemon.view.attaque.AttaqueListActivity;
+import com.maximeleau.harmony.android.pokemon.view.combat.CombatListActivity;
 import com.maximeleau.harmony.android.pokemon.view.typedepokemonzone.TypeDePokemonZoneListActivity;
 import com.maximeleau.harmony.android.pokemon.view.personnagenonjoueur.PersonnageNonJoueurListActivity;
 import com.maximeleau.harmony.android.pokemon.view.pokemon.PokemonListActivity;
@@ -83,6 +84,8 @@ public class HomeActivity extends HarmonyFragmentActivity
         this.findViewById(R.id.profession_list_button)
                         .setOnClickListener(this);
         this.findViewById(R.id.attaque_list_button)
+                        .setOnClickListener(this);
+        this.findViewById(R.id.combat_list_button)
                         .setOnClickListener(this);
         this.findViewById(R.id.typedepokemonzone_list_button)
                         .setOnClickListener(this);
@@ -159,6 +162,11 @@ public class HomeActivity extends HarmonyFragmentActivity
             case R.id.attaque_list_button:
                 intent = new Intent(this,
                         AttaqueListActivity.class);
+                break;
+
+            case R.id.combat_list_button:
+                intent = new Intent(this,
+                        CombatListActivity.class);
                 break;
 
             case R.id.typedepokemonzone_list_button:

@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.base;
@@ -41,6 +41,7 @@ import com.maximeleau.harmony.android.pokemon.provider.TypeObjetProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PersonnageNonJoueurBadgeProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.ProfessionProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.AttaqueProviderAdapter;
+import com.maximeleau.harmony.android.pokemon.provider.CombatProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.TypeDePokemonZoneProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PersonnageNonJoueurProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PokemonProviderAdapter;
@@ -123,6 +124,7 @@ public class PokemonProviderBase extends ContentProvider {
         this.providerAdapters.add(new PersonnageNonJoueurBadgeProviderAdapter(this));
         this.providerAdapters.add(new ProfessionProviderAdapter(this));
         this.providerAdapters.add(new AttaqueProviderAdapter(this));
+        this.providerAdapters.add(new CombatProviderAdapter(this));
         this.providerAdapters.add(new TypeDePokemonZoneProviderAdapter(this));
         this.providerAdapters.add(new PersonnageNonJoueurProviderAdapter(this));
         this.providerAdapters.add(new PokemonProviderAdapter(this));

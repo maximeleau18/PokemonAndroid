@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 18, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -43,6 +43,8 @@ import com.maximeleau.harmony.android.pokemon.data.ProfessionSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.ProfessionContract;
 import com.maximeleau.harmony.android.pokemon.data.AttaqueSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.AttaqueContract;
+import com.maximeleau.harmony.android.pokemon.data.CombatSQLiteAdapter;
+import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.data.TypeDePokemonZoneSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.TypeDePokemonZoneContract;
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
@@ -184,6 +186,11 @@ public class PokemonSQLiteOpenHelperBase extends SQLiteOpenHelper {
             db.execSQL(AttaqueSQLiteAdapter.getSchema());
 
             if (PokemonApplication.DEBUG) {
+                android.util.Log.d(TAG, "Creating schema : Combat");
+            }
+            db.execSQL(CombatSQLiteAdapter.getSchema());
+
+            if (PokemonApplication.DEBUG) {
                 android.util.Log.d(TAG, "Creating schema : TypeDePokemonZone");
             }
             db.execSQL(TypeDePokemonZoneSQLiteAdapter.getSchema());
@@ -249,6 +256,9 @@ public class PokemonSQLiteOpenHelperBase extends SQLiteOpenHelper {
                 null,
                 null);
         db.delete(AttaqueContract.TABLE_NAME,
+                null,
+                null);
+        db.delete(CombatContract.TABLE_NAME,
                 null,
                 null);
         db.delete(TypeDePokemonZoneContract.TABLE_NAME,

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <RelativeLayout
+            android:id="@+id/combat_data_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp" >
+            <TextView
+                android:id="@+id/combat_lancele_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/combat_lancele_label"/>
+            <TextView
+                android:id="@+id/combat_lancele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_lancele_label" />
+            <TextView
+                android:id="@+id/combat_duree_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_lancele"
+                android:text="@string/combat_duree_label"/>
+            <TextView
+                android:id="@+id/combat_duree"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_duree_label" />
+            <TextView
+                android:id="@+id/combat_pokemon1_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_duree"
+                android:text="@string/combat_pokemon1_label"/>
+            <TextView
+                android:id="@+id/combat_pokemon1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_pokemon1_label" />
+            <TextView
+                android:id="@+id/combat_pokemon2_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_pokemon1"
+                android:text="@string/combat_pokemon2_label"/>
+            <TextView
+                android:id="@+id/combat_pokemon2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_pokemon2_label" />
+            <TextView
+                android:id="@+id/combat_dresseur1_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_pokemon2"
+                android:text="@string/combat_dresseur1_label"/>
+            <TextView
+                android:id="@+id/combat_dresseur1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_dresseur1_label" />
+            <TextView
+                android:id="@+id/combat_dresseur2_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur1"
+                android:text="@string/combat_dresseur2_label"/>
+            <TextView
+                android:id="@+id/combat_dresseur2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/combat_dresseur2_label" />
+            <TextView
+                android:id="@+id/combat_dresseur1vainqueur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur2"
+                android:text="@string/combat_dresseur1vainqueur_label"/>
+            <CheckBox
+                android:id="@+id/combat_dresseur1vainqueur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur1vainqueur_label" />
+            <TextView
+                android:id="@+id/combat_dresseur2vainqueur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur1vainqueur"
+                android:text="@string/combat_dresseur2vainqueur_label"/>
+            <CheckBox
+                android:id="@+id/combat_dresseur2vainqueur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur2vainqueur_label" />
+            <TextView
+                android:id="@+id/combat_pokemon1vainqueur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_dresseur2vainqueur"
+                android:text="@string/combat_pokemon1vainqueur_label"/>
+            <CheckBox
+                android:id="@+id/combat_pokemon1vainqueur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_pokemon1vainqueur_label" />
+            <TextView
+                android:id="@+id/combat_pokemon2vainqueur_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_pokemon1vainqueur"
+                android:text="@string/combat_pokemon2vainqueur_label"/>
+            <CheckBox
+                android:id="@+id/combat_pokemon2vainqueur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/combat_pokemon2vainqueur_label" />
+        </RelativeLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/combat_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/combat_not_found" />
+</RelativeLayout>

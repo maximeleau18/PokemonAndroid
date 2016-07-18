@@ -168,6 +168,7 @@ public class Attaque  implements Serializable , Parcelable {
         this.setTypeAttaque((TypeAttaque) parc.readParcelable(TypeAttaque.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *
