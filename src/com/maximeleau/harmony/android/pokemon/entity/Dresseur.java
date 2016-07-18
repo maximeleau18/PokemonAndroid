@@ -212,6 +212,7 @@ public class Dresseur  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

@@ -89,6 +89,18 @@ public class CombatListAdapter extends HarmonyCursorAdapter<Combat> {
             TextView dureeView = (TextView) this.getView().findViewById(
                     R.id.row_combat_duree);
                     
+            TextView pokemon1View = (TextView) this.getView().findViewById(
+                    R.id.row_combat_pokemon1);
+                    
+            TextView pokemon2View = (TextView) this.getView().findViewById(
+                    R.id.row_combat_pokemon2);
+                    
+            TextView dresseur1View = (TextView) this.getView().findViewById(
+                    R.id.row_combat_dresseur1);
+                    
+            TextView dresseur2View = (TextView) this.getView().findViewById(
+                    R.id.row_combat_dresseur2);
+                    
             CheckBox dresseur1VainqueurView = (CheckBox) this.getView().findViewById(
                     R.id.row_combat_dresseur1vainqueur);
             dresseur1VainqueurView.setEnabled(false);
@@ -110,6 +122,22 @@ public class CombatListAdapter extends HarmonyCursorAdapter<Combat> {
                 lanceLeView.setText(DateUtils.formatDateTimeToString(model.getLanceLe()));
             }
             dureeView.setText(String.valueOf(model.getDuree()));
+            if (model.getPokemon1() != null) {
+                pokemon1View.setText(
+                        String.valueOf(model.getPokemon1().getId()));
+            }
+            if (model.getPokemon2() != null) {
+                pokemon2View.setText(
+                        String.valueOf(model.getPokemon2().getId()));
+            }
+            if (model.getDresseur1() != null) {
+                dresseur1View.setText(
+                        String.valueOf(model.getDresseur1().getId()));
+            }
+            if (model.getDresseur2() != null) {
+                dresseur2View.setText(
+                        String.valueOf(model.getDresseur2().getId()));
+            }
             dresseur1VainqueurView.setChecked(model.isDresseur1Vainqueur());
             dresseur2VainqueurView.setChecked(model.isDresseur2Vainqueur());
             pokemon1VainqueurView.setChecked(model.isPokemon1Vainqueur());

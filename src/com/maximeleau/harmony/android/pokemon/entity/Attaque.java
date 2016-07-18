@@ -169,6 +169,7 @@ public class Attaque  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

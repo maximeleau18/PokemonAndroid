@@ -25,8 +25,6 @@ import android.widget.TextView;
 
 import com.maximeleau.harmony.android.pokemon.R;
 import com.maximeleau.harmony.android.pokemon.entity.Combat;
-import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
-import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.harmony.util.DateUtils;
 import com.maximeleau.harmony.android.pokemon.harmony.view.DeleteDialog;
 import com.maximeleau.harmony.android.pokemon.harmony.view.HarmonyFragment;
@@ -148,32 +146,20 @@ public class CombatShowFragment
         }
         this.dureeView.setText(String.valueOf(this.model.getDuree()));
         if (this.model.getPokemon1() != null) {
-            String pokemon1Value = "";
-            for (Pokemon item : this.model.getPokemon1()) {
-                pokemon1Value += item.getId() + ",";
-            }
-            this.pokemon1View.setText(pokemon1Value);
+            this.pokemon1View.setText(
+                    String.valueOf(this.model.getPokemon1().getId()));
         }
         if (this.model.getPokemon2() != null) {
-            String pokemon2Value = "";
-            for (Pokemon item : this.model.getPokemon2()) {
-                pokemon2Value += item.getId() + ",";
-            }
-            this.pokemon2View.setText(pokemon2Value);
+            this.pokemon2View.setText(
+                    String.valueOf(this.model.getPokemon2().getId()));
         }
         if (this.model.getDresseur1() != null) {
-            String dresseur1Value = "";
-            for (Dresseur item : this.model.getDresseur1()) {
-                dresseur1Value += item.getId() + ",";
-            }
-            this.dresseur1View.setText(dresseur1Value);
+            this.dresseur1View.setText(
+                    String.valueOf(this.model.getDresseur1().getId()));
         }
         if (this.model.getDresseur2() != null) {
-            String dresseur2Value = "";
-            for (Dresseur item : this.model.getDresseur2()) {
-                dresseur2Value += item.getId() + ",";
-            }
-            this.dresseur2View.setText(dresseur2Value);
+            this.dresseur2View.setText(
+                    String.valueOf(this.model.getDresseur2().getId()));
         }
         this.dresseur1VainqueurView.setChecked(this.model.isDresseur1Vainqueur());
         this.dresseur2VainqueurView.setChecked(this.model.isDresseur2Vainqueur());
@@ -317,8 +303,11 @@ public class CombatShowFragment
     public void onPokemon1Loaded(android.database.Cursor c) {
         if (this.model != null) {
             if (c != null) {
-            this.model.setPokemon1(PokemonContract.cursorToItems(c));
-            this.loadData();
+                if (c.getCount() > 0) {
+                    c.moveToFirst();
+                    this.model.setPokemon1(PokemonContract.cursorToItem(c));
+                    this.loadData();
+                }
             } else {
                 this.model.setPokemon1(null);
                     this.loadData();
@@ -333,8 +322,11 @@ public class CombatShowFragment
     public void onPokemon2Loaded(android.database.Cursor c) {
         if (this.model != null) {
             if (c != null) {
-            this.model.setPokemon2(PokemonContract.cursorToItems(c));
-            this.loadData();
+                if (c.getCount() > 0) {
+                    c.moveToFirst();
+                    this.model.setPokemon2(PokemonContract.cursorToItem(c));
+                    this.loadData();
+                }
             } else {
                 this.model.setPokemon2(null);
                     this.loadData();
@@ -349,8 +341,11 @@ public class CombatShowFragment
     public void onDresseur1Loaded(android.database.Cursor c) {
         if (this.model != null) {
             if (c != null) {
-            this.model.setDresseur1(DresseurContract.cursorToItems(c));
-            this.loadData();
+                if (c.getCount() > 0) {
+                    c.moveToFirst();
+                    this.model.setDresseur1(DresseurContract.cursorToItem(c));
+                    this.loadData();
+                }
             } else {
                 this.model.setDresseur1(null);
                     this.loadData();
@@ -365,8 +360,11 @@ public class CombatShowFragment
     public void onDresseur2Loaded(android.database.Cursor c) {
         if (this.model != null) {
             if (c != null) {
-            this.model.setDresseur2(DresseurContract.cursorToItems(c));
-            this.loadData();
+                if (c.getCount() > 0) {
+                    c.moveToFirst();
+                    this.model.setDresseur2(DresseurContract.cursorToItem(c));
+                    this.loadData();
+                }
             } else {
                 this.model.setDresseur2(null);
                     this.loadData();

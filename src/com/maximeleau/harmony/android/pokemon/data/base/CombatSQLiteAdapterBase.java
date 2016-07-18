@@ -20,6 +20,8 @@ import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
 
+import com.google.common.base.Strings;
+import com.google.common.collect.ObjectArrays;
 import com.maximeleau.harmony.android.pokemon.data.SQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.CombatSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.PokemonSQLiteAdapter;
@@ -86,12 +88,28 @@ public abstract class CombatSQLiteAdapterBase
          + CombatContract.COL_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
          + CombatContract.COL_LANCELE    + " DATETIME NOT NULL,"
          + CombatContract.COL_DUREE    + " INTEGER,"
+         + CombatContract.COL_POKEMON1_ID    + " INTEGER NOT NULL,"
+         + CombatContract.COL_POKEMON2_ID    + " INTEGER NOT NULL,"
+         + CombatContract.COL_DRESSEUR1_ID    + " INTEGER NOT NULL,"
+         + CombatContract.COL_DRESSEUR2_ID    + " INTEGER NOT NULL,"
          + CombatContract.COL_DRESSEUR1VAINQUEUR    + " BOOLEAN NOT NULL,"
          + CombatContract.COL_DRESSEUR2VAINQUEUR    + " BOOLEAN NOT NULL,"
          + CombatContract.COL_POKEMON1VAINQUEUR    + " BOOLEAN NOT NULL,"
-         + CombatContract.COL_POKEMON2VAINQUEUR    + " BOOLEAN NOT NULL"
+         + CombatContract.COL_POKEMON2VAINQUEUR    + " BOOLEAN NOT NULL,"
 
         
+         + "FOREIGN KEY(" + CombatContract.COL_POKEMON1_ID + ") REFERENCES " 
+             + PokemonContract.TABLE_NAME 
+                + " (" + PokemonContract.COL_ID + "),"
+         + "FOREIGN KEY(" + CombatContract.COL_POKEMON2_ID + ") REFERENCES " 
+             + PokemonContract.TABLE_NAME 
+                + " (" + PokemonContract.COL_ID + "),"
+         + "FOREIGN KEY(" + CombatContract.COL_DRESSEUR1_ID + ") REFERENCES " 
+             + DresseurContract.TABLE_NAME 
+                + " (" + DresseurContract.COL_ID + "),"
+         + "FOREIGN KEY(" + CombatContract.COL_DRESSEUR2_ID + ") REFERENCES " 
+             + DresseurContract.TABLE_NAME 
+                + " (" + DresseurContract.COL_ID + ")"
         + ");"
 ;
     }
@@ -149,61 +167,145 @@ public abstract class CombatSQLiteAdapterBase
         final Combat result = this.cursorToItem(cursor);
         cursor.close();
 
-        final PokemonSQLiteAdapter pokemon1Adapter =
-                new PokemonSQLiteAdapter(this.ctx);
-        pokemon1Adapter.open(this.mDatabase);
-        android.database.Cursor pokemon1Cursor = pokemon1Adapter
-                    .getByCombatpokemon1Internal(
-                            result.getId(),
-                            PokemonContract.ALIASED_COLS,
-                            null,
-                            null,
-                            null);
-        result.setPokemon1(pokemon1Adapter.cursorToItems(pokemon1Cursor));
+        if (result.getPokemon1() != null) {
+            final PokemonSQLiteAdapter pokemon1Adapter =
+                    new PokemonSQLiteAdapter(this.ctx);
+            pokemon1Adapter.open(this.mDatabase);
 
-        pokemon1Cursor.close();
-        final PokemonSQLiteAdapter pokemon2Adapter =
-                new PokemonSQLiteAdapter(this.ctx);
-        pokemon2Adapter.open(this.mDatabase);
-        android.database.Cursor pokemon2Cursor = pokemon2Adapter
-                    .getByCombatpokemon2Internal(
-                            result.getId(),
-                            PokemonContract.ALIASED_COLS,
-                            null,
-                            null,
-                            null);
-        result.setPokemon2(pokemon2Adapter.cursorToItems(pokemon2Cursor));
+            result.setPokemon1(pokemon1Adapter.getByID(
+                            result.getPokemon1().getId()));
+        }
+        if (result.getPokemon2() != null) {
+            final PokemonSQLiteAdapter pokemon2Adapter =
+                    new PokemonSQLiteAdapter(this.ctx);
+            pokemon2Adapter.open(this.mDatabase);
 
-        pokemon2Cursor.close();
-        final DresseurSQLiteAdapter dresseur1Adapter =
-                new DresseurSQLiteAdapter(this.ctx);
-        dresseur1Adapter.open(this.mDatabase);
-        android.database.Cursor dresseur1Cursor = dresseur1Adapter
-                    .getByCombatdresseur1Internal(
-                            result.getId(),
-                            DresseurContract.ALIASED_COLS,
-                            null,
-                            null,
-                            null);
-        result.setDresseur1(dresseur1Adapter.cursorToItems(dresseur1Cursor));
+            result.setPokemon2(pokemon2Adapter.getByID(
+                            result.getPokemon2().getId()));
+        }
+        if (result.getDresseur1() != null) {
+            final DresseurSQLiteAdapter dresseur1Adapter =
+                    new DresseurSQLiteAdapter(this.ctx);
+            dresseur1Adapter.open(this.mDatabase);
 
-        dresseur1Cursor.close();
-        final DresseurSQLiteAdapter dresseur2Adapter =
-                new DresseurSQLiteAdapter(this.ctx);
-        dresseur2Adapter.open(this.mDatabase);
-        android.database.Cursor dresseur2Cursor = dresseur2Adapter
-                    .getByCombatdresseur2Internal(
-                            result.getId(),
-                            DresseurContract.ALIASED_COLS,
-                            null,
-                            null,
-                            null);
-        result.setDresseur2(dresseur2Adapter.cursorToItems(dresseur2Cursor));
+            result.setDresseur1(dresseur1Adapter.getByID(
+                            result.getDresseur1().getId()));
+        }
+        if (result.getDresseur2() != null) {
+            final DresseurSQLiteAdapter dresseur2Adapter =
+                    new DresseurSQLiteAdapter(this.ctx);
+            dresseur2Adapter.open(this.mDatabase);
 
-        dresseur2Cursor.close();
+            result.setDresseur2(dresseur2Adapter.getByID(
+                            result.getDresseur2().getId()));
+        }
         return result;
     }
 
+    /**
+     * Find & read Combat by pokemon1.
+     * @param pokemon1Id pokemon1Id
+     * @param orderBy Order by string (can be null)
+     * @return List of Combat entities
+     */
+     public android.database.Cursor getByPokemon1(final int pokemon1Id, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = CombatContract.COL_POKEMON1_ID + "= ?";
+        String idSelectionArgs = String.valueOf(pokemon1Id);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
+    /**
+     * Find & read Combat by pokemon2.
+     * @param pokemon2Id pokemon2Id
+     * @param orderBy Order by string (can be null)
+     * @return List of Combat entities
+     */
+     public android.database.Cursor getByPokemon2(final int pokemon2Id, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = CombatContract.COL_POKEMON2_ID + "= ?";
+        String idSelectionArgs = String.valueOf(pokemon2Id);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
+    /**
+     * Find & read Combat by dresseur1.
+     * @param dresseur1Id dresseur1Id
+     * @param orderBy Order by string (can be null)
+     * @return List of Combat entities
+     */
+     public android.database.Cursor getByDresseur1(final int dresseur1Id, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = CombatContract.COL_DRESSEUR1_ID + "= ?";
+        String idSelectionArgs = String.valueOf(dresseur1Id);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
+    /**
+     * Find & read Combat by dresseur2.
+     * @param dresseur2Id dresseur2Id
+     * @param orderBy Order by string (can be null)
+     * @return List of Combat entities
+     */
+     public android.database.Cursor getByDresseur2(final int dresseur2Id, String[] projection, String selection, String[] selectionArgs, String orderBy) {
+        String idSelection = CombatContract.COL_DRESSEUR2_ID + "= ?";
+        String idSelectionArgs = String.valueOf(dresseur2Id);
+        if (!Strings.isNullOrEmpty(selection)) {
+            selection += " AND " + idSelection;
+            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
+        } else {
+            selection = idSelection;
+            selectionArgs = new String[]{idSelectionArgs};
+        }
+        final android.database.Cursor cursor = this.query(
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                orderBy);
+
+        return cursor;
+     }
 
     /**
      * Read All Combats entities.
@@ -245,50 +347,6 @@ public abstract class CombatSQLiteAdapterBase
                     values);
         }
         item.setId(insertResult);
-        if (item.getPokemon1() != null) {
-            PokemonSQLiteAdapterBase pokemon1Adapter =
-                    new PokemonSQLiteAdapter(this.ctx);
-            pokemon1Adapter.open(this.mDatabase);
-            for (Pokemon pokemon
-                        : item.getPokemon1()) {
-                pokemon1Adapter.insertOrUpdateWithCombatPokemon1(
-                                    pokemon,
-                                    insertResult);
-            }
-        }
-        if (item.getPokemon2() != null) {
-            PokemonSQLiteAdapterBase pokemon2Adapter =
-                    new PokemonSQLiteAdapter(this.ctx);
-            pokemon2Adapter.open(this.mDatabase);
-            for (Pokemon pokemon
-                        : item.getPokemon2()) {
-                pokemon2Adapter.insertOrUpdateWithCombatPokemon2(
-                                    pokemon,
-                                    insertResult);
-            }
-        }
-        if (item.getDresseur1() != null) {
-            DresseurSQLiteAdapterBase dresseur1Adapter =
-                    new DresseurSQLiteAdapter(this.ctx);
-            dresseur1Adapter.open(this.mDatabase);
-            for (Dresseur dresseur
-                        : item.getDresseur1()) {
-                dresseur1Adapter.insertOrUpdateWithCombatDresseur1(
-                                    dresseur,
-                                    insertResult);
-            }
-        }
-        if (item.getDresseur2() != null) {
-            DresseurSQLiteAdapterBase dresseur2Adapter =
-                    new DresseurSQLiteAdapter(this.ctx);
-            dresseur2Adapter.open(this.mDatabase);
-            for (Dresseur dresseur
-                        : item.getDresseur2()) {
-                dresseur2Adapter.insertOrUpdateWithCombatDresseur2(
-                                    dresseur,
-                                    insertResult);
-            }
-        }
         return insertResult;
     }
 

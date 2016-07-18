@@ -18,13 +18,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_combat_lancele" />
+        <TextView
+            android:id="@+id/row_combat_pokemon1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_combat_duree" />
+        <TextView
+            android:id="@+id/row_combat_pokemon2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_combat_pokemon1" />
+        <TextView
+            android:id="@+id/row_combat_dresseur1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_combat_pokemon2" />
+        <TextView
+            android:id="@+id/row_combat_dresseur2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_combat_dresseur1" />
         <CheckBox
             android:id="@+id/row_combat_dresseur1vainqueur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="false"
             android:enabled="false"
-            android:layout_below="@+id/row_combat_duree" />
+            android:layout_below="@+id/row_combat_dresseur2" />
         <CheckBox
             android:id="@+id/row_combat_dresseur2vainqueur"
             android:layout_width="match_parent"

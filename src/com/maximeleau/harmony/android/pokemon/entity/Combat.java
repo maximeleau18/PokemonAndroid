@@ -1,11 +1,14 @@
 package com.maximeleau.harmony.android.pokemon.entity;
 
 import org.joda.time.format.ISODateTimeFormat;
+
 import android.os.Parcel;
 import android.os.Parcelable;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
+
 import org.joda.time.DateTime;
 
 import com.tactfactory.harmony.annotation.Column;
@@ -14,7 +17,7 @@ import com.tactfactory.harmony.annotation.GeneratedValue;
 import com.tactfactory.harmony.annotation.Id;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
-import com.tactfactory.harmony.annotation.OneToMany;
+import com.tactfactory.harmony.annotation.ManyToOne;
 import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
 @Rest
@@ -24,7 +27,7 @@ public class Combat  implements Serializable , Parcelable {
     /** Parent parcelable for parcellisation purposes. */
     protected List<Parcelable> parcelableParents;
 
-
+	
 	@Id
     @Column(type = Type.INTEGER, hidden = true)
     @GeneratedValue(strategy = Strategy.MODE_IDENTITY)
@@ -36,19 +39,19 @@ public class Combat  implements Serializable , Parcelable {
 	@Column(nullable = true)
 	private int duree;
 	
-	@OneToMany(targetEntity="Pokemon")
+	@ManyToOne(targetEntity="Pokemon")
 	@Column(nullable = false)
 	private Pokemon pokemon1;
 
-	@OneToMany(targetEntity="Pokemon")
+	@ManyToOne(targetEntity="Pokemon")
 	@Column(nullable = false)
 	private Pokemon pokemon2;
 	
-	@OneToMany(targetEntity="Dresseur")
+	@ManyToOne(targetEntity="Dresseur")
 	@Column(nullable = false)
 	private Dresseur dresseur1;
 
-	@OneToMany(targetEntity="Dresseur")
+	@ManyToOne(targetEntity="Dresseur")
 	@Column(nullable = false)
 	private Dresseur dresseur2;
 
@@ -63,7 +66,7 @@ public class Combat  implements Serializable , Parcelable {
 	
 	@Column(nullable = false)
 	private boolean pokemon2Vainqueur;
-	
+
 
     /**
      * Default constructor.
@@ -118,56 +121,56 @@ public class Combat  implements Serializable , Parcelable {
      * Get the Pokemon1.
      * @return the pokemon1
      */
-    public ArrayList<Pokemon> getPokemon1() {
+    public Pokemon getPokemon1() {
          return this.pokemon1;
     }
      /**
      * Set the Pokemon1.
      * @param value the pokemon1 to set
      */
-    public void setPokemon1(final ArrayList<Pokemon> value) {
+    public void setPokemon1(final Pokemon value) {
          this.pokemon1 = value;
     }
      /**
      * Get the Pokemon2.
      * @return the pokemon2
      */
-    public ArrayList<Pokemon> getPokemon2() {
+    public Pokemon getPokemon2() {
          return this.pokemon2;
     }
      /**
      * Set the Pokemon2.
      * @param value the pokemon2 to set
      */
-    public void setPokemon2(final ArrayList<Pokemon> value) {
+    public void setPokemon2(final Pokemon value) {
          this.pokemon2 = value;
     }
      /**
      * Get the Dresseur1.
      * @return the dresseur1
      */
-    public ArrayList<Dresseur> getDresseur1() {
+    public Dresseur getDresseur1() {
          return this.dresseur1;
     }
      /**
      * Set the Dresseur1.
      * @param value the dresseur1 to set
      */
-    public void setDresseur1(final ArrayList<Dresseur> value) {
+    public void setDresseur1(final Dresseur value) {
          this.dresseur1 = value;
     }
      /**
      * Get the Dresseur2.
      * @return the dresseur2
      */
-    public ArrayList<Dresseur> getDresseur2() {
+    public Dresseur getDresseur2() {
          return this.dresseur2;
     }
      /**
      * Set the Dresseur2.
      * @param value the dresseur2 to set
      */
-    public void setDresseur2(final ArrayList<Dresseur> value) {
+    public void setDresseur2(final Dresseur value) {
          this.dresseur2 = value;
     }
      /**
@@ -248,57 +251,29 @@ public class Combat  implements Serializable , Parcelable {
             dest.writeInt(0);
         }
         dest.writeInt(this.getDuree());
-
-        if (this.getPokemon1() != null) {
-            dest.writeInt(this.getPokemon1().size());
-            for (Pokemon item : this.getPokemon1()) {
-                if (!this.parcelableParents.contains(item)) {
-                    item.writeToParcel(this.parcelableParents, dest, flags);
-                } else {
-                    dest.writeParcelable(null, flags);
-                }
-            }
+        if (this.getPokemon1() != null
+                    && !this.parcelableParents.contains(this.getPokemon1())) {
+            this.getPokemon1().writeToParcel(this.parcelableParents, dest, flags);
         } else {
-            dest.writeInt(-1);
+            dest.writeParcelable(null, flags);
         }
-
-        if (this.getPokemon2() != null) {
-            dest.writeInt(this.getPokemon2().size());
-            for (Pokemon item : this.getPokemon2()) {
-                if (!this.parcelableParents.contains(item)) {
-                    item.writeToParcel(this.parcelableParents, dest, flags);
-                } else {
-                    dest.writeParcelable(null, flags);
-                }
-            }
+        if (this.getPokemon2() != null
+                    && !this.parcelableParents.contains(this.getPokemon2())) {
+            this.getPokemon2().writeToParcel(this.parcelableParents, dest, flags);
         } else {
-            dest.writeInt(-1);
+            dest.writeParcelable(null, flags);
         }
-
-        if (this.getDresseur1() != null) {
-            dest.writeInt(this.getDresseur1().size());
-            for (Dresseur item : this.getDresseur1()) {
-                if (!this.parcelableParents.contains(item)) {
-                    item.writeToParcel(this.parcelableParents, dest, flags);
-                } else {
-                    dest.writeParcelable(null, flags);
-                }
-            }
+        if (this.getDresseur1() != null
+                    && !this.parcelableParents.contains(this.getDresseur1())) {
+            this.getDresseur1().writeToParcel(this.parcelableParents, dest, flags);
         } else {
-            dest.writeInt(-1);
+            dest.writeParcelable(null, flags);
         }
-
-        if (this.getDresseur2() != null) {
-            dest.writeInt(this.getDresseur2().size());
-            for (Dresseur item : this.getDresseur2()) {
-                if (!this.parcelableParents.contains(item)) {
-                    item.writeToParcel(this.parcelableParents, dest, flags);
-                } else {
-                    dest.writeParcelable(null, flags);
-                }
-            }
+        if (this.getDresseur2() != null
+                    && !this.parcelableParents.contains(this.getDresseur2())) {
+            this.getDresseur2().writeToParcel(this.parcelableParents, dest, flags);
         } else {
-            dest.writeInt(-1);
+            dest.writeParcelable(null, flags);
         }
         if (this.isDresseur1Vainqueur()) {
             dest.writeInt(1);
@@ -338,50 +313,10 @@ public class Combat  implements Serializable , Parcelable {
                                     parc.readString()));
         }
         this.setDuree(parc.readInt());
-
-        int nbPokemon1 = parc.readInt();
-        if (nbPokemon1 > -1) {
-            ArrayList<Pokemon> items =
-                new ArrayList<Pokemon>();
-            for (int i = 0; i < nbPokemon1; i++) {
-                items.add((Pokemon) parc.readParcelable(
-                        Pokemon.class.getClassLoader()));
-            }
-            this.setPokemon1(items);
-        }
-
-        int nbPokemon2 = parc.readInt();
-        if (nbPokemon2 > -1) {
-            ArrayList<Pokemon> items =
-                new ArrayList<Pokemon>();
-            for (int i = 0; i < nbPokemon2; i++) {
-                items.add((Pokemon) parc.readParcelable(
-                        Pokemon.class.getClassLoader()));
-            }
-            this.setPokemon2(items);
-        }
-
-        int nbDresseur1 = parc.readInt();
-        if (nbDresseur1 > -1) {
-            ArrayList<Dresseur> items =
-                new ArrayList<Dresseur>();
-            for (int i = 0; i < nbDresseur1; i++) {
-                items.add((Dresseur) parc.readParcelable(
-                        Dresseur.class.getClassLoader()));
-            }
-            this.setDresseur1(items);
-        }
-
-        int nbDresseur2 = parc.readInt();
-        if (nbDresseur2 > -1) {
-            ArrayList<Dresseur> items =
-                new ArrayList<Dresseur>();
-            for (int i = 0; i < nbDresseur2; i++) {
-                items.add((Dresseur) parc.readParcelable(
-                        Dresseur.class.getClassLoader()));
-            }
-            this.setDresseur2(items);
-        }
+        this.setPokemon1((Pokemon) parc.readParcelable(Pokemon.class.getClassLoader()));
+        this.setPokemon2((Pokemon) parc.readParcelable(Pokemon.class.getClassLoader()));
+        this.setDresseur1((Dresseur) parc.readParcelable(Dresseur.class.getClassLoader()));
+        this.setDresseur2((Dresseur) parc.readParcelable(Dresseur.class.getClassLoader()));
         this.setDresseur1Vainqueur(parc.readInt() == 1);
         this.setDresseur2Vainqueur(parc.readInt() == 1);
         this.setPokemon1Vainqueur(parc.readInt() == 1);

@@ -88,7 +88,7 @@ public abstract class PokemonTestProviderBase extends TestDBBase {
             Pokemon pokemon = PokemonUtils.generateRandom(this.ctx);
 
             try {
-                ContentValues values = PokemonContract.itemToContentValues(pokemon, 0, 0);
+                ContentValues values = PokemonContract.itemToContentValues(pokemon);
                 values.remove(PokemonContract.COL_ID);
                 result = this.provider.insert(PokemonProviderAdapter.POKEMON_URI, values);
 
@@ -156,7 +156,7 @@ public abstract class PokemonTestProviderBase extends TestDBBase {
             try {
                 pokemon.setId(this.entity.getId());
 
-                ContentValues values = PokemonContract.itemToContentValues(pokemon, 0, 0);
+                ContentValues values = PokemonContract.itemToContentValues(pokemon);
                 result = this.provider.update(
                     Uri.parse(PokemonProviderAdapter.POKEMON_URI
                         + "/"
@@ -182,7 +182,7 @@ public abstract class PokemonTestProviderBase extends TestDBBase {
                 Pokemon pokemon = PokemonUtils.generateRandom(this.ctx);
     
                 try {
-                    ContentValues values = PokemonContract.itemToContentValues(pokemon, 0, 0);
+                    ContentValues values = PokemonContract.itemToContentValues(pokemon);
                     values.remove(PokemonContract.COL_ID);
     
                     result = this.provider.update(PokemonProviderAdapter.POKEMON_URI, values, null, null);

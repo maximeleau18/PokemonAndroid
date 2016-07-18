@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/combat_duree"
         android:text="@string/combat_pokemon1_label"/>
-    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/combat_pokemon1_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/combat_pokemon1_button"
         android:text="@string/combat_pokemon2_label"/>
-    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/combat_pokemon2_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/combat_pokemon2_button"
         android:text="@string/combat_dresseur1_label"/>
-    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/combat_dresseur1_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/combat_dresseur1_button"
         android:text="@string/combat_dresseur2_label"/>
-    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/combat_dresseur2_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

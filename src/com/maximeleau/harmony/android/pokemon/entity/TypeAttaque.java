@@ -105,6 +105,7 @@ public class TypeAttaque  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

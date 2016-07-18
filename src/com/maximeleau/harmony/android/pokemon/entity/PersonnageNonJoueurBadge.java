@@ -129,6 +129,7 @@ public class PersonnageNonJoueurBadge  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

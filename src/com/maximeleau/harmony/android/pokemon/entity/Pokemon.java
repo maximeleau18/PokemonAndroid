@@ -309,6 +309,7 @@ public class Pokemon  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

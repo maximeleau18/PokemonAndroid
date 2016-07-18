@@ -88,7 +88,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
             Dresseur dresseur = DresseurUtils.generateRandom(this.ctx);
 
             try {
-                ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
+                ContentValues values = DresseurContract.itemToContentValues(dresseur);
                 values.remove(DresseurContract.COL_ID);
                 result = this.provider.insert(DresseurProviderAdapter.DRESSEUR_URI, values);
 
@@ -156,7 +156,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
             try {
                 dresseur.setId(this.entity.getId());
 
-                ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
+                ContentValues values = DresseurContract.itemToContentValues(dresseur);
                 result = this.provider.update(
                     Uri.parse(DresseurProviderAdapter.DRESSEUR_URI
                         + "/"
@@ -182,7 +182,7 @@ public abstract class DresseurTestProviderBase extends TestDBBase {
                 Dresseur dresseur = DresseurUtils.generateRandom(this.ctx);
     
                 try {
-                    ContentValues values = DresseurContract.itemToContentValues(dresseur, 0, 0);
+                    ContentValues values = DresseurContract.itemToContentValues(dresseur);
                     values.remove(DresseurContract.COL_ID);
     
                     result = this.provider.update(DresseurProviderAdapter.DRESSEUR_URI, values, null, null);

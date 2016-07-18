@@ -54,6 +54,34 @@ public abstract class CombatContractBase {
     public static final String ALIASED_COL_DUREE =
             CombatContract.TABLE_NAME + "." + COL_DUREE;
 
+    /** pokemon1_id. */
+    public static final String COL_POKEMON1_ID =
+            "pokemon1_id";
+    /** Alias. */
+    public static final String ALIASED_COL_POKEMON1_ID =
+            CombatContract.TABLE_NAME + "." + COL_POKEMON1_ID;
+
+    /** pokemon2_id. */
+    public static final String COL_POKEMON2_ID =
+            "pokemon2_id";
+    /** Alias. */
+    public static final String ALIASED_COL_POKEMON2_ID =
+            CombatContract.TABLE_NAME + "." + COL_POKEMON2_ID;
+
+    /** dresseur1_id. */
+    public static final String COL_DRESSEUR1_ID =
+            "dresseur1_id";
+    /** Alias. */
+    public static final String ALIASED_COL_DRESSEUR1_ID =
+            CombatContract.TABLE_NAME + "." + COL_DRESSEUR1_ID;
+
+    /** dresseur2_id. */
+    public static final String COL_DRESSEUR2_ID =
+            "dresseur2_id";
+    /** Alias. */
+    public static final String ALIASED_COL_DRESSEUR2_ID =
+            CombatContract.TABLE_NAME + "." + COL_DRESSEUR2_ID;
+
     /** dresseur1Vainqueur. */
     public static final String COL_DRESSEUR1VAINQUEUR =
             "dresseur1Vainqueur";
@@ -99,6 +127,14 @@ public abstract class CombatContractBase {
         
         CombatContract.COL_DUREE,
         
+        CombatContract.COL_POKEMON1_ID,
+        
+        CombatContract.COL_POKEMON2_ID,
+        
+        CombatContract.COL_DRESSEUR1_ID,
+        
+        CombatContract.COL_DRESSEUR2_ID,
+        
         CombatContract.COL_DRESSEUR1VAINQUEUR,
         
         CombatContract.COL_DRESSEUR2VAINQUEUR,
@@ -117,9 +153,13 @@ public abstract class CombatContractBase {
         
         CombatContract.ALIASED_COL_DUREE,
         
+        CombatContract.ALIASED_COL_POKEMON1_ID,
         
+        CombatContract.ALIASED_COL_POKEMON2_ID,
         
+        CombatContract.ALIASED_COL_DRESSEUR1_ID,
         
+        CombatContract.ALIASED_COL_DRESSEUR2_ID,
         
         CombatContract.ALIASED_COL_DRESSEUR1VAINQUEUR,
         
@@ -152,7 +192,27 @@ public abstract class CombatContractBase {
              result.put(CombatContract.COL_DUREE,
                 String.valueOf(item.getDuree()));
 
-                 result.put(CombatContract.COL_DRESSEUR1VAINQUEUR,
+             if (item.getPokemon1() != null) {
+                result.put(CombatContract.COL_POKEMON1_ID,
+                    item.getPokemon1().getId());
+            }
+
+             if (item.getPokemon2() != null) {
+                result.put(CombatContract.COL_POKEMON2_ID,
+                    item.getPokemon2().getId());
+            }
+
+             if (item.getDresseur1() != null) {
+                result.put(CombatContract.COL_DRESSEUR1_ID,
+                    item.getDresseur1().getId());
+            }
+
+             if (item.getDresseur2() != null) {
+                result.put(CombatContract.COL_DRESSEUR2_ID,
+                    item.getDresseur2().getId());
+            }
+
+             result.put(CombatContract.COL_DRESSEUR1VAINQUEUR,
                 item.isDresseur1Vainqueur() ? 1 : 0);
 
              result.put(CombatContract.COL_DRESSEUR2VAINQUEUR,
@@ -212,6 +272,46 @@ public abstract class CombatContractBase {
             if (!cursor.isNull(index)) {
                     result.setDuree(cursor.getInt(index));
             }
+            }
+            if (result.getPokemon1() == null) {
+                final Pokemon pokemon1 = new Pokemon();
+                index = cursor.getColumnIndex(CombatContract.COL_POKEMON1_ID);
+
+                if (index > -1) {
+                    pokemon1.setId(cursor.getInt(index));
+                    result.setPokemon1(pokemon1);
+                }
+
+            }
+            if (result.getPokemon2() == null) {
+                final Pokemon pokemon2 = new Pokemon();
+                index = cursor.getColumnIndex(CombatContract.COL_POKEMON2_ID);
+
+                if (index > -1) {
+                    pokemon2.setId(cursor.getInt(index));
+                    result.setPokemon2(pokemon2);
+                }
+
+            }
+            if (result.getDresseur1() == null) {
+                final Dresseur dresseur1 = new Dresseur();
+                index = cursor.getColumnIndex(CombatContract.COL_DRESSEUR1_ID);
+
+                if (index > -1) {
+                    dresseur1.setId(cursor.getInt(index));
+                    result.setDresseur1(dresseur1);
+                }
+
+            }
+            if (result.getDresseur2() == null) {
+                final Dresseur dresseur2 = new Dresseur();
+                index = cursor.getColumnIndex(CombatContract.COL_DRESSEUR2_ID);
+
+                if (index > -1) {
+                    dresseur2.setId(cursor.getInt(index));
+                    result.setDresseur2(dresseur2);
+                }
+
             }
             index = cursor.getColumnIndex(CombatContract.COL_DRESSEUR1VAINQUEUR);
 

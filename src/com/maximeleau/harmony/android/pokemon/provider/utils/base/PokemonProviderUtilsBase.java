@@ -38,7 +38,6 @@ import com.maximeleau.harmony.android.pokemon.provider.TypeDePokemonProviderAdap
 import com.maximeleau.harmony.android.pokemon.provider.PersonnageNonJoueurProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PokemonProvider;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.AttaqueContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.TypeDePokemonContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJoueurContract;
@@ -99,47 +98,6 @@ public abstract class PokemonProviderUtilsBase
         return result;
     }
 
-    /**
-     * Insert into DB.
-     * @param item Pokemon to insert
-     * @param combatpokemon1InternalId combatpokemon1Internal Id* @param combatpokemon2InternalId combatpokemon2Internal Id
-     * @return number of rows affected
-     */
-    public Uri insert(final Pokemon item,
-                             final int combatpokemon1InternalId,
-                             final int combatpokemon2InternalId) {
-        Uri result = null;
-        ArrayList<ContentProviderOperation> operations =
-                new ArrayList<ContentProviderOperation>();
-        ContentResolver prov = this.getContext().getContentResolver();
-
-        ContentValues itemValues = PokemonContract.itemToContentValues(item,
-                    combatpokemon1InternalId,
-                    combatpokemon2InternalId);
-        itemValues.remove(PokemonContract.COL_ID);
-
-        operations.add(ContentProviderOperation.newInsert(
-                PokemonProviderAdapter.POKEMON_URI)
-                    .withValues(itemValues)
-                    .build());
-
-
-
-        try {
-            ContentProviderResult[] results =
-                prov.applyBatch(PokemonProvider.authority, operations);
-            if (results[0] != null) {
-                result = results[0].uri;
-                item.setId(Integer.parseInt(result.getLastPathSegment()));
-            }
-        } catch (RemoteException e) {
-            android.util.Log.e(TAG, e.getMessage());
-        } catch (OperationApplicationException e) {
-            android.util.Log.e(TAG, e.getMessage());
-        }
-
-        return result;
-    }
 
     /**
      * Delete from DB.
@@ -277,6 +235,7 @@ public abstract class PokemonProviderUtilsBase
     /**
      * Updates the DB.
      * @param item Pokemon
+     
      * @return number of rows updated
      */
     public int update(final Pokemon item) {
@@ -284,47 +243,8 @@ public abstract class PokemonProviderUtilsBase
         ArrayList<ContentProviderOperation> operations =
                 new ArrayList<ContentProviderOperation>();
         ContentResolver prov = this.getContext().getContentResolver();
-        ContentValues itemValues = PokemonContract.itemToContentValues(item);
-
-        Uri uri = PokemonProviderAdapter.POKEMON_URI;
-        uri = Uri.withAppendedPath(uri, String.valueOf(item.getId()));
-
-
-        operations.add(ContentProviderOperation.newUpdate(uri)
-                .withValues(itemValues)
-                .build());
-
-
-
-        try {
-            ContentProviderResult[] results = prov.applyBatch(PokemonProvider.authority, operations);
-            result = results[0].count;
-        } catch (RemoteException e) {
-            android.util.Log.e(TAG, e.getMessage());
-        } catch (OperationApplicationException e) {
-            android.util.Log.e(TAG, e.getMessage());
-        }
-
-        return result;
-    }
-
-    /**
-     * Updates the DB.
-     * @param item Pokemon
-     * @param combatpokemon1InternalId combatpokemon1Internal Id* @param combatpokemon2InternalId combatpokemon2Internal Id
-     * @return number of rows updated
-     */
-    public int update(final Pokemon item,
-                             final int combatpokemon1InternalId,
-                             final int combatpokemon2InternalId) {
-        int result = -1;
-        ArrayList<ContentProviderOperation> operations =
-                new ArrayList<ContentProviderOperation>();
-        ContentResolver prov = this.getContext().getContentResolver();
         ContentValues itemValues = PokemonContract.itemToContentValues(
-                item,
-                combatpokemon1InternalId,
-                combatpokemon2InternalId);
+                item);
 
         Uri uri = PokemonProviderAdapter.POKEMON_URI;
         uri = Uri.withAppendedPath(uri, String.valueOf(item.getId()));

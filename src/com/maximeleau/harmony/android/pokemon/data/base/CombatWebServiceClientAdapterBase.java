@@ -12,7 +12,7 @@
 package com.maximeleau.harmony.android.pokemon.data.base;
 
 import java.util.List;
-import java.util.ArrayList;
+
 
 import org.joda.time.format.DateTimeFormatter;
 import com.maximeleau.harmony.android.pokemon.harmony.util.DateUtils;
@@ -85,6 +85,10 @@ public abstract class CombatWebServiceClientAdapterBase
             CombatContract.COL_ID,
             CombatContract.COL_LANCELE,
             CombatContract.COL_DUREE,
+            CombatContract.COL_POKEMON1_ID,
+            CombatContract.COL_POKEMON2_ID,
+            CombatContract.COL_DRESSEUR1_ID,
+            CombatContract.COL_DRESSEUR2_ID,
             CombatContract.COL_DRESSEUR1VAINQUEUR,
             CombatContract.COL_DRESSEUR2VAINQUEUR,
             CombatContract.COL_POKEMON1VAINQUEUR,
@@ -294,9 +298,121 @@ public abstract class CombatWebServiceClientAdapterBase
         return result;
     }
 
+    /**
+     * Get the Combats associated with a Pokemon. Uses the route : pokemon/%Pokemon_id%/combat.
+     * @param combats : The list in which the Combats will be returned
+     * @param pokemon : The associated pokemon
+     * @return The number of Combats returned
+     */
+    public int getByPokemon1(List<Combat> combats, Pokemon pokemon) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        pokemon.getId(),
+                        REST_FORMAT),
+                    null);
 
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Combats", combats);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combats = null;
+            }
+        }
 
+        return result;
+    }
 
+    /**
+     * Get the Combats associated with a Pokemon. Uses the route : pokemon/%Pokemon_id%/combat.
+     * @param combats : The list in which the Combats will be returned
+     * @param pokemon : The associated pokemon
+     * @return The number of Combats returned
+     */
+    public int getByPokemon2(List<Combat> combats, Pokemon pokemon) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        pokemon.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Combats", combats);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combats = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Combats associated with a Dresseur. Uses the route : dresseur/%Dresseur_id%/combat.
+     * @param combats : The list in which the Combats will be returned
+     * @param dresseur : The associated dresseur
+     * @return The number of Combats returned
+     */
+    public int getByDresseur1(List<Combat> combats, Dresseur dresseur) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        dresseur.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Combats", combats);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combats = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Get the Combats associated with a Dresseur. Uses the route : dresseur/%Dresseur_id%/combat.
+     * @param combats : The list in which the Combats will be returned
+     * @param dresseur : The associated dresseur
+     * @return The number of Combats returned
+     */
+    public int getByDresseur2(List<Combat> combats, Dresseur dresseur) {
+        int result = -1;
+        String response = this.invokeRequest(
+                    Verb.GET,
+                    String.format(
+                        this.getUri() + "/%s%s",
+                        dresseur.getId(),
+                        REST_FORMAT),
+                    null);
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                result = this.extractItems(json, "Combats", combats);
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combats = null;
+            }
+        }
+
+        return result;
+    }
 
 
     /**
@@ -352,73 +468,81 @@ public abstract class CombatWebServiceClientAdapterBase
 
                 if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON1)
                         && !json.isNull(CombatWebServiceClientAdapter.JSON_POKEMON1)) {
-                    ArrayList<Pokemon> pokemon1 =
-                            new ArrayList<Pokemon>();
-                    PokemonWebServiceClientAdapter pokemon1Adapter =
-                            new PokemonWebServiceClientAdapter(this.context);
 
                     try {
-                        //.optJSONObject(CombatWebServiceClientAdapter.JSON_POKEMON1);
-                        pokemon1Adapter.extractItems(
-                                json, CombatWebServiceClientAdapter.JSON_POKEMON1,
-                                pokemon1);
-                        combat.setPokemon1(pokemon1);
-                    } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        PokemonWebServiceClientAdapter pokemon1Adapter =
+                                new PokemonWebServiceClientAdapter(this.context);
+                        Pokemon pokemon1 =
+                                new Pokemon();
+
+                        if (pokemon1Adapter.extract(
+                                json.optJSONObject(
+                                        CombatWebServiceClientAdapter.JSON_POKEMON1),
+                                        pokemon1)) {
+                            combat.setPokemon1(pokemon1);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Pokemon data");
                     }
                 }
 
                 if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON2)
                         && !json.isNull(CombatWebServiceClientAdapter.JSON_POKEMON2)) {
-                    ArrayList<Pokemon> pokemon2 =
-                            new ArrayList<Pokemon>();
-                    PokemonWebServiceClientAdapter pokemon2Adapter =
-                            new PokemonWebServiceClientAdapter(this.context);
 
                     try {
-                        //.optJSONObject(CombatWebServiceClientAdapter.JSON_POKEMON2);
-                        pokemon2Adapter.extractItems(
-                                json, CombatWebServiceClientAdapter.JSON_POKEMON2,
-                                pokemon2);
-                        combat.setPokemon2(pokemon2);
-                    } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        PokemonWebServiceClientAdapter pokemon2Adapter =
+                                new PokemonWebServiceClientAdapter(this.context);
+                        Pokemon pokemon2 =
+                                new Pokemon();
+
+                        if (pokemon2Adapter.extract(
+                                json.optJSONObject(
+                                        CombatWebServiceClientAdapter.JSON_POKEMON2),
+                                        pokemon2)) {
+                            combat.setPokemon2(pokemon2);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Pokemon data");
                     }
                 }
 
                 if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR1)
                         && !json.isNull(CombatWebServiceClientAdapter.JSON_DRESSEUR1)) {
-                    ArrayList<Dresseur> dresseur1 =
-                            new ArrayList<Dresseur>();
-                    DresseurWebServiceClientAdapter dresseur1Adapter =
-                            new DresseurWebServiceClientAdapter(this.context);
 
                     try {
-                        //.optJSONObject(CombatWebServiceClientAdapter.JSON_DRESSEUR1);
-                        dresseur1Adapter.extractItems(
-                                json, CombatWebServiceClientAdapter.JSON_DRESSEUR1,
-                                dresseur1);
-                        combat.setDresseur1(dresseur1);
-                    } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        DresseurWebServiceClientAdapter dresseur1Adapter =
+                                new DresseurWebServiceClientAdapter(this.context);
+                        Dresseur dresseur1 =
+                                new Dresseur();
+
+                        if (dresseur1Adapter.extract(
+                                json.optJSONObject(
+                                        CombatWebServiceClientAdapter.JSON_DRESSEUR1),
+                                        dresseur1)) {
+                            combat.setDresseur1(dresseur1);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Dresseur data");
                     }
                 }
 
                 if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR2)
                         && !json.isNull(CombatWebServiceClientAdapter.JSON_DRESSEUR2)) {
-                    ArrayList<Dresseur> dresseur2 =
-                            new ArrayList<Dresseur>();
-                    DresseurWebServiceClientAdapter dresseur2Adapter =
-                            new DresseurWebServiceClientAdapter(this.context);
 
                     try {
-                        //.optJSONObject(CombatWebServiceClientAdapter.JSON_DRESSEUR2);
-                        dresseur2Adapter.extractItems(
-                                json, CombatWebServiceClientAdapter.JSON_DRESSEUR2,
-                                dresseur2);
-                        combat.setDresseur2(dresseur2);
-                    } catch (JSONException e) {
-                        Log.e(TAG, e.getMessage());
+                        DresseurWebServiceClientAdapter dresseur2Adapter =
+                                new DresseurWebServiceClientAdapter(this.context);
+                        Dresseur dresseur2 =
+                                new Dresseur();
+
+                        if (dresseur2Adapter.extract(
+                                json.optJSONObject(
+                                        CombatWebServiceClientAdapter.JSON_DRESSEUR2),
+                                        dresseur2)) {
+                            combat.setDresseur2(dresseur2);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "Json doesn't contains Dresseur data");
                     }
                 }
 
@@ -459,7 +583,7 @@ public abstract class CombatWebServiceClientAdapterBase
         String id = json.optString(CombatWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[7];
+                String[] row = new String[11];
                 if (json.has(CombatWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(CombatWebServiceClientAdapter.JSON_ID);
                 }
@@ -469,17 +593,41 @@ public abstract class CombatWebServiceClientAdapterBase
                 if (json.has(CombatWebServiceClientAdapter.JSON_DUREE)) {
                     row[2] = json.getString(CombatWebServiceClientAdapter.JSON_DUREE);
                 }
+                if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON1)) {
+                    JSONObject pokemon1Json = json.getJSONObject(
+                            CombatWebServiceClientAdapter.JSON_POKEMON1);
+                    row[3] = pokemon1Json.getString(
+                            PokemonWebServiceClientAdapter.JSON_ID);
+                }
+                if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON2)) {
+                    JSONObject pokemon2Json = json.getJSONObject(
+                            CombatWebServiceClientAdapter.JSON_POKEMON2);
+                    row[4] = pokemon2Json.getString(
+                            PokemonWebServiceClientAdapter.JSON_ID);
+                }
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR1)) {
+                    JSONObject dresseur1Json = json.getJSONObject(
+                            CombatWebServiceClientAdapter.JSON_DRESSEUR1);
+                    row[5] = dresseur1Json.getString(
+                            DresseurWebServiceClientAdapter.JSON_ID);
+                }
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR2)) {
+                    JSONObject dresseur2Json = json.getJSONObject(
+                            CombatWebServiceClientAdapter.JSON_DRESSEUR2);
+                    row[6] = dresseur2Json.getString(
+                            DresseurWebServiceClientAdapter.JSON_ID);
+                }
                 if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR)) {
-                    row[3] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR);
+                    row[7] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR);
                 }
                 if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR2VAINQUEUR)) {
-                    row[4] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR2VAINQUEUR);
+                    row[8] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR2VAINQUEUR);
                 }
                 if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON1VAINQUEUR)) {
-                    row[5] = json.getString(CombatWebServiceClientAdapter.JSON_POKEMON1VAINQUEUR);
+                    row[9] = json.getString(CombatWebServiceClientAdapter.JSON_POKEMON1VAINQUEUR);
                 }
                 if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR)) {
-                    row[6] = json.getString(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR);
+                    row[10] = json.getString(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR);
                 }
 
                 cursor.addRow(row);
@@ -515,7 +663,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new PokemonWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_POKEMON1,
-                        pokemon1Adapter.itemsIdToJson(combat.getPokemon1()));
+                        pokemon1Adapter.itemIdToJson(combat.getPokemon1()));
             }
 
             if (combat.getPokemon2() != null) {
@@ -523,7 +671,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new PokemonWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_POKEMON2,
-                        pokemon2Adapter.itemsIdToJson(combat.getPokemon2()));
+                        pokemon2Adapter.itemIdToJson(combat.getPokemon2()));
             }
 
             if (combat.getDresseur1() != null) {
@@ -531,7 +679,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new DresseurWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1,
-                        dresseur1Adapter.itemsIdToJson(combat.getDresseur1()));
+                        dresseur1Adapter.itemIdToJson(combat.getDresseur1()));
             }
 
             if (combat.getDresseur2() != null) {
@@ -539,7 +687,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new DresseurWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2,
-                        dresseur2Adapter.itemsIdToJson(combat.getDresseur2()));
+                        dresseur2Adapter.itemIdToJson(combat.getDresseur2()));
             }
             params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR,
                     combat.isDresseur1Vainqueur());
@@ -590,6 +738,26 @@ public abstract class CombatWebServiceClientAdapterBase
                             CombatContract.COL_LANCELE)).toString(REST_UPDATE_DATE_FORMAT));
             params.put(CombatWebServiceClientAdapter.JSON_DUREE,
                     values.get(CombatContract.COL_DUREE));
+            PokemonWebServiceClientAdapter pokemon1Adapter =
+                    new PokemonWebServiceClientAdapter(this.context);
+
+            params.put(CombatWebServiceClientAdapter.JSON_POKEMON1,
+                    pokemon1Adapter.contentValuesToJson(values));
+            PokemonWebServiceClientAdapter pokemon2Adapter =
+                    new PokemonWebServiceClientAdapter(this.context);
+
+            params.put(CombatWebServiceClientAdapter.JSON_POKEMON2,
+                    pokemon2Adapter.contentValuesToJson(values));
+            DresseurWebServiceClientAdapter dresseur1Adapter =
+                    new DresseurWebServiceClientAdapter(this.context);
+
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1,
+                    dresseur1Adapter.contentValuesToJson(values));
+            DresseurWebServiceClientAdapter dresseur2Adapter =
+                    new DresseurWebServiceClientAdapter(this.context);
+
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2,
+                    dresseur2Adapter.contentValuesToJson(values));
             params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR,
                     values.get(CombatContract.COL_DRESSEUR1VAINQUEUR));
             params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2VAINQUEUR,

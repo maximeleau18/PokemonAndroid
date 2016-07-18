@@ -19,7 +19,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteException;
-import android.net.Uri;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -39,16 +39,13 @@ import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.harmony.view.HarmonyFragmentActivity;
 import com.maximeleau.harmony.android.pokemon.harmony.view.HarmonyFragment;
 import com.maximeleau.harmony.android.pokemon.harmony.widget.DateTimeWidget;
-import com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget;
+
+import com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget;
 import com.maximeleau.harmony.android.pokemon.menu.SaveMenuWrapper.SaveMenuInterface;
-import com.maximeleau.harmony.android.pokemon.provider.CombatProviderAdapter;
+
 import com.maximeleau.harmony.android.pokemon.provider.utils.CombatProviderUtils;
 import com.maximeleau.harmony.android.pokemon.provider.utils.PokemonProviderUtils;
 import com.maximeleau.harmony.android.pokemon.provider.utils.DresseurProviderUtils;
-import com.maximeleau.harmony.android.pokemon.data.PokemonSQLiteAdapter;
-import com.maximeleau.harmony.android.pokemon.data.PokemonSQLiteAdapter;
-import com.maximeleau.harmony.android.pokemon.data.DresseurSQLiteAdapter;
-import com.maximeleau.harmony.android.pokemon.data.DresseurSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
@@ -72,24 +69,24 @@ public class CombatEditFragment extends HarmonyFragment
     /** duree View. */
     protected EditText dureeView;
     /** The pokemon1 chooser component. */
-    protected MultiEntityWidget pokemon1Widget;
+    protected SingleEntityWidget pokemon1Widget;
     /** The pokemon1 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Pokemon>
+    protected SingleEntityWidget.EntityAdapter<Pokemon>
             pokemon1Adapter;
     /** The pokemon2 chooser component. */
-    protected MultiEntityWidget pokemon2Widget;
+    protected SingleEntityWidget pokemon2Widget;
     /** The pokemon2 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Pokemon>
+    protected SingleEntityWidget.EntityAdapter<Pokemon>
             pokemon2Adapter;
     /** The dresseur1 chooser component. */
-    protected MultiEntityWidget dresseur1Widget;
+    protected SingleEntityWidget dresseur1Widget;
     /** The dresseur1 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Dresseur>
+    protected SingleEntityWidget.EntityAdapter<Dresseur>
             dresseur1Adapter;
     /** The dresseur2 chooser component. */
-    protected MultiEntityWidget dresseur2Widget;
+    protected SingleEntityWidget dresseur2Widget;
     /** The dresseur2 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Dresseur>
+    protected SingleEntityWidget.EntityAdapter<Dresseur>
             dresseur2Adapter;
     /** dresseur1Vainqueur View. */
     protected CheckBox dresseur1VainqueurView;
@@ -110,47 +107,47 @@ public class CombatEditFragment extends HarmonyFragment
         this.dureeView = (EditText) view.findViewById(
                 R.id.combat_duree);
         this.pokemon1Adapter =
-                new MultiEntityWidget.EntityAdapter<Pokemon>() {
+                new SingleEntityWidget.EntityAdapter<Pokemon>() {
             @Override
             public String entityToString(Pokemon item) {
                 return String.valueOf(item.getId());
             }
         };
-        this.pokemon1Widget = (MultiEntityWidget) view.findViewById(
-                        R.id.combat_pokemon1_button);
+        this.pokemon1Widget =
+            (SingleEntityWidget) view.findViewById(R.id.combat_pokemon1_button);
         this.pokemon1Widget.setAdapter(this.pokemon1Adapter);
         this.pokemon1Widget.setTitle(R.string.combat_pokemon1_dialog_title);
         this.pokemon2Adapter =
-                new MultiEntityWidget.EntityAdapter<Pokemon>() {
+                new SingleEntityWidget.EntityAdapter<Pokemon>() {
             @Override
             public String entityToString(Pokemon item) {
                 return String.valueOf(item.getId());
             }
         };
-        this.pokemon2Widget = (MultiEntityWidget) view.findViewById(
-                        R.id.combat_pokemon2_button);
+        this.pokemon2Widget =
+            (SingleEntityWidget) view.findViewById(R.id.combat_pokemon2_button);
         this.pokemon2Widget.setAdapter(this.pokemon2Adapter);
         this.pokemon2Widget.setTitle(R.string.combat_pokemon2_dialog_title);
         this.dresseur1Adapter =
-                new MultiEntityWidget.EntityAdapter<Dresseur>() {
+                new SingleEntityWidget.EntityAdapter<Dresseur>() {
             @Override
             public String entityToString(Dresseur item) {
                 return String.valueOf(item.getId());
             }
         };
-        this.dresseur1Widget = (MultiEntityWidget) view.findViewById(
-                        R.id.combat_dresseur1_button);
+        this.dresseur1Widget =
+            (SingleEntityWidget) view.findViewById(R.id.combat_dresseur1_button);
         this.dresseur1Widget.setAdapter(this.dresseur1Adapter);
         this.dresseur1Widget.setTitle(R.string.combat_dresseur1_dialog_title);
         this.dresseur2Adapter =
-                new MultiEntityWidget.EntityAdapter<Dresseur>() {
+                new SingleEntityWidget.EntityAdapter<Dresseur>() {
             @Override
             public String entityToString(Dresseur item) {
                 return String.valueOf(item.getId());
             }
         };
-        this.dresseur2Widget = (MultiEntityWidget) view.findViewById(
-                        R.id.combat_dresseur2_button);
+        this.dresseur2Widget =
+            (SingleEntityWidget) view.findViewById(R.id.combat_dresseur2_button);
         this.dresseur2Widget.setAdapter(this.dresseur2Adapter);
         this.dresseur2Widget.setTitle(R.string.combat_dresseur2_dialog_title);
         this.dresseur1VainqueurView = (CheckBox) view.findViewById(
@@ -186,13 +183,13 @@ public class CombatEditFragment extends HarmonyFragment
         this.model.setDuree(Integer.parseInt(
                     this.dureeView.getEditableText().toString()));
 
-        this.model.setPokemon1(this.pokemon1Adapter.getCheckedItems());
+        this.model.setPokemon1(this.pokemon1Adapter.getSelectedItem());
 
-        this.model.setPokemon2(this.pokemon2Adapter.getCheckedItems());
+        this.model.setPokemon2(this.pokemon2Adapter.getSelectedItem());
 
-        this.model.setDresseur1(this.dresseur1Adapter.getCheckedItems());
+        this.model.setDresseur1(this.dresseur1Adapter.getSelectedItem());
 
-        this.model.setDresseur2(this.dresseur2Adapter.getCheckedItems());
+        this.model.setDresseur2(this.dresseur2Adapter.getSelectedItem());
 
         this.model.setDresseur1Vainqueur(this.dresseur1VainqueurView.isChecked());
 
@@ -214,16 +211,16 @@ public class CombatEditFragment extends HarmonyFragment
         if (this.lanceLeView.getDateTime() == null) {
             error = R.string.combat_lancele_invalid_field_error;
         }
-        if (this.pokemon1Adapter.getCheckedItems().isEmpty()) {
+        if (this.pokemon1Adapter.getSelectedItem() == null) {
             error = R.string.combat_pokemon1_invalid_field_error;
         }
-        if (this.pokemon2Adapter.getCheckedItems().isEmpty()) {
+        if (this.pokemon2Adapter.getSelectedItem() == null) {
             error = R.string.combat_pokemon2_invalid_field_error;
         }
-        if (this.dresseur1Adapter.getCheckedItems().isEmpty()) {
+        if (this.dresseur1Adapter.getSelectedItem() == null) {
             error = R.string.combat_dresseur1_invalid_field_error;
         }
-        if (this.dresseur2Adapter.getCheckedItems().isEmpty()) {
+        if (this.dresseur2Adapter.getSelectedItem() == null) {
             error = R.string.combat_dresseur2_invalid_field_error;
         }
     
@@ -350,20 +347,12 @@ public class CombatEditFragment extends HarmonyFragment
         private CombatEditFragment fragment;
         /** pokemon1 list. */
         private ArrayList<Pokemon> pokemon1List;
-    /** pokemon1 list. */
-        private ArrayList<Pokemon> associatedPokemon1List;
         /** pokemon2 list. */
         private ArrayList<Pokemon> pokemon2List;
-    /** pokemon2 list. */
-        private ArrayList<Pokemon> associatedPokemon2List;
         /** dresseur1 list. */
         private ArrayList<Dresseur> dresseur1List;
-    /** dresseur1 list. */
-        private ArrayList<Dresseur> associatedDresseur1List;
         /** dresseur2 list. */
         private ArrayList<Dresseur> dresseur2List;
-    /** dresseur2 list. */
-        private ArrayList<Dresseur> associatedDresseur2List;
 
         /**
          * Constructor of the task.
@@ -391,125 +380,21 @@ public class CombatEditFragment extends HarmonyFragment
         protected Void doInBackground(Void... params) {
             this.pokemon1List = 
                 new PokemonProviderUtils(this.ctx).queryAll();
-            Uri pokemon1Uri = CombatProviderAdapter.COMBAT_URI;
-            pokemon1Uri = Uri.withAppendedPath(pokemon1Uri, 
-                                    String.valueOf(this.fragment.model.getId()));
-            pokemon1Uri = Uri.withAppendedPath(pokemon1Uri, "pokemon1");
-            android.database.Cursor pokemon1Cursor = 
-                    this.ctx.getContentResolver().query(
-                            pokemon1Uri,
-                            new String[]{PokemonContract.ALIASED_COL_ID},
-                            null,
-                            null, 
-                            null);
-            
-            this.associatedPokemon1List = new ArrayList<Pokemon>();
-            if (pokemon1Cursor != null && pokemon1Cursor.getCount() > 0) {
-                while (pokemon1Cursor.moveToNext()) {
-                    int pokemon1Id = pokemon1Cursor.getInt(
-                            pokemon1Cursor.getColumnIndex(PokemonContract.COL_ID));
-                    for (Pokemon pokemon1 : this.pokemon1List) {
-                        if (pokemon1.getId() ==  pokemon1Id) {
-                            this.associatedPokemon1List.add(pokemon1);
-                        }
-                    }
-                }
-                pokemon1Cursor.close();
-            }
             this.pokemon2List = 
                 new PokemonProviderUtils(this.ctx).queryAll();
-            Uri pokemon2Uri = CombatProviderAdapter.COMBAT_URI;
-            pokemon2Uri = Uri.withAppendedPath(pokemon2Uri, 
-                                    String.valueOf(this.fragment.model.getId()));
-            pokemon2Uri = Uri.withAppendedPath(pokemon2Uri, "pokemon2");
-            android.database.Cursor pokemon2Cursor = 
-                    this.ctx.getContentResolver().query(
-                            pokemon2Uri,
-                            new String[]{PokemonContract.ALIASED_COL_ID},
-                            null,
-                            null, 
-                            null);
-            
-            this.associatedPokemon2List = new ArrayList<Pokemon>();
-            if (pokemon2Cursor != null && pokemon2Cursor.getCount() > 0) {
-                while (pokemon2Cursor.moveToNext()) {
-                    int pokemon2Id = pokemon2Cursor.getInt(
-                            pokemon2Cursor.getColumnIndex(PokemonContract.COL_ID));
-                    for (Pokemon pokemon2 : this.pokemon2List) {
-                        if (pokemon2.getId() ==  pokemon2Id) {
-                            this.associatedPokemon2List.add(pokemon2);
-                        }
-                    }
-                }
-                pokemon2Cursor.close();
-            }
             this.dresseur1List = 
                 new DresseurProviderUtils(this.ctx).queryAll();
-            Uri dresseur1Uri = CombatProviderAdapter.COMBAT_URI;
-            dresseur1Uri = Uri.withAppendedPath(dresseur1Uri, 
-                                    String.valueOf(this.fragment.model.getId()));
-            dresseur1Uri = Uri.withAppendedPath(dresseur1Uri, "dresseur1");
-            android.database.Cursor dresseur1Cursor = 
-                    this.ctx.getContentResolver().query(
-                            dresseur1Uri,
-                            new String[]{DresseurContract.ALIASED_COL_ID},
-                            null,
-                            null, 
-                            null);
-            
-            this.associatedDresseur1List = new ArrayList<Dresseur>();
-            if (dresseur1Cursor != null && dresseur1Cursor.getCount() > 0) {
-                while (dresseur1Cursor.moveToNext()) {
-                    int dresseur1Id = dresseur1Cursor.getInt(
-                            dresseur1Cursor.getColumnIndex(DresseurContract.COL_ID));
-                    for (Dresseur dresseur1 : this.dresseur1List) {
-                        if (dresseur1.getId() ==  dresseur1Id) {
-                            this.associatedDresseur1List.add(dresseur1);
-                        }
-                    }
-                }
-                dresseur1Cursor.close();
-            }
             this.dresseur2List = 
                 new DresseurProviderUtils(this.ctx).queryAll();
-            Uri dresseur2Uri = CombatProviderAdapter.COMBAT_URI;
-            dresseur2Uri = Uri.withAppendedPath(dresseur2Uri, 
-                                    String.valueOf(this.fragment.model.getId()));
-            dresseur2Uri = Uri.withAppendedPath(dresseur2Uri, "dresseur2");
-            android.database.Cursor dresseur2Cursor = 
-                    this.ctx.getContentResolver().query(
-                            dresseur2Uri,
-                            new String[]{DresseurContract.ALIASED_COL_ID},
-                            null,
-                            null, 
-                            null);
-            
-            this.associatedDresseur2List = new ArrayList<Dresseur>();
-            if (dresseur2Cursor != null && dresseur2Cursor.getCount() > 0) {
-                while (dresseur2Cursor.moveToNext()) {
-                    int dresseur2Id = dresseur2Cursor.getInt(
-                            dresseur2Cursor.getColumnIndex(DresseurContract.COL_ID));
-                    for (Dresseur dresseur2 : this.dresseur2List) {
-                        if (dresseur2.getId() ==  dresseur2Id) {
-                            this.associatedDresseur2List.add(dresseur2);
-                        }
-                    }
-                }
-                dresseur2Cursor.close();
-            }
             return null;
         }
 
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            this.fragment.model.setPokemon1(this.associatedPokemon1List);
             this.fragment.onPokemon1Loaded(this.pokemon1List);
-            this.fragment.model.setPokemon2(this.associatedPokemon2List);
             this.fragment.onPokemon2Loaded(this.pokemon2List);
-            this.fragment.model.setDresseur1(this.associatedDresseur1List);
             this.fragment.onDresseur1Loaded(this.dresseur1List);
-            this.fragment.model.setDresseur2(this.associatedDresseur2List);
             this.fragment.onDresseur2Loaded(this.dresseur2List);
 
             this.progress.dismiss();
@@ -530,7 +415,14 @@ public class CombatEditFragment extends HarmonyFragment
      */
     protected void onPokemon1Loaded(ArrayList<Pokemon> items) {
         this.pokemon1Adapter.loadData(items);
-        this.pokemon1Adapter.setCheckedItems(this.model.getPokemon1());
+        
+        if (this.model.getPokemon1() != null) {
+            for (Pokemon item : items) {
+                if (item.getId() == this.model.getPokemon1().getId()) {
+                    this.pokemon1Adapter.selectItem(item);
+                }
+            }
+        }
     }
     /**
      * Called when pokemon2 have been loaded.
@@ -538,7 +430,14 @@ public class CombatEditFragment extends HarmonyFragment
      */
     protected void onPokemon2Loaded(ArrayList<Pokemon> items) {
         this.pokemon2Adapter.loadData(items);
-        this.pokemon2Adapter.setCheckedItems(this.model.getPokemon2());
+        
+        if (this.model.getPokemon2() != null) {
+            for (Pokemon item : items) {
+                if (item.getId() == this.model.getPokemon2().getId()) {
+                    this.pokemon2Adapter.selectItem(item);
+                }
+            }
+        }
     }
     /**
      * Called when dresseur1 have been loaded.
@@ -546,7 +445,14 @@ public class CombatEditFragment extends HarmonyFragment
      */
     protected void onDresseur1Loaded(ArrayList<Dresseur> items) {
         this.dresseur1Adapter.loadData(items);
-        this.dresseur1Adapter.setCheckedItems(this.model.getDresseur1());
+        
+        if (this.model.getDresseur1() != null) {
+            for (Dresseur item : items) {
+                if (item.getId() == this.model.getDresseur1().getId()) {
+                    this.dresseur1Adapter.selectItem(item);
+                }
+            }
+        }
     }
     /**
      * Called when dresseur2 have been loaded.
@@ -554,6 +460,13 @@ public class CombatEditFragment extends HarmonyFragment
      */
     protected void onDresseur2Loaded(ArrayList<Dresseur> items) {
         this.dresseur2Adapter.loadData(items);
-        this.dresseur2Adapter.setCheckedItems(this.model.getDresseur2());
+        
+        if (this.model.getDresseur2() != null) {
+            for (Dresseur item : items) {
+                if (item.getId() == this.model.getDresseur2().getId()) {
+                    this.dresseur2Adapter.selectItem(item);
+                }
+            }
+        }
     }
 }

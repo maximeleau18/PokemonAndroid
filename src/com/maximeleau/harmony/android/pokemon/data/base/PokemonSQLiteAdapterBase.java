@@ -28,7 +28,6 @@ import com.maximeleau.harmony.android.pokemon.data.AttaqueSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.TypeDePokemonSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.AttaqueContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.TypeDePokemonContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJoueurContract;
@@ -89,8 +88,6 @@ public abstract class PokemonSQLiteAdapterBase
         return "CREATE TABLE "
         + PokemonContract.TABLE_NAME    + " ("
         
-         + PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID    + " INTEGER,"
-         + PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID    + " INTEGER,"
          + PokemonContract.COL_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
          + PokemonContract.COL_SURNOM    + " VARCHAR NOT NULL,"
          + PokemonContract.COL_NIVEAU    + " INTEGER NOT NULL,"
@@ -103,12 +100,6 @@ public abstract class PokemonSQLiteAdapterBase
          + PokemonContract.COL_PERSONNAGENONJOUEUR_ID    + " INTEGER,"
 
         
-         + "FOREIGN KEY(" + PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID + ") REFERENCES " 
-             + CombatContract.TABLE_NAME 
-                + " (" + CombatContract.COL_ID + "),"
-         + "FOREIGN KEY(" + PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID + ") REFERENCES " 
-             + CombatContract.TABLE_NAME 
-                + " (" + CombatContract.COL_ID + "),"
          + "FOREIGN KEY(" + PokemonContract.COL_ATTAQUE1_ID + ") REFERENCES " 
              + AttaqueContract.TABLE_NAME 
                 + " (" + AttaqueContract.COL_ID + "),"
@@ -235,58 +226,6 @@ public abstract class PokemonSQLiteAdapterBase
         return result;
     }
 
-    /**
-     * Find & read Pokemon by Combatpokemon1Internal.
-     * @param combatpokemon1internalId combatpokemon1internalId
-     * @param orderBy Order by string (can be null)
-     * @return List of Pokemon entities
-     */
-     public android.database.Cursor getByCombatpokemon1Internal(final int combatpokemon1internalId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
-        String idSelection = PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID + "= ?";
-        String idSelectionArgs = String.valueOf(combatpokemon1internalId);
-        if (!Strings.isNullOrEmpty(selection)) {
-            selection += " AND " + idSelection;
-            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
-        } else {
-            selection = idSelection;
-            selectionArgs = new String[]{idSelectionArgs};
-        }
-        final android.database.Cursor cursor = this.query(
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                orderBy);
-
-        return cursor;
-     }
-    /**
-     * Find & read Pokemon by Combatpokemon2Internal.
-     * @param combatpokemon2internalId combatpokemon2internalId
-     * @param orderBy Order by string (can be null)
-     * @return List of Pokemon entities
-     */
-     public android.database.Cursor getByCombatpokemon2Internal(final int combatpokemon2internalId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
-        String idSelection = PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID + "= ?";
-        String idSelectionArgs = String.valueOf(combatpokemon2internalId);
-        if (!Strings.isNullOrEmpty(selection)) {
-            selection += " AND " + idSelection;
-            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
-        } else {
-            selection = idSelection;
-            selectionArgs = new String[]{idSelectionArgs};
-        }
-        final android.database.Cursor cursor = this.query(
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                orderBy);
-
-        return cursor;
-     }
     /**
      * Find & read Pokemon by attaque1.
      * @param attaque1Id attaque1Id
@@ -471,7 +410,7 @@ public abstract class PokemonSQLiteAdapterBase
         }
 
         final ContentValues values =
-                PokemonContract.itemToContentValues(item, 0, 0);
+                PokemonContract.itemToContentValues(item);
         values.remove(PokemonContract.COL_ID);
         int insertResult;
         if (values.size() != 0) {
@@ -522,7 +461,7 @@ public abstract class PokemonSQLiteAdapterBase
         }
 
         final ContentValues values =
-                PokemonContract.itemToContentValues(item, 0, 0);
+                PokemonContract.itemToContentValues(item);
         final String whereClause =
                  PokemonContract.COL_ID
                  + " = ?";
@@ -533,178 +472,6 @@ public abstract class PokemonSQLiteAdapterBase
                 values,
                 whereClause,
                 whereArgs);
-    }
-
-
-    /**
-     * Update a Pokemon entity into database.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return count of updated entities
-     */
-    public int updateWithCombatPokemon1(
-                    Pokemon item,
-                    int combatpokemon1InternalId) {
-        if (PokemonApplication.DEBUG) {
-            android.util.Log.d(TAG, "Update DB(" + PokemonContract.TABLE_NAME + ")");
-        }
-
-        ContentValues values =
-                PokemonContract.itemToContentValues(item);
-        values.put(
-                PokemonContract.COL_COMBATPOKEMON1INTERNAL_ID,
-                combatpokemon1InternalId);
-        String whereClause =
-                 PokemonContract.COL_ID
-                 + "=?";
-        String[] whereArgs =
-                new String[] {String.valueOf(item.getId())};
-
-        return this.update(
-                values,
-                whereClause,
-                whereArgs);
-    }
-
-
-    /**
-     * Either insert or update a Pokemon entity into database whether.
-     * it already exists or not.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return 1 if everything went well, 0 otherwise
-     */
-    public int insertOrUpdateWithCombatPokemon1(
-            Pokemon item, int combatId) {
-        int result = 0;
-        if (this.getByID(item.getId()) != null) {
-            // Item already exists => update it
-            result = this.updateWithCombatPokemon1(item,
-                    combatId);
-        } else {
-            // Item doesn't exist => create it
-            long id = this.insertWithCombatPokemon1(item,
-                    combatId);
-            if (id != 0) {
-                result = 1;
-            }
-        }
-
-        return result;
-    }
-
-
-    /**
-     * Insert a Pokemon entity into database.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return Id of the Pokemon entity
-     */
-    public long insertWithCombatPokemon1(
-            Pokemon item, int combatId) {
-        if (PokemonApplication.DEBUG) {
-            android.util.Log.d(TAG, "Insert DB(" + PokemonContract.TABLE_NAME + ")");
-        }
-
-        ContentValues values = PokemonContract.itemToContentValues(item,
-                combatId,
-                0);
-        values.remove(PokemonContract.COL_ID);
-        int newid = (int) this.insert(
-            null,
-            values);
-
-
-        return newid;
-    }
-
-
-    /**
-     * Update a Pokemon entity into database.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return count of updated entities
-     */
-    public int updateWithCombatPokemon2(
-                    Pokemon item,
-                    int combatpokemon2InternalId) {
-        if (PokemonApplication.DEBUG) {
-            android.util.Log.d(TAG, "Update DB(" + PokemonContract.TABLE_NAME + ")");
-        }
-
-        ContentValues values =
-                PokemonContract.itemToContentValues(item);
-        values.put(
-                PokemonContract.COL_COMBATPOKEMON2INTERNAL_ID,
-                combatpokemon2InternalId);
-        String whereClause =
-                 PokemonContract.COL_ID
-                 + "=?";
-        String[] whereArgs =
-                new String[] {String.valueOf(item.getId())};
-
-        return this.update(
-                values,
-                whereClause,
-                whereArgs);
-    }
-
-
-    /**
-     * Either insert or update a Pokemon entity into database whether.
-     * it already exists or not.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return 1 if everything went well, 0 otherwise
-     */
-    public int insertOrUpdateWithCombatPokemon2(
-            Pokemon item, int combatId) {
-        int result = 0;
-        if (this.getByID(item.getId()) != null) {
-            // Item already exists => update it
-            result = this.updateWithCombatPokemon2(item,
-                    combatId);
-        } else {
-            // Item doesn't exist => create it
-            long id = this.insertWithCombatPokemon2(item,
-                    combatId);
-            if (id != 0) {
-                result = 1;
-            }
-        }
-
-        return result;
-    }
-
-
-    /**
-     * Insert a Pokemon entity into database.
-     *
-     * @param item The Pokemon entity to persist
-     * @param combatId The combat id
-     * @return Id of the Pokemon entity
-     */
-    public long insertWithCombatPokemon2(
-            Pokemon item, int combatId) {
-        if (PokemonApplication.DEBUG) {
-            android.util.Log.d(TAG, "Insert DB(" + PokemonContract.TABLE_NAME + ")");
-        }
-
-        ContentValues values = PokemonContract.itemToContentValues(item,
-                0,
-                combatId);
-        values.remove(PokemonContract.COL_ID);
-        int newid = (int) this.insert(
-            null,
-            values);
-
-
-        return newid;
     }
 
 

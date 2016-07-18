@@ -224,6 +224,7 @@ public class TypeDePokemon  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

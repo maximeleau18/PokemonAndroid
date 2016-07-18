@@ -43,34 +43,26 @@ public abstract class CombatUtilsBase {
         ArrayList<Pokemon> pokemon1s =
             new ArrayList<Pokemon>();
         pokemon1s.addAll(PokemonDataLoader.getInstance(ctx).getMap().values());
-        ArrayList<Pokemon> relatedPokemon1s = new ArrayList<Pokemon>();
         if (!pokemon1s.isEmpty()) {
-            relatedPokemon1s.add(pokemon1s.get(TestUtils.generateRandomInt(0, pokemon1s.size())));
-            combat.setPokemon1(relatedPokemon1s);
+            combat.setPokemon1(pokemon1s.get(TestUtils.generateRandomInt(0, pokemon1s.size())));
         }
         ArrayList<Pokemon> pokemon2s =
             new ArrayList<Pokemon>();
         pokemon2s.addAll(PokemonDataLoader.getInstance(ctx).getMap().values());
-        ArrayList<Pokemon> relatedPokemon2s = new ArrayList<Pokemon>();
         if (!pokemon2s.isEmpty()) {
-            relatedPokemon2s.add(pokemon2s.get(TestUtils.generateRandomInt(0, pokemon2s.size())));
-            combat.setPokemon2(relatedPokemon2s);
+            combat.setPokemon2(pokemon2s.get(TestUtils.generateRandomInt(0, pokemon2s.size())));
         }
         ArrayList<Dresseur> dresseur1s =
             new ArrayList<Dresseur>();
         dresseur1s.addAll(DresseurDataLoader.getInstance(ctx).getMap().values());
-        ArrayList<Dresseur> relatedDresseur1s = new ArrayList<Dresseur>();
         if (!dresseur1s.isEmpty()) {
-            relatedDresseur1s.add(dresseur1s.get(TestUtils.generateRandomInt(0, dresseur1s.size())));
-            combat.setDresseur1(relatedDresseur1s);
+            combat.setDresseur1(dresseur1s.get(TestUtils.generateRandomInt(0, dresseur1s.size())));
         }
         ArrayList<Dresseur> dresseur2s =
             new ArrayList<Dresseur>();
         dresseur2s.addAll(DresseurDataLoader.getInstance(ctx).getMap().values());
-        ArrayList<Dresseur> relatedDresseur2s = new ArrayList<Dresseur>();
         if (!dresseur2s.isEmpty()) {
-            relatedDresseur2s.add(dresseur2s.get(TestUtils.generateRandomInt(0, dresseur2s.size())));
-            combat.setDresseur2(relatedDresseur2s);
+            combat.setDresseur2(dresseur2s.get(TestUtils.generateRandomInt(0, dresseur2s.size())));
         }
         combat.setDresseur1Vainqueur(TestUtils.generateRandomBool());
         combat.setDresseur2Vainqueur(TestUtils.generateRandomBool());
@@ -97,86 +89,30 @@ public abstract class CombatUtilsBase {
             Assert.assertEquals(combat1.getDuree(), combat2.getDuree());
             if (combat1.getPokemon1() != null
                     && combat2.getPokemon1() != null) {
-                Assert.assertEquals(combat1.getPokemon1().size(),
-                    combat2.getPokemon1().size());
                 if (checkRecursiveId) {
-                    for (Pokemon pokemon11 : combat1.getPokemon1()) {
-                        boolean found = false;
-                        for (Pokemon pokemon12 : combat2.getPokemon1()) {
-                            if (pokemon11.getId() == pokemon12.getId()) {
-                                found = true;
-                            }
-                        }
-                        Assert.assertTrue(
-                                String.format(
-                                        "Couldn't find associated pokemon1 (id = %s) in Combat (id = %s)",
-                                        pokemon11.getId(),
-                                        combat1.getId()),
-                                found);
-                    }
+                    Assert.assertEquals(combat1.getPokemon1().getId(),
+                            combat2.getPokemon1().getId());
                 }
             }
             if (combat1.getPokemon2() != null
                     && combat2.getPokemon2() != null) {
-                Assert.assertEquals(combat1.getPokemon2().size(),
-                    combat2.getPokemon2().size());
                 if (checkRecursiveId) {
-                    for (Pokemon pokemon21 : combat1.getPokemon2()) {
-                        boolean found = false;
-                        for (Pokemon pokemon22 : combat2.getPokemon2()) {
-                            if (pokemon21.getId() == pokemon22.getId()) {
-                                found = true;
-                            }
-                        }
-                        Assert.assertTrue(
-                                String.format(
-                                        "Couldn't find associated pokemon2 (id = %s) in Combat (id = %s)",
-                                        pokemon21.getId(),
-                                        combat1.getId()),
-                                found);
-                    }
+                    Assert.assertEquals(combat1.getPokemon2().getId(),
+                            combat2.getPokemon2().getId());
                 }
             }
             if (combat1.getDresseur1() != null
                     && combat2.getDresseur1() != null) {
-                Assert.assertEquals(combat1.getDresseur1().size(),
-                    combat2.getDresseur1().size());
                 if (checkRecursiveId) {
-                    for (Dresseur dresseur11 : combat1.getDresseur1()) {
-                        boolean found = false;
-                        for (Dresseur dresseur12 : combat2.getDresseur1()) {
-                            if (dresseur11.getId() == dresseur12.getId()) {
-                                found = true;
-                            }
-                        }
-                        Assert.assertTrue(
-                                String.format(
-                                        "Couldn't find associated dresseur1 (id = %s) in Combat (id = %s)",
-                                        dresseur11.getId(),
-                                        combat1.getId()),
-                                found);
-                    }
+                    Assert.assertEquals(combat1.getDresseur1().getId(),
+                            combat2.getDresseur1().getId());
                 }
             }
             if (combat1.getDresseur2() != null
                     && combat2.getDresseur2() != null) {
-                Assert.assertEquals(combat1.getDresseur2().size(),
-                    combat2.getDresseur2().size());
                 if (checkRecursiveId) {
-                    for (Dresseur dresseur21 : combat1.getDresseur2()) {
-                        boolean found = false;
-                        for (Dresseur dresseur22 : combat2.getDresseur2()) {
-                            if (dresseur21.getId() == dresseur22.getId()) {
-                                found = true;
-                            }
-                        }
-                        Assert.assertTrue(
-                                String.format(
-                                        "Couldn't find associated dresseur2 (id = %s) in Combat (id = %s)",
-                                        dresseur21.getId(),
-                                        combat1.getId()),
-                                found);
-                    }
+                    Assert.assertEquals(combat1.getDresseur2().getId(),
+                            combat2.getDresseur2().getId());
                 }
             }
             Assert.assertEquals(combat1.isDresseur1Vainqueur(), combat2.isDresseur1Vainqueur());

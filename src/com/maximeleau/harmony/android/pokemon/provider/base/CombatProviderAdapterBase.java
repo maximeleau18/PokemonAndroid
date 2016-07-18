@@ -25,10 +25,6 @@ import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.provider.ProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PokemonProvider;
 import com.maximeleau.harmony.android.pokemon.provider.contract.CombatContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
-import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
 import com.maximeleau.harmony.android.pokemon.data.CombatSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.PokemonSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.data.DresseurSQLiteAdapter;
@@ -142,16 +138,16 @@ public abstract class CombatProviderAdapterBase
                 result = single + "combat";
                 break;
             case COMBAT_POKEMON1:
-                result = collection + "combat";
+                result = single + "combat";
                 break;
             case COMBAT_POKEMON2:
-                result = collection + "combat";
+                result = single + "combat";
                 break;
             case COMBAT_DRESSEUR1:
-                result = collection + "combat";
+                result = single + "combat";
                 break;
             case COMBAT_DRESSEUR2:
-                result = collection + "combat";
+                result = single + "combat";
                 break;
             default:
                 result = null;
@@ -228,7 +224,7 @@ public abstract class CombatProviderAdapterBase
         int matchedUri = PokemonProviderBase.getUriMatcher()
                 .match(uri);
         android.database.Cursor result = null;
-        int combatId;
+        android.database.Cursor combatCursor;
 
         switch (matchedUri) {
 
@@ -246,31 +242,67 @@ public abstract class CombatProviderAdapterBase
                 break;
 
             case COMBAT_POKEMON1:
-                combatId = Integer.parseInt(uri.getPathSegments().get(1));
-                PokemonSQLiteAdapter pokemon1Adapter = new PokemonSQLiteAdapter(this.ctx);
-                pokemon1Adapter.open(this.getDb());
-                result = pokemon1Adapter.getByCombatpokemon1Internal(combatId, PokemonContract.ALIASED_COLS, selection, selectionArgs, null);
+                combatCursor = this.queryById(
+                        uri.getPathSegments().get(1));
+
+                if (combatCursor.getCount() > 0) {
+                    combatCursor.moveToFirst();
+                    int pokemon1Id = combatCursor.getInt(
+                            combatCursor.getColumnIndex(
+                                    CombatContract.COL_POKEMON1_ID));
+
+                    PokemonSQLiteAdapter pokemonAdapter = new PokemonSQLiteAdapter(this.ctx);
+                    pokemonAdapter.open(this.getDb());
+                    result = pokemonAdapter.query(pokemon1Id);
+                }
                 break;
 
             case COMBAT_POKEMON2:
-                combatId = Integer.parseInt(uri.getPathSegments().get(1));
-                PokemonSQLiteAdapter pokemon2Adapter = new PokemonSQLiteAdapter(this.ctx);
-                pokemon2Adapter.open(this.getDb());
-                result = pokemon2Adapter.getByCombatpokemon2Internal(combatId, PokemonContract.ALIASED_COLS, selection, selectionArgs, null);
+                combatCursor = this.queryById(
+                        uri.getPathSegments().get(1));
+
+                if (combatCursor.getCount() > 0) {
+                    combatCursor.moveToFirst();
+                    int pokemon2Id = combatCursor.getInt(
+                            combatCursor.getColumnIndex(
+                                    CombatContract.COL_POKEMON2_ID));
+
+                    PokemonSQLiteAdapter pokemonAdapter = new PokemonSQLiteAdapter(this.ctx);
+                    pokemonAdapter.open(this.getDb());
+                    result = pokemonAdapter.query(pokemon2Id);
+                }
                 break;
 
             case COMBAT_DRESSEUR1:
-                combatId = Integer.parseInt(uri.getPathSegments().get(1));
-                DresseurSQLiteAdapter dresseur1Adapter = new DresseurSQLiteAdapter(this.ctx);
-                dresseur1Adapter.open(this.getDb());
-                result = dresseur1Adapter.getByCombatdresseur1Internal(combatId, DresseurContract.ALIASED_COLS, selection, selectionArgs, null);
+                combatCursor = this.queryById(
+                        uri.getPathSegments().get(1));
+
+                if (combatCursor.getCount() > 0) {
+                    combatCursor.moveToFirst();
+                    int dresseur1Id = combatCursor.getInt(
+                            combatCursor.getColumnIndex(
+                                    CombatContract.COL_DRESSEUR1_ID));
+
+                    DresseurSQLiteAdapter dresseurAdapter = new DresseurSQLiteAdapter(this.ctx);
+                    dresseurAdapter.open(this.getDb());
+                    result = dresseurAdapter.query(dresseur1Id);
+                }
                 break;
 
             case COMBAT_DRESSEUR2:
-                combatId = Integer.parseInt(uri.getPathSegments().get(1));
-                DresseurSQLiteAdapter dresseur2Adapter = new DresseurSQLiteAdapter(this.ctx);
-                dresseur2Adapter.open(this.getDb());
-                result = dresseur2Adapter.getByCombatdresseur2Internal(combatId, DresseurContract.ALIASED_COLS, selection, selectionArgs, null);
+                combatCursor = this.queryById(
+                        uri.getPathSegments().get(1));
+
+                if (combatCursor.getCount() > 0) {
+                    combatCursor.moveToFirst();
+                    int dresseur2Id = combatCursor.getInt(
+                            combatCursor.getColumnIndex(
+                                    CombatContract.COL_DRESSEUR2_ID));
+
+                    DresseurSQLiteAdapter dresseurAdapter = new DresseurSQLiteAdapter(this.ctx);
+                    dresseurAdapter.open(this.getDb());
+                    result = dresseurAdapter.query(dresseur2Id);
+                }
                 break;
 
             default:

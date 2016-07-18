@@ -36,7 +36,8 @@ import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.harmony.view.HarmonyFragmentActivity;
 import com.maximeleau.harmony.android.pokemon.harmony.view.HarmonyFragment;
 import com.maximeleau.harmony.android.pokemon.harmony.widget.DateTimeWidget;
-import com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget;
+
+import com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget;
 import com.maximeleau.harmony.android.pokemon.menu.SaveMenuWrapper.SaveMenuInterface;
 import com.maximeleau.harmony.android.pokemon.provider.utils.CombatProviderUtils;
 import com.maximeleau.harmony.android.pokemon.provider.utils.PokemonProviderUtils;
@@ -58,24 +59,24 @@ public class CombatCreateFragment extends HarmonyFragment
     /** duree View. */
     protected EditText dureeView;
     /** The pokemon1 chooser component. */
-    protected MultiEntityWidget pokemon1Widget;
+    protected SingleEntityWidget pokemon1Widget;
     /** The pokemon1 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Pokemon> 
+    protected SingleEntityWidget.EntityAdapter<Pokemon> 
                 pokemon1Adapter;
     /** The pokemon2 chooser component. */
-    protected MultiEntityWidget pokemon2Widget;
+    protected SingleEntityWidget pokemon2Widget;
     /** The pokemon2 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Pokemon> 
+    protected SingleEntityWidget.EntityAdapter<Pokemon> 
                 pokemon2Adapter;
     /** The dresseur1 chooser component. */
-    protected MultiEntityWidget dresseur1Widget;
+    protected SingleEntityWidget dresseur1Widget;
     /** The dresseur1 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Dresseur> 
+    protected SingleEntityWidget.EntityAdapter<Dresseur> 
                 dresseur1Adapter;
     /** The dresseur2 chooser component. */
-    protected MultiEntityWidget dresseur2Widget;
+    protected SingleEntityWidget dresseur2Widget;
     /** The dresseur2 Adapter. */
-    protected MultiEntityWidget.EntityAdapter<Dresseur> 
+    protected SingleEntityWidget.EntityAdapter<Dresseur> 
                 dresseur2Adapter;
     /** dresseur1Vainqueur View. */
     protected CheckBox dresseur1VainqueurView;
@@ -96,47 +97,47 @@ public class CombatCreateFragment extends HarmonyFragment
         this.dureeView =
             (EditText) view.findViewById(R.id.combat_duree);
         this.pokemon1Adapter = 
-                new MultiEntityWidget.EntityAdapter<Pokemon>() {
+                new SingleEntityWidget.EntityAdapter<Pokemon>() {
             @Override
             public String entityToString(Pokemon item) {
                 return String.valueOf(item.getId());
             }
         };
         this.pokemon1Widget =
-            (MultiEntityWidget) view.findViewById(R.id.combat_pokemon1_button);
+            (SingleEntityWidget) view.findViewById(R.id.combat_pokemon1_button);
         this.pokemon1Widget.setAdapter(this.pokemon1Adapter);
         this.pokemon1Widget.setTitle(R.string.combat_pokemon1_dialog_title);
         this.pokemon2Adapter = 
-                new MultiEntityWidget.EntityAdapter<Pokemon>() {
+                new SingleEntityWidget.EntityAdapter<Pokemon>() {
             @Override
             public String entityToString(Pokemon item) {
                 return String.valueOf(item.getId());
             }
         };
         this.pokemon2Widget =
-            (MultiEntityWidget) view.findViewById(R.id.combat_pokemon2_button);
+            (SingleEntityWidget) view.findViewById(R.id.combat_pokemon2_button);
         this.pokemon2Widget.setAdapter(this.pokemon2Adapter);
         this.pokemon2Widget.setTitle(R.string.combat_pokemon2_dialog_title);
         this.dresseur1Adapter = 
-                new MultiEntityWidget.EntityAdapter<Dresseur>() {
+                new SingleEntityWidget.EntityAdapter<Dresseur>() {
             @Override
             public String entityToString(Dresseur item) {
                 return String.valueOf(item.getId());
             }
         };
         this.dresseur1Widget =
-            (MultiEntityWidget) view.findViewById(R.id.combat_dresseur1_button);
+            (SingleEntityWidget) view.findViewById(R.id.combat_dresseur1_button);
         this.dresseur1Widget.setAdapter(this.dresseur1Adapter);
         this.dresseur1Widget.setTitle(R.string.combat_dresseur1_dialog_title);
         this.dresseur2Adapter = 
-                new MultiEntityWidget.EntityAdapter<Dresseur>() {
+                new SingleEntityWidget.EntityAdapter<Dresseur>() {
             @Override
             public String entityToString(Dresseur item) {
                 return String.valueOf(item.getId());
             }
         };
         this.dresseur2Widget =
-            (MultiEntityWidget) view.findViewById(R.id.combat_dresseur2_button);
+            (SingleEntityWidget) view.findViewById(R.id.combat_dresseur2_button);
         this.dresseur2Widget.setAdapter(this.dresseur2Adapter);
         this.dresseur2Widget.setTitle(R.string.combat_dresseur2_dialog_title);
         this.dresseur1VainqueurView =
@@ -172,13 +173,13 @@ public class CombatCreateFragment extends HarmonyFragment
         this.model.setDuree(Integer.parseInt(
                     this.dureeView.getEditableText().toString()));
 
-        this.model.setPokemon1(this.pokemon1Adapter.getCheckedItems());
+        this.model.setPokemon1(this.pokemon1Adapter.getSelectedItem());
 
-        this.model.setPokemon2(this.pokemon2Adapter.getCheckedItems());
+        this.model.setPokemon2(this.pokemon2Adapter.getSelectedItem());
 
-        this.model.setDresseur1(this.dresseur1Adapter.getCheckedItems());
+        this.model.setDresseur1(this.dresseur1Adapter.getSelectedItem());
 
-        this.model.setDresseur2(this.dresseur2Adapter.getCheckedItems());
+        this.model.setDresseur2(this.dresseur2Adapter.getSelectedItem());
 
         this.model.setDresseur1Vainqueur(this.dresseur1VainqueurView.isChecked());
 
@@ -200,16 +201,16 @@ public class CombatCreateFragment extends HarmonyFragment
         if (this.lanceLeView.getDateTime() == null) {
             error = R.string.combat_lancele_invalid_field_error;
         }
-        if (this.pokemon1Adapter.getCheckedItems().isEmpty()) {
+        if (this.pokemon1Adapter.getSelectedItem() == null) {
             error = R.string.combat_pokemon1_invalid_field_error;
         }
-        if (this.pokemon2Adapter.getCheckedItems().isEmpty()) {
+        if (this.pokemon2Adapter.getSelectedItem() == null) {
             error = R.string.combat_pokemon2_invalid_field_error;
         }
-        if (this.dresseur1Adapter.getCheckedItems().isEmpty()) {
+        if (this.dresseur1Adapter.getSelectedItem() == null) {
             error = R.string.combat_dresseur1_invalid_field_error;
         }
-        if (this.dresseur2Adapter.getCheckedItems().isEmpty()) {
+        if (this.dresseur2Adapter.getSelectedItem() == null) {
             error = R.string.combat_dresseur2_invalid_field_error;
         }
     

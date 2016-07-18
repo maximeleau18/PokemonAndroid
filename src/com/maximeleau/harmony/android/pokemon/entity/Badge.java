@@ -105,6 +105,7 @@ public class Badge  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

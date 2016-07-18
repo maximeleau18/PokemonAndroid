@@ -311,6 +311,7 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *

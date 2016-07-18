@@ -129,6 +129,7 @@ public class TypeDePokemonZone  implements Serializable , Parcelable {
     }
 
 
+
     /**
      * Parcel Constructor.
      *
