@@ -23,7 +23,7 @@ public class Zone  implements Serializable , Parcelable {
     protected List<Parcelable> parcelableParents;
 
 
-	@Id
+   	@Id
     @Column(type = Type.INTEGER, hidden = true)
     @GeneratedValue(strategy = Strategy.MODE_IDENTITY)
 	private int id;
@@ -229,8 +229,6 @@ public class Zone  implements Serializable , Parcelable {
             this.setPositions(items);
         }
     }
-
-
 
     /**
      * Parcel Constructor.

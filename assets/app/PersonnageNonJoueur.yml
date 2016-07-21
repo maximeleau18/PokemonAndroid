@@ -3,71 +3,79 @@ PersonnageNonJoueur:
       id: 1
       nom: "Pierre"
       description: "J'aime les pokémons roche !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur2:
       id: 2
       nom: "Ondine"
       description: "J'aime les pokémons eau !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur3:
       id: 3
       nom: "Major Bob"
       description: "J'aime les pokémons électrique !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur4:
       id: 4
       nom: "Érika"
       description: "J'aime les pokémons plante !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur5:
       id: 5
       nom: "Koga"
       description: "J'aime les pokémons poison !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur6:
       id: 6
       nom: "Morgane"
       description: "J'aime les pokémons psy !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur7:
       id: 7
       nom: "Auguste"
       description: "J'aime les pokémons auguste !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:
    PersonnageNonJoueur8:
       id: 8
       nom: "Giovanni"
       description: "J'aime les pokémons sol !"
+      urlImage:
       profession: Profession1
       objets:
-      dresseur:
+      dresseurs:
       arenes:
       pokemons:

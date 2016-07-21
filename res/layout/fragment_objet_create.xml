@@ -29,10 +29,22 @@
         android:inputType="number"
         android:layout_below="@+id/objet_quantite_label" />
     <TextView
-        android:id="@+id/objet_typeobjet_label"
+        android:id="@+id/objet_urlimage_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/objet_quantite"
+        android:text="@string/objet_urlimage_label"/>
+    <EditText
+        android:id="@+id/objet_urlimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/objet_urlimage_label" />
+    <TextView
+        android:id="@+id/objet_typeobjet_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/objet_urlimage"
         android:text="@string/objet_typeobjet_label"/>
     <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/objet_typeobjet_button"

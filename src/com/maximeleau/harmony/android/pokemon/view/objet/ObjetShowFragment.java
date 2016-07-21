@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.objet;
@@ -57,6 +57,8 @@ public class ObjetShowFragment
     protected TextView nomView;
     /** quantite View. */
     protected TextView quantiteView;
+    /** urlImage View. */
+    protected TextView urlImageView;
     /** typeObjet View. */
     protected TextView typeObjetView;
     /** personnageNonJoueur View. */
@@ -78,6 +80,9 @@ public class ObjetShowFragment
         this.quantiteView =
             (TextView) view.findViewById(
                     R.id.objet_quantite);
+        this.urlImageView =
+            (TextView) view.findViewById(
+                    R.id.objet_urlimage);
         this.typeObjetView =
             (TextView) view.findViewById(
                     R.id.objet_typeobjet);
@@ -105,6 +110,9 @@ public class ObjetShowFragment
             this.nomView.setText(this.model.getNom());
         }
         this.quantiteView.setText(String.valueOf(this.model.getQuantite()));
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
         if (this.model.getTypeObjet() != null) {
             this.typeObjetView.setText(
                     String.valueOf(this.model.getTypeObjet().getId()));

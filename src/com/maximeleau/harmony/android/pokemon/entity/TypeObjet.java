@@ -2,11 +2,9 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.Entity;
@@ -30,6 +28,9 @@ public class TypeObjet  implements Serializable , Parcelable {
 	
 	@Column(type = Type.STRING)
 	private String nom;
+	
+	@Column(nullable = true)
+	private String urlImage;
 	
 
     /**
@@ -67,6 +68,20 @@ public class TypeObjet  implements Serializable , Parcelable {
     public void setNom(final String value) {
          this.nom = value;
     }
+     /**
+     * Get the UrlImage.
+     * @return the urlImage
+     */
+    public String getUrlImage() {
+         return this.urlImage;
+    }
+     /**
+     * Set the UrlImage.
+     * @param value the urlImage to set
+     */
+    public void setUrlImage(final String value) {
+         this.urlImage = value;
+    }
     /**
      * This stub of code is regenerated. DO NOT MODIFY.
      * 
@@ -87,6 +102,12 @@ public class TypeObjet  implements Serializable , Parcelable {
         } else {
             dest.writeInt(0);
         }
+        if (this.getUrlImage() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getUrlImage());
+        } else {
+            dest.writeInt(0);
+        }
     }
 
     /**
@@ -102,9 +123,11 @@ public class TypeObjet  implements Serializable , Parcelable {
         if (nomBool == 1) {
             this.setNom(parc.readString());
         }
+        int urlImageBool = parc.readInt();
+        if (urlImageBool == 1) {
+            this.setUrlImage(parc.readString());
+        }
     }
-
-
 
     /**
      * Parcel Constructor.

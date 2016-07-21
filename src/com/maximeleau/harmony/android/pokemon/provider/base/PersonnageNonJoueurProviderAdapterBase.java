@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.base;
@@ -26,6 +26,7 @@ import com.maximeleau.harmony.android.pokemon.provider.ProviderAdapter;
 import com.maximeleau.harmony.android.pokemon.provider.PokemonProvider;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJoueurContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.ObjetContract;
+import com.maximeleau.harmony.android.pokemon.provider.contract.DresseurContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.AreneContract;
 import com.maximeleau.harmony.android.pokemon.provider.contract.PokemonContract;
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
@@ -64,8 +65,8 @@ public abstract class PersonnageNonJoueurProviderAdapterBase
     /** PERSONNAGENONJOUEUR_OBJETS. */
     protected static final int PERSONNAGENONJOUEUR_OBJETS =
             1023755516;
-    /** PERSONNAGENONJOUEUR_DRESSEUR. */
-    protected static final int PERSONNAGENONJOUEUR_DRESSEUR =
+    /** PERSONNAGENONJOUEUR_DRESSEURS. */
+    protected static final int PERSONNAGENONJOUEUR_DRESSEURS =
             1023755517;
     /** PERSONNAGENONJOUEUR_ARENES. */
     protected static final int PERSONNAGENONJOUEUR_ARENES =
@@ -99,8 +100,8 @@ public abstract class PersonnageNonJoueurProviderAdapterBase
                 PERSONNAGENONJOUEUR_OBJETS);
         PokemonProvider.getUriMatcher().addURI(
                 PokemonProvider.authority,
-                personnageNonJoueurType + "/#" + "/dresseur",
-                PERSONNAGENONJOUEUR_DRESSEUR);
+                personnageNonJoueurType + "/#" + "/dresseurs",
+                PERSONNAGENONJOUEUR_DRESSEURS);
         PokemonProvider.getUriMatcher().addURI(
                 PokemonProvider.authority,
                 personnageNonJoueurType + "/#" + "/arenes",
@@ -126,7 +127,7 @@ public abstract class PersonnageNonJoueurProviderAdapterBase
         this.uriIds.add(PERSONNAGENONJOUEUR_ONE);
         this.uriIds.add(PERSONNAGENONJOUEUR_PROFESSION);
         this.uriIds.add(PERSONNAGENONJOUEUR_OBJETS);
-        this.uriIds.add(PERSONNAGENONJOUEUR_DRESSEUR);
+        this.uriIds.add(PERSONNAGENONJOUEUR_DRESSEURS);
         this.uriIds.add(PERSONNAGENONJOUEUR_ARENES);
         this.uriIds.add(PERSONNAGENONJOUEUR_POKEMONS);
     }
@@ -157,8 +158,8 @@ public abstract class PersonnageNonJoueurProviderAdapterBase
             case PERSONNAGENONJOUEUR_OBJETS:
                 result = collection + "personnagenonjoueur";
                 break;
-            case PERSONNAGENONJOUEUR_DRESSEUR:
-                result = single + "personnagenonjoueur";
+            case PERSONNAGENONJOUEUR_DRESSEURS:
+                result = collection + "personnagenonjoueur";
                 break;
             case PERSONNAGENONJOUEUR_ARENES:
                 result = collection + "personnagenonjoueur";
@@ -282,20 +283,11 @@ public abstract class PersonnageNonJoueurProviderAdapterBase
                 result = objetsAdapter.getByPersonnageNonJoueur(personnagenonjoueurId, ObjetContract.ALIASED_COLS, selection, selectionArgs, null);
                 break;
 
-            case PERSONNAGENONJOUEUR_DRESSEUR:
-                personnageNonJoueurCursor = this.queryById(
-                        uri.getPathSegments().get(1));
-
-                if (personnageNonJoueurCursor.getCount() > 0) {
-                    personnageNonJoueurCursor.moveToFirst();
-                    int dresseurId = personnageNonJoueurCursor.getInt(
-                            personnageNonJoueurCursor.getColumnIndex(
-                                    PersonnageNonJoueurContract.COL_DRESSEUR_ID));
-
-                    DresseurSQLiteAdapter dresseurAdapter = new DresseurSQLiteAdapter(this.ctx);
-                    dresseurAdapter.open(this.getDb());
-                    result = dresseurAdapter.query(dresseurId);
-                }
+            case PERSONNAGENONJOUEUR_DRESSEURS:
+                personnagenonjoueurId = Integer.parseInt(uri.getPathSegments().get(1));
+                DresseurSQLiteAdapter dresseursAdapter = new DresseurSQLiteAdapter(this.ctx);
+                dresseursAdapter.open(this.getDb());
+                result = dresseursAdapter.getByPersonnageNonJoueur(personnagenonjoueurId, DresseurContract.ALIASED_COLS, selection, selectionArgs, null);
                 break;
 
             case PERSONNAGENONJOUEUR_ARENES:

@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -95,16 +95,13 @@ public abstract class PersonnageNonJoueurSQLiteAdapterBase
          + PersonnageNonJoueurContract.COL_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
          + PersonnageNonJoueurContract.COL_NOM    + " VARCHAR NOT NULL,"
          + PersonnageNonJoueurContract.COL_DESCRIPTION    + " VARCHAR NOT NULL,"
+         + PersonnageNonJoueurContract.COL_URLIMAGE    + " VARCHAR,"
          + PersonnageNonJoueurContract.COL_PROFESSION_ID    + " INTEGER NOT NULL,"
-         + PersonnageNonJoueurContract.COL_DRESSEUR_ID    + " INTEGER,"
 
         
          + "FOREIGN KEY(" + PersonnageNonJoueurContract.COL_PROFESSION_ID + ") REFERENCES " 
              + ProfessionContract.TABLE_NAME 
-                + " (" + ProfessionContract.COL_ID + "),"
-         + "FOREIGN KEY(" + PersonnageNonJoueurContract.COL_DRESSEUR_ID + ") REFERENCES " 
-             + DresseurContract.TABLE_NAME 
-                + " (" + DresseurContract.COL_ID + ")"
+                + " (" + ProfessionContract.COL_ID + ")"
         + ");"
 ;
     }
@@ -183,14 +180,19 @@ public abstract class PersonnageNonJoueurSQLiteAdapterBase
         result.setObjets(objetsAdapter.cursorToItems(objetsCursor));
 
         objetsCursor.close();
-        if (result.getDresseur() != null) {
-            final DresseurSQLiteAdapter dresseurAdapter =
-                    new DresseurSQLiteAdapter(this.ctx);
-            dresseurAdapter.open(this.mDatabase);
+        final DresseurSQLiteAdapter dresseursAdapter =
+                new DresseurSQLiteAdapter(this.ctx);
+        dresseursAdapter.open(this.mDatabase);
+        android.database.Cursor dresseursCursor = dresseursAdapter
+                    .getByPersonnageNonJoueur(
+                            result.getId(),
+                            DresseurContract.ALIASED_COLS,
+                            null,
+                            null,
+                            null);
+        result.setDresseurs(dresseursAdapter.cursorToItems(dresseursCursor));
 
-            result.setDresseur(dresseurAdapter.getByID(
-                            result.getDresseur().getId()));
-        }
+        dresseursCursor.close();
         final AreneSQLiteAdapter arenesAdapter =
                 new AreneSQLiteAdapter(this.ctx);
         arenesAdapter.open(this.mDatabase);
@@ -229,32 +231,6 @@ public abstract class PersonnageNonJoueurSQLiteAdapterBase
      public android.database.Cursor getByProfession(final int professionId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
         String idSelection = PersonnageNonJoueurContract.COL_PROFESSION_ID + "= ?";
         String idSelectionArgs = String.valueOf(professionId);
-        if (!Strings.isNullOrEmpty(selection)) {
-            selection += " AND " + idSelection;
-            selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
-        } else {
-            selection = idSelection;
-            selectionArgs = new String[]{idSelectionArgs};
-        }
-        final android.database.Cursor cursor = this.query(
-                projection,
-                selection,
-                selectionArgs,
-                null,
-                null,
-                orderBy);
-
-        return cursor;
-     }
-    /**
-     * Find & read PersonnageNonJoueur by dresseur.
-     * @param dresseurId dresseurId
-     * @param orderBy Order by string (can be null)
-     * @return List of PersonnageNonJoueur entities
-     */
-     public android.database.Cursor getByDresseur(final int dresseurId, String[] projection, String selection, String[] selectionArgs, String orderBy) {
-        String idSelection = PersonnageNonJoueurContract.COL_DRESSEUR_ID + "= ?";
-        String idSelectionArgs = String.valueOf(dresseurId);
         if (!Strings.isNullOrEmpty(selection)) {
             selection += " AND " + idSelection;
             selectionArgs = ObjectArrays.concat(selectionArgs, idSelectionArgs);
@@ -321,6 +297,16 @@ public abstract class PersonnageNonJoueurSQLiteAdapterBase
                         : item.getObjets()) {
                 objet.setPersonnageNonJoueur(item);
                 objetsAdapter.insertOrUpdate(objet);
+            }
+        }
+        if (item.getDresseurs() != null) {
+            DresseurSQLiteAdapterBase dresseursAdapter =
+                    new DresseurSQLiteAdapter(this.ctx);
+            dresseursAdapter.open(this.mDatabase);
+            for (Dresseur dresseur
+                        : item.getDresseurs()) {
+                dresseur.setPersonnageNonJoueur(item);
+                dresseursAdapter.insertOrUpdate(dresseur);
             }
         }
         if (item.getArenes() != null) {

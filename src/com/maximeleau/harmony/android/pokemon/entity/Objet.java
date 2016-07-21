@@ -2,11 +2,9 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.Entity;
@@ -34,6 +32,9 @@ public class Objet  implements Serializable , Parcelable {
 	
 	@Column(type = Type.INTEGER)
 	private int quantite;
+
+	@Column(nullable = true)
+	private String urlImage;
 	
 	@ManyToOne(targetEntity="TypeObjet")
 	@Column(nullable = false)
@@ -42,7 +43,7 @@ public class Objet  implements Serializable , Parcelable {
 	@ManyToOne(targetEntity="PersonnageNonJoueur", inversedBy="objets")
 	@Column(nullable = true)
 	private PersonnageNonJoueur personnageNonJoueur;    
-
+	
 
     /**
      * Default constructor.
@@ -94,6 +95,20 @@ public class Objet  implements Serializable , Parcelable {
          this.quantite = value;
     }
      /**
+     * Get the UrlImage.
+     * @return the urlImage
+     */
+    public String getUrlImage() {
+         return this.urlImage;
+    }
+     /**
+     * Set the UrlImage.
+     * @param value the urlImage to set
+     */
+    public void setUrlImage(final String value) {
+         this.urlImage = value;
+    }
+     /**
      * Get the TypeObjet.
      * @return the typeObjet
      */
@@ -142,6 +157,12 @@ public class Objet  implements Serializable , Parcelable {
             dest.writeInt(0);
         }
         dest.writeInt(this.getQuantite());
+        if (this.getUrlImage() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getUrlImage());
+        } else {
+            dest.writeInt(0);
+        }
         if (this.getTypeObjet() != null
                     && !this.parcelableParents.contains(this.getTypeObjet())) {
             this.getTypeObjet().writeToParcel(this.parcelableParents, dest, flags);
@@ -170,11 +191,13 @@ public class Objet  implements Serializable , Parcelable {
             this.setNom(parc.readString());
         }
         this.setQuantite(parc.readInt());
+        int urlImageBool = parc.readInt();
+        if (urlImageBool == 1) {
+            this.setUrlImage(parc.readString());
+        }
         this.setTypeObjet((TypeObjet) parc.readParcelable(TypeObjet.class.getClassLoader()));
         this.setPersonnageNonJoueur((PersonnageNonJoueur) parc.readParcelable(PersonnageNonJoueur.class.getClassLoader()));
     }
-
-
 
     /**
      * Parcel Constructor.

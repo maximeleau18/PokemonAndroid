@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -51,6 +51,13 @@ public abstract class ObjetContractBase {
     public static final String ALIASED_COL_QUANTITE =
             ObjetContract.TABLE_NAME + "." + COL_QUANTITE;
 
+    /** urlImage. */
+    public static final String COL_URLIMAGE =
+            "urlImage";
+    /** Alias. */
+    public static final String ALIASED_COL_URLIMAGE =
+            ObjetContract.TABLE_NAME + "." + COL_URLIMAGE;
+
     /** typeObjet_id. */
     public static final String COL_TYPEOBJET_ID =
             "typeObjet_id";
@@ -82,6 +89,8 @@ public abstract class ObjetContractBase {
         
         ObjetContract.COL_QUANTITE,
         
+        ObjetContract.COL_URLIMAGE,
+        
         ObjetContract.COL_TYPEOBJET_ID,
         
         ObjetContract.COL_PERSONNAGENONJOUEUR_ID
@@ -95,6 +104,8 @@ public abstract class ObjetContractBase {
         ObjetContract.ALIASED_COL_NOM,
         
         ObjetContract.ALIASED_COL_QUANTITE,
+        
+        ObjetContract.ALIASED_COL_URLIMAGE,
         
         ObjetContract.ALIASED_COL_TYPEOBJET_ID,
         
@@ -122,6 +133,13 @@ public abstract class ObjetContractBase {
 
              result.put(ObjetContract.COL_QUANTITE,
                 String.valueOf(item.getQuantite()));
+
+             if (item.getUrlImage() != null) {
+                result.put(ObjetContract.COL_URLIMAGE,
+                    item.getUrlImage());
+            } else {
+                result.put(ObjetContract.COL_URLIMAGE, (String) null);
+            }
 
              if (item.getTypeObjet() != null) {
                 result.put(ObjetContract.COL_TYPEOBJET_ID,
@@ -175,6 +193,13 @@ public abstract class ObjetContractBase {
 
             if (index > -1) {
                 result.setQuantite(cursor.getInt(index));
+            }
+            index = cursor.getColumnIndex(ObjetContract.COL_URLIMAGE);
+
+            if (index > -1) {
+            if (!cursor.isNull(index)) {
+                    result.setUrlImage(cursor.getString(index));
+            }
             }
             if (result.getTypeObjet() == null) {
                 final TypeObjet typeObjet = new TypeObjet();

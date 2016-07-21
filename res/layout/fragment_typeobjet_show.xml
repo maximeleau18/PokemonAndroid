@@ -23,6 +23,18 @@
                 android:layout_height="wrap_content"
                 android:textIsSelectable="true"
                 android:layout_below="@+id/typeobjet_nom_label" />
+            <TextView
+                android:id="@+id/typeobjet_urlimage_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/typeobjet_nom"
+                android:text="@string/typeobjet_urlimage_label"/>
+            <TextView
+                android:id="@+id/typeobjet_urlimage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                android:layout_below="@+id/typeobjet_urlimage_label" />
         </RelativeLayout>
     </ScrollView>
     <TextView

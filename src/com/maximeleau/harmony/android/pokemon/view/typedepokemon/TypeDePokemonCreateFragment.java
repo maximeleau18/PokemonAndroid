@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typedepokemon;
@@ -59,6 +59,8 @@ public class TypeDePokemonCreateFragment extends HarmonyFragment
     protected EditText pvView;
     /** numPokedex View. */
     protected EditText numPokedexView;
+    /** urlImage View. */
+    protected EditText urlImageView;
     /** The pokemons chooser component. */
     protected MultiEntityWidget pokemonsWidget;
     /** The pokemons Adapter. */
@@ -80,6 +82,8 @@ public class TypeDePokemonCreateFragment extends HarmonyFragment
             (EditText) view.findViewById(R.id.typedepokemon_pv);
         this.numPokedexView =
             (EditText) view.findViewById(R.id.typedepokemon_numpokedex);
+        this.urlImageView =
+            (EditText) view.findViewById(R.id.typedepokemon_urlimage);
         this.pokemonsAdapter = 
                 new MultiEntityWidget.EntityAdapter<Pokemon>() {
             @Override
@@ -103,6 +107,9 @@ public class TypeDePokemonCreateFragment extends HarmonyFragment
         this.defenseView.setText(String.valueOf(this.model.getDefense()));
         this.pvView.setText(String.valueOf(this.model.getPv()));
         this.numPokedexView.setText(String.valueOf(this.model.getNumPokedex()));
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
 
         new LoadTask(this).execute();
     }
@@ -123,6 +130,8 @@ public class TypeDePokemonCreateFragment extends HarmonyFragment
 
         this.model.setNumPokedex(Integer.parseInt(
                     this.numPokedexView.getEditableText().toString()));
+
+        this.model.setUrlImage(this.urlImageView.getEditableText().toString());
 
         this.model.setPokemons(this.pokemonsAdapter.getCheckedItems());
 

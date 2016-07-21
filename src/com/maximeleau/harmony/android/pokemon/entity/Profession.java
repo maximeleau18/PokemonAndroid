@@ -2,11 +2,9 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Entity;
 import com.tactfactory.harmony.annotation.GeneratedValue;
@@ -103,8 +101,6 @@ public class Profession  implements Serializable , Parcelable {
             this.setNom(parc.readString());
         }
     }
-
-
 
     /**
      * Parcel Constructor.

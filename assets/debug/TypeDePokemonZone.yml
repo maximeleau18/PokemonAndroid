@@ -1,5 +1,605 @@
 TypeDePokemonZone:
-#   TypeDePokemonZone_name:
-#      id:
-#      zone:
-#      typeDePokemon:
+   TypeDePokemonZone1:
+      id: 1
+      zone: Zone8
+      typeDePokemon: TypeDePokemon1
+   TypeDePokemonZone2:
+      id: 2
+      zone: Zone8
+      typeDePokemon: TypeDePokemon2
+   TypeDePokemonZone3:
+      id: 3
+      zone: Zone8
+      typeDePokemon: TypeDePokemon3
+   TypeDePokemonZone4:
+      id: 4
+      zone: Zone8
+      typeDePokemon: TypeDePokemon4
+   TypeDePokemonZone5:
+      id: 5
+      zone: Zone8
+      typeDePokemon: TypeDePokemon5
+   TypeDePokemonZone6:
+      id: 6
+      zone: Zone8
+      typeDePokemon: TypeDePokemon6
+   TypeDePokemonZone7:
+      id: 7
+      zone: Zone8
+      typeDePokemon: TypeDePokemon7
+   TypeDePokemonZone8:
+      id: 8
+      zone: Zone8
+      typeDePokemon: TypeDePokemon8
+   TypeDePokemonZone9:
+      id: 9
+      zone: Zone8
+      typeDePokemon: TypeDePokemon9
+   TypeDePokemonZone10:
+      id: 10
+      zone: Zone8
+      typeDePokemon: TypeDePokemon10
+   TypeDePokemonZone11:
+      id: 11
+      zone: Zone8
+      typeDePokemon: TypeDePokemon11
+   TypeDePokemonZone12:
+      id: 12
+      zone: Zone8
+      typeDePokemon: TypeDePokemon12
+   TypeDePokemonZone13:
+      id: 13
+      zone: Zone8
+      typeDePokemon: TypeDePokemon13
+   TypeDePokemonZone14:
+      id: 14
+      zone: Zone8
+      typeDePokemon: TypeDePokemon14
+   TypeDePokemonZone15:
+      id: 15
+      zone: Zone8
+      typeDePokemon: TypeDePokemon15
+   TypeDePokemonZone16:
+      id: 16
+      zone: Zone8
+      typeDePokemon: TypeDePokemon16
+   TypeDePokemonZone17:
+      id: 17
+      zone: Zone8
+      typeDePokemon: TypeDePokemon17
+   TypeDePokemonZone18:
+      id: 18
+      zone: Zone8
+      typeDePokemon: TypeDePokemon18
+   TypeDePokemonZone19:
+      id: 19
+      zone: Zone8
+      typeDePokemon: TypeDePokemon19
+   TypeDePokemonZone20:
+      id: 20
+      zone: Zone7
+      typeDePokemon: TypeDePokemon20
+   TypeDePokemonZone21:
+      id: 21
+      zone: Zone7
+      typeDePokemon: TypeDePokemon21
+   TypeDePokemonZone22:
+      id: 22
+      zone: Zone7
+      typeDePokemon: TypeDePokemon22
+   TypeDePokemonZone23:
+      id: 23
+      zone: Zone7
+      typeDePokemon: TypeDePokemon23
+   TypeDePokemonZone24:
+      id: 24
+      zone: Zone7
+      typeDePokemon: TypeDePokemon24
+   TypeDePokemonZone25:
+      id: 25
+      zone: Zone7
+      typeDePokemon: TypeDePokemon25
+   TypeDePokemonZone26:
+      id: 26
+      zone: Zone7
+      typeDePokemon: TypeDePokemon26
+   TypeDePokemonZone27:
+      id: 27
+      zone: Zone7
+      typeDePokemon: TypeDePokemon27
+   TypeDePokemonZone28:
+      id: 28
+      zone: Zone7
+      typeDePokemon: TypeDePokemon28
+   TypeDePokemonZone29:
+      id: 29
+      zone: Zone7
+      typeDePokemon: TypeDePokemon29
+   TypeDePokemonZone30:
+      id: 30
+      zone: Zone7
+      typeDePokemon: TypeDePokemon30
+   TypeDePokemonZone31:
+      id: 31
+      zone: Zone7
+      typeDePokemon: TypeDePokemon31
+   TypeDePokemonZone32:
+      id: 32
+      zone: Zone7
+      typeDePokemon: TypeDePokemon32
+   TypeDePokemonZone33:
+      id: 33
+      zone: Zone7
+      typeDePokemon: TypeDePokemon33
+   TypeDePokemonZone34:
+      id: 34
+      zone: Zone7
+      typeDePokemon: TypeDePokemon34
+   TypeDePokemonZone35:
+      id: 35
+      zone: Zone7
+      typeDePokemon: TypeDePokemon35
+   TypeDePokemonZone36:
+      id: 36
+      zone: Zone7
+      typeDePokemon: TypeDePokemon36
+   TypeDePokemonZone37:
+      id: 37
+      zone: Zone7
+      typeDePokemon: TypeDePokemon37
+   TypeDePokemonZone38:
+      id: 38
+      zone: Zone7
+      typeDePokemon: TypeDePokemon38
+   TypeDePokemonZone39:
+      id: 39
+      zone: Zone6
+      typeDePokemon: TypeDePokemon39
+   TypeDePokemonZone40:
+      id: 40
+      zone: Zone6
+      typeDePokemon: TypeDePokemon40
+   TypeDePokemonZone41:
+      id: 41
+      zone: Zone6
+      typeDePokemon: TypeDePokemon41
+   TypeDePokemonZone42:
+      id: 42
+      zone: Zone6
+      typeDePokemon: TypeDePokemon42
+   TypeDePokemonZone43:
+      id: 43
+      zone: Zone6
+      typeDePokemon: TypeDePokemon43
+   TypeDePokemonZone44:
+      id: 44
+      zone: Zone6
+      typeDePokemon: TypeDePokemon44
+   TypeDePokemonZone45:
+      id: 45
+      zone: Zone6
+      typeDePokemon: TypeDePokemon45
+   TypeDePokemonZone46:
+      id: 46
+      zone: Zone6
+      typeDePokemon: TypeDePokemon46
+   TypeDePokemonZone47:
+      id: 47
+      zone: Zone6
+      typeDePokemon: TypeDePokemon47
+   TypeDePokemonZone48:
+      id: 48
+      zone: Zone6
+      typeDePokemon: TypeDePokemon48
+   TypeDePokemonZone49:
+      id: 49
+      zone: Zone6
+      typeDePokemon: TypeDePokemon49
+   TypeDePokemonZone50:
+      id: 50
+      zone: Zone6
+      typeDePokemon: TypeDePokemon50
+   TypeDePokemonZone51:
+      id: 51
+      zone: Zone6
+      typeDePokemon: TypeDePokemon51
+   TypeDePokemonZone52:
+      id: 52
+      zone: Zone6
+      typeDePokemon: TypeDePokemon52
+   TypeDePokemonZone53:
+      id: 53
+      zone: Zone6
+      typeDePokemon: TypeDePokemon53
+   TypeDePokemonZone54:
+      id: 54
+      zone: Zone6
+      typeDePokemon: TypeDePokemon54
+   TypeDePokemonZone55:
+      id: 55
+      zone: Zone6
+      typeDePokemon: TypeDePokemon55
+   TypeDePokemonZone56:
+      id: 56
+      zone: Zone6
+      typeDePokemon: TypeDePokemon56
+   TypeDePokemonZone57:
+      id: 57
+      zone: Zone6
+      typeDePokemon: TypeDePokemon57
+   TypeDePokemonZone58:
+      id: 58
+      zone: Zone5
+      typeDePokemon: TypeDePokemon58
+   TypeDePokemonZone59:
+      id: 59
+      zone: Zone5
+      typeDePokemon: TypeDePokemon59
+   TypeDePokemonZone60:
+      id: 60
+      zone: Zone5
+      typeDePokemon: TypeDePokemon60
+   TypeDePokemonZone61:
+      id: 61
+      zone: Zone5
+      typeDePokemon: TypeDePokemon61
+   TypeDePokemonZone62:
+      id: 62
+      zone: Zone5
+      typeDePokemon: TypeDePokemon62
+   TypeDePokemonZone63:
+      id: 63
+      zone: Zone5
+      typeDePokemon: TypeDePokemon63
+   TypeDePokemonZone64:
+      id: 64
+      zone: Zone5
+      typeDePokemon: TypeDePokemon64
+   TypeDePokemonZone65:
+      id: 65
+      zone: Zone5
+      typeDePokemon: TypeDePokemon65
+   TypeDePokemonZone66:
+      id: 66
+      zone: Zone5
+      typeDePokemon: TypeDePokemon66
+   TypeDePokemonZone67:
+      id: 67
+      zone: Zone5
+      typeDePokemon: TypeDePokemon67
+   TypeDePokemonZone68:
+      id: 68
+      zone: Zone5
+      typeDePokemon: TypeDePokemon68
+   TypeDePokemonZone69:
+      id: 69
+      zone: Zone5
+      typeDePokemon: TypeDePokemon69
+   TypeDePokemonZone70:
+      id: 70
+      zone: Zone5
+      typeDePokemon: TypeDePokemon70
+   TypeDePokemonZone71:
+      id: 71
+      zone: Zone5
+      typeDePokemon: TypeDePokemon71
+   TypeDePokemonZone72:
+      id: 72
+      zone: Zone5
+      typeDePokemon: TypeDePokemon72
+   TypeDePokemonZone73:
+      id: 73
+      zone: Zone5
+      typeDePokemon: TypeDePokemon73
+   TypeDePokemonZone74:
+      id: 74
+      zone: Zone5
+      typeDePokemon: TypeDePokemon74
+   TypeDePokemonZone75:
+      id: 75
+      zone: Zone5
+      typeDePokemon: TypeDePokemon75
+   TypeDePokemonZone76:
+      id: 76
+      zone: Zone5
+      typeDePokemon: TypeDePokemon76
+   TypeDePokemonZone77:
+      id: 77
+      zone: Zone4
+      typeDePokemon: TypeDePokemon77
+   TypeDePokemonZone78:
+      id: 78
+      zone: Zone4
+      typeDePokemon: TypeDePokemon78
+   TypeDePokemonZone79:
+      id: 79
+      zone: Zone4
+      typeDePokemon: TypeDePokemon79
+   TypeDePokemonZone80:
+      id: 80
+      zone: Zone4
+      typeDePokemon: TypeDePokemon80
+   TypeDePokemonZone81:
+      id: 81
+      zone: Zone4
+      typeDePokemon: TypeDePokemon81
+   TypeDePokemonZone82:
+      id: 82
+      zone: Zone4
+      typeDePokemon: TypeDePokemon82
+   TypeDePokemonZone83:
+      id: 83
+      zone: Zone4
+      typeDePokemon: TypeDePokemon83
+   TypeDePokemonZone84:
+      id: 84
+      zone: Zone4
+      typeDePokemon: TypeDePokemon84
+   TypeDePokemonZone85:
+      id: 85
+      zone: Zone4
+      typeDePokemon: TypeDePokemon85
+   TypeDePokemonZone86:
+      id: 86
+      zone: Zone4
+      typeDePokemon: TypeDePokemon86
+   TypeDePokemonZone87:
+      id: 87
+      zone: Zone4
+      typeDePokemon: TypeDePokemon87
+   TypeDePokemonZone88:
+      id: 88
+      zone: Zone4
+      typeDePokemon: TypeDePokemon88
+   TypeDePokemonZone89:
+      id: 89
+      zone: Zone4
+      typeDePokemon: TypeDePokemon89
+   TypeDePokemonZone90:
+      id: 90
+      zone: Zone4
+      typeDePokemon: TypeDePokemon90
+   TypeDePokemonZone91:
+      id: 91
+      zone: Zone4
+      typeDePokemon: TypeDePokemon91
+   TypeDePokemonZone92:
+      id: 92
+      zone: Zone4
+      typeDePokemon: TypeDePokemon92
+   TypeDePokemonZone93:
+      id: 93
+      zone: Zone4
+      typeDePokemon: TypeDePokemon93
+   TypeDePokemonZone94:
+      id: 94
+      zone: Zone4
+      typeDePokemon: TypeDePokemon94
+   TypeDePokemonZone95:
+      id: 95
+      zone: Zone4
+      typeDePokemon: TypeDePokemon95
+   TypeDePokemonZone96:
+      id: 96
+      zone: Zone3
+      typeDePokemon: TypeDePokemon96
+   TypeDePokemonZone97:
+      id: 97
+      zone: Zone3
+      typeDePokemon: TypeDePokemon97
+   TypeDePokemonZone98:
+      id: 98
+      zone: Zone3
+      typeDePokemon: TypeDePokemon98
+   TypeDePokemonZone99:
+      id: 99
+      zone: Zone3
+      typeDePokemon: TypeDePokemon99
+   TypeDePokemonZone100:
+      id: 100
+      zone: Zone3
+      typeDePokemon: TypeDePokemon100
+   TypeDePokemonZone101:
+      id: 101
+      zone: Zone3
+      typeDePokemon: TypeDePokemon101
+   TypeDePokemonZone102:
+      id: 102
+      zone: Zone3
+      typeDePokemon: TypeDePokemon102
+   TypeDePokemonZone103:
+      id: 103
+      zone: Zone3
+      typeDePokemon: TypeDePokemon103
+   TypeDePokemonZone104:
+      id: 104
+      zone: Zone3
+      typeDePokemon: TypeDePokemon104
+   TypeDePokemonZone105:
+      id: 105
+      zone: Zone3
+      typeDePokemon: TypeDePokemon105
+   TypeDePokemonZone106:
+      id: 106
+      zone: Zone3
+      typeDePokemon: TypeDePokemon106
+   TypeDePokemonZone107:
+      id: 107
+      zone: Zone3
+      typeDePokemon: TypeDePokemon107
+   TypeDePokemonZone108:
+      id: 108
+      zone: Zone3
+      typeDePokemon: TypeDePokemon108
+   TypeDePokemonZone109:
+      id: 109
+      zone: Zone3
+      typeDePokemon: TypeDePokemon109
+   TypeDePokemonZone110:
+      id: 110
+      zone: Zone3
+      typeDePokemon: TypeDePokemon110
+   TypeDePokemonZone111:
+      id: 111
+      zone: Zone3
+      typeDePokemon: TypeDePokemon111
+   TypeDePokemonZone112:
+      id: 112
+      zone: Zone3
+      typeDePokemon: TypeDePokemon112
+   TypeDePokemonZone113:
+      id: 113
+      zone: Zone3
+      typeDePokemon: TypeDePokemon113
+   TypeDePokemonZone114:
+      id: 114
+      zone: Zone3
+      typeDePokemon: TypeDePokemon114
+   TypeDePokemonZone115:
+      id: 115
+      zone: Zone2
+      typeDePokemon: TypeDePokemon115
+   TypeDePokemonZone116:
+      id: 116
+      zone: Zone2
+      typeDePokemon: TypeDePokemon116
+   TypeDePokemonZone117:
+      id: 117
+      zone: Zone2
+      typeDePokemon: TypeDePokemon117
+   TypeDePokemonZone118:
+      id: 118
+      zone: Zone2
+      typeDePokemon: TypeDePokemon118
+   TypeDePokemonZone119:
+      id: 119
+      zone: Zone2
+      typeDePokemon: TypeDePokemon119
+   TypeDePokemonZone120:
+      id: 120
+      zone: Zone2
+      typeDePokemon: TypeDePokemon120
+   TypeDePokemonZone121:
+      id: 121
+      zone: Zone2
+      typeDePokemon: TypeDePokemon121
+   TypeDePokemonZone122:
+      id: 122
+      zone: Zone2
+      typeDePokemon: TypeDePokemon122
+   TypeDePokemonZone123:
+      id: 123
+      zone: Zone2
+      typeDePokemon: TypeDePokemon123
+   TypeDePokemonZone124:
+      id: 124
+      zone: Zone2
+      typeDePokemon: TypeDePokemon124
+   TypeDePokemonZone125:
+      id: 125
+      zone: Zone2
+      typeDePokemon: TypeDePokemon125
+   TypeDePokemonZone126:
+      id: 126
+      zone: Zone2
+      typeDePokemon: TypeDePokemon126
+   TypeDePokemonZone127:
+      id: 127
+      zone: Zone2
+      typeDePokemon: TypeDePokemon127
+   TypeDePokemonZone128:
+      id: 128
+      zone: Zone2
+      typeDePokemon: TypeDePokemon128
+   TypeDePokemonZone129:
+      id: 129
+      zone: Zone2
+      typeDePokemon: TypeDePokemon129
+   TypeDePokemonZone130:
+      id: 130
+      zone: Zone2
+      typeDePokemon: TypeDePokemon130
+   TypeDePokemonZone131:
+      id: 131
+      zone: Zone2
+      typeDePokemon: TypeDePokemon131
+   TypeDePokemonZone132:
+      id: 132
+      zone: Zone2
+      typeDePokemon: TypeDePokemon132
+   TypeDePokemonZone133:
+      id: 133
+      zone: Zone2
+      typeDePokemon: TypeDePokemon133
+   TypeDePokemonZone134:
+      id: 134
+      zone: Zone1
+      typeDePokemon: TypeDePokemon134
+   TypeDePokemonZone135:
+      id: 135
+      zone: Zone1
+      typeDePokemon: TypeDePokemon135
+   TypeDePokemonZone136:
+      id: 136
+      zone: Zone1
+      typeDePokemon: TypeDePokemon136
+   TypeDePokemonZone137:
+      id: 137
+      zone: Zone1
+      typeDePokemon: TypeDePokemon137
+   TypeDePokemonZone138:
+      id: 138
+      zone: Zone1
+      typeDePokemon: TypeDePokemon138
+   TypeDePokemonZone139:
+      id: 139
+      zone: Zone1
+      typeDePokemon: TypeDePokemon139
+   TypeDePokemonZone140:
+      id: 140
+      zone: Zone1
+      typeDePokemon: TypeDePokemon140
+   TypeDePokemonZone141:
+      id: 141
+      zone: Zone1
+      typeDePokemon: TypeDePokemon141
+   TypeDePokemonZone142:
+      id: 142
+      zone: Zone1
+      typeDePokemon: TypeDePokemon142
+   TypeDePokemonZone143:
+      id: 143
+      zone: Zone1
+      typeDePokemon: TypeDePokemon143
+   TypeDePokemonZone144:
+      id: 144
+      zone: Zone1
+      typeDePokemon: TypeDePokemon144
+   TypeDePokemonZone145:
+      id: 145
+      zone: Zone1
+      typeDePokemon: TypeDePokemon145
+   TypeDePokemonZone146:
+      id: 146
+      zone: Zone1
+      typeDePokemon: TypeDePokemon146
+   TypeDePokemonZone147:
+      id: 147
+      zone: Zone1
+      typeDePokemon: TypeDePokemon147
+   TypeDePokemonZone148:
+      id: 148
+      zone: Zone1
+      typeDePokemon: TypeDePokemon148
+   TypeDePokemonZone149:
+      id: 149
+      zone: Zone1
+      typeDePokemon: TypeDePokemon149
+   TypeDePokemonZone150:
+      id: 150
+      zone: Zone1
+      typeDePokemon: TypeDePokemon150
+   TypeDePokemonZone151:
+      id: 151
+      zone: Zone1
+      typeDePokemon: TypeDePokemon151

@@ -19,14 +19,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_personnagenonjoueur_nom" />
         <TextView
-            android:id="@+id/row_personnagenonjoueur_profession"
+            android:id="@+id/row_personnagenonjoueur_urlimage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_personnagenonjoueur_description" />
         <TextView
-            android:id="@+id/row_personnagenonjoueur_dresseur"
+            android:id="@+id/row_personnagenonjoueur_profession"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/row_personnagenonjoueur_profession" />
+            android:layout_below="@+id/row_personnagenonjoueur_urlimage" />
 
 </RelativeLayout>

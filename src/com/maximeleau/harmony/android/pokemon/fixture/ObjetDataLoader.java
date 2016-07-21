@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -35,6 +35,8 @@ public final class ObjetDataLoader
     private static final String NOM = "nom";
     /** Constant field for quantite. */
     private static final String QUANTITE = "quantite";
+    /** Constant field for urlImage. */
+    private static final String URLIMAGE = "urlImage";
     /** Constant field for typeObjet. */
     private static final String TYPEOBJET = "typeObjet";
     /** Constant field for personnageNonJoueur. */
@@ -84,6 +86,7 @@ public final class ObjetDataLoader
         objet.setId(this.parseIntField(columns, ID));
         objet.setNom(this.parseField(columns, NOM, String.class));
         objet.setQuantite(this.parseIntField(columns, QUANTITE));
+        objet.setUrlImage(this.parseField(columns, URLIMAGE, String.class));
         objet.setTypeObjet(this.parseSimpleRelationField(columns, TYPEOBJET, TypeObjetDataLoader.getInstance(this.ctx)));
         objet.setPersonnageNonJoueur(this.parseSimpleRelationField(columns, PERSONNAGENONJOUEUR, PersonnageNonJoueurDataLoader.getInstance(this.ctx)));
         if (objet.getPersonnageNonJoueur() != null) {

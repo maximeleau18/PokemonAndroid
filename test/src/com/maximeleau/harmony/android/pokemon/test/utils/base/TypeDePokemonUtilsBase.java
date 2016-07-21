@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -40,6 +40,7 @@ public abstract class TypeDePokemonUtilsBase {
         typeDePokemon.setDefense(TestUtils.generateRandomInt(0,100));
         typeDePokemon.setPv(TestUtils.generateRandomInt(0,100));
         typeDePokemon.setNumPokedex(TestUtils.generateRandomInt(0,100));
+        typeDePokemon.setUrlImage("urlImage_"+TestUtils.generateRandomString(10));
         ArrayList<Pokemon> pokemonss =
             new ArrayList<Pokemon>();
         pokemonss.addAll(PokemonDataLoader.getInstance(ctx).getMap().values());
@@ -70,6 +71,7 @@ public abstract class TypeDePokemonUtilsBase {
             Assert.assertEquals(typeDePokemon1.getDefense(), typeDePokemon2.getDefense());
             Assert.assertEquals(typeDePokemon1.getPv(), typeDePokemon2.getPv());
             Assert.assertEquals(typeDePokemon1.getNumPokedex(), typeDePokemon2.getNumPokedex());
+            Assert.assertEquals(typeDePokemon1.getUrlImage(), typeDePokemon2.getUrlImage());
             if (typeDePokemon1.getPokemons() != null
                     && typeDePokemon2.getPokemons() != null) {
                 Assert.assertEquals(typeDePokemon1.getPokemons().size(),

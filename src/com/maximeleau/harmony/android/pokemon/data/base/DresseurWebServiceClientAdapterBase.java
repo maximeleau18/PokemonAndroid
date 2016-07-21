@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 
@@ -281,12 +281,12 @@ public abstract class DresseurWebServiceClientAdapterBase
     }
 
     /**
-     * Get the Dresseur associated with a PersonnageNonJoueur. Uses the route : personnagenonjoueur/%PersonnageNonJoueur_id%/dresseur.
-     * @param dresseur : The Dresseur that will be returned
+     * Get the Dresseurs associated with a PersonnageNonJoueur. Uses the route : personnagenonjoueur/%PersonnageNonJoueur_id%/dresseur.
+     * @param dresseurs : The list in which the Dresseurs will be returned
      * @param personnagenonjoueur : The associated personnagenonjoueur
-     * @return -1 if an error has occurred. 0 if not.
+     * @return The number of Dresseurs returned
      */
-    public int getByPersonnageNonJoueur(Dresseur dresseur, PersonnageNonJoueur personnageNonJoueur) {
+    public int getByPersonnageNonJoueur(List<Dresseur> dresseurs, PersonnageNonJoueur personnageNonJoueur) {
         int result = -1;
         String response = this.invokeRequest(
                     Verb.GET,
@@ -299,11 +299,10 @@ public abstract class DresseurWebServiceClientAdapterBase
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
                 JSONObject json = new JSONObject(response);
-                this.extract(json, dresseur);
-                result = 0;
+                result = this.extractItems(json, "Dresseurs", dresseurs);
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
-                dresseur = null;
+                dresseurs = null;
             }
         }
 

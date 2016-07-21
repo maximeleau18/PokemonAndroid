@@ -28,11 +28,23 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:layout_below="@+id/personnagenonjoueur_description_label" />
+   <TextView
+        android:id="@+id/personnagenonjoueur_urlimage_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personnagenonjoueur_description"
+        android:text="@string/personnagenonjoueur_urlimage_label"/>
+    <EditText
+        android:id="@+id/personnagenonjoueur_urlimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/personnagenonjoueur_urlimage_label" />
     <TextView
         android:id="@+id/personnagenonjoueur_profession_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/personnagenonjoueur_description"
+        android:layout_below="@+id/personnagenonjoueur_urlimage"
         android:text="@string/personnagenonjoueur_profession_label"/>
     <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
         android:id="@+id/personnagenonjoueur_profession_button"
@@ -51,21 +63,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/personnagenonjoueur_objets_label" />
     <TextView
-        android:id="@+id/personnagenonjoueur_dresseur_label"
+        android:id="@+id/personnagenonjoueur_dresseurs_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/personnagenonjoueur_objets_button"
-        android:text="@string/personnagenonjoueur_dresseur_label"/>
-    <com.maximeleau.harmony.android.pokemon.harmony.widget.SingleEntityWidget
-        android:id="@+id/personnagenonjoueur_dresseur_button"
+        android:text="@string/personnagenonjoueur_dresseurs_label"/>
+    <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
+        android:id="@+id/personnagenonjoueur_dresseurs_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/personnagenonjoueur_dresseur_label" />
+        android:layout_below="@+id/personnagenonjoueur_dresseurs_label" />
     <TextView
         android:id="@+id/personnagenonjoueur_arenes_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/personnagenonjoueur_dresseur_button"
+        android:layout_below="@+id/personnagenonjoueur_dresseurs_button"
         android:text="@string/personnagenonjoueur_arenes_label"/>
     <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
         android:id="@+id/personnagenonjoueur_arenes_button"

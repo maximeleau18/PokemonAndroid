@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -71,6 +71,13 @@ public abstract class TypeDePokemonContractBase {
     public static final String ALIASED_COL_NUMPOKEDEX =
             TypeDePokemonContract.TABLE_NAME + "." + COL_NUMPOKEDEX;
 
+    /** urlImage. */
+    public static final String COL_URLIMAGE =
+            "urlImage";
+    /** Alias. */
+    public static final String ALIASED_COL_URLIMAGE =
+            TypeDePokemonContract.TABLE_NAME + "." + COL_URLIMAGE;
+
 
 
 
@@ -93,6 +100,8 @@ public abstract class TypeDePokemonContractBase {
         TypeDePokemonContract.COL_PV,
         
         TypeDePokemonContract.COL_NUMPOKEDEX,
+        
+        TypeDePokemonContract.COL_URLIMAGE,
     };
 
     /** Global Fields. */
@@ -109,6 +118,8 @@ public abstract class TypeDePokemonContractBase {
         TypeDePokemonContract.ALIASED_COL_PV,
         
         TypeDePokemonContract.ALIASED_COL_NUMPOKEDEX,
+        
+        TypeDePokemonContract.ALIASED_COL_URLIMAGE,
         
     };
 
@@ -142,6 +153,13 @@ public abstract class TypeDePokemonContractBase {
 
              result.put(TypeDePokemonContract.COL_NUMPOKEDEX,
                 String.valueOf(item.getNumPokedex()));
+
+             if (item.getUrlImage() != null) {
+                result.put(TypeDePokemonContract.COL_URLIMAGE,
+                    item.getUrlImage());
+            } else {
+                result.put(TypeDePokemonContract.COL_URLIMAGE, (String) null);
+            }
 
  
         return result;
@@ -198,6 +216,13 @@ public abstract class TypeDePokemonContractBase {
 
             if (index > -1) {
                 result.setNumPokedex(cursor.getInt(index));
+            }
+            index = cursor.getColumnIndex(TypeDePokemonContract.COL_URLIMAGE);
+
+            if (index > -1) {
+            if (!cursor.isNull(index)) {
+                    result.setUrlImage(cursor.getString(index));
+            }
             }
 
         }

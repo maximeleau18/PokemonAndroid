@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.utils.base;
@@ -107,6 +107,30 @@ public abstract class PersonnageNonJoueurProviderUtilsBase
             operations.add(ContentProviderOperation.newUpdate(ObjetProviderAdapter.OBJET_URI)
                     .withValueBackReference(
                             ObjetContract
+                                    .COL_PERSONNAGENONJOUEUR_ID,
+                            0)
+                    .withSelection(
+                            crit.toSQLiteSelection(),
+                            crit.toSQLiteSelectionArgs())
+                    .build());
+        }
+        if (item.getDresseurs() != null && item.getDresseurs().size() > 0) {
+            CriteriaExpression crit = new CriteriaExpression(GroupType.AND);
+            Criterion inCrit = new Criterion();
+            crit.add(inCrit);
+            
+            inCrit.setKey(DresseurContract.COL_ID);
+            inCrit.setType(Type.IN);
+            ArrayValue inValue = new ArrayValue();
+            inCrit.addValue(inValue);
+
+            for (int i = 0; i < item.getDresseurs().size(); i++) {
+                inValue.addValue(String.valueOf(item.getDresseurs().get(i).getId()));
+            }
+
+            operations.add(ContentProviderOperation.newUpdate(DresseurProviderAdapter.DRESSEUR_URI)
+                    .withValueBackReference(
+                            DresseurContract
                                     .COL_PERSONNAGENONJOUEUR_ID,
                             0)
                     .withSelection(
@@ -241,10 +265,8 @@ public abstract class PersonnageNonJoueurProviderUtilsBase
             }
             result.setObjets(
                 this.getAssociateObjets(result));
-            if (result.getDresseur() != null) {
-                result.setDresseur(
-                    this.getAssociateDresseur(result));
-            }
+            result.setDresseurs(
+                this.getAssociateDresseurs(result));
             result.setArenes(
                 this.getAssociateArenes(result));
             result.setPokemons(
@@ -372,6 +394,55 @@ public abstract class PersonnageNonJoueurProviderUtilsBase
                     .withSelection(
                             objetsCrit.toSQLiteSelection(),
                             objetsCrit.toSQLiteSelectionArgs())
+                    .build());
+        }
+
+        if (item.getDresseurs() != null && item.getDresseurs().size() > 0) {
+            String selection;
+            String[] selectionArgs;
+            // Set new dresseurs for PersonnageNonJoueur
+            CriteriaExpression dresseursCrit =
+                        new CriteriaExpression(GroupType.AND);
+            Criterion crit = new Criterion();
+            ArrayValue values = new ArrayValue();
+            crit.setType(Type.IN);
+            crit.setKey(DresseurContract.COL_ID);
+            crit.addValue(values);
+            dresseursCrit.add(crit);
+
+
+            for (Dresseur dresseurs : item.getDresseurs()) {
+                values.addValue(
+                    String.valueOf(dresseurs.getId()));
+            }
+            selection = dresseursCrit.toSQLiteSelection();
+            selectionArgs = dresseursCrit.toSQLiteSelectionArgs();
+
+            operations.add(ContentProviderOperation.newUpdate(
+                    DresseurProviderAdapter.DRESSEUR_URI)
+                    .withValue(
+                            DresseurContract.COL_PERSONNAGENONJOUEUR_ID,
+                            item.getId())
+                    .withSelection(
+                            selection,
+                            selectionArgs)
+                    .build());
+
+            // Remove old associated dresseurs
+            crit.setType(Type.NOT_IN);
+            dresseursCrit.add(DresseurContract.COL_PERSONNAGENONJOUEUR_ID,
+                    String.valueOf(item.getId()),
+                    Type.EQUALS);
+            
+
+            operations.add(ContentProviderOperation.newUpdate(
+                    DresseurProviderAdapter.DRESSEUR_URI)
+                    .withValue(
+                            DresseurContract.COL_PERSONNAGENONJOUEUR_ID,
+                            null)
+                    .withSelection(
+                            dresseursCrit.toSQLiteSelection(),
+                            dresseursCrit.toSQLiteSelectionArgs())
                     .build());
         }
 
@@ -539,27 +610,24 @@ public abstract class PersonnageNonJoueurProviderUtilsBase
     }
 
     /**
-     * Get associate Dresseur.
+     * Get associate Dresseurs.
      * @param item PersonnageNonJoueur
      * @return Dresseur
      */
-    public Dresseur getAssociateDresseur(
+    public ArrayList<Dresseur> getAssociateDresseurs(
             final PersonnageNonJoueur item) {
-        Dresseur result;
+        ArrayList<Dresseur> result;
         ContentResolver prov = this.getContext().getContentResolver();
         android.database.Cursor dresseurCursor = prov.query(
                 DresseurProviderAdapter.DRESSEUR_URI,
                 DresseurContract.ALIASED_COLS,
-                DresseurContract.ALIASED_COL_ID + "= ?",
-                new String[]{String.valueOf(item.getDresseur().getId())},
+                DresseurContract.ALIASED_COL_PERSONNAGENONJOUEUR_ID
+                        + "= ?",
+                new String[]{String.valueOf(item.getId())},
                 null);
 
-        if (dresseurCursor.getCount() > 0) {
-            dresseurCursor.moveToFirst();
-            result = DresseurContract.cursorToItem(dresseurCursor);
-        } else {
-            result = null;
-        }
+        result = DresseurContract.cursorToItems(
+                        dresseurCursor);
         dresseurCursor.close();
 
         return result;

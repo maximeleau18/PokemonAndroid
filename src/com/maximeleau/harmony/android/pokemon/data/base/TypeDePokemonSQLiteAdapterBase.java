@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -83,7 +83,8 @@ public abstract class TypeDePokemonSQLiteAdapterBase
          + TypeDePokemonContract.COL_ATTAQUE    + " INTEGER NOT NULL,"
          + TypeDePokemonContract.COL_DEFENSE    + " INTEGER NOT NULL,"
          + TypeDePokemonContract.COL_PV    + " INTEGER NOT NULL,"
-         + TypeDePokemonContract.COL_NUMPOKEDEX    + " INTEGER NOT NULL"
+         + TypeDePokemonContract.COL_NUMPOKEDEX    + " INTEGER NOT NULL,"
+         + TypeDePokemonContract.COL_URLIMAGE    + " VARCHAR"
 
         
         + ");"

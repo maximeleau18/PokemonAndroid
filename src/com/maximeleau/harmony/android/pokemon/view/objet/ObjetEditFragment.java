@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.objet;
@@ -64,6 +64,8 @@ public class ObjetEditFragment extends HarmonyFragment
     protected EditText nomView;
     /** quantite View. */
     protected EditText quantiteView;
+    /** urlImage View. */
+    protected EditText urlImageView;
     /** The typeObjet chooser component. */
     protected SingleEntityWidget typeObjetWidget;
     /** The typeObjet Adapter. */
@@ -84,6 +86,8 @@ public class ObjetEditFragment extends HarmonyFragment
                 R.id.objet_nom);
         this.quantiteView = (EditText) view.findViewById(
                 R.id.objet_quantite);
+        this.urlImageView = (EditText) view.findViewById(
+                R.id.objet_urlimage);
         this.typeObjetAdapter =
                 new SingleEntityWidget.EntityAdapter<TypeObjet>() {
             @Override
@@ -115,6 +119,9 @@ public class ObjetEditFragment extends HarmonyFragment
             this.nomView.setText(this.model.getNom());
         }
         this.quantiteView.setText(String.valueOf(this.model.getQuantite()));
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
 
         new LoadTask(this).execute();
     }
@@ -126,6 +133,8 @@ public class ObjetEditFragment extends HarmonyFragment
 
         this.model.setQuantite(Integer.parseInt(
                     this.quantiteView.getEditableText().toString()));
+
+        this.model.setUrlImage(this.urlImageView.getEditableText().toString());
 
         this.model.setTypeObjet(this.typeObjetAdapter.getSelectedItem());
 

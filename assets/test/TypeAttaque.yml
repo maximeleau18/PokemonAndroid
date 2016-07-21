@@ -1,4 +1,46 @@
 TypeAttaque:
-#   TypeAttaque_name:
-#      id:
-#      nom:
+   TypeAttaque1:
+      id: 1
+      nom: "Combat"
+   TypeAttaque2:
+      id: 2
+      nom: "Dragon"
+   TypeAttaque3:
+      id: 3
+      nom: "Eau"
+   TypeAttaque4:
+      id: 4
+      nom: "Électrik"
+   TypeAttaque5:
+      id: 5
+      nom: "Feu"
+   TypeAttaque6:
+      id: 6
+      nom: "Glace"
+   TypeAttaque7:
+      id: 7
+      nom: "Insecte"
+   TypeAttaque8:
+      id: 8
+      nom: "Normal"
+   TypeAttaque9:
+      id: 9
+      nom: "Plante"
+   TypeAttaque10:
+      id: 10
+      nom: "Poison"
+   TypeAttaque11:
+      id: 11
+      nom: "Psy"
+   TypeAttaque12:
+      id: 12
+      nom: "Roche"
+   TypeAttaque13:
+      id: 13
+      nom: "Sol"
+   TypeAttaque14:
+      id: 14
+      nom: "Spectre"
+   TypeAttaque15:
+      id: 15
+      nom: "Vol"

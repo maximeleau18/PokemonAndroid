@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -43,6 +43,8 @@ import com.maximeleau.harmony.android.pokemon.data.ProfessionSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.Profession;
 import com.maximeleau.harmony.android.pokemon.data.AttaqueSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.Attaque;
+import com.maximeleau.harmony.android.pokemon.data.CombatSQLiteAdapter;
+import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.data.TypeDePokemonZoneSQLiteAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.TypeDePokemonZone;
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
@@ -92,6 +94,8 @@ public class DataManager {
     private static final String PROFESSION = "Profession";
     /** Attaque name constant. */
     private static final String ATTAQUE = "Attaque";
+    /** Combat name constant. */
+    private static final String COMBAT = "Combat";
     /** TypeDePokemonZone name constant. */
     private static final String TYPEDEPOKEMONZONE = "TypeDePokemonZone";
     /** PersonnageNonJoueur name constant. */
@@ -144,6 +148,9 @@ public class DataManager {
         this.adapters.put(ATTAQUE,
                 new AttaqueSQLiteAdapter(ctx));
         this.adapters.get(ATTAQUE).open(this.db);
+        this.adapters.put(COMBAT,
+                new CombatSQLiteAdapter(ctx));
+        this.adapters.get(COMBAT).open(this.db);
         this.adapters.put(TYPEDEPOKEMONZONE,
                 new TypeDePokemonZoneSQLiteAdapter(ctx));
         this.adapters.get(TYPEDEPOKEMONZONE).open(this.db);
@@ -261,6 +268,11 @@ public class DataManager {
                 ((AttaqueSQLiteAdapter)
                         this.adapters.get(ATTAQUE))
                             .remove(((Attaque) object).getId());
+            }
+            if (object instanceof Combat) {
+                ((CombatSQLiteAdapter)
+                        this.adapters.get(COMBAT))
+                            .remove(((Combat) object).getId());
             }
             if (object instanceof TypeDePokemonZone) {
                 ((TypeDePokemonZoneSQLiteAdapter)

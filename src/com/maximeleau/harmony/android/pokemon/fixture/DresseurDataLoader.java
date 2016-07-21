@@ -5,13 +5,13 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
 
 import java.util.Map;
-
+import java.util.ArrayList;
 
 
 
@@ -89,6 +89,14 @@ public final class DresseurDataLoader
         dresseur.setLogin(this.parseField(columns, LOGIN, String.class));
         dresseur.setMotDePasse(this.parseField(columns, MOTDEPASSE, String.class));
         dresseur.setPersonnageNonJoueur(this.parseSimpleRelationField(columns, PERSONNAGENONJOUEUR, PersonnageNonJoueurDataLoader.getInstance(this.ctx)));
+        if (dresseur.getPersonnageNonJoueur() != null) {
+            if (dresseur.getPersonnageNonJoueur().getDresseurs() == null) {
+                dresseur.getPersonnageNonJoueur().setDresseurs(
+                        new ArrayList<Dresseur>());
+            }
+            
+            dresseur.getPersonnageNonJoueur().getDresseurs().add(dresseur);
+        }
 
         return dresseur;
     }

@@ -2,7 +2,6 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class TypeDePokemon  implements Serializable , Parcelable {
     /** Parent parcelable for parcellisation purposes. */
     protected List<Parcelable> parcelableParents;
 
-
+   
 	@Id
     @Column(type = Type.INTEGER, hidden = true)
     @GeneratedValue(strategy = Strategy.MODE_IDENTITY)
@@ -43,6 +42,9 @@ public class TypeDePokemon  implements Serializable , Parcelable {
 	
 	@Column(type = Type.INTEGER)
 	private int numPokedex;
+	
+	@Column(nullable = true)
+	private String urlImage;
 	
 	@OneToMany(targetEntity="Pokemon", mappedBy="typeDePokemon")
 	@Column(nullable = true)
@@ -141,6 +143,20 @@ public class TypeDePokemon  implements Serializable , Parcelable {
          this.numPokedex = value;
     }
      /**
+     * Get the UrlImage.
+     * @return the urlImage
+     */
+    public String getUrlImage() {
+         return this.urlImage;
+    }
+     /**
+     * Set the UrlImage.
+     * @param value the urlImage to set
+     */
+    public void setUrlImage(final String value) {
+         this.urlImage = value;
+    }
+     /**
      * Get the Pokemons.
      * @return the pokemons
      */
@@ -178,6 +194,12 @@ public class TypeDePokemon  implements Serializable , Parcelable {
         dest.writeInt(this.getDefense());
         dest.writeInt(this.getPv());
         dest.writeInt(this.getNumPokedex());
+        if (this.getUrlImage() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getUrlImage());
+        } else {
+            dest.writeInt(0);
+        }
 
         if (this.getPokemons() != null) {
             dest.writeInt(this.getPokemons().size());
@@ -210,6 +232,10 @@ public class TypeDePokemon  implements Serializable , Parcelable {
         this.setDefense(parc.readInt());
         this.setPv(parc.readInt());
         this.setNumPokedex(parc.readInt());
+        int urlImageBool = parc.readInt();
+        if (urlImageBool == 1) {
+            this.setUrlImage(parc.readString());
+        }
 
         int nbPokemons = parc.readInt();
         if (nbPokemons > -1) {
@@ -222,8 +248,6 @@ public class TypeDePokemon  implements Serializable , Parcelable {
             this.setPokemons(items);
         }
     }
-
-
 
     /**
      * Parcel Constructor.

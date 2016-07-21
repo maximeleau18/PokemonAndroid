@@ -33,5 +33,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_typedepokemon_pv" />
+        <TextView
+            android:id="@+id/row_typedepokemon_urlimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_typedepokemon_numpokedex" />
 
 </RelativeLayout>

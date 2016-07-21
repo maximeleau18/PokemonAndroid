@@ -2,11 +2,9 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Entity;
 import com.tactfactory.harmony.annotation.GeneratedValue;
@@ -44,6 +42,7 @@ public class Arene  implements Serializable , Parcelable {
 	@OneToOne(targetEntity="Position")
 	@Column(nullable = false)
 	private Position position;
+
 
     /**
      * Default constructor.
@@ -179,8 +178,6 @@ public class Arene  implements Serializable , Parcelable {
         this.setBadge((Badge) parc.readParcelable(Badge.class.getClassLoader()));
         this.setPosition((Position) parc.readParcelable(Position.class.getClassLoader()));
     }
-
-
 
     /**
      * Parcel Constructor.

@@ -19,10 +19,15 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_objet_nom" />
         <TextView
-            android:id="@+id/row_objet_typeobjet"
+            android:id="@+id/row_objet_urlimage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/row_objet_quantite" />
+        <TextView
+            android:id="@+id/row_objet_typeobjet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_objet_urlimage" />
         <TextView
             android:id="@+id/row_objet_personnagenonjoueur"
             android:layout_width="match_parent"

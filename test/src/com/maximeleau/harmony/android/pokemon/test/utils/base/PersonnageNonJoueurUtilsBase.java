@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -49,6 +49,7 @@ public abstract class PersonnageNonJoueurUtilsBase {
         personnageNonJoueur.setId(TestUtils.generateRandomInt(0,100) + 1);
         personnageNonJoueur.setNom("nom_"+TestUtils.generateRandomString(10));
         personnageNonJoueur.setDescription("description_"+TestUtils.generateRandomString(10));
+        personnageNonJoueur.setUrlImage("urlImage_"+TestUtils.generateRandomString(10));
         ArrayList<Profession> professions =
             new ArrayList<Profession>();
         professions.addAll(ProfessionDataLoader.getInstance(ctx).getMap().values());
@@ -63,11 +64,13 @@ public abstract class PersonnageNonJoueurUtilsBase {
             relatedObjetss.add(objetss.get(TestUtils.generateRandomInt(0, objetss.size())));
             personnageNonJoueur.setObjets(relatedObjetss);
         }
-        ArrayList<Dresseur> dresseurs =
+        ArrayList<Dresseur> dresseurss =
             new ArrayList<Dresseur>();
-        dresseurs.addAll(DresseurDataLoader.getInstance(ctx).getMap().values());
-        if (!dresseurs.isEmpty()) {
-            personnageNonJoueur.setDresseur(dresseurs.get(TestUtils.generateRandomInt(0, dresseurs.size())));
+        dresseurss.addAll(DresseurDataLoader.getInstance(ctx).getMap().values());
+        ArrayList<Dresseur> relatedDresseurss = new ArrayList<Dresseur>();
+        if (!dresseurss.isEmpty()) {
+            relatedDresseurss.add(dresseurss.get(TestUtils.generateRandomInt(0, dresseurss.size())));
+            personnageNonJoueur.setDresseurs(relatedDresseurss);
         }
         ArrayList<Arene> areness =
             new ArrayList<Arene>();
@@ -104,6 +107,7 @@ public abstract class PersonnageNonJoueurUtilsBase {
             Assert.assertEquals(personnageNonJoueur1.getId(), personnageNonJoueur2.getId());
             Assert.assertEquals(personnageNonJoueur1.getNom(), personnageNonJoueur2.getNom());
             Assert.assertEquals(personnageNonJoueur1.getDescription(), personnageNonJoueur2.getDescription());
+            Assert.assertEquals(personnageNonJoueur1.getUrlImage(), personnageNonJoueur2.getUrlImage());
             if (personnageNonJoueur1.getProfession() != null
                     && personnageNonJoueur2.getProfession() != null) {
                 if (checkRecursiveId) {
@@ -132,11 +136,25 @@ public abstract class PersonnageNonJoueurUtilsBase {
                     }
                 }
             }
-            if (personnageNonJoueur1.getDresseur() != null
-                    && personnageNonJoueur2.getDresseur() != null) {
+            if (personnageNonJoueur1.getDresseurs() != null
+                    && personnageNonJoueur2.getDresseurs() != null) {
+                Assert.assertEquals(personnageNonJoueur1.getDresseurs().size(),
+                    personnageNonJoueur2.getDresseurs().size());
                 if (checkRecursiveId) {
-                    Assert.assertEquals(personnageNonJoueur1.getDresseur().getId(),
-                            personnageNonJoueur2.getDresseur().getId());
+                    for (Dresseur dresseurs1 : personnageNonJoueur1.getDresseurs()) {
+                        boolean found = false;
+                        for (Dresseur dresseurs2 : personnageNonJoueur2.getDresseurs()) {
+                            if (dresseurs1.getId() == dresseurs2.getId()) {
+                                found = true;
+                            }
+                        }
+                        Assert.assertTrue(
+                                String.format(
+                                        "Couldn't find associated dresseurs (id = %s) in PersonnageNonJoueur (id = %s)",
+                                        dresseurs1.getId(),
+                                        personnageNonJoueur1.getId()),
+                                found);
+                    }
                 }
             }
             if (personnageNonJoueur1.getArenes() != null

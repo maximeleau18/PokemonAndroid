@@ -2,11 +2,9 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import com.tactfactory.harmony.annotation.Column;
 import com.tactfactory.harmony.annotation.Entity;
 import com.tactfactory.harmony.annotation.GeneratedValue;
@@ -140,8 +138,6 @@ public class Position  implements Serializable , Parcelable {
         this.setY(parc.readInt());
         this.setZone((Zone) parc.readParcelable(Zone.class.getClassLoader()));
     }
-
-
 
     /**
      * Parcel Constructor.

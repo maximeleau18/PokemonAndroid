@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -33,6 +33,8 @@ public final class TypeObjetDataLoader
     private static final String ID = "id";
     /** Constant field for nom. */
     private static final String NOM = "nom";
+    /** Constant field for urlImage. */
+    private static final String URLIMAGE = "urlImage";
 
 
     /** TypeObjetDataLoader instance (Singleton). */
@@ -77,6 +79,7 @@ public final class TypeObjetDataLoader
                 TypeObjet typeObjet) {
         typeObjet.setId(this.parseIntField(columns, ID));
         typeObjet.setNom(this.parseField(columns, NOM, String.class));
+        typeObjet.setUrlImage(this.parseField(columns, URLIMAGE, String.class));
 
         return typeObjet;
     }

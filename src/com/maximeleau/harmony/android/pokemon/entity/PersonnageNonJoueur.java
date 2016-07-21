@@ -2,7 +2,6 @@ package com.maximeleau.harmony.android.pokemon.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import com.tactfactory.harmony.annotation.Column.Type;
 import com.tactfactory.harmony.annotation.GeneratedValue.Strategy;
 import com.tactfactory.harmony.annotation.ManyToOne;
 import com.tactfactory.harmony.annotation.OneToMany;
-import com.tactfactory.harmony.annotation.OneToOne;
 import com.tactfactory.harmony.bundles.rest.annotation.Rest;
 
 @Rest
@@ -36,6 +34,9 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
 
 	@Column(type = Type.STRING)
 	private String description;
+
+	@Column(nullable = true)
+	private String urlImage;
 	
 	@ManyToOne(targetEntity="Profession")
 	@Column(nullable = false)
@@ -45,9 +46,9 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
 	@Column(nullable = true)
 	private ArrayList<Objet> objets;
 	
-	@OneToOne(targetEntity="Dreseur", inversedBy="personnageNonJoueur")
+	@OneToMany(targetEntity="Dreseur", mappedBy="personnageNonJoueur")
 	@Column(nullable = true)
-	private Dresseur dresseur;
+	private ArrayList<Dresseur> dresseurs;
 	
 	@OneToMany(targetEntity="Arene", mappedBy="maitre")
 	@Column(nullable = true)
@@ -108,6 +109,20 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
          this.description = value;
     }
      /**
+     * Get the UrlImage.
+     * @return the urlImage
+     */
+    public String getUrlImage() {
+         return this.urlImage;
+    }
+     /**
+     * Set the UrlImage.
+     * @param value the urlImage to set
+     */
+    public void setUrlImage(final String value) {
+         this.urlImage = value;
+    }
+     /**
      * Get the Profession.
      * @return the profession
      */
@@ -136,18 +151,18 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
          this.objets = value;
     }
      /**
-     * Get the Dresseur.
-     * @return the dresseur
+     * Get the Dresseurs.
+     * @return the dresseurs
      */
-    public Dresseur getDresseur() {
-         return this.dresseur;
+    public ArrayList<Dresseur> getDresseurs() {
+         return this.dresseurs;
     }
      /**
-     * Set the Dresseur.
-     * @param value the dresseur to set
+     * Set the Dresseurs.
+     * @param value the dresseurs to set
      */
-    public void setDresseur(final Dresseur value) {
-         this.dresseur = value;
+    public void setDresseurs(final ArrayList<Dresseur> value) {
+         this.dresseurs = value;
     }
      /**
      * Get the Arenes.
@@ -203,6 +218,12 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
         } else {
             dest.writeInt(0);
         }
+        if (this.getUrlImage() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getUrlImage());
+        } else {
+            dest.writeInt(0);
+        }
         if (this.getProfession() != null
                     && !this.parcelableParents.contains(this.getProfession())) {
             this.getProfession().writeToParcel(this.parcelableParents, dest, flags);
@@ -222,11 +243,18 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
         } else {
             dest.writeInt(-1);
         }
-        if (this.getDresseur() != null
-                    && !this.parcelableParents.contains(this.getDresseur())) {
-            this.getDresseur().writeToParcel(this.parcelableParents, dest, flags);
+
+        if (this.getDresseurs() != null) {
+            dest.writeInt(this.getDresseurs().size());
+            for (Dresseur item : this.getDresseurs()) {
+                if (!this.parcelableParents.contains(item)) {
+                    item.writeToParcel(this.parcelableParents, dest, flags);
+                } else {
+                    dest.writeParcelable(null, flags);
+                }
+            }
         } else {
-            dest.writeParcelable(null, flags);
+            dest.writeInt(-1);
         }
 
         if (this.getArenes() != null) {
@@ -273,6 +301,10 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
         if (descriptionBool == 1) {
             this.setDescription(parc.readString());
         }
+        int urlImageBool = parc.readInt();
+        if (urlImageBool == 1) {
+            this.setUrlImage(parc.readString());
+        }
         this.setProfession((Profession) parc.readParcelable(Profession.class.getClassLoader()));
 
         int nbObjets = parc.readInt();
@@ -285,7 +317,17 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
             }
             this.setObjets(items);
         }
-        this.setDresseur((Dresseur) parc.readParcelable(Dresseur.class.getClassLoader()));
+
+        int nbDresseurs = parc.readInt();
+        if (nbDresseurs > -1) {
+            ArrayList<Dresseur> items =
+                new ArrayList<Dresseur>();
+            for (int i = 0; i < nbDresseurs; i++) {
+                items.add((Dresseur) parc.readParcelable(
+                        Dresseur.class.getClassLoader()));
+            }
+            this.setDresseurs(items);
+        }
 
         int nbArenes = parc.readInt();
         if (nbArenes > -1) {
@@ -309,8 +351,6 @@ public class PersonnageNonJoueur  implements Serializable , Parcelable {
             this.setPokemons(items);
         }
     }
-
-
 
     /**
      * Parcel Constructor.

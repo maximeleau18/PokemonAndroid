@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 
@@ -60,6 +60,8 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
     protected static String JSON_PV = "pv";
     /** JSON_NUMPOKEDEX attributes. */
     protected static String JSON_NUMPOKEDEX = "numPokedex";
+    /** JSON_URLIMAGE attributes. */
+    protected static String JSON_URLIMAGE = "urlImage";
     /** JSON_POKEMONS attributes. */
     protected static String JSON_POKEMONS = "pokemons";
 
@@ -76,7 +78,8 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
             TypeDePokemonContract.COL_ATTAQUE,
             TypeDePokemonContract.COL_DEFENSE,
             TypeDePokemonContract.COL_PV,
-            TypeDePokemonContract.COL_NUMPOKEDEX
+            TypeDePokemonContract.COL_NUMPOKEDEX,
+            TypeDePokemonContract.COL_URLIMAGE
         };
 
     /**
@@ -345,6 +348,12 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
                             json.getInt(TypeDePokemonWebServiceClientAdapter.JSON_NUMPOKEDEX));
                 }
 
+                if (json.has(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE)
+                        && !json.isNull(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    typeDePokemon.setUrlImage(
+                            json.getString(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE));
+                }
+
                 if (json.has(TypeDePokemonWebServiceClientAdapter.JSON_POKEMONS)
                         && !json.isNull(TypeDePokemonWebServiceClientAdapter.JSON_POKEMONS)) {
                     ArrayList<Pokemon> pokemons =
@@ -376,7 +385,7 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
         String id = json.optString(TypeDePokemonWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[6];
+                String[] row = new String[7];
                 if (json.has(TypeDePokemonWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(TypeDePokemonWebServiceClientAdapter.JSON_ID);
                 }
@@ -394,6 +403,9 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
                 }
                 if (json.has(TypeDePokemonWebServiceClientAdapter.JSON_NUMPOKEDEX)) {
                     row[5] = json.getString(TypeDePokemonWebServiceClientAdapter.JSON_NUMPOKEDEX);
+                }
+                if (json.has(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    row[6] = json.getString(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE);
                 }
 
                 cursor.addRow(row);
@@ -426,6 +438,8 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
                     typeDePokemon.getPv());
             params.put(TypeDePokemonWebServiceClientAdapter.JSON_NUMPOKEDEX,
                     typeDePokemon.getNumPokedex());
+            params.put(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE,
+                    typeDePokemon.getUrlImage());
 
             if (typeDePokemon.getPokemons() != null) {
                 PokemonWebServiceClientAdapter pokemonsAdapter =
@@ -480,6 +494,8 @@ public abstract class TypeDePokemonWebServiceClientAdapterBase
                     values.get(TypeDePokemonContract.COL_PV));
             params.put(TypeDePokemonWebServiceClientAdapter.JSON_NUMPOKEDEX,
                     values.get(TypeDePokemonContract.COL_NUMPOKEDEX));
+            params.put(TypeDePokemonWebServiceClientAdapter.JSON_URLIMAGE,
+                    values.get(TypeDePokemonContract.COL_URLIMAGE));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

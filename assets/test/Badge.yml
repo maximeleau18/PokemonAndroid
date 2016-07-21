@@ -1,4 +1,25 @@
 Badge:
-#   Badge_name:
-#      id:
-#      nom:
+   Badge1:
+      id: 1
+      nom: "Roche"
+   Badge2:
+      id: 2
+      nom: "Cascade"
+   Badge3:
+      id: 3
+      nom: "Foudre"
+   Badge4:
+      id: 4
+      nom: "Prisme"
+   Badge5:
+      id: 5
+      nom: "Âme"
+   Badge6:
+      id: 6
+      nom: "Marais"
+   Badge7:
+      id: 7
+      nom: "Volcan"
+   Badge8:
+      id: 8
+      nom: "Terre"

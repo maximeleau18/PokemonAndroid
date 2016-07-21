@@ -1,7 +1,991 @@
 Attaque:
-#   Attaque_name:
-#      id:
-#      nom:
-#      puissance:
-#      degats:
-#      typeAttaque:
+   Attaque1:
+      id: 1
+      nom: "Abîme"
+      puissance: 200
+      degats: 30
+      typeAttaque: TypeAttaque13
+   Attaque2:
+      id: 2
+      nom: "Acidarmure"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque10
+   Attaque3:
+      id: 3
+      nom: "Acide"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque10
+   Attaque4:
+      id: 4
+      nom: "Adaptation"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque5:
+      id: 5
+      nom: "Affûtage"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque6:
+      id: 6
+      nom: "Amnésie"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque7:
+      id: 7
+      nom: "Armure"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque8:
+      id: 8
+      nom: "Balayage"
+      puissance: 50
+      degats: 100
+      typeAttaque: TypeAttaque1
+   Attaque9:
+      id: 9
+      nom: "Bec Vrille"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque15
+   Attaque10:
+      id: 10
+      nom: "Bélier"
+      puissance: 90
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque11:
+      id: 11
+      nom: "Berceuse"
+      puissance: 1
+      degats: 55
+      typeAttaque: TypeAttaque8
+   Attaque12:
+      id: 12
+      nom: "Blizzard"
+      puissance: 120
+      degats: 70
+      typeAttaque: TypeAttaque6
+   Attaque13:
+      id: 13
+      nom: "Bomb'Œuf"
+      puissance: 100
+      degats: 75
+      typeAttaque: TypeAttaque8
+   Attaque14:
+      id: 14
+      nom: "Bouclier"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque15:
+      id: 15
+      nom: "Boul'Armure"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque16:
+      id: 16
+      nom: "Brouillard"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque17:
+      id: 17
+      nom: "Brume"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque6
+   Attaque18:
+      id: 18
+      nom: "Buée Noire"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque6
+   Attaque19:
+      id: 19
+      nom: "Bulles d'O"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque3
+   Attaque20:
+      id: 20
+      nom: "Cage-Éclair"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque4
+   Attaque21:
+      id: 21
+      nom: "Cascade"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque3
+   Attaque22:
+      id: 22
+      nom: "Charge"
+      puissance: 50
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque23:
+      id: 23
+      nom: "Choc Mental"
+      puissance: 50
+      degats: 100
+      typeAttaque: TypeAttaque11
+   Attaque24:
+      id: 24
+      nom: "Claquoir"
+      puissance: 35
+      degats: 85
+      typeAttaque: TypeAttaque3
+   Attaque25:
+      id: 25
+      nom: "Clonage"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque26:
+      id: 26
+      nom: "Combo-Griffe"
+      puissance: 18
+      degats: 80
+      typeAttaque: TypeAttaque8
+   Attaque27:
+      id: 27
+      nom: "Constriction"
+      puissance: 10
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque28:
+      id: 28
+      nom: "Copie"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque29:
+      id: 29
+      nom: "Coup d'Boule"
+      puissance: 70
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque30:
+      id: 30
+      nom: "Coupe"
+      puissance: 50
+      degats: 95
+      typeAttaque: TypeAttaque8
+   Attaque31:
+      id: 31
+      nom: "Coupe-Vent"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque32:
+      id: 32
+      nom: "Croc de Mort"
+      puissance: 80
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque33:
+      id: 33
+      nom: "Croc Fatal"
+      puissance: 1
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque34:
+      id: 34
+      nom: "Croissance"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque35:
+      id: 35
+      nom: "Cru-Aile"
+      puissance: 60
+      degats: 100
+      typeAttaque: TypeAttaque15
+   Attaque36:
+      id: 36
+      nom: "Cyclone"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque37:
+      id: 37
+      nom: "Éboulement"
+      puissance: 75
+      degats: 90
+      typeAttaque: TypeAttaque12
+   Attaque38:
+      id: 38
+      nom: "E-Coque"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque39:
+      id: 39
+      nom: "Éclair"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque4
+   Attaque40:
+      id: 40
+      nom: "Écrasement"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque41:
+      id: 41
+      nom: "Écras'Face"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque42:
+      id: 42
+      nom: "Écume"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque3
+   Attaque43:
+      id: 43
+      nom: "Empal'Korne"
+      puissance: 200
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque44:
+      id: 44
+      nom: "Entrave"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque45:
+      id: 45
+      nom: "Explosion"
+      puissance: 250
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque46:
+      id: 46
+      nom: "Poing-Karaté"
+      puissance: 50
+      degats: 100
+      typeAttaque: TypeAttaque1
+   Attaque47:
+      id: 47
+      nom: "Torgnoles"
+      puissance: 15
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque48:
+      id: 48
+      nom: "Poing Comète"
+      puissance: 18
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque49:
+      id: 49
+      nom: "Ultimapoing"
+      puissance: 80
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque50:
+      id: 50
+      nom: "Jackpot"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque51:
+      id: 51
+      nom: "Poing de 5"
+      puissance: 75
+      degats: 100
+      typeAttaque: TypeAttaque5
+   Attaque52:
+      id: 52
+      nom: "Poin6"
+      puissance: 75
+      degats: 100
+      typeAttaque: TypeAttaque6
+   Attaque53:
+      id: 53
+      nom: "Poing-Éclair"
+      puissance: 75
+      degats: 100
+      typeAttaque: TypeAttaque4
+   Attaque54:
+      id: 54
+      nom: "Griffe"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque55:
+      id: 55
+      nom: "Force Poigne"
+      puissance: 55
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque56:
+      id: 56
+      nom: "Guillotine"
+      puissance: 200
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque57:
+      id: 57
+      nom: "Danse-Lames"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque58:
+      id: 58
+      nom: "Tornade"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque15
+   Attaque59:
+      id: 59
+      nom: "Vol"
+      puissance: 90
+      degats: 95
+      typeAttaque: TypeAttaque15
+   Attaque60:
+      id: 60
+      nom: "Étreinte"
+      puissance: 15
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque61:
+      id: 61
+      nom: "Souplesse"
+      puissance: 80
+      degats: 75
+      typeAttaque: TypeAttaque8
+   Attaque62:
+      id: 62
+      nom: "Fouet Lianes"
+      puissance: 35
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque63:
+      id: 63
+      nom: "Double-Pied"
+      puissance: 60 
+      degats: 100
+      typeAttaque: TypeAttaque1
+   Attaque64:
+      id: 64
+      nom: "Ultimawashi"
+      puissance: 120
+      degats: 75
+      typeAttaque: TypeAttaque8
+   Attaque65:
+      id: 65
+      nom: "Pied Sauté"
+      puissance: 100
+      degats: 95
+      typeAttaque: TypeAttaque1
+   Attaque66:
+      id: 66
+      nom: "Mawashi Geri"
+      puissance: 60
+      degats: 85
+      typeAttaque: TypeAttaque1
+   Attaque67:
+      id: 67
+      nom: "Jet de Sable"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque13
+   Attaque68:
+      id: 68
+      nom: "Koud'Korne"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque69:
+      id: 69
+      nom: "Furie"
+      puissance: 15
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque70:
+      id: 70
+      nom: "Plaquage"
+      puissance: 85
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque71:
+      id: 71
+      nom: "Ligotage"
+      puissance: 15
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque72:
+      id: 72
+      nom: "Mania"
+      puissance: 120
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque73:
+      id: 73
+      nom: "Damoclès"
+      puissance: 120
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque74:
+      id: 74
+      nom: "Mimi-Queue"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque75:
+      id: 75
+      nom: "Dard-Venin"
+      puissance: 15
+      degats: 100
+      typeAttaque: TypeAttaque10
+   Attaque76:
+      id: 76
+      nom: "Double-Dard"
+      puissance: 25
+      degats: 100
+      typeAttaque: TypeAttaque7
+   Attaque77:
+      id: 77
+      nom: "Dard-Nuée"
+      puissance: 14
+      degats: 85
+      typeAttaque: TypeAttaque7
+   Attaque78:
+      id: 78
+      nom: "Groz'Yeux"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque79:
+      id: 79
+      nom: "Morsure"
+      puissance: 60
+      degats: 100
+      typeAttaque: TypeAttaque14
+   Attaque80:
+      id: 80
+      nom: "Rugissement"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque81:
+      id: 81
+      nom: "Hurlement"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque82:
+      id: 82
+      nom: "Ultrason"
+      puissance: 1
+      degats: 55
+      typeAttaque: TypeAttaque8
+   Attaque83:
+      id: 83
+      nom: "Sonicboom"
+      puissance: 1
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque84:
+      id: 84
+      nom: "Flammèche"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque5
+   Attaque85:
+      id: 85
+      nom: "Lance-Flamme"
+      puissance: 95
+      degats: 100
+      typeAttaque: TypeAttaque5
+   Attaque86:
+      id: 86
+      nom: "Pistolet à O"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque3
+   Attaque87:
+      id: 87
+      nom: "Hydrocanon"
+      puissance: 120
+      degats: 80
+      typeAttaque: TypeAttaque3
+   Attaque88:
+      id: 88
+      nom: "Surf"
+      puissance: 95
+      degats: 100
+      typeAttaque: TypeAttaque3
+   Attaque89:
+      id: 89
+      nom: "Laser"
+      puissance: 95
+      degats: 100
+      typeAttaque: TypeAttaque6
+   Attaque90:
+      id: 90
+      nom: "Rafale"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque11
+   Attaque91:
+      id: 91
+      nom: "Onde Boréale"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque6
+   Attaque92:
+      id: 92
+      nom: "Ultralaser"
+      puissance: 150
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque93:
+      id: 93
+      nom: "Picpic"
+      puissance: 35
+      degats: 100
+      typeAttaque: TypeAttaque15
+   Attaque94:
+      id: 94
+      nom: "Sacrifice"
+      puissance: 80
+      degats: 80
+      typeAttaque: TypeAttaque1
+   Attaque95:
+      id: 95
+      nom: "Riposte"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque1
+   Attaque96:
+      id: 96
+      nom: "Frappe Atlas"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque1
+   Attaque97:
+      id: 97
+      nom: "Force"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque98:
+      id: 98
+      nom: "Vol-Vie"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque99:
+      id: 99
+      nom: "Méga-Sangsue"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque100:
+      id: 100
+      nom: "Vampigraine"
+      puissance: 1
+      degats: 90
+      typeAttaque: TypeAttaque9
+   Attaque101:
+      id: 101
+      nom: "Tranch'Herbe"
+      puissance: 55
+      degats: 95
+      typeAttaque: TypeAttaque9
+   Attaque102:
+      id: 102
+      nom: "Lance-oeil"
+      puissance: 120
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque103:
+      id: 103
+      nom: "Poudre Toxik"
+      puissance: 1
+      degats: 75
+      typeAttaque: TypeAttaque10
+   Attaque104:
+      id: 104
+      nom: "Para-Spore"
+      puissance: 1
+      degats: 75
+      typeAttaque: TypeAttaque9
+   Attaque105:
+      id: 105
+      nom: "Poudre Dodo"
+      puissance: 1
+      degats: 75
+      typeAttaque: TypeAttaque9
+   Attaque106:
+      id: 106
+      nom: "Danse-Fleur"
+      puissance: 120
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque107:
+      id: 107
+      nom: "Sécrétion"
+      puissance: 1
+      degats: 95
+      typeAttaque: TypeAttaque7
+   Attaque108:
+      id: 108
+      nom: "Draco-Rage"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque2
+   Attaque109:
+      id: 109
+      nom: "Danseflamme"
+      puissance: 35
+      degats: 85
+      typeAttaque: TypeAttaque5
+   Attaque110:
+      id: 110
+      nom: "Tonnerre"
+      puissance: 95
+      degats: 100
+      typeAttaque: TypeAttaque4
+   Attaque111:
+      id: 111
+      nom: "Fatal-Foudre"
+      puissance: 120
+      degats: 70
+      typeAttaque: TypeAttaque4
+   Attaque112:
+      id: 112
+      nom: "Jet-Pierres"
+      puissance: 50
+      degats: 90
+      typeAttaque: TypeAttaque12
+   Attaque113:
+      id: 113
+      nom: "Séisme"
+      puissance: 100
+      degats: 100
+      typeAttaque: TypeAttaque13
+   Attaque114:
+      id: 114
+      nom: "Tunnel"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque13
+   Attaque115:
+      id: 115
+      nom: "Toxik"
+      puissance: 1
+      degats: 90
+      typeAttaque: TypeAttaque10
+   Attaque116:
+      id: 116
+      nom: "11ko"
+      puissance: 90
+      degats: 100
+      typeAttaque: TypeAttaque11
+   Attaque117:
+      id: 117
+      nom: "Hypnose"
+      puissance: 1
+      degats: 60
+      typeAttaque: TypeAttaque11
+   Attaque118:
+      id: 118
+      nom: "Yoga"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque119:
+      id: 119
+      nom: "Hâte"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque120:
+      id: 120
+      nom: "Vive-Attaque"
+      puissance: 40
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque121:
+      id: 121
+      nom: "Frénésie"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque122:
+      id: 122
+      nom: "Téléport"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque123:
+      id: 123
+      nom: "Ténèbres"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque14
+   Attaque124:
+      id: 124
+      nom: "Grincement"
+      puissance: 1
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque125:
+      id: 125
+      nom: "Reflet"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque126:
+      id: 126
+      nom: "Soin"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque127:
+      id: 127
+      nom: "Lilliput"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque128:
+      id: 128
+      nom: "Onde Folie"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque14
+   Attaque129:
+      id: 129
+      nom: "Repli"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque3
+   Attaque130:
+      id: 130
+      nom: "Mur Lumière"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque131:
+      id: 131
+      nom: "Protection"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque132:
+      id: 132
+      nom: "Puissance"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque133:
+      id: 133
+      nom: "Patience"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque134:
+      id: 134
+      nom: "Métronome"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque135:
+      id: 135
+      nom: "Mimique"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque15
+   Attaque136:
+      id: 136
+      nom: "Destruction"
+      puissance: 200
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque137:
+      id: 137
+      nom: "Léchouille"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque14
+   Attaque138:
+      id: 138
+      nom: "Purédpois"
+      puissance: 20
+      degats: 70
+      typeAttaque: TypeAttaque10
+   Attaque139:
+      id: 139
+      nom: "Détritus"
+      puissance: 65
+      degats: 100
+      typeAttaque: TypeAttaque10
+   Attaque140:
+      id: 140
+      nom: "Massd'Os"
+      puissance: 65
+      degats: 85
+      typeAttaque: TypeAttaque13
+   Attaque141:
+      id: 141
+      nom: "Déflagration"
+      puissance: 120
+      degats: 85
+      typeAttaque: TypeAttaque5
+   Attaque142:
+      id: 142
+      nom: "Météores"
+      puissance: 60
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque143:
+      id: 143
+      nom: "Coud'Krâne"
+      puissance: 100
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque144:
+      id: 144
+      nom: "Picanon"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque145:
+      id: 145
+      nom: "Télékinésie"
+      puissance: 1
+      degats: 80
+      typeAttaque: TypeAttaque11
+   Attaque146:
+      id: 146
+      nom: "Pied Voltige"
+      puissance: 130
+      degats: 90
+      typeAttaque: TypeAttaque1
+   Attaque147:
+      id: 147
+      nom: "Intimidation"
+      puissance: 1
+      degats: 90
+      typeAttaque: TypeAttaque8
+   Attaque148:
+      id: 148
+      nom: "Dévorêve"
+      puissance: 100
+      degats: 100
+      typeAttaque: TypeAttaque11
+   Attaque149:
+      id: 149
+      nom: "Gaz Toxik"
+      puissance: 1
+      degats: 80
+      typeAttaque: TypeAttaque10
+   Attaque150:
+      id: 150
+      nom: "Pilonnage"
+      puissance: 15
+      degats: 85
+      typeAttaque: TypeAttaque8
+   Attaque151:
+      id: 151
+      nom: "Vampirisme"
+      puissance: 20
+      degats: 100
+      typeAttaque: TypeAttaque7
+   Attaque152:
+      id: 152
+      nom: "Grobisou"
+      puissance: 1
+      degats: 75
+      typeAttaque: TypeAttaque8
+   Attaque153:
+      id: 153
+      nom: "Piqué"
+      puissance: 140
+      degats: 90
+      typeAttaque: TypeAttaque15
+   Attaque154:
+      id: 154
+      nom: "Morphing"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque155:
+      id: 155
+      nom: "Uppercut"
+      puissance: 70
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque156:
+      id: 156
+      nom: "Spore"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque9
+   Attaque157:
+      id: 157
+      nom: "Flash"
+      puissance: 1
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque158:
+      id: 158
+      nom: "Vague"
+      puissance: 1
+      degats: 80
+      typeAttaque: TypeAttaque11
+   Attaque159:
+      id: 159
+      nom: "Trempette"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque8
+   Attaque160:
+      id: 160
+      nom: "Pince-Masse"
+      puissance: 90
+      degats: 90
+      typeAttaque: TypeAttaque3
+   Attaque161:
+      id: 161
+      nom: "Osmerang"
+      puissance: 50 
+      degats: 90
+      typeAttaque: TypeAttaque13
+   Attaque162:
+      id: 162
+      nom: "Repos"
+      puissance: 1
+      degats: 1
+      typeAttaque: TypeAttaque11
+   Attaque163:
+      id: 163
+      nom: "Triplattaque"
+      puissance: 80
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque164:
+      id: 164
+      nom: "Tranche"
+      puissance: 70
+      degats: 100
+      typeAttaque: TypeAttaque8
+   Attaque165:
+      id: 165
+      nom: "Lutte"
+      puissance: 50
+      degats: 100
+      typeAttaque: TypeAttaque8

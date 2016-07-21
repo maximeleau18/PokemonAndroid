@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -42,6 +42,8 @@ public final class TypeDePokemonDataLoader
     private static final String PV = "pv";
     /** Constant field for numPokedex. */
     private static final String NUMPOKEDEX = "numPokedex";
+    /** Constant field for urlImage. */
+    private static final String URLIMAGE = "urlImage";
     /** Constant field for pokemons. */
     private static final String POKEMONS = "pokemons";
 
@@ -92,6 +94,7 @@ public final class TypeDePokemonDataLoader
         typeDePokemon.setDefense(this.parseIntField(columns, DEFENSE));
         typeDePokemon.setPv(this.parseIntField(columns, PV));
         typeDePokemon.setNumPokedex(this.parseIntField(columns, NUMPOKEDEX));
+        typeDePokemon.setUrlImage(this.parseField(columns, URLIMAGE, String.class));
         typeDePokemon.setPokemons(this.parseMultiRelationField(columns, POKEMONS, PokemonDataLoader.getInstance(this.ctx)));
         if (typeDePokemon.getPokemons() != null) {
             for (Pokemon related : typeDePokemon.getPokemons()) {

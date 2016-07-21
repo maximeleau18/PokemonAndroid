@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -54,19 +54,19 @@ public abstract class PersonnageNonJoueurContractBase {
     public static final String ALIASED_COL_DESCRIPTION =
             PersonnageNonJoueurContract.TABLE_NAME + "." + COL_DESCRIPTION;
 
+    /** urlImage. */
+    public static final String COL_URLIMAGE =
+            "urlImage";
+    /** Alias. */
+    public static final String ALIASED_COL_URLIMAGE =
+            PersonnageNonJoueurContract.TABLE_NAME + "." + COL_URLIMAGE;
+
     /** profession_id. */
     public static final String COL_PROFESSION_ID =
             "profession_id";
     /** Alias. */
     public static final String ALIASED_COL_PROFESSION_ID =
             PersonnageNonJoueurContract.TABLE_NAME + "." + COL_PROFESSION_ID;
-
-    /** dresseur_id. */
-    public static final String COL_DRESSEUR_ID =
-            "dresseur_id";
-    /** Alias. */
-    public static final String ALIASED_COL_DRESSEUR_ID =
-            PersonnageNonJoueurContract.TABLE_NAME + "." + COL_DRESSEUR_ID;
 
 
 
@@ -85,9 +85,9 @@ public abstract class PersonnageNonJoueurContractBase {
         
         PersonnageNonJoueurContract.COL_DESCRIPTION,
         
-        PersonnageNonJoueurContract.COL_PROFESSION_ID,
+        PersonnageNonJoueurContract.COL_URLIMAGE,
         
-        PersonnageNonJoueurContract.COL_DRESSEUR_ID,
+        PersonnageNonJoueurContract.COL_PROFESSION_ID,
     };
 
     /** Global Fields. */
@@ -99,10 +99,11 @@ public abstract class PersonnageNonJoueurContractBase {
         
         PersonnageNonJoueurContract.ALIASED_COL_DESCRIPTION,
         
+        PersonnageNonJoueurContract.ALIASED_COL_URLIMAGE,
+        
         PersonnageNonJoueurContract.ALIASED_COL_PROFESSION_ID,
         
         
-        PersonnageNonJoueurContract.ALIASED_COL_DRESSEUR_ID,
         
         
     };
@@ -131,19 +132,19 @@ public abstract class PersonnageNonJoueurContractBase {
                     item.getDescription());
             }
 
+             if (item.getUrlImage() != null) {
+                result.put(PersonnageNonJoueurContract.COL_URLIMAGE,
+                    item.getUrlImage());
+            } else {
+                result.put(PersonnageNonJoueurContract.COL_URLIMAGE, (String) null);
+            }
+
              if (item.getProfession() != null) {
                 result.put(PersonnageNonJoueurContract.COL_PROFESSION_ID,
                     item.getProfession().getId());
             }
 
-              if (item.getDresseur() != null) {
-                result.put(PersonnageNonJoueurContract.COL_DRESSEUR_ID,
-                    item.getDresseur().getId());
-            } else {
-                result.put(PersonnageNonJoueurContract.COL_DRESSEUR_ID, (String) null);
-            }
-
-  
+    
         return result;
     }
 
@@ -184,6 +185,13 @@ public abstract class PersonnageNonJoueurContractBase {
             if (index > -1) {
                 result.setDescription(cursor.getString(index));
             }
+            index = cursor.getColumnIndex(PersonnageNonJoueurContract.COL_URLIMAGE);
+
+            if (index > -1) {
+            if (!cursor.isNull(index)) {
+                    result.setUrlImage(cursor.getString(index));
+            }
+            }
             if (result.getProfession() == null) {
                 final Profession profession = new Profession();
                 index = cursor.getColumnIndex(PersonnageNonJoueurContract.COL_PROFESSION_ID);
@@ -191,18 +199,6 @@ public abstract class PersonnageNonJoueurContractBase {
                 if (index > -1) {
                     profession.setId(cursor.getInt(index));
                     result.setProfession(profession);
-                }
-
-            }
-            if (result.getDresseur() == null) {
-                final Dresseur dresseur = new Dresseur();
-                index = cursor.getColumnIndex(PersonnageNonJoueurContract.COL_DRESSEUR_ID);
-
-                if (index > -1) {
-                    if (!cursor.isNull(index)) {
-                        dresseur.setId(cursor.getInt(index));
-                        result.setDresseur(dresseur);
-                    }
                 }
 
             }

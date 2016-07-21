@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.personnagenonjoueur;
@@ -73,6 +73,8 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
     protected EditText nomView;
     /** description View. */
     protected EditText descriptionView;
+    /** urlImage View. */
+    protected EditText urlImageView;
     /** The profession chooser component. */
     protected SingleEntityWidget professionWidget;
     /** The profession Adapter. */
@@ -83,11 +85,11 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
     /** The objets Adapter. */
     protected MultiEntityWidget.EntityAdapter<Objet>
             objetsAdapter;
-    /** The dresseur chooser component. */
-    protected SingleEntityWidget dresseurWidget;
-    /** The dresseur Adapter. */
-    protected SingleEntityWidget.EntityAdapter<Dresseur>
-            dresseurAdapter;
+    /** The dresseurs chooser component. */
+    protected MultiEntityWidget dresseursWidget;
+    /** The dresseurs Adapter. */
+    protected MultiEntityWidget.EntityAdapter<Dresseur>
+            dresseursAdapter;
     /** The arenes chooser component. */
     protected MultiEntityWidget arenesWidget;
     /** The arenes Adapter. */
@@ -108,6 +110,8 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
                 R.id.personnagenonjoueur_nom);
         this.descriptionView = (EditText) view.findViewById(
                 R.id.personnagenonjoueur_description);
+        this.urlImageView = (EditText) view.findViewById(
+                R.id.personnagenonjoueur_urlimage);
         this.professionAdapter =
                 new SingleEntityWidget.EntityAdapter<Profession>() {
             @Override
@@ -130,17 +134,17 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
                         R.id.personnagenonjoueur_objets_button);
         this.objetsWidget.setAdapter(this.objetsAdapter);
         this.objetsWidget.setTitle(R.string.personnagenonjoueur_objets_dialog_title);
-        this.dresseurAdapter =
-                new SingleEntityWidget.EntityAdapter<Dresseur>() {
+        this.dresseursAdapter =
+                new MultiEntityWidget.EntityAdapter<Dresseur>() {
             @Override
             public String entityToString(Dresseur item) {
                 return String.valueOf(item.getId());
             }
         };
-        this.dresseurWidget =
-            (SingleEntityWidget) view.findViewById(R.id.personnagenonjoueur_dresseur_button);
-        this.dresseurWidget.setAdapter(this.dresseurAdapter);
-        this.dresseurWidget.setTitle(R.string.personnagenonjoueur_dresseur_dialog_title);
+        this.dresseursWidget = (MultiEntityWidget) view.findViewById(
+                        R.id.personnagenonjoueur_dresseurs_button);
+        this.dresseursWidget.setAdapter(this.dresseursAdapter);
+        this.dresseursWidget.setTitle(R.string.personnagenonjoueur_dresseurs_dialog_title);
         this.arenesAdapter =
                 new MultiEntityWidget.EntityAdapter<Arene>() {
             @Override
@@ -174,6 +178,9 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
         if (this.model.getDescription() != null) {
             this.descriptionView.setText(this.model.getDescription());
         }
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
 
         new LoadTask(this).execute();
     }
@@ -185,11 +192,13 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
 
         this.model.setDescription(this.descriptionView.getEditableText().toString());
 
+        this.model.setUrlImage(this.urlImageView.getEditableText().toString());
+
         this.model.setProfession(this.professionAdapter.getSelectedItem());
 
         this.model.setObjets(this.objetsAdapter.getCheckedItems());
 
-        this.model.setDresseur(this.dresseurAdapter.getSelectedItem());
+        this.model.setDresseurs(this.dresseursAdapter.getCheckedItems());
 
         this.model.setArenes(this.arenesAdapter.getCheckedItems());
 
@@ -341,8 +350,8 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
         private ArrayList<Profession> professionList;
         /** objets list. */
         private ArrayList<Objet> objetsList;
-        /** dresseur list. */
-        private ArrayList<Dresseur> dresseurList;
+        /** dresseurs list. */
+        private ArrayList<Dresseur> dresseursList;
         /** arenes list. */
         private ArrayList<Arene> arenesList;
         /** pokemons list. */
@@ -376,7 +385,7 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
                 new ProfessionProviderUtils(this.ctx).queryAll();
             this.objetsList = 
                 new ObjetProviderUtils(this.ctx).queryAll();
-            this.dresseurList = 
+            this.dresseursList = 
                 new DresseurProviderUtils(this.ctx).queryAll();
             this.arenesList = 
                 new AreneProviderUtils(this.ctx).queryAll();
@@ -390,7 +399,7 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
             super.onPostExecute(result);
             this.fragment.onProfessionLoaded(this.professionList);
             this.fragment.onObjetsLoaded(this.objetsList);
-            this.fragment.onDresseurLoaded(this.dresseurList);
+            this.fragment.onDresseursLoaded(this.dresseursList);
             this.fragment.onArenesLoaded(this.arenesList);
             this.fragment.onPokemonsLoaded(this.pokemonsList);
 
@@ -437,19 +446,19 @@ public class PersonnageNonJoueurEditFragment extends HarmonyFragment
         this.model.setObjets(modelItems);
     }
     /**
-     * Called when dresseur have been loaded.
+     * Called when dresseurs have been loaded.
      * @param items The loaded items
      */
-    protected void onDresseurLoaded(ArrayList<Dresseur> items) {
-        this.dresseurAdapter.loadData(items);
-        
-        if (this.model.getDresseur() != null) {
-            for (Dresseur item : items) {
-                if (item.getId() == this.model.getDresseur().getId()) {
-                    this.dresseurAdapter.selectItem(item);
-                }
+    protected void onDresseursLoaded(ArrayList<Dresseur> items) {
+        this.dresseursAdapter.loadData(items);
+        ArrayList<Dresseur> modelItems = new ArrayList<Dresseur>();
+        for (Dresseur item : items) {
+            if (item.getPersonnageNonJoueur() != null && item.getPersonnageNonJoueur().getId() == this.model.getId()) {
+                modelItems.add(item);
+                this.dresseursAdapter.checkItem(item, true);
             }
         }
+        this.model.setDresseurs(modelItems);
     }
     /**
      * Called when arenes have been loaded.

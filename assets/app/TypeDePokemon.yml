@@ -6,6 +6,7 @@ TypeDePokemon:
       defense: 49
       pv: 45
       numPokedex: 1
+      urlImage:
       pokemons:
    TypeDePokemon2:
       id: 2
@@ -14,6 +15,7 @@ TypeDePokemon:
       defense: 63
       pv: 60
       numPokedex: 2
+      urlImage:
       pokemons:
    TypeDePokemon3:
       id: 3
@@ -22,6 +24,7 @@ TypeDePokemon:
       defense: 83
       pv: 80
       numPokedex: 3
+      urlImage:
       pokemons:
    TypeDePokemon4:
       id: 4
@@ -30,6 +33,7 @@ TypeDePokemon:
       defense: 43
       pv: 39
       numPokedex: 4
+      urlImage:
       pokemons:
    TypeDePokemon5:
       id: 5
@@ -38,6 +42,7 @@ TypeDePokemon:
       defense: 58
       pv: 58
       numPokedex: 5
+      urlImage:
       pokemons:
    TypeDePokemon6:
       id: 6
@@ -46,6 +51,7 @@ TypeDePokemon:
       defense: 78
       pv: 78
       numPokedex: 6
+      urlImage:
       pokemons:
    TypeDePokemon7:
       id: 7
@@ -54,6 +60,7 @@ TypeDePokemon:
       defense: 65
       pv: 44
       numPokedex: 7
+      urlImage:
       pokemons:
    TypeDePokemon8:
       id: 8
@@ -62,6 +69,7 @@ TypeDePokemon:
       defense: 80
       pv: 59
       numPokedex: 8
+      urlImage:
       pokemons:
    TypeDePokemon9:
       id: 9
@@ -70,6 +78,7 @@ TypeDePokemon:
       defense: 100
       pv: 79
       numPokedex: 9
+      urlImage:
       pokemons:
    TypeDePokemon10:
       id: 10
@@ -78,6 +87,7 @@ TypeDePokemon:
       defense: 35
       pv: 45
       numPokedex: 10
+      urlImage:
       pokemons:
    TypeDePokemon11:
       id: 11
@@ -86,6 +96,7 @@ TypeDePokemon:
       defense: 55
       pv: 50
       numPokedex: 11
+      urlImage:
       pokemons:
    TypeDePokemon12:
       id: 12
@@ -94,6 +105,7 @@ TypeDePokemon:
       defense: 50
       pv: 60
       numPokedex: 12
+      urlImage:
       pokemons:
    TypeDePokemon13:
       id: 13
@@ -102,6 +114,7 @@ TypeDePokemon:
       defense: 30
       pv: 40
       numPokedex: 13
+      urlImage:
       pokemons:
    TypeDePokemon14:
       id: 14
@@ -110,6 +123,7 @@ TypeDePokemon:
       defense: 50
       pv: 45
       numPokedex: 14
+      urlImage:
       pokemons:
    TypeDePokemon15:
       id: 15
@@ -118,6 +132,7 @@ TypeDePokemon:
       defense: 40
       pv: 65
       numPokedex: 15
+      urlImage:
       pokemons:
    TypeDePokemon16:
       id: 16
@@ -126,6 +141,7 @@ TypeDePokemon:
       defense: 40
       pv: 40
       numPokedex: 16
+      urlImage:
       pokemons:
    TypeDePokemon17:
       id: 17
@@ -134,6 +150,7 @@ TypeDePokemon:
       defense: 55
       pv: 63
       numPokedex: 17
+      urlImage:
       pokemons:
    TypeDePokemon18:
       id: 18
@@ -142,6 +159,7 @@ TypeDePokemon:
       defense: 75
       pv: 83
       numPokedex: 18
+      urlImage:
       pokemons:
    TypeDePokemon19:
       id: 19
@@ -150,6 +168,7 @@ TypeDePokemon:
       defense: 35
       pv: 30
       numPokedex: 19
+      urlImage:
       pokemons:
    TypeDePokemon20:
       id: 20
@@ -158,6 +177,7 @@ TypeDePokemon:
       defense: 60
       pv: 55
       numPokedex: 20
+      urlImage:
       pokemons:
    TypeDePokemon21:
       id: 21
@@ -166,6 +186,7 @@ TypeDePokemon:
       defense: 30
       pv: 40
       numPokedex: 21
+      urlImage:
       pokemons:
    TypeDePokemon22:
       id: 22
@@ -174,6 +195,7 @@ TypeDePokemon:
       defense: 65
       pv: 65
       numPokedex: 22
+      urlImage:
       pokemons:
    TypeDePokemon23:
       id: 23
@@ -182,6 +204,7 @@ TypeDePokemon:
       defense: 44
       pv: 35
       numPokedex: 23
+      urlImage:
       pokemons:
    TypeDePokemon24:
       id: 24
@@ -190,6 +213,7 @@ TypeDePokemon:
       defense: 69
       pv: 60
       numPokedex: 24
+      urlImage:
       pokemons:
    TypeDePokemon25:
       id: 25
@@ -198,6 +222,7 @@ TypeDePokemon:
       defense: 40
       pv: 35
       numPokedex: 25
+      urlImage:
       pokemons:
    TypeDePokemon26:
       id: 26
@@ -206,6 +231,7 @@ TypeDePokemon:
       defense: 55
       pv: 60
       numPokedex: 26
+      urlImage:
       pokemons:
    TypeDePokemon27:
       id: 27
@@ -214,6 +240,7 @@ TypeDePokemon:
       defense: 85
       pv: 50
       numPokedex: 27
+      urlImage:
       pokemons:
    TypeDePokemon28:
       id: 28
@@ -222,6 +249,7 @@ TypeDePokemon:
       defense: 110
       pv: 75
       numPokedex: 28
+      urlImage:
       pokemons:
    TypeDePokemon29:
       id: 29
@@ -230,6 +258,7 @@ TypeDePokemon:
       defense: 52
       pv: 55
       numPokedex: 29
+      urlImage:
       pokemons:
    TypeDePokemon30:
       id: 30
@@ -238,6 +267,7 @@ TypeDePokemon:
       defense: 67
       pv: 70
       numPokedex: 30
+      urlImage:
       pokemons:
    TypeDePokemon31:
       id: 31
@@ -246,6 +276,7 @@ TypeDePokemon:
       defense: 87
       pv: 90
       numPokedex: 31
+      urlImage:
       pokemons:
    TypeDePokemon32:
       id: 32
@@ -254,6 +285,7 @@ TypeDePokemon:
       defense: 40
       pv: 46
       numPokedex: 32
+      urlImage:
       pokemons:
    TypeDePokemon33:
       id: 33
@@ -262,6 +294,7 @@ TypeDePokemon:
       defense: 57
       pv: 61
       numPokedex: 33
+      urlImage:
       pokemons:
    TypeDePokemon34:
       id: 34
@@ -270,6 +303,7 @@ TypeDePokemon:
       defense: 77
       pv: 81
       numPokedex: 34
+      urlImage:
       pokemons:
    TypeDePokemon35:
       id: 35
@@ -278,6 +312,7 @@ TypeDePokemon:
       defense: 48
       pv: 70
       numPokedex: 35
+      urlImage:
       pokemons:
    TypeDePokemon36:
       id: 36
@@ -286,6 +321,7 @@ TypeDePokemon:
       defense: 73
       pv: 95
       numPokedex: 36
+      urlImage:
       pokemons:
    TypeDePokemon37:
       id: 37
@@ -294,6 +330,7 @@ TypeDePokemon:
       defense: 40
       pv: 38
       numPokedex: 37
+      urlImage:
       pokemons:
    TypeDePokemon38:
       id: 38
@@ -302,6 +339,7 @@ TypeDePokemon:
       defense: 75
       pv: 73
       numPokedex: 38
+      urlImage:
       pokemons:
    TypeDePokemon39:
       id: 39
@@ -310,6 +348,7 @@ TypeDePokemon:
       defense: 20
       pv: 115
       numPokedex: 39
+      urlImage:
       pokemons:
    TypeDePokemon40:
       id: 40
@@ -318,6 +357,7 @@ TypeDePokemon:
       defense: 45
       pv: 140
       numPokedex: 40
+      urlImage:
       pokemons:
    TypeDePokemon41:
       id: 41
@@ -326,6 +366,7 @@ TypeDePokemon:
       defense: 35
       pv: 40
       numPokedex: 41
+      urlImage:
       pokemons:
    TypeDePokemon42:
       id: 42
@@ -334,6 +375,7 @@ TypeDePokemon:
       defense: 70
       pv: 75
       numPokedex: 42
+      urlImage:
       pokemons:
    TypeDePokemon43:
       id: 43
@@ -342,6 +384,7 @@ TypeDePokemon:
       defense: 55
       pv: 45
       numPokedex: 43
+      urlImage:
       pokemons:
    TypeDePokemon44:
       id: 44
@@ -350,6 +393,7 @@ TypeDePokemon:
       defense: 70
       pv: 60
       numPokedex: 44
+      urlImage:
       pokemons:
    TypeDePokemon45:
       id: 45
@@ -358,6 +402,7 @@ TypeDePokemon:
       defense: 85
       pv: 75
       numPokedex: 45
+      urlImage:
       pokemons:
    TypeDePokemon46:
       id: 46
@@ -366,6 +411,7 @@ TypeDePokemon:
       defense: 55
       pv: 35
       numPokedex: 46
+      urlImage:
       pokemons:
    TypeDePokemon47:
       id: 47
@@ -374,6 +420,7 @@ TypeDePokemon:
       defense: 80
       pv: 60
       numPokedex: 47
+      urlImage:
       pokemons:
    TypeDePokemon48:
       id: 48
@@ -382,6 +429,7 @@ TypeDePokemon:
       defense: 50
       pv: 60
       numPokedex: 48
+      urlImage:
       pokemons:
    TypeDePokemon49:
       id: 49
@@ -390,6 +438,7 @@ TypeDePokemon:
       defense: 60
       pv: 70
       numPokedex: 49
+      urlImage:
       pokemons:
    TypeDePokemon50:
       id: 50
@@ -398,6 +447,7 @@ TypeDePokemon:
       defense: 25
       pv: 10
       numPokedex: 50
+      urlImage:
       pokemons:
    TypeDePokemon51:
       id: 51
@@ -406,6 +456,7 @@ TypeDePokemon:
       defense: 50
       pv: 35
       numPokedex: 51
+      urlImage:
       pokemons:
    TypeDePokemon52:
       id: 52
@@ -414,6 +465,7 @@ TypeDePokemon:
       defense: 35
       pv: 40
       numPokedex: 52
+      urlImage:
       pokemons:
    TypeDePokemon53:
       id: 53
@@ -422,6 +474,7 @@ TypeDePokemon:
       defense: 60
       pv: 65
       numPokedex: 53
+      urlImage:
       pokemons:
    TypeDePokemon54:
       id: 54
@@ -430,6 +483,7 @@ TypeDePokemon:
       defense: 48
       pv: 50
       numPokedex: 54
+      urlImage:
       pokemons:
    TypeDePokemon55:
       id: 55
@@ -438,6 +492,7 @@ TypeDePokemon:
       defense: 78
       pv: 80
       numPokedex: 55
+      urlImage:
       pokemons:
    TypeDePokemon56:
       id: 56
@@ -446,6 +501,7 @@ TypeDePokemon:
       defense: 35
       pv: 40
       numPokedex: 56
+      urlImage:
       pokemons:
    TypeDePokemon57:
       id: 57
@@ -454,6 +510,7 @@ TypeDePokemon:
       defense: 60
       pv: 65
       numPokedex: 57
+      urlImage:
       pokemons:
    TypeDePokemon58:
       id: 58
@@ -462,6 +519,7 @@ TypeDePokemon:
       defense: 45
       pv: 55
       numPokedex: 58
+      urlImage:
       pokemons:
    TypeDePokemon59:
       id: 59
@@ -470,6 +528,7 @@ TypeDePokemon:
       defense: 80
       pv: 90
       numPokedex: 59
+      urlImage:
       pokemons:
    TypeDePokemon60:
       id: 60
@@ -478,6 +537,7 @@ TypeDePokemon:
       defense: 40
       pv: 40
       numPokedex: 60
+      urlImage:
       pokemons:
    TypeDePokemon61:
       id: 61
@@ -486,6 +546,7 @@ TypeDePokemon:
       defense: 65
       pv: 65
       numPokedex: 61
+      urlImage:
       pokemons:
    TypeDePokemon62:
       id: 62
@@ -494,6 +555,7 @@ TypeDePokemon:
       defense: 95
       pv: 90
       numPokedex: 62
+      urlImage:
       pokemons:
    TypeDePokemon63:
       id: 63
@@ -502,6 +564,7 @@ TypeDePokemon:
       defense: 15
       pv: 25
       numPokedex: 63
+      urlImage:
       pokemons:
    TypeDePokemon64:
       id: 64
@@ -510,6 +573,7 @@ TypeDePokemon:
       defense: 30
       pv: 40
       numPokedex: 64
+      urlImage:
       pokemons:
    TypeDePokemon65:
       id: 65
@@ -518,6 +582,7 @@ TypeDePokemon:
       defense: 45
       pv: 55
       numPokedex: 65
+      urlImage:
       pokemons:
    TypeDePokemon66:
       id: 66
@@ -526,6 +591,7 @@ TypeDePokemon:
       defense: 50
       pv: 70
       numPokedex: 66
+      urlImage:
       pokemons:
    TypeDePokemon67:
       id: 67
@@ -534,6 +600,7 @@ TypeDePokemon:
       defense: 70
       pv: 80
       numPokedex: 67
+      urlImage:
       pokemons:
    TypeDePokemon68:
       id: 68
@@ -542,6 +609,7 @@ TypeDePokemon:
       defense: 80
       pv: 90
       numPokedex: 68
+      urlImage:
       pokemons:
    TypeDePokemon69:
       id: 69
@@ -550,6 +618,7 @@ TypeDePokemon:
       defense: 35
       pv: 50
       numPokedex: 69
+      urlImage:
       pokemons:
    TypeDePokemon70:
       id: 70
@@ -558,6 +627,7 @@ TypeDePokemon:
       defense: 50
       pv: 65
       numPokedex: 70
+      urlImage:
       pokemons:
    TypeDePokemon71:
       id: 71
@@ -566,6 +636,7 @@ TypeDePokemon:
       defense: 65
       pv: 80
       numPokedex: 71
+      urlImage:
       pokemons:
    TypeDePokemon72:
       id: 72
@@ -574,6 +645,7 @@ TypeDePokemon:
       defense: 35
       pv: 40
       numPokedex: 72
+      urlImage:
       pokemons:
    TypeDePokemon73:
       id: 73
@@ -582,6 +654,7 @@ TypeDePokemon:
       defense: 65
       pv: 80
       numPokedex: 73
+      urlImage:
       pokemons:
    TypeDePokemon74:
       id: 74
@@ -590,6 +663,7 @@ TypeDePokemon:
       defense: 100
       pv: 40
       numPokedex: 74
+      urlImage:
       pokemons:
    TypeDePokemon75:
       id: 75
@@ -598,6 +672,7 @@ TypeDePokemon:
       defense: 115
       pv: 55
       numPokedex: 75
+      urlImage:
       pokemons:
    TypeDePokemon76:
       id: 76
@@ -606,6 +681,7 @@ TypeDePokemon:
       defense: 130
       pv: 80
       numPokedex: 76
+      urlImage:
       pokemons:
    TypeDePokemon77:
       id: 77
@@ -614,6 +690,7 @@ TypeDePokemon:
       defense: 55
       pv: 50
       numPokedex: 77
+      urlImage:
       pokemons:
    TypeDePokemon78:
       id: 78
@@ -622,6 +699,7 @@ TypeDePokemon:
       defense: 70
       pv: 65
       numPokedex: 78
+      urlImage:
       pokemons:
    TypeDePokemon79:
       id: 79
@@ -630,6 +708,7 @@ TypeDePokemon:
       defense: 65
       pv: 90
       numPokedex: 79
+      urlImage:
       pokemons:
    TypeDePokemon80:
       id: 80
@@ -638,6 +717,7 @@ TypeDePokemon:
       defense: 110
       pv: 95
       numPokedex: 80
+      urlImage:
       pokemons:
    TypeDePokemon81:
       id: 81
@@ -646,6 +726,7 @@ TypeDePokemon:
       defense: 70
       pv: 25
       numPokedex: 81
+      urlImage:
       pokemons:
    TypeDePokemon82:
       id: 82
@@ -654,6 +735,7 @@ TypeDePokemon:
       defense: 95
       pv: 50
       numPokedex: 82
+      urlImage:
       pokemons:
    TypeDePokemon83:
       id: 83
@@ -662,6 +744,7 @@ TypeDePokemon:
       defense: 55
       pv: 52
       numPokedex: 83
+      urlImage:
       pokemons:
    TypeDePokemon84:
       id: 84
@@ -670,6 +753,7 @@ TypeDePokemon:
       defense: 45
       pv: 35
       numPokedex: 84
+      urlImage:
       pokemons:
    TypeDePokemon85:
       id: 85
@@ -678,6 +762,7 @@ TypeDePokemon:
       defense: 70
       pv: 60
       numPokedex: 85
+      urlImage:
       pokemons:
    TypeDePokemon86:
       id: 86
@@ -686,6 +771,7 @@ TypeDePokemon:
       defense: 55
       pv: 65
       numPokedex: 86
+      urlImage:
       pokemons:
    TypeDePokemon87:
       id: 87
@@ -694,6 +780,7 @@ TypeDePokemon:
       defense: 80
       pv: 90
       numPokedex: 87
+      urlImage:
       pokemons:
    TypeDePokemon88:
       id: 88
@@ -702,6 +789,7 @@ TypeDePokemon:
       defense: 50
       pv: 80
       numPokedex: 88
+      urlImage:
       pokemons:
    TypeDePokemon89:
       id: 89
@@ -710,6 +798,7 @@ TypeDePokemon:
       defense: 75
       pv: 105
       numPokedex: 89
+      urlImage:
       pokemons:
    TypeDePokemon90:
       id: 90
@@ -718,6 +807,7 @@ TypeDePokemon:
       defense: 100
       pv: 30
       numPokedex: 90
+      urlImage:
       pokemons:
    TypeDePokemon91:
       id: 91
@@ -726,6 +816,7 @@ TypeDePokemon:
       defense: 180
       pv: 50
       numPokedex: 91
+      urlImage:
       pokemons:
    TypeDePokemon92:
       id: 92
@@ -734,6 +825,7 @@ TypeDePokemon:
       defense: 30
       pv: 30
       numPokedex: 92
+      urlImage:
       pokemons:
    TypeDePokemon93:
       id: 93
@@ -742,6 +834,7 @@ TypeDePokemon:
       defense: 45
       pv: 45
       numPokedex: 93
+      urlImage:
       pokemons:
    TypeDePokemon94:
       id: 94
@@ -750,6 +843,7 @@ TypeDePokemon:
       defense: 60
       pv: 60
       numPokedex: 94
+      urlImage:
       pokemons:
    TypeDePokemon95:
       id: 95
@@ -758,6 +852,7 @@ TypeDePokemon:
       defense: 160
       pv: 35
       numPokedex: 95
+      urlImage:
       pokemons:
    TypeDePokemon96:
       id: 96
@@ -766,6 +861,7 @@ TypeDePokemon:
       defense: 45
       pv: 60
       numPokedex: 96
+      urlImage:
       pokemons:
    TypeDePokemon97:
       id: 97
@@ -774,6 +870,7 @@ TypeDePokemon:
       defense: 70
       pv: 85
       numPokedex: 97
+      urlImage:
       pokemons:
    TypeDePokemon98:
       id: 98
@@ -782,6 +879,7 @@ TypeDePokemon:
       defense: 90
       pv: 30
       numPokedex: 98
+      urlImage:
       pokemons:
    TypeDePokemon99:
       id: 99
@@ -790,6 +888,7 @@ TypeDePokemon:
       defense: 115
       pv: 55
       numPokedex: 99
+      urlImage:
       pokemons:
    TypeDePokemon100:
       id: 100
@@ -798,6 +897,7 @@ TypeDePokemon:
       defense: 50
       pv: 40
       numPokedex: 100
+      urlImage:
       pokemons:
    TypeDePokemon101:
       id: 101
@@ -806,6 +906,7 @@ TypeDePokemon:
       defense: 70
       pv: 60
       numPokedex: 101
+      urlImage:
       pokemons:
    TypeDePokemon102:
       id: 102
@@ -814,6 +915,7 @@ TypeDePokemon:
       defense: 80
       pv: 60
       numPokedex: 102
+      urlImage:
       pokemons:
    TypeDePokemon103:
       id: 103
@@ -822,6 +924,7 @@ TypeDePokemon:
       defense: 85
       pv: 95
       numPokedex: 103
+      urlImage:
       pokemons:
    TypeDePokemon104:
       id: 104
@@ -830,6 +933,7 @@ TypeDePokemon:
       defense: 95
       pv: 50
       numPokedex: 104
+      urlImage:
       pokemons:
    TypeDePokemon105:
       id: 105
@@ -838,6 +942,7 @@ TypeDePokemon:
       defense: 110
       pv: 60
       numPokedex: 105
+      urlImage:
       pokemons:
    TypeDePokemon106:
       id: 106
@@ -846,6 +951,7 @@ TypeDePokemon:
       defense: 53
       pv: 50
       numPokedex: 106
+      urlImage:
       pokemons:
    TypeDePokemon107:
       id: 107
@@ -854,6 +960,7 @@ TypeDePokemon:
       defense: 79
       pv: 50
       numPokedex: 107
+      urlImage:
       pokemons:
    TypeDePokemon108:
       id: 108
@@ -862,6 +969,7 @@ TypeDePokemon:
       defense: 75
       pv: 90
       numPokedex: 108
+      urlImage:
       pokemons:
    TypeDePokemon109:
       id: 109
@@ -870,6 +978,7 @@ TypeDePokemon:
       defense: 95
       pv: 40
       numPokedex: 109
+      urlImage:
       pokemons:
    TypeDePokemon110:
       id: 110
@@ -878,6 +987,7 @@ TypeDePokemon:
       defense: 120
       pv: 65
       numPokedex: 110
+      urlImage:
       pokemons:
    TypeDePokemon111:
       id: 111
@@ -886,6 +996,7 @@ TypeDePokemon:
       defense: 95
       pv: 80
       numPokedex: 111
+      urlImage:
       pokemons:
    TypeDePokemon112:
       id: 112
@@ -894,6 +1005,7 @@ TypeDePokemon:
       defense: 120
       pv: 105
       numPokedex: 112
+      urlImage:
       pokemons:
    TypeDePokemon113:
       id: 113
@@ -902,6 +1014,7 @@ TypeDePokemon:
       defense: 5
       pv: 250
       numPokedex: 113
+      urlImage:
       pokemons:
    TypeDePokemon114:
       id: 114
@@ -910,6 +1023,7 @@ TypeDePokemon:
       defense: 115
       pv: 65
       numPokedex: 114
+      urlImage:
       pokemons:
    TypeDePokemon115:
       id: 115
@@ -918,6 +1032,7 @@ TypeDePokemon:
       defense: 80
       pv: 105
       numPokedex: 115
+      urlImage:
       pokemons:
    TypeDePokemon116:
       id: 116
@@ -926,6 +1041,7 @@ TypeDePokemon:
       defense: 70
       pv: 30
       numPokedex: 116
+      urlImage:
       pokemons:
    TypeDePokemon117:
       id: 117
@@ -934,6 +1050,7 @@ TypeDePokemon:
       defense: 65
       pv: 55
       numPokedex: 117
+      urlImage:
       pokemons:
    TypeDePokemon118:
       id: 118
@@ -942,6 +1059,7 @@ TypeDePokemon:
       defense: 60
       pv: 45
       numPokedex: 118
+      urlImage:
       pokemons:
    TypeDePokemon119:
       id: 119
@@ -950,6 +1068,7 @@ TypeDePokemon:
       defense: 65
       pv: 80
       numPokedex: 119
+      urlImage:
       pokemons:
    TypeDePokemon120:
       id: 120
@@ -958,6 +1077,7 @@ TypeDePokemon:
       defense: 55
       pv: 30
       numPokedex: 120
+      urlImage:
       pokemons:
    TypeDePokemon121:
       id: 121
@@ -966,6 +1086,7 @@ TypeDePokemon:
       defense: 85
       pv: 60
       numPokedex: 121
+      urlImage:
       pokemons:
    TypeDePokemon122:
       id: 122
@@ -974,6 +1095,7 @@ TypeDePokemon:
       defense: 65
       pv: 40
       numPokedex: 122
+      urlImage:
       pokemons:
    TypeDePokemon123:
       id: 123
@@ -982,6 +1104,7 @@ TypeDePokemon:
       defense: 80
       pv: 70
       numPokedex: 123
+      urlImage:
       pokemons:
    TypeDePokemon124:
       id: 124
@@ -990,6 +1113,7 @@ TypeDePokemon:
       defense: 35
       pv: 65
       numPokedex: 124
+      urlImage:
       pokemons:
    TypeDePokemon125:
       id: 125
@@ -998,6 +1122,7 @@ TypeDePokemon:
       defense: 57
       pv: 65
       numPokedex: 125
+      urlImage:
       pokemons:
    TypeDePokemon126:
       id: 126
@@ -1006,6 +1131,7 @@ TypeDePokemon:
       defense: 57
       pv: 65
       numPokedex: 126
+      urlImage:
       pokemons:
    TypeDePokemon127:
       id: 127
@@ -1014,6 +1140,7 @@ TypeDePokemon:
       defense: 100
       pv: 65
       numPokedex: 127
+      urlImage:
       pokemons:
    TypeDePokemon128:
       id: 128
@@ -1022,6 +1149,7 @@ TypeDePokemon:
       defense: 95
       pv: 75
       numPokedex: 128
+      urlImage:
       pokemons:
    TypeDePokemon129:
       id: 129
@@ -1030,6 +1158,7 @@ TypeDePokemon:
       defense: 55
       pv: 20
       numPokedex: 129
+      urlImage:
       pokemons:
    TypeDePokemon130:
       id: 130
@@ -1038,6 +1167,7 @@ TypeDePokemon:
       defense: 79
       pv: 95
       numPokedex: 130
+      urlImage:
       pokemons:
    TypeDePokemon131:
       id: 131
@@ -1046,6 +1176,7 @@ TypeDePokemon:
       defense: 80
       pv: 130
       numPokedex: 131
+      urlImage:
       pokemons:
    TypeDePokemon132:
       id: 132
@@ -1054,6 +1185,7 @@ TypeDePokemon:
       defense: 48
       pv: 48
       numPokedex: 132
+      urlImage:
       pokemons:
    TypeDePokemon133:
       id: 133
@@ -1062,6 +1194,7 @@ TypeDePokemon:
       defense: 50
       pv: 55
       numPokedex: 133
+      urlImage:
       pokemons:
    TypeDePokemon134:
       id: 134
@@ -1070,6 +1203,7 @@ TypeDePokemon:
       defense: 60
       pv: 130
       numPokedex: 134
+      urlImage:
       pokemons:
    TypeDePokemon135:
       id: 135
@@ -1078,6 +1212,7 @@ TypeDePokemon:
       defense: 60
       pv: 65
       numPokedex: 135
+      urlImage:
       pokemons:
    TypeDePokemon136:
       id: 136
@@ -1086,6 +1221,7 @@ TypeDePokemon:
       defense: 60
       pv: 65
       numPokedex: 136
+      urlImage:
       pokemons:
    TypeDePokemon137:
       id: 137
@@ -1094,6 +1230,7 @@ TypeDePokemon:
       defense: 70
       pv: 65
       numPokedex: 137
+      urlImage:
       pokemons:
    TypeDePokemon138:
       id: 138
@@ -1102,6 +1239,7 @@ TypeDePokemon:
       defense: 100
       pv: 35
       numPokedex: 138
+      urlImage:
       pokemons:
    TypeDePokemon139:
       id: 139
@@ -1110,6 +1248,7 @@ TypeDePokemon:
       defense: 125
       pv: 70
       numPokedex: 139
+      urlImage:
       pokemons:
    TypeDePokemon140:
       id: 140
@@ -1118,6 +1257,7 @@ TypeDePokemon:
       defense: 90
       pv: 30
       numPokedex: 140
+      urlImage:
       pokemons:
    TypeDePokemon141:
       id: 141
@@ -1126,6 +1266,7 @@ TypeDePokemon:
       defense: 105
       pv: 60
       numPokedex: 141
+      urlImage:
       pokemons:
    TypeDePokemon142:
       id: 142
@@ -1134,6 +1275,7 @@ TypeDePokemon:
       defense: 65
       pv: 80
       numPokedex: 142
+      urlImage:
       pokemons:
    TypeDePokemon143:
       id: 143
@@ -1142,6 +1284,7 @@ TypeDePokemon:
       defense: 65
       pv: 160
       numPokedex: 143
+      urlImage:
       pokemons:
    TypeDePokemon144:
       id: 144
@@ -1150,6 +1293,7 @@ TypeDePokemon:
       defense: 100
       pv: 90
       numPokedex: 144
+      urlImage:
       pokemons:
    TypeDePokemon145:
       id: 145
@@ -1158,6 +1302,7 @@ TypeDePokemon:
       defense: 85
       pv: 90
       numPokedex: 145
+      urlImage:
       pokemons:
    TypeDePokemon146:
       id: 146
@@ -1166,6 +1311,7 @@ TypeDePokemon:
       defense: 90
       pv: 90
       numPokedex: 146
+      urlImage:
       pokemons:
    TypeDePokemon147:
       id: 147
@@ -1174,6 +1320,7 @@ TypeDePokemon:
       defense: 45
       pv: 41
       numPokedex: 147
+      urlImage:
       pokemons:
    TypeDePokemon148:
       id: 148
@@ -1182,6 +1329,7 @@ TypeDePokemon:
       defense: 65
       pv: 61
       numPokedex: 148
+      urlImage:
       pokemons:
    TypeDePokemon149:
       id: 149
@@ -1190,6 +1338,7 @@ TypeDePokemon:
       defense: 95
       pv: 91
       numPokedex: 149
+      urlImage:
       pokemons:
    TypeDePokemon150:
       id: 150
@@ -1198,6 +1347,7 @@ TypeDePokemon:
       defense: 90
       pv: 106
       numPokedex: 150
+      urlImage:
       pokemons:
    TypeDePokemon151:
       id: 151
@@ -1206,4 +1356,5 @@ TypeDePokemon:
       defense: 100
       pv: 100
       numPokedex: 151
+      urlImage:
       pokemons:

@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 
@@ -58,12 +58,14 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
     protected static String JSON_NOM = "nom";
     /** JSON_DESCRIPTION attributes. */
     protected static String JSON_DESCRIPTION = "description";
+    /** JSON_URLIMAGE attributes. */
+    protected static String JSON_URLIMAGE = "urlImage";
     /** JSON_PROFESSION attributes. */
     protected static String JSON_PROFESSION = "profession";
     /** JSON_OBJETS attributes. */
     protected static String JSON_OBJETS = "objets";
-    /** JSON_DRESSEUR attributes. */
-    protected static String JSON_DRESSEUR = "dresseur";
+    /** JSON_DRESSEURS attributes. */
+    protected static String JSON_DRESSEURS = "dresseurs";
     /** JSON_ARENES attributes. */
     protected static String JSON_ARENES = "arenes";
     /** JSON_POKEMONS attributes. */
@@ -80,8 +82,8 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
             PersonnageNonJoueurContract.COL_ID,
             PersonnageNonJoueurContract.COL_NOM,
             PersonnageNonJoueurContract.COL_DESCRIPTION,
-            PersonnageNonJoueurContract.COL_PROFESSION_ID,
-            PersonnageNonJoueurContract.COL_DRESSEUR_ID
+            PersonnageNonJoueurContract.COL_URLIMAGE,
+            PersonnageNonJoueurContract.COL_PROFESSION_ID
         };
 
     /**
@@ -317,35 +319,6 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
     }
 
 
-    /**
-     * Get the PersonnageNonJoueur associated with a Dresseur. Uses the route : dresseur/%Dresseur_id%/personnagenonjoueur.
-     * @param personnageNonJoueur : The PersonnageNonJoueur that will be returned
-     * @param dresseur : The associated dresseur
-     * @return -1 if an error has occurred. 0 if not.
-     */
-    public int getByDresseur(PersonnageNonJoueur personnageNonJoueur, Dresseur dresseur) {
-        int result = -1;
-        String response = this.invokeRequest(
-                    Verb.GET,
-                    String.format(
-                        this.getUri() + "/%s%s",
-                        dresseur.getId(),
-                        REST_FORMAT),
-                    null);
-
-        if (this.isValidResponse(response) && this.isValidRequest()) {
-            try {
-                JSONObject json = new JSONObject(response);
-                this.extract(json, personnageNonJoueur);
-                result = 0;
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage());
-                personnageNonJoueur = null;
-            }
-        }
-
-        return result;
-    }
 
 
 
@@ -393,6 +366,12 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                             json.getString(PersonnageNonJoueurWebServiceClientAdapter.JSON_DESCRIPTION));
                 }
 
+                if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE)
+                        && !json.isNull(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    personnageNonJoueur.setUrlImage(
+                            json.getString(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE));
+                }
+
                 if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_PROFESSION)
                         && !json.isNull(PersonnageNonJoueurWebServiceClientAdapter.JSON_PROFESSION)) {
 
@@ -431,23 +410,21 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                     }
                 }
 
-                if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR)
-                        && !json.isNull(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR)) {
+                if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEURS)
+                        && !json.isNull(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEURS)) {
+                    ArrayList<Dresseur> dresseurs =
+                            new ArrayList<Dresseur>();
+                    DresseurWebServiceClientAdapter dresseursAdapter =
+                            new DresseurWebServiceClientAdapter(this.context);
 
                     try {
-                        DresseurWebServiceClientAdapter dresseurAdapter =
-                                new DresseurWebServiceClientAdapter(this.context);
-                        Dresseur dresseur =
-                                new Dresseur();
-
-                        if (dresseurAdapter.extract(
-                                json.optJSONObject(
-                                        PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR),
-                                        dresseur)) {
-                            personnageNonJoueur.setDresseur(dresseur);
-                        }
-                    } catch (Exception e) {
-                        Log.e(TAG, "Json doesn't contains Dresseur data");
+                        //.optJSONObject(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEURS);
+                        dresseursAdapter.extractItems(
+                                json, PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEURS,
+                                dresseurs);
+                        personnageNonJoueur.setDresseurs(dresseurs);
+                    } catch (JSONException e) {
+                        Log.e(TAG, e.getMessage());
                     }
                 }
 
@@ -510,17 +487,14 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                 if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_DESCRIPTION)) {
                     row[2] = json.getString(PersonnageNonJoueurWebServiceClientAdapter.JSON_DESCRIPTION);
                 }
+                if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    row[3] = json.getString(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE);
+                }
                 if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_PROFESSION)) {
                     JSONObject professionJson = json.getJSONObject(
                             PersonnageNonJoueurWebServiceClientAdapter.JSON_PROFESSION);
-                    row[3] = professionJson.getString(
+                    row[4] = professionJson.getString(
                             ProfessionWebServiceClientAdapter.JSON_ID);
-                }
-                if (json.has(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR)) {
-                    JSONObject dresseurJson = json.getJSONObject(
-                            PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR);
-                    row[4] = dresseurJson.getString(
-                            DresseurWebServiceClientAdapter.JSON_ID);
                 }
 
                 cursor.addRow(row);
@@ -547,6 +521,8 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                     personnageNonJoueur.getNom());
             params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_DESCRIPTION,
                     personnageNonJoueur.getDescription());
+            params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE,
+                    personnageNonJoueur.getUrlImage());
 
             if (personnageNonJoueur.getProfession() != null) {
                 ProfessionWebServiceClientAdapter professionAdapter =
@@ -564,12 +540,12 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                         objetsAdapter.itemsIdToJson(personnageNonJoueur.getObjets()));
             }
 
-            if (personnageNonJoueur.getDresseur() != null) {
-                DresseurWebServiceClientAdapter dresseurAdapter =
+            if (personnageNonJoueur.getDresseurs() != null) {
+                DresseurWebServiceClientAdapter dresseursAdapter =
                         new DresseurWebServiceClientAdapter(this.context);
 
-                params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR,
-                        dresseurAdapter.itemIdToJson(personnageNonJoueur.getDresseur()));
+                params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEURS,
+                        dresseursAdapter.itemsIdToJson(personnageNonJoueur.getDresseurs()));
             }
 
             if (personnageNonJoueur.getArenes() != null) {
@@ -627,16 +603,13 @@ public abstract class PersonnageNonJoueurWebServiceClientAdapterBase
                     values.get(PersonnageNonJoueurContract.COL_NOM));
             params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_DESCRIPTION,
                     values.get(PersonnageNonJoueurContract.COL_DESCRIPTION));
+            params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_URLIMAGE,
+                    values.get(PersonnageNonJoueurContract.COL_URLIMAGE));
             ProfessionWebServiceClientAdapter professionAdapter =
                     new ProfessionWebServiceClientAdapter(this.context);
 
             params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_PROFESSION,
                     professionAdapter.contentValuesToJson(values));
-            DresseurWebServiceClientAdapter dresseurAdapter =
-                    new DresseurWebServiceClientAdapter(this.context);
-
-            params.put(PersonnageNonJoueurWebServiceClientAdapter.JSON_DRESSEUR,
-                    dresseurAdapter.contentValuesToJson(values));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

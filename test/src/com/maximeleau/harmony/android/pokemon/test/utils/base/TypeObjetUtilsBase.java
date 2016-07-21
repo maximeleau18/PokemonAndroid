@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -32,6 +32,7 @@ public abstract class TypeObjetUtilsBase {
 
         typeObjet.setId(TestUtils.generateRandomInt(0,100) + 1);
         typeObjet.setNom("nom_"+TestUtils.generateRandomString(10));
+        typeObjet.setUrlImage("urlImage_"+TestUtils.generateRandomString(10));
 
         return typeObjet;
     }
@@ -50,6 +51,7 @@ public abstract class TypeObjetUtilsBase {
         if (typeObjet1!=null && typeObjet2 !=null){
             Assert.assertEquals(typeObjet1.getId(), typeObjet2.getId());
             Assert.assertEquals(typeObjet1.getNom(), typeObjet2.getNom());
+            Assert.assertEquals(typeObjet1.getUrlImage(), typeObjet2.getUrlImage());
         }
 
         return ret;

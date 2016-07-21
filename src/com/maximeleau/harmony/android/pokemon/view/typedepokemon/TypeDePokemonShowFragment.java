@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typedepokemon;
@@ -63,6 +63,8 @@ public class TypeDePokemonShowFragment
     protected TextView pvView;
     /** numPokedex View. */
     protected TextView numPokedexView;
+    /** urlImage View. */
+    protected TextView urlImageView;
     /** pokemons View. */
     protected TextView pokemonsView;
     /** Data layout. */
@@ -91,6 +93,9 @@ public class TypeDePokemonShowFragment
         this.numPokedexView =
             (TextView) view.findViewById(
                     R.id.typedepokemon_numpokedex);
+        this.urlImageView =
+            (TextView) view.findViewById(
+                    R.id.typedepokemon_urlimage);
         this.pokemonsView =
             (TextView) view.findViewById(
                     R.id.typedepokemon_pokemons);
@@ -118,6 +123,9 @@ public class TypeDePokemonShowFragment
         this.defenseView.setText(String.valueOf(this.model.getDefense()));
         this.pvView.setText(String.valueOf(this.model.getPv()));
         this.numPokedexView.setText(String.valueOf(this.model.getNumPokedex()));
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
         if (this.model.getPokemons() != null) {
             String pokemonsValue = "";
             for (Pokemon item : this.model.getPokemons()) {

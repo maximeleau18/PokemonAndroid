@@ -1,14 +1,11 @@
 package com.maximeleau.harmony.android.pokemon.entity;
 
 import org.joda.time.format.ISODateTimeFormat;
-
 import android.os.Parcel;
 import android.os.Parcelable;
-
 import java.util.List;
 import java.util.ArrayList;
 import java.io.Serializable;
-
 import org.joda.time.DateTime;
 
 import com.tactfactory.harmony.annotation.Column;
@@ -307,8 +304,6 @@ public class Pokemon  implements Serializable , Parcelable {
         this.setTypeDePokemon((TypeDePokemon) parc.readParcelable(TypeDePokemon.class.getClassLoader()));
         this.setPersonnageNonJoueur((PersonnageNonJoueur) parc.readParcelable(PersonnageNonJoueur.class.getClassLoader()));
     }
-
-
 
     /**
      * Parcel Constructor.

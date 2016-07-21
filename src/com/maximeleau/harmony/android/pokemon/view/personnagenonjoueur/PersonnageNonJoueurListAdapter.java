@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.personnagenonjoueur;
@@ -91,11 +91,11 @@ public class PersonnageNonJoueurListAdapter extends HarmonyCursorAdapter<Personn
             TextView descriptionView = (TextView) this.getView().findViewById(
                     R.id.row_personnagenonjoueur_description);
                     
+            TextView urlImageView = (TextView) this.getView().findViewById(
+                    R.id.row_personnagenonjoueur_urlimage);
+                    
             TextView professionView = (TextView) this.getView().findViewById(
                     R.id.row_personnagenonjoueur_profession);
-                    
-            TextView dresseurView = (TextView) this.getView().findViewById(
-                    R.id.row_personnagenonjoueur_dresseur);
                     
 
             if (model.getNom() != null) {
@@ -104,13 +104,12 @@ public class PersonnageNonJoueurListAdapter extends HarmonyCursorAdapter<Personn
             if (model.getDescription() != null) {
                 descriptionView.setText(model.getDescription());
             }
+            if (model.getUrlImage() != null) {
+                urlImageView.setText(model.getUrlImage());
+            }
             if (model.getProfession() != null) {
                 professionView.setText(
                         String.valueOf(model.getProfession().getId()));
-            }
-            if (model.getDresseur() != null) {
-                dresseurView.setText(
-                        String.valueOf(model.getDresseur().getId()));
             }
         }
     }

@@ -1,6 +1,56 @@
 Position:
-#   Position_name:
-#      id:
-#      x:
-#      y:
-#      zone:
+   Position1:
+      id: 1
+      x: 0
+      y: 0
+      zone: Zone2
+   Position2:
+      id: 2
+      x: 0
+      y: 1
+      zone: Zone2
+   Position3:
+      id: 3
+      x: 0
+      y: 2
+      zone: Zone2
+   Position4:
+      id: 4
+      x: 0
+      y: 3
+      zone: Zone2
+   Position5:
+      id: 5
+      x: 0
+      y: 4
+      zone: Zone2
+   Position6:
+      id: 6
+      x: 0
+      y: 5
+      zone: Zone2
+   Position7:
+      id: 7
+      x: 0
+      y: 6
+      zone: Zone2
+   Position8:
+      id: 8
+      x: 0
+      y: 7
+      zone: Zone2
+   Position9:
+      id: 9
+      x: 0
+      y: 8
+      zone: Zone2
+   Position10:
+      id: 10
+      x: 0
+      y: 9
+      zone: Zone2
+   Position11:
+      id: 11
+      x: 0
+      y: 10
+      zone: Zone2

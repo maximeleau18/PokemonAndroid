@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 
@@ -51,6 +51,8 @@ public abstract class TypeObjetWebServiceClientAdapterBase
     protected static String JSON_ID = "id";
     /** JSON_NOM attributes. */
     protected static String JSON_NOM = "nom";
+    /** JSON_URLIMAGE attributes. */
+    protected static String JSON_URLIMAGE = "urlImage";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -61,7 +63,8 @@ public abstract class TypeObjetWebServiceClientAdapterBase
     /** TypeObjet REST Columns. */
     public static String[] REST_COLS = new String[]{
             TypeObjetContract.COL_ID,
-            TypeObjetContract.COL_NOM
+            TypeObjetContract.COL_NOM,
+            TypeObjetContract.COL_URLIMAGE
         };
 
     /**
@@ -304,6 +307,12 @@ public abstract class TypeObjetWebServiceClientAdapterBase
                     typeObjet.setNom(
                             json.getString(TypeObjetWebServiceClientAdapter.JSON_NOM));
                 }
+
+                if (json.has(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE)
+                        && !json.isNull(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    typeObjet.setUrlImage(
+                            json.getString(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE));
+                }
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
             }
@@ -318,12 +327,15 @@ public abstract class TypeObjetWebServiceClientAdapterBase
         String id = json.optString(TypeObjetWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[2];
+                String[] row = new String[3];
                 if (json.has(TypeObjetWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(TypeObjetWebServiceClientAdapter.JSON_ID);
                 }
                 if (json.has(TypeObjetWebServiceClientAdapter.JSON_NOM)) {
                     row[1] = json.getString(TypeObjetWebServiceClientAdapter.JSON_NOM);
+                }
+                if (json.has(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    row[2] = json.getString(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE);
                 }
 
                 cursor.addRow(row);
@@ -348,6 +360,8 @@ public abstract class TypeObjetWebServiceClientAdapterBase
                     typeObjet.getId());
             params.put(TypeObjetWebServiceClientAdapter.JSON_NOM,
                     typeObjet.getNom());
+            params.put(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE,
+                    typeObjet.getUrlImage());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -386,6 +400,8 @@ public abstract class TypeObjetWebServiceClientAdapterBase
                     values.get(TypeObjetContract.COL_ID));
             params.put(TypeObjetWebServiceClientAdapter.JSON_NOM,
                     values.get(TypeObjetContract.COL_NOM));
+            params.put(TypeObjetWebServiceClientAdapter.JSON_URLIMAGE,
+                    values.get(TypeObjetContract.COL_URLIMAGE));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

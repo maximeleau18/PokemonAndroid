@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -17,6 +17,7 @@ import java.util.Map;
 
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
 import com.maximeleau.harmony.android.pokemon.entity.Objet;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.Arene;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 
@@ -38,12 +39,14 @@ public final class PersonnageNonJoueurDataLoader
     private static final String NOM = "nom";
     /** Constant field for description. */
     private static final String DESCRIPTION = "description";
+    /** Constant field for urlImage. */
+    private static final String URLIMAGE = "urlImage";
     /** Constant field for profession. */
     private static final String PROFESSION = "profession";
     /** Constant field for objets. */
     private static final String OBJETS = "objets";
-    /** Constant field for dresseur. */
-    private static final String DRESSEUR = "dresseur";
+    /** Constant field for dresseurs. */
+    private static final String DRESSEURS = "dresseurs";
     /** Constant field for arenes. */
     private static final String ARENES = "arenes";
     /** Constant field for pokemons. */
@@ -93,6 +96,7 @@ public final class PersonnageNonJoueurDataLoader
         personnageNonJoueur.setId(this.parseIntField(columns, ID));
         personnageNonJoueur.setNom(this.parseField(columns, NOM, String.class));
         personnageNonJoueur.setDescription(this.parseField(columns, DESCRIPTION, String.class));
+        personnageNonJoueur.setUrlImage(this.parseField(columns, URLIMAGE, String.class));
         personnageNonJoueur.setProfession(this.parseSimpleRelationField(columns, PROFESSION, ProfessionDataLoader.getInstance(this.ctx)));
         personnageNonJoueur.setObjets(this.parseMultiRelationField(columns, OBJETS, ObjetDataLoader.getInstance(this.ctx)));
         if (personnageNonJoueur.getObjets() != null) {
@@ -100,7 +104,12 @@ public final class PersonnageNonJoueurDataLoader
                 related.setPersonnageNonJoueur(personnageNonJoueur);
             }
         }
-        personnageNonJoueur.setDresseur(this.parseSimpleRelationField(columns, DRESSEUR, DresseurDataLoader.getInstance(this.ctx)));
+        personnageNonJoueur.setDresseurs(this.parseMultiRelationField(columns, DRESSEURS, DresseurDataLoader.getInstance(this.ctx)));
+        if (personnageNonJoueur.getDresseurs() != null) {
+            for (Dresseur related : personnageNonJoueur.getDresseurs()) {
+                related.setPersonnageNonJoueur(personnageNonJoueur);
+            }
+        }
         personnageNonJoueur.setArenes(this.parseMultiRelationField(columns, ARENES, AreneDataLoader.getInstance(this.ctx)));
         if (personnageNonJoueur.getArenes() != null) {
             for (Arene related : personnageNonJoueur.getArenes()) {

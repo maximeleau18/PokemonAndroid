@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typedepokemon;
@@ -96,6 +96,9 @@ public class TypeDePokemonListAdapter extends HarmonyCursorAdapter<TypeDePokemon
             TextView numPokedexView = (TextView) this.getView().findViewById(
                     R.id.row_typedepokemon_numpokedex);
                     
+            TextView urlImageView = (TextView) this.getView().findViewById(
+                    R.id.row_typedepokemon_urlimage);
+                    
 
             if (model.getNom() != null) {
                 nomView.setText(model.getNom());
@@ -104,6 +107,9 @@ public class TypeDePokemonListAdapter extends HarmonyCursorAdapter<TypeDePokemon
             defenseView.setText(String.valueOf(model.getDefense()));
             pvView.setText(String.valueOf(model.getPv()));
             numPokedexView.setText(String.valueOf(model.getNumPokedex()));
+            if (model.getUrlImage() != null) {
+                urlImageView.setText(model.getUrlImage());
+            }
         }
     }
 }

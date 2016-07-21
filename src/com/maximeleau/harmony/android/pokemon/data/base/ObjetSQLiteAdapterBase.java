@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -86,6 +86,7 @@ public abstract class ObjetSQLiteAdapterBase
          + ObjetContract.COL_ID    + " INTEGER PRIMARY KEY AUTOINCREMENT,"
          + ObjetContract.COL_NOM    + " VARCHAR NOT NULL,"
          + ObjetContract.COL_QUANTITE    + " INTEGER NOT NULL,"
+         + ObjetContract.COL_URLIMAGE    + " VARCHAR,"
          + ObjetContract.COL_TYPEOBJET_ID    + " INTEGER NOT NULL,"
          + ObjetContract.COL_PERSONNAGENONJOUEUR_ID    + " INTEGER,"
 

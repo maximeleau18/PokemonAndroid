@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typeobjet;
@@ -83,9 +83,15 @@ public class TypeObjetListAdapter extends HarmonyCursorAdapter<TypeObjet> {
             TextView nomView = (TextView) this.getView().findViewById(
                     R.id.row_typeobjet_nom);
                     
+            TextView urlImageView = (TextView) this.getView().findViewById(
+                    R.id.row_typeobjet_urlimage);
+                    
 
             if (model.getNom() != null) {
                 nomView.setText(model.getNom());
+            }
+            if (model.getUrlImage() != null) {
+                urlImageView.setText(model.getUrlImage());
             }
         }
     }

@@ -64,11 +64,23 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:layout_below="@+id/typedepokemon_numpokedex_label" />
+   <TextView
+        android:id="@+id/typedepokemon_urlimage_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/typedepokemon_numpokedex"
+        android:text="@string/typedepokemon_urlimage_label"/>
+    <EditText
+        android:id="@+id/typedepokemon_urlimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_below="@+id/typedepokemon_urlimage_label" />
     <TextView
         android:id="@+id/typedepokemon_pokemons_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/typedepokemon_numpokedex"
+        android:layout_below="@+id/typedepokemon_urlimage"
         android:text="@string/typedepokemon_pokemons_label"/>
     <com.maximeleau.harmony.android.pokemon.harmony.widget.MultiEntityWidget
         android:id="@+id/typedepokemon_pokemons_button"

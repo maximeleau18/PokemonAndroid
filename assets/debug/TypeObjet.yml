@@ -1,4 +1,25 @@
 TypeObjet:
-#   TypeObjet_name:
-#      id:
-#      nom:
+   TypeObjet1:
+      id: 1
+      nom: "Standards"
+      urlImage:
+   TypeObjet2:
+      id: 2
+      nom: "Médicaments"
+      urlImage:
+   TypeObjet3:
+      id: 3
+      nom: "Balls"
+      urlImage:
+   TypeObjet4:
+      id: 4
+      nom: "CT/CS"
+      urlImage:
+   TypeObjet5:
+      id: 5
+      nom: "Combat"
+      urlImage:
+   TypeObjet6:
+      id: 6
+      nom: "Rares"
+      urlImage:

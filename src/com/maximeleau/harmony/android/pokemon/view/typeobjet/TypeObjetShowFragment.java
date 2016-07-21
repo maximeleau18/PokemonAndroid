@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typeobjet;
@@ -53,6 +53,8 @@ public class TypeObjetShowFragment
     /* This entity's fields views */
     /** nom View. */
     protected TextView nomView;
+    /** urlImage View. */
+    protected TextView urlImageView;
     /** Data layout. */
     protected RelativeLayout dataLayout;
     /** Text view for no TypeObjet. */
@@ -67,6 +69,9 @@ public class TypeObjetShowFragment
         this.nomView =
             (TextView) view.findViewById(
                     R.id.typeobjet_nom);
+        this.urlImageView =
+            (TextView) view.findViewById(
+                    R.id.typeobjet_urlimage);
 
         this.dataLayout =
                 (RelativeLayout) view.findViewById(
@@ -86,6 +91,9 @@ public class TypeObjetShowFragment
 
         if (this.model.getNom() != null) {
             this.nomView.setText(this.model.getNom());
+        }
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
         }
         } else {
             this.dataLayout.setVisibility(View.GONE);

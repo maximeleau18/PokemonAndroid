@@ -13,5 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true" />
+        <TextView
+            android:id="@+id/row_typeobjet_urlimage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_typeobjet_nom" />
 
 </RelativeLayout>

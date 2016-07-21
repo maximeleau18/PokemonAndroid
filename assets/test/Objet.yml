@@ -1,7 +1,897 @@
 Objet:
-#   Objet_name:
-#      id:
-#      nom:
-#      quantite:
-#      typeObjet:
-#      personnageNonJoueur:
+   Objet1:
+      id: 1
+      nom: "Pierre Eau"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet2:
+      id: 2
+      nom: "Pierre Feu"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet3:
+      id: 3
+      nom: "Pierre Foudre"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet4:
+      id: 4
+      nom: "Pierre Lune"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet5:
+      id: 5
+      nom: "Pierre Plante"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet6:
+      id: 6
+      nom: "Fossile Dôme"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet7:
+      id: 7
+      nom: "Fossile Nautile"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet8:
+      id: 8
+      nom: "Vieil Ambre"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet9:
+      id: 9
+      nom: "Repousse"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet10:
+      id: 10
+      nom: "Superepousse"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet11:
+      id: 11
+      nom: "Max Repousse"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet12:
+      id: 12
+      nom: "Pépite"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet13:
+      id: 13
+      nom: "Corde Sortie"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet1
+      personnageNonJoueur:
+   Objet14:
+      id: 14
+      nom: "Antidote"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet15:
+      id: 15
+      nom: "Anti-Brûle"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet16:
+      id: 16
+      nom: "Antigel"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet17:
+      id: 17
+      nom: "Réveil"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet18:
+      id: 18
+      nom: "Anti-Para"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet19:
+      id: 19
+      nom: "Total Soin"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet20:
+      id: 20
+      nom: "Guérison"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet21:
+      id: 21
+      nom: "Potion"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet22:
+      id: 22
+      nom: "Super Potion"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet23:
+      id: 23
+      nom: "Hyper Potion"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet24:
+      id: 24
+      nom: "Potion Max"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet25:
+      id: 25
+      nom: "PV Plus"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet26:
+      id: 26
+      nom: "Protéine"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet27:
+      id: 27
+      nom: "Fer"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet28:
+      id: 28
+      nom: "Carbone"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet29:
+      id: 29
+      nom: "Calcium"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet30:
+      id: 30
+      nom: "Super Bonbon"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet31:
+      id: 31
+      nom: "PP Plus"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet32:
+      id: 32
+      nom: "PP Max"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet33:
+      id: 33
+      nom: "Eau Fraîche"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet34:
+      id: 34
+      nom: "Soda Cool"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet35:
+      id: 35
+      nom: "Limonade"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet36:
+      id: 36
+      nom: "Rappel"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet37:
+      id: 37
+      nom: "Rappel Max"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet38:
+      id: 38
+      nom: "Huile"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet39:
+      id: 39
+      nom: "Huile Max"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet40:
+      id: 40
+      nom: "Élixir"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet41:
+      id: 41
+      nom: "Max Élixir"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet2
+      personnageNonJoueur:
+   Objet42:
+      id: 42
+      nom: "CS01 Coupe"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet43:
+      id: 43
+      nom: "CS02 Vol"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet44:
+      id: 44
+      nom: "CS03 Surf"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet45:
+      id: 45
+      nom: "CS04 Force"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet46:
+      id: 46
+      nom: "CS05 Flash"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet47:
+      id: 47
+      nom: "CT01 Ultimapoing"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet48:
+      id: 48
+      nom: "CT02 Coupe-Vent"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet49:
+      id: 49
+      nom: "CT03 Danse-Lames"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet50:
+      id: 50
+      nom: "CT04 Cyclone"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet51:
+      id: 51
+      nom: "CT05 Ultimawashi"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet52:
+      id: 52
+      nom: "CT06 Toxik"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet53:
+      id: 53
+      nom: "CT07 Empal'Korne"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet54:
+      id: 54
+      nom: "CT08 Plaquage"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet55:
+      id: 55
+      nom: "CT09 Bélier"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet56:
+      id: 56
+      nom: "CT10 Damoclès"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet57:
+      id: 57
+      nom: "CT11 Bulles d'O"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet58:
+      id: 58
+      nom: "CT12 Pistolet à O"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet59:
+      id: 59
+      nom: "CT13 Laser Glace"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet60:
+      id: 60
+      nom: "CT14 Blizzard"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet61:
+      id: 61
+      nom: "CT15 Ultralaser"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet62:
+      id: 62
+      nom: "CT16 Jackpot"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet63:
+      id: 63
+      nom: "CT17 Sacrifice"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet64:
+      id: 64
+      nom: "CT18 Riposte combat"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet65:
+      id: 65
+      nom: "CT19 Frappe Atlas"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet66:
+      id: 66
+      nom: "CT20 Frénésie"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet67:
+      id: 67
+      nom: "CT21 Méga-Sangsue"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet68:
+      id: 68
+      nom: "CT22 Lance-Soleil"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet69:
+      id: 69
+      nom: "CT23 Draco-Rage"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet70:
+      id: 70
+      nom: "CT24 Tonnerre"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet71:
+      id: 71
+      nom: "CT25 Fatal-Foudre"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet72:
+      id: 72
+      nom: "CT26 Séisme"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet73:
+      id: 73
+      nom: "CT27 Abîme"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet74:
+      id: 74
+      nom: "CT28 Tunnel"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet75:
+      id: 75
+      nom: "CT29 Psyko"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet76:
+      id: 76
+      nom: "CT30 Téléport"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet77:
+      id: 77
+      nom: "CT31 Copie"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet78:
+      id: 78
+      nom: "CT32 Reflet"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet79:
+      id: 79
+      nom: "CT33 Protection"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet80:
+      id: 80
+      nom: "CT34 Patience"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet81:
+      id: 81
+      nom: "CT35 Métronome"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet82:
+      id: 82
+      nom: "CT36 Destruction"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet83:
+      id: 83
+      nom: "CT37 Bomb'Œuf"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet84:
+      id: 84
+      nom: "CT38 Déflagration"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet85:
+      id: 85
+      nom: "CT39 Météores"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet86:
+      id: 86
+      nom: "CT40 Coud'Krâne"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet87:
+      id: 87
+      nom: "CT41 E-Coque"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet88:
+      id: 88
+      nom: "CT42 Dévorêve"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet89:
+      id: 89
+      nom: "CT43 Piqué"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet90:
+      id: 90
+      nom: "CT44 Repos"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet91:
+      id: 91
+      nom: "CT45 Cage-Éclair"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet92:
+      id: 92
+      nom: "CT46 Vague Psy"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet93:
+      id: 93
+      nom: "CT47 Explosion"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet94:
+      id: 94
+      nom: "CT48 Éboulement"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet95:
+      id: 95
+      nom: "CT49 Triplattaque"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet96:
+      id: 96
+      nom: "CT50 Clonage"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet4
+      personnageNonJoueur:
+   Objet97:
+      id: 97
+      nom: "Muscle +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet98:
+      id: 98
+      nom: "Attaque +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet99:
+      id: 99
+      nom: "Défense +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet100:
+      id: 100
+      nom: "Vitesse +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet101:
+      id: 101
+      nom: "Spécial +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet102:
+      id: 102
+      nom: "Précision +"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet103:
+      id: 103
+      nom: "Défense Spec."
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet104:
+      id: 104
+      nom: "PokéPoupée"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet5
+      personnageNonJoueur:
+   Objet105:
+      id: 105
+      nom: "Carte"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet106:
+      id: 106
+      nom: "Bicyclette"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet107:
+      id: 107
+      nom: "Pokédex"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet108:
+      id: 108
+      nom: "Clé Secrète"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet109:
+      id: 109
+      nom: "Bon Commande"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet110:
+      id: 110
+      nom: "Carte Magn."
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet111:
+      id: 111
+      nom: "Jetons"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet112:
+      id: 112
+      nom: "Passe Bateau"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet113:
+      id: 113
+      nom: "Dent d'Or"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet114:
+      id: 114
+      nom: "Boîte Jetons"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet115:
+      id: 115
+      nom: "Colis de Chen"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet116:
+      id: 116
+      nom: "Cherch'Objet"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet117:
+      id: 117
+      nom: "Scope Sylphe"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet118:
+      id: 118
+      nom: "PokéFlûte"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet119:
+      id: 119
+      nom: "Clé Asc."
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet120:
+      id: 120
+      nom: "Multi Exp."
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet121:
+      id: 121
+      nom: "Canne"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet122:
+      id: 122
+      nom: "Super Canne"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet123:
+      id: 123
+      nom: "Méga Canne"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet6
+      personnageNonJoueur:
+   Objet124:
+      id: 124
+      nom: "Poké Ball"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet3
+      personnageNonJoueur:
+   Objet125:
+      id: 125
+      nom: "Super Ball"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet3
+      personnageNonJoueur:
+   Objet126:
+      id: 126
+      nom: "Hyper Ball"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet3
+      personnageNonJoueur:
+   Objet127:
+      id: 127
+      nom: "Master Ball"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet3
+      personnageNonJoueur:
+   Objet128:
+      id: 128
+      nom: "Safari Ball"
+      quantite: 10
+      urlImage:
+      typeObjet: TypeObjet3
+      personnageNonJoueur:

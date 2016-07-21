@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 13, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 
@@ -55,6 +55,8 @@ public abstract class ObjetWebServiceClientAdapterBase
     protected static String JSON_NOM = "nom";
     /** JSON_QUANTITE attributes. */
     protected static String JSON_QUANTITE = "quantite";
+    /** JSON_URLIMAGE attributes. */
+    protected static String JSON_URLIMAGE = "urlImage";
     /** JSON_TYPEOBJET attributes. */
     protected static String JSON_TYPEOBJET = "typeObjet";
     /** JSON_PERSONNAGENONJOUEUR attributes. */
@@ -71,6 +73,7 @@ public abstract class ObjetWebServiceClientAdapterBase
             ObjetContract.COL_ID,
             ObjetContract.COL_NOM,
             ObjetContract.COL_QUANTITE,
+            ObjetContract.COL_URLIMAGE,
             ObjetContract.COL_TYPEOBJET_ID,
             ObjetContract.COL_PERSONNAGENONJOUEUR_ID
         };
@@ -380,6 +383,12 @@ public abstract class ObjetWebServiceClientAdapterBase
                             json.getInt(ObjetWebServiceClientAdapter.JSON_QUANTITE));
                 }
 
+                if (json.has(ObjetWebServiceClientAdapter.JSON_URLIMAGE)
+                        && !json.isNull(ObjetWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    objet.setUrlImage(
+                            json.getString(ObjetWebServiceClientAdapter.JSON_URLIMAGE));
+                }
+
                 if (json.has(ObjetWebServiceClientAdapter.JSON_TYPEOBJET)
                         && !json.isNull(ObjetWebServiceClientAdapter.JSON_TYPEOBJET)) {
 
@@ -433,7 +442,7 @@ public abstract class ObjetWebServiceClientAdapterBase
         String id = json.optString(ObjetWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[5];
+                String[] row = new String[6];
                 if (json.has(ObjetWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(ObjetWebServiceClientAdapter.JSON_ID);
                 }
@@ -443,16 +452,19 @@ public abstract class ObjetWebServiceClientAdapterBase
                 if (json.has(ObjetWebServiceClientAdapter.JSON_QUANTITE)) {
                     row[2] = json.getString(ObjetWebServiceClientAdapter.JSON_QUANTITE);
                 }
+                if (json.has(ObjetWebServiceClientAdapter.JSON_URLIMAGE)) {
+                    row[3] = json.getString(ObjetWebServiceClientAdapter.JSON_URLIMAGE);
+                }
                 if (json.has(ObjetWebServiceClientAdapter.JSON_TYPEOBJET)) {
                     JSONObject typeObjetJson = json.getJSONObject(
                             ObjetWebServiceClientAdapter.JSON_TYPEOBJET);
-                    row[3] = typeObjetJson.getString(
+                    row[4] = typeObjetJson.getString(
                             TypeObjetWebServiceClientAdapter.JSON_ID);
                 }
                 if (json.has(ObjetWebServiceClientAdapter.JSON_PERSONNAGENONJOUEUR)) {
                     JSONObject personnageNonJoueurJson = json.getJSONObject(
                             ObjetWebServiceClientAdapter.JSON_PERSONNAGENONJOUEUR);
-                    row[4] = personnageNonJoueurJson.getString(
+                    row[5] = personnageNonJoueurJson.getString(
                             PersonnageNonJoueurWebServiceClientAdapter.JSON_ID);
                 }
 
@@ -480,6 +492,8 @@ public abstract class ObjetWebServiceClientAdapterBase
                     objet.getNom());
             params.put(ObjetWebServiceClientAdapter.JSON_QUANTITE,
                     objet.getQuantite());
+            params.put(ObjetWebServiceClientAdapter.JSON_URLIMAGE,
+                    objet.getUrlImage());
 
             if (objet.getTypeObjet() != null) {
                 TypeObjetWebServiceClientAdapter typeObjetAdapter =
@@ -536,6 +550,8 @@ public abstract class ObjetWebServiceClientAdapterBase
                     values.get(ObjetContract.COL_NOM));
             params.put(ObjetWebServiceClientAdapter.JSON_QUANTITE,
                     values.get(ObjetContract.COL_QUANTITE));
+            params.put(ObjetWebServiceClientAdapter.JSON_URLIMAGE,
+                    values.get(ObjetContract.COL_URLIMAGE));
             TypeObjetWebServiceClientAdapter typeObjetAdapter =
                     new TypeObjetWebServiceClientAdapter(this.context);
 

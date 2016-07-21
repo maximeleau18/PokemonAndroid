@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.personnagenonjoueur;
@@ -25,6 +25,7 @@ import android.widget.TextView;
 import com.maximeleau.harmony.android.pokemon.R;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
 import com.maximeleau.harmony.android.pokemon.entity.Objet;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.Arene;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 import com.maximeleau.harmony.android.pokemon.harmony.view.DeleteDialog;
@@ -63,12 +64,14 @@ public class PersonnageNonJoueurShowFragment
     protected TextView nomView;
     /** description View. */
     protected TextView descriptionView;
+    /** urlImage View. */
+    protected TextView urlImageView;
     /** profession View. */
     protected TextView professionView;
     /** objets View. */
     protected TextView objetsView;
-    /** dresseur View. */
-    protected TextView dresseurView;
+    /** dresseurs View. */
+    protected TextView dresseursView;
     /** arenes View. */
     protected TextView arenesView;
     /** pokemons View. */
@@ -90,15 +93,18 @@ public class PersonnageNonJoueurShowFragment
         this.descriptionView =
             (TextView) view.findViewById(
                     R.id.personnagenonjoueur_description);
+        this.urlImageView =
+            (TextView) view.findViewById(
+                    R.id.personnagenonjoueur_urlimage);
         this.professionView =
             (TextView) view.findViewById(
                     R.id.personnagenonjoueur_profession);
         this.objetsView =
             (TextView) view.findViewById(
                     R.id.personnagenonjoueur_objets);
-        this.dresseurView =
+        this.dresseursView =
             (TextView) view.findViewById(
-                    R.id.personnagenonjoueur_dresseur);
+                    R.id.personnagenonjoueur_dresseurs);
         this.arenesView =
             (TextView) view.findViewById(
                     R.id.personnagenonjoueur_arenes);
@@ -128,6 +134,9 @@ public class PersonnageNonJoueurShowFragment
         if (this.model.getDescription() != null) {
             this.descriptionView.setText(this.model.getDescription());
         }
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
+        }
         if (this.model.getProfession() != null) {
             this.professionView.setText(
                     String.valueOf(this.model.getProfession().getId()));
@@ -139,9 +148,12 @@ public class PersonnageNonJoueurShowFragment
             }
             this.objetsView.setText(objetsValue);
         }
-        if (this.model.getDresseur() != null) {
-            this.dresseurView.setText(
-                    String.valueOf(this.model.getDresseur().getId()));
+        if (this.model.getDresseurs() != null) {
+            String dresseursValue = "";
+            for (Dresseur item : this.model.getDresseurs()) {
+                dresseursValue += item.getId() + ",";
+            }
+            this.dresseursView.setText(dresseursValue);
         }
         if (this.model.getArenes() != null) {
             String arenesValue = "";
@@ -242,12 +254,12 @@ public class PersonnageNonJoueurShowFragment
 
                 }
             });
-            loader.addUri(Uri.parse(baseUri + "/dresseur"), 
+            loader.addUri(Uri.parse(baseUri + "/dresseurs"), 
                     new UriLoadedCallback() {
 
                 @Override
                 public void onLoadComplete(android.database.Cursor c) {
-                    PersonnageNonJoueurShowFragment.this.onDresseurLoaded(c);
+                    PersonnageNonJoueurShowFragment.this.onDresseursLoaded(c);
                 }
 
                 @Override
@@ -340,16 +352,13 @@ public class PersonnageNonJoueurShowFragment
      * 
      * @param c The cursor of this relation
      */
-    public void onDresseurLoaded(android.database.Cursor c) {
+    public void onDresseursLoaded(android.database.Cursor c) {
         if (this.model != null) {
             if (c != null) {
-                if (c.getCount() > 0) {
-                    c.moveToFirst();
-                    this.model.setDresseur(DresseurContract.cursorToItem(c));
-                    this.loadData();
-                }
+            this.model.setDresseurs(DresseurContract.cursorToItems(c));
+            this.loadData();
             } else {
-                this.model.setDresseur(null);
+                this.model.setDresseurs(null);
                     this.loadData();
             }
         }

@@ -1,4 +1,4 @@
 Profession:
-#   Profession_name:
-#      id:
-#      nom:
+   Profession1:
+      id: 1
+      nom: "Champion"

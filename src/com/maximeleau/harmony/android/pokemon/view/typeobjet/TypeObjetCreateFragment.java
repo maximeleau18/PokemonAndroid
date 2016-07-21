@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 9, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.view.typeobjet;
@@ -49,6 +49,8 @@ public class TypeObjetCreateFragment extends HarmonyFragment
     /** Fields View. */
     /** nom View. */
     protected EditText nomView;
+    /** urlImage View. */
+    protected EditText urlImageView;
 
     /** Initialize view of fields.
      *
@@ -57,6 +59,8 @@ public class TypeObjetCreateFragment extends HarmonyFragment
     protected void initializeComponent(final View view) {
         this.nomView =
             (EditText) view.findViewById(R.id.typeobjet_nom);
+        this.urlImageView =
+            (EditText) view.findViewById(R.id.typeobjet_urlimage);
     }
 
     /** Load data from model to fields view. */
@@ -64,6 +68,9 @@ public class TypeObjetCreateFragment extends HarmonyFragment
 
         if (this.model.getNom() != null) {
             this.nomView.setText(this.model.getNom());
+        }
+        if (this.model.getUrlImage() != null) {
+            this.urlImageView.setText(this.model.getUrlImage());
         }
 
 
@@ -73,6 +80,8 @@ public class TypeObjetCreateFragment extends HarmonyFragment
     public void saveData() {
 
         this.model.setNom(this.nomView.getEditableText().toString());
+
+        this.model.setUrlImage(this.urlImageView.getEditableText().toString());
 
     }
 

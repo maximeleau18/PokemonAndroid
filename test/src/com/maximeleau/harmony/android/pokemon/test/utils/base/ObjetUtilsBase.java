@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -40,6 +40,7 @@ public abstract class ObjetUtilsBase {
         objet.setId(TestUtils.generateRandomInt(0,100) + 1);
         objet.setNom("nom_"+TestUtils.generateRandomString(10));
         objet.setQuantite(TestUtils.generateRandomInt(0,100));
+        objet.setUrlImage("urlImage_"+TestUtils.generateRandomString(10));
         ArrayList<TypeObjet> typeObjets =
             new ArrayList<TypeObjet>();
         typeObjets.addAll(TypeObjetDataLoader.getInstance(ctx).getMap().values());
@@ -71,6 +72,7 @@ public abstract class ObjetUtilsBase {
             Assert.assertEquals(objet1.getId(), objet2.getId());
             Assert.assertEquals(objet1.getNom(), objet2.getNom());
             Assert.assertEquals(objet1.getQuantite(), objet2.getQuantite());
+            Assert.assertEquals(objet1.getUrlImage(), objet2.getUrlImage());
             if (objet1.getTypeObjet() != null
                     && objet2.getTypeObjet() != null) {
                 if (checkRecursiveId) {

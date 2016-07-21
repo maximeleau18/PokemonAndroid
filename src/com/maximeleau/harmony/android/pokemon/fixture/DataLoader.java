@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 10, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.fixture;
@@ -96,6 +96,8 @@ public class DataLoader {
                 DresseurDataLoader.getInstance(this.ctx));
         this.dataLoaders.add(
                 PersonnageNonJoueurBadgeDataLoader.getInstance(this.ctx));
+        this.dataLoaders.add(
+                CombatDataLoader.getInstance(this.ctx));
         this.dataLoaders.add(
                 AreneDataLoader.getInstance(this.ctx));
     }

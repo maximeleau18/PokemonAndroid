@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Jul 21, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.base;
@@ -19,6 +19,7 @@ import com.maximeleau.harmony.android.pokemon.provider.contract.PersonnageNonJou
 import com.maximeleau.harmony.android.pokemon.data.PersonnageNonJoueurSQLiteAdapter;
 
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.Arene;
 
 import com.maximeleau.harmony.android.pokemon.fixture.PersonnageNonJoueurDataLoader;
@@ -156,6 +157,9 @@ public abstract class PersonnageNonJoueurTestProviderBase extends TestDBBase {
 
             try {
                 personnageNonJoueur.setId(this.entity.getId());
+                if (this.entity.getDresseurs() != null) {
+                    personnageNonJoueur.getDresseurs().addAll(this.entity.getDresseurs());
+                }
                 if (this.entity.getArenes() != null) {
                     personnageNonJoueur.getArenes().addAll(this.entity.getArenes());
                 }
@@ -273,6 +277,20 @@ public abstract class PersonnageNonJoueurTestProviderBase extends TestDBBase {
             PersonnageNonJoueur personnageNonJoueur = PersonnageNonJoueurUtils.generateRandom(this.ctx);
 
             personnageNonJoueur.setId(this.entity.getId());
+            if (this.entity.getDresseurs() != null) {
+                for (Dresseur dresseurs : this.entity.getDresseurs()) {
+                    boolean found = false;
+                    for (Dresseur dresseurs2 : personnageNonJoueur.getDresseurs()) {
+                        if (dresseurs.getId() == dresseurs2.getId() ) {
+                            found = true;
+                            break;
+                        }
+                    }                    
+                    if(!found) {
+                        personnageNonJoueur.getDresseurs().add(dresseurs);
+                    }
+                }
+            }
             if (this.entity.getArenes() != null) {
                 for (Arene arenes : this.entity.getArenes()) {
                     boolean found = false;
