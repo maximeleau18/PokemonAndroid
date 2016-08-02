@@ -17,13 +17,16 @@ repositories {
 dependencies {
     //Configure appcompat version to match your compileSdkVersion
     //Support V4 is embeded in appcompat-v7
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    
-    compile fileTree(dir: 'libs', include: '*.jar', exclude:'android-support-v4.jar')
+
+
+    compile fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-v4.jar')
 
     androidTestCompile "com.android.support.test:runner:0.3"
     androidTestCompile 'junit:junit:4.12'
-    androidTestCompile fileTree(dir: 'test/libs', include: '*.jar')
+    androidTestCompile fileTree(dir: 'test/libs', include:
+            '*.jar')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:support-v4:21.0.3'
 }
 
 android {
@@ -42,10 +45,10 @@ android {
         //testApplicationId "com.maximeleau.harmony.android.pokemon.test"
         testInstrumentationRunner "com.zutubi.android.junitreport.JUnitReportTestRunner"
     }
-    
+
     signingConfigs {
         release {
-            if(new File("$System.env.KEYSTORE_PATH" + "/" + project.name + ".properties").exists()) {
+            if (new File("$System.env.KEYSTORE_PATH" + "/" + project.name + ".properties").exists()) {
                 def props = new Properties()
 
                 props.load(new FileInputStream("$System.env.KEYSTORE_PATH" + "/" + project.name + ".properties"))
@@ -95,19 +98,22 @@ android {
     packagingOptions {
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/LICENSE.txt'
-      }
-
+    }
     //Because of some compatibilities issues between lint and eclipse projects
     //we need to continue build process even if lint report issues
     lintOptions {
-          abortOnError false
-      }
+        abortOnError false
+    }
 }
 
-tasks.all {
-    // Disable application signing if no configurations found
-    task -> if (task.name.equals('packageRelease')
-            && !new File("$System.env.KEYSTORE_PATH" + "/" + project.name + ".properties").exists()) {
-        task.enabled = false
-    }
+tasks
+        .all {
+        // Disable application signing if no configurations found
+    task ->
+        if (task.name.equals('packageRelease')
+                &&
+                !new File("$System.env.KEYSTORE_PATH" + "/" + project.name + ".properties").exists()) {
+            task.enabled =
+                    false
+        }
 }

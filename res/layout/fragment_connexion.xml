@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/connexion_login_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/connexion_login_label"/>
+
+    <EditText
+        android:id="@+id/connexion_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/connexion_password_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/connexion_password_label"/>
+
+    <EditText
+        android:id="@+id/connexion_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/connexion_back_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/connexion_back_button"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/connexion_button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:text="@string/connexion_button"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

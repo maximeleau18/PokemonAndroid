@@ -335,4 +335,13 @@
     <string name="zone_progress_load_title">Zone Loading progress</string>
     <string name="zone_progress_save_message">Zone is saving to database…</string>
     <string name="zone_progress_save_title">Zone save progress</string>
+    <string name="choose_action_button_create_game">Commencer une partie (Online)</string>
+    <string name="choose_action_button_continue_game">Continuer une partie (Online)</string>
+    <string name="connexion_button">Connexion</string>
+    <string name="connexion_back_button">Retour</string>
+    <string name="connexion_login_label">Ton login : </string>
+    <string name="connexion_password_label">Ton mot de passe : </string>
+    <string name="connexion_login_invalid_field">Tu dois saisir un login !</string>
+    <string name="connexion_password_invalid_field">Tu dois saisir un mot de passe !</string>
+    <string name="connexion_error_connexion">Connexion impossible. Vérifie ton login et ton mot de passe...</string>
 </resources>

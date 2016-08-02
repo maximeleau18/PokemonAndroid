@@ -188,21 +188,21 @@ public class DresseurEditFragment extends HarmonyFragment
     }
 
     /**
-     * This class will update the entity into the DB.
-     * It runs asynchronously and shows a progressDialog
-     */
-    public static class EditTask extends AsyncTask<Void, Void, Integer> {
-        /** AsyncTask's context. */
-        private final android.content.Context ctx;
-        /** Entity to update. */
-        private final Dresseur entity;
-        /** Progress Dialog. */
-        private ProgressDialog progress;
+         * This class will update the entity into the DB.
+         * It runs asynchronously and shows a progressDialog
+         */
+        public static class EditTask extends AsyncTask<Void, Void, Integer> {
+            /** AsyncTask's context. */
+            private final android.content.Context ctx;
+            /** Entity to update. */
+            private final Dresseur entity;
+            /** Progress Dialog. */
+            private ProgressDialog progress;
 
-        /**
-         * Constructor of the task.
-         * @param entity The entity to insert in the DB
-         * @param fragment The parent fragment from where the aSyncTask is
+            /**
+             * Constructor of the task.
+             * @param entity The entity to insert in the DB
+             * @param fragment The parent fragment from where the aSyncTask is
          * called
          */
         public EditTask(final DresseurEditFragment fragment,
