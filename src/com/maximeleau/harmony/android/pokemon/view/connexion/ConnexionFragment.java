@@ -1,6 +1,7 @@
 package com.maximeleau.harmony.android.pokemon.view.connexion;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -22,7 +23,9 @@ import com.maximeleau.harmony.android.pokemon.data.DresseurWebServiceClientAdapt
 import com.maximeleau.harmony.android.pokemon.data.base.DresseurWebServiceClientAdapterBase;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.view.chooseaction.ChooseActionActivity;
+import com.maximeleau.harmony.android.pokemon.view.choosepokemon.ChoosePokemonActivity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -112,6 +115,8 @@ public class ConnexionFragment extends Fragment {
         private final android.content.Context ctx;
         /** Entity to update. */
         private final Dresseur entity;
+        /** Progress Dialog. */
+        private ProgressDialog progress;
 
         /**
          * Constructor of the task.
@@ -129,6 +134,11 @@ public class ConnexionFragment extends Fragment {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            this.progress = ProgressDialog.show(this.ctx,
+                    this.ctx.getString(
+                            R.string.connexion_inprogress_title),
+                    this.ctx.getString(
+                            R.string.connexon_inprogress_message));
         }
 
         @Override
@@ -149,7 +159,7 @@ public class ConnexionFragment extends Fragment {
         protected void onPostExecute(Integer result) {
             super.onPostExecute(result);
 
-            if (result > 0) {
+            if (result < 0) {
 
                 final AlertDialog.Builder builder =
                         new AlertDialog.Builder(this.ctx);
@@ -167,20 +177,12 @@ public class ConnexionFragment extends Fragment {
                         });
                 builder.show();
             } else {
-                final AlertDialog.Builder builder =
-                        new AlertDialog.Builder(this.ctx);
-                builder.setIcon(0);
-                builder.setMessage("Bonjour " + this.entity.getPrenom() + " " + this.entity.getNom());
-                builder.setPositiveButton(
-                        this.ctx.getString(android.R.string.yes),
-                        new Dialog.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-
-                            }
-                        });
-                builder.show();
+                final Intent intent = new Intent(this.ctx, ChoosePokemonActivity.class);
+                intent.putExtra("dresseur", (Serializable) this.entity);
+                this.ctx.startActivity(intent);
             }
+
+            this.progress.dismiss();
         }
     }
 }

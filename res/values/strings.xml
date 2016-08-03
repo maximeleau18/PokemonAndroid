@@ -344,4 +344,15 @@
     <string name="connexion_login_invalid_field">Tu dois saisir un login !</string>
     <string name="connexion_password_invalid_field">Tu dois saisir un mot de passe !</string>
     <string name="connexion_error_connexion">Connexion impossible. Vérifie ton login et ton mot de passe...</string>
+    <string name="connexion_inprogress_title">Tentative de connexion</string>
+    <string name="connexon_inprogress_message">Connexion en cours...</string>
+    <string name="choose_pokemon_label">Choisi un pokémon dans la liste</string>
+    <string name="choose_pokemon_empty_list">Aucun pokémon trouvé...</string>
+    <string name="row_choose_pokemon_level">Niv. </string>
+    <string name="row_choose_pokemon_separator_pv"> / </string>
+    <string name="choose_pokemon_attack_type_label">Type : </string>
+    <string name="choose_pokemon_attack_power_label">Puissance : </string>
+    <string name="choose_pokemon_attack_dammage_label">Dégats : </string>
+    <string name="choose_pokemon_button_back">RETOUR</string>
+    <string name="choose_pokemon_button_validate">CHOISIR</string>
 </resources>
