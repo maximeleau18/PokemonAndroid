@@ -1,5 +1,5 @@
 /**************************************************************************
- * AreneWebServiceClientAdapter.java, pokemon Android
+ * CombatManagerWebServiceClientAdapter.java, pokemon Android
  *
  * Copyright 2016
  * Description : 

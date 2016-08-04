@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.maximeleau.harmony.android.pokemon.R;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
 
@@ -14,6 +15,7 @@ import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
  */
 public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity {
     private Pokemon pokemon;
+    private Dresseur dresseur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,7 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
 
         Intent intent = getIntent();
         this.pokemon = (Pokemon) intent.getSerializableExtra("pokemon");
+        this.dresseur = (Dresseur) intent.getSerializableExtra("dresseur");
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -31,21 +34,18 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
         bundle1.putSerializable("attaque", this.pokemon.getAttaque1());
         fragmentAttack1.setArguments(bundle1);
         fragmentTransaction.add(R.id.fragment_attack1, fragmentAttack1);
-        //fragmentTransaction.commit();
 
         ChoosePokemonAttackFragment fragmentAttack2 = new ChoosePokemonAttackFragment();
         Bundle bundle2 = new Bundle();
         bundle2.putSerializable("attaque", this.pokemon.getAttaque2());
         fragmentAttack2.setArguments(bundle2);
         fragmentTransaction.add(R.id.fragment_attack2, fragmentAttack2);
-        //fragmentTransaction.commit();
 
         ChoosePokemonAttackFragment fragmentAttack3 = new ChoosePokemonAttackFragment();
         Bundle bundle3 = new Bundle();
         bundle3.putSerializable("attaque", this.pokemon.getAttaque3());
         fragmentAttack3.setArguments(bundle3);
         fragmentTransaction.add(R.id.fragment_attack3, fragmentAttack3);
-        //fragmentTransaction.commit();
 
         ChoosePokemonAttackFragment fragmentAttack4 = new ChoosePokemonAttackFragment();
         Bundle bundle4 = new Bundle();
@@ -53,7 +53,16 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
         fragmentAttack4.setArguments(bundle4);
         fragmentTransaction.add(R.id.fragment_attack4, fragmentAttack4);
 
+        // Commit the change
         fragmentTransaction.commit();
 
+    }
+
+    public Pokemon getPokemonChoisen(){
+        return this.pokemon;
+    }
+
+    public Dresseur getDresseurConnected(){
+        return this.dresseur;
     }
 }

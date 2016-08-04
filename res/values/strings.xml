@@ -355,4 +355,7 @@
     <string name="choose_pokemon_attack_dammage_label">Dégats : </string>
     <string name="choose_pokemon_button_back">RETOUR</string>
     <string name="choose_pokemon_button_validate">CHOISIR</string>
+    <string name="search_fight_inprogress_title">Recherche un combat...</string>
+    <string name="search_fight_inprogress_message">Recherche d\'un combat en cours...</string>
+    <string name="search_fight_error">Il n\'existe aucun combat où il manque un joueur. Réessaye dans quelques secondes...</string>
 </resources>

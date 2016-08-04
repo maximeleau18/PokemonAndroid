@@ -17,21 +17,17 @@ repositories {
 dependencies {
     //Configure appcompat version to match your compileSdkVersion
     //Support V4 is embeded in appcompat-v7
-
-
-    compile fileTree(dir: 'libs', include: '*.jar', exclude: 'android-support-v4.jar')
-
-    androidTestCompile "com.android.support.test:runner:0.3"
+    compile fileTree(include: '*.jar', exclude: 'android-support-v4.jar', dir: 'libs')
+    androidTestCompile 'com.android.support.test:runner:0.3'
     androidTestCompile 'junit:junit:4.12'
-    androidTestCompile fileTree(dir: 'test/libs', include:
-            '*.jar')
+    androidTestCompile fileTree(include: '*.jar', dir: 'test/libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:21.0.3'
 }
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '23.0.1'
 
     defaultConfig {
         //multiDexEnabled true 

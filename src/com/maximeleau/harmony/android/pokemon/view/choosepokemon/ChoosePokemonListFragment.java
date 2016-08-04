@@ -44,7 +44,7 @@ public class ChoosePokemonListFragment extends Fragment {
 
         // Get data from activity
         ChoosePokemonActivity activity = (ChoosePokemonActivity) this.getActivity();
-        Dresseur dresseur = activity.getData();
+        Dresseur dresseur = activity.getDresseur();
         // Get ui elements
         this.textViewEmptyList = (TextView) view.findViewById(R.id.choose_pokemon_list_empty);
         this.listViewPokemons = (ListView) view.findViewById(R.id.choose_pokemon_list_view);
@@ -70,9 +70,13 @@ public class ChoosePokemonListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pokemon pokemonClicked = (Pokemon)parent.getItemAtPosition(position);
+                // Get dresseur connected
+                ChoosePokemonActivity parentActivity = (ChoosePokemonActivity) getActivity();
+                Dresseur dresseurConnected = parentActivity.getDresseur();
 
                 final Intent intent = new Intent(view.getContext(), ChoosePokemonShowAttacksActivity.class);
                 intent.putExtra("pokemon", (Serializable) pokemonClicked);
+                intent.putExtra("dresseur", (Serializable) dresseurConnected);
                 view.getContext().startActivity(intent);
             }
         };

@@ -221,6 +221,37 @@ public abstract class CombatWebServiceClientAdapterBase
     }
 
     /**
+     * Retrieve one Combat. Uses the route : Combat/searchemptycombat.
+     * @param combat : The Combat to retrieve (set pokemon2 and dresseur2)
+     * @return -1 if an error has occurred. 0 if not.
+     */
+    public int searchEmptyFight(Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                Verb.POST,
+                String.format(
+                        this.getUri() + "/searchemptycombat",
+                        combat.getDresseur2().getId(),
+                        combat.getPokemon2().getId(),
+                        REST_FORMAT),
+                itemToJson(combat));
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                if (extract(json, combat)) {
+                    result = 0;
+                }
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combat = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
      * Retrieve one Combat. Uses the route : Combat/%id%.
      * @param combat : The Combat to retrieve (set the  ID)
      * @return -1 if an error has occurred. 0 if not.

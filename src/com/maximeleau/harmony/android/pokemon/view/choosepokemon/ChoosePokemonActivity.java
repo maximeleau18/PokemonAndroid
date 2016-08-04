@@ -12,10 +12,6 @@ import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
  * Created by Maxime Léau on 02/08/2016.
  */
 public class ChoosePokemonActivity extends EngagementFragmentActivity {
-
-    /** Associated list fragment. */
-    protected ChoosePokemonListFragment listFragment;
-
     private Dresseur dresseur;
 
     @Override
@@ -28,7 +24,7 @@ public class ChoosePokemonActivity extends EngagementFragmentActivity {
         setContentView(R.layout.activity_choose_pokemon);
     }
 
-    public Dresseur getData(){
+    public Dresseur getDresseur(){
         return this.dresseur;
     }
 
