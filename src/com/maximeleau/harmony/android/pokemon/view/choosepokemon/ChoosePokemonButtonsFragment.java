@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
 import com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerShowActivity;
+import com.microsoft.azure.engagement.EngagementAgent;
 
 import java.io.Serializable;
 
@@ -68,6 +70,16 @@ public class ChoosePokemonButtonsFragment extends Fragment {
 
                 ChoosePokemonButtonsFragment.this.combat.setDresseur2(dresseurConnected);
                 ChoosePokemonButtonsFragment.this.combat.setPokemon2(pokemonSelected);
+                // Set device id for dresseur2
+                EngagementAgent.getInstance(ChoosePokemonButtonsFragment.this.getActivity()).getDeviceId(new EngagementAgent.Callback<String>()
+                {
+                    @Override
+                    public void onResult(String deviceId)
+                    {
+                        Log.v("PokemonAndroidML", "Device id :  " + deviceId);
+                        ChoosePokemonButtonsFragment.this.combat.setDresseur2DeviceId(deviceId);
+                    }
+                });
 
                 new SearchEmptyFightTask(ChoosePokemonButtonsFragment.this, ChoosePokemonButtonsFragment.this.combat, dresseurConnected).execute();
             }
@@ -113,7 +125,7 @@ public class ChoosePokemonButtonsFragment extends Fragment {
             Integer result = -1;
 
             try {
-                CombatWebServiceClientAdapter webService = new CombatWebServiceClientAdapter(this.ctx, "10.0.2.2", 8000, "http", "/api/");
+                CombatWebServiceClientAdapter webService = new CombatWebServiceClientAdapter(this.ctx);
                 result = webService.searchEmptyFight(this.combat);
             } catch (Exception e) {
                 android.util.Log.e("ChoosePokemonButtonsFragment", e.getMessage());

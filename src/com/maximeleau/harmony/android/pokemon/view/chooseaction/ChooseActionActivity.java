@@ -19,14 +19,5 @@ public class ChooseActionActivity extends EngagementFragmentActivity {
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.setConnectionString("Endpoint=PokemonAPIPush.device.mobileengagement.windows.net;SdkKey=0e430a57ffd2d7ff4cd75382f707f085;AppId=nep000127");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
-
-        EngagementAgent.getInstance(this).getDeviceId(new EngagementAgent.Callback<String>()
-        {
-            @Override
-            public void onResult(String deviceId)
-            {
-                Log.v("PokemonAndroidML", "Device id :  " + deviceId);
-            }
-        });
     }
 }

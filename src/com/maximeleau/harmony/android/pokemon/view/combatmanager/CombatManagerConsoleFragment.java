@@ -21,12 +21,14 @@ public class CombatManagerConsoleFragment extends Fragment {
     private CombatManager combatManager;
     private Dresseur dresseurConnected;
     private TextView console;
+    private Context ctx;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_combat_manager_console, container, false);
         // Get data from activity
         CombatManagerShowActivity parent = (CombatManagerShowActivity) this.getActivity();
+        this.ctx = parent;
         this.combatManager = parent.getCombatManager();
         this.dresseurConnected = parent.getDresseurConnected();
 
@@ -39,12 +41,34 @@ public class CombatManagerConsoleFragment extends Fragment {
 
         if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId() &&
                                     this.combatManager.getCombat().getPokemon1().getId() == this.combatManager.getPokemonActualTurnId()) {
-            this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s", R.string.combat_manager_console_your_turn_start_str,
-                                                                            this.combatManager.getCombat().getDresseur1().getPrenom(),
-                                                                            this.combatManager.getCombat().getDresseur1().getNom(),
-                                                                            R.string.combat_manager_console_your_turn_end_str));
+            this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
+                                                        this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start_str),
+                                                        this.combatManager.getCombat().getDresseur1().getPrenom(),
+                                                        this.combatManager.getCombat().getDresseur1().getNom(),
+                                                        this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_end_str)));
         }else{
-            this.console.setText("");
+            if (this.combatManager.getCombat().getDresseur2().getId() == this.dresseurConnected.getId() &&
+                    this.combatManager.getCombat().getPokemon2().getId() == this.combatManager.getPokemonActualTurnId()){
+                this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
+                        this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start_str),
+                        this.combatManager.getCombat().getDresseur2().getPrenom(),
+                        this.combatManager.getCombat().getDresseur2().getNom(),
+                        this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_end_str)));
+            }else {
+                if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId()){
+                    this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
+                            this.ctx.getResources().getString(R.string.combat_manager_console_waiting_for_attack_start_str),
+                            this.combatManager.getCombat().getDresseur2().getPrenom(),
+                            this.combatManager.getCombat().getDresseur2().getNom(),
+                            this.ctx.getResources().getString(R.string.combat_manager_console_waiting_for_attack_end_str)));
+                }else{
+                    this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
+                            this.ctx.getResources().getString(R.string.combat_manager_console_waiting_for_attack_start_str),
+                            this.combatManager.getCombat().getDresseur1().getPrenom(),
+                            this.combatManager.getCombat().getDresseur1().getNom(),
+                            this.ctx.getResources().getString(R.string.combat_manager_console_waiting_for_attack_end_str)));
+                }
+            }
         }
     }
 

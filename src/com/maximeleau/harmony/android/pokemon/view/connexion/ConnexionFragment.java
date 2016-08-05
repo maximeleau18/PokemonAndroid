@@ -146,7 +146,7 @@ public class ConnexionFragment extends Fragment {
             Integer result = -1;
 
             try {
-                DresseurWebServiceClientAdapter webService = new DresseurWebServiceClientAdapter(this.ctx, "10.0.2.2", 8000, "http", "/api/");
+                DresseurWebServiceClientAdapter webService = new DresseurWebServiceClientAdapter(this.ctx);
                 result = webService.connectDresseur(this.entity);
             } catch (Exception e) {
                 android.util.Log.e("ConnexionFragment", e.getMessage());
