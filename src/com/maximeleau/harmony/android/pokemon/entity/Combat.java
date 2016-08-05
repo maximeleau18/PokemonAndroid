@@ -64,6 +64,11 @@ public class Combat  implements Serializable , Parcelable {
 	@Column(nullable = false)
 	private boolean pokemon2Vainqueur;
 
+    @Column(type = Type.STRING, nullable = true)
+    private String dresseur1DeviceId;
+
+    @Column(type = Type.STRING, nullable = true)
+    private String dresseur2DeviceId;
 
     /**
      * Default constructor.
@@ -292,6 +297,18 @@ public class Combat  implements Serializable , Parcelable {
         } else {
             dest.writeInt(0);
         }
+        if (this.getDresseur1DeviceId() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getDresseur1DeviceId());
+        } else {
+            dest.writeInt(0);
+        }
+        if (this.getDresseur2DeviceId() != null) {
+            dest.writeInt(1);
+            dest.writeString(this.getDresseur2DeviceId());
+        } else {
+            dest.writeInt(0);
+        }
     }
 
     /**
@@ -318,7 +335,16 @@ public class Combat  implements Serializable , Parcelable {
         this.setDresseur2Vainqueur(parc.readInt() == 1);
         this.setPokemon1Vainqueur(parc.readInt() == 1);
         this.setPokemon2Vainqueur(parc.readInt() == 1);
+        int dresseur1DeviceIdBool = parc.readInt();
+        if (dresseur1DeviceIdBool == 1) {
+            this.setDresseur1DeviceId(parc.readString());
+        }
+        int dresseur2DeviceIdBool = parc.readInt();
+        if (dresseur2DeviceIdBool == 1) {
+            this.setDresseur2DeviceId(parc.readString());
+        }
     }
+
 
     /**
      * Parcel Constructor.
@@ -378,4 +404,32 @@ public class Combat  implements Serializable , Parcelable {
         }
     };
 
+     /**
+     * Get the Dresseur1DeviceId.
+     * @return the dresseur1DeviceId
+     */
+    public String getDresseur1DeviceId() {
+         return this.dresseur1DeviceId;
+    }
+     /**
+     * Set the Dresseur1DeviceId.
+     * @param value the dresseur1DeviceId to set
+     */
+    public void setDresseur1DeviceId(final String value) {
+         this.dresseur1DeviceId = value;
+    }
+     /**
+     * Get the Dresseur2DeviceId.
+     * @return the dresseur2DeviceId
+     */
+    public String getDresseur2DeviceId() {
+         return this.dresseur2DeviceId;
+    }
+     /**
+     * Set the Dresseur2DeviceId.
+     * @param value the dresseur2DeviceId to set
+     */
+    public void setDresseur2DeviceId(final String value) {
+         this.dresseur2DeviceId = value;
+    }
 }

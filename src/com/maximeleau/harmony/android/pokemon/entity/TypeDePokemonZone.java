@@ -126,6 +126,7 @@ public class TypeDePokemonZone  implements Serializable , Parcelable {
         this.setTypeDePokemon((TypeDePokemon) parc.readParcelable(TypeDePokemon.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

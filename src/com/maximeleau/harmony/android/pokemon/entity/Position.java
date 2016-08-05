@@ -139,6 +139,7 @@ public class Position  implements Serializable , Parcelable {
         this.setZone((Zone) parc.readParcelable(Zone.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

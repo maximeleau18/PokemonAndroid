@@ -102,6 +102,7 @@ public class Profession  implements Serializable , Parcelable {
         }
     }
 
+
     /**
      * Parcel Constructor.
      *

@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 4, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon;
@@ -13,9 +13,14 @@ package com.maximeleau.harmony.android.pokemon;
 import org.joda.time.DateTime;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Application;
+import android.app.IntentService;
+import android.app.Service;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.ConnectivityManager;
@@ -24,6 +29,7 @@ import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 
 import android.content.SharedPreferences;
+import com.microsoft.azure.engagement.service.EngagementService;
 
 /**
  * Common all life data/service.
@@ -46,6 +52,8 @@ public abstract class PokemonApplicationBase extends Application {
     private static DateFormat timeFormat;
     /** 24HFormat. */
     private static boolean is24H;
+    /** Services binded. */
+    private boolean isServicesBinded = false;
 
     @Override
     public void onCreate() {
@@ -53,7 +61,64 @@ public abstract class PokemonApplicationBase extends Application {
 
         setSingleton(this);
 
+        this.doBindServices();
+
         android.util.Log.i(TAG, "Starting application...");
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        this.doUnbindServices();
+
+        super.finalize();
+    }
+
+    /**
+     * Bind all services to the application.
+     */
+    private void doBindServices() {
+        android.util.Log.i(TAG, "Bind Services.");
+
+        if (!this.isServicesBinded) {
+            for (Class<? extends Service> service : this.getServices()) {
+                if (!(IntentService.class.isAssignableFrom(service))) {
+                    Intent intent = new Intent(this, service);
+                    this.startService(intent);
+                }
+            }
+
+            this.isServicesBinded = true;
+        }
+    }
+
+    /**
+     * Unbind all services to the application.
+     */
+    private void doUnbindServices() {
+        android.util.Log.i(TAG, "Unbind Services.");
+
+        if (this.isServicesBinded) {
+            for (Class<? extends Service> service : this.getServices()) {
+                if (!(IntentService.class.isAssignableFrom(service))) {
+                    Intent intent = new Intent(this, service);
+                    this.stopService(intent);
+                }
+            }
+
+            this.isServicesBinded = false;
+        }
+    }
+
+    /**
+     * Get Services.
+     */
+    protected List<Class<? extends Service>> getServices() {
+        List<Class<? extends Service>> result
+            = new ArrayList<Class<? extends Service>>();
+
+        result.add(EngagementService.class);
+
+        return result;
     }
 
     /**

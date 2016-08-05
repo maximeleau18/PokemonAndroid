@@ -44,6 +44,4 @@ public class ChoosePokemonAttackFragment extends Fragment {
         this.attackPowerText.setText(String.format(Locale.FRANCE, "%d", this.attack.getPuissance()));
         this.attackDammageText.setText(String.format(Locale.FRANCE, "%d", this.attack.getDegats()));
     }
-
-
 }

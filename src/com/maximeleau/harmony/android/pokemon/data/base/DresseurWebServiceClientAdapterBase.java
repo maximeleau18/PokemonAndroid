@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 21, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 
@@ -203,37 +203,6 @@ public abstract class DresseurWebServiceClientAdapterBase
     }
 
     /**
-     * Retrieve one Dresseur. Uses the route : Dresseur/connexion.
-     * @param dresseur : The Dresseur to retrieve (set the login and password)
-     * @return -1 if an error has occurred. 0 if not.
-     */
-    public int connectDresseur(Dresseur dresseur) {
-        int result = -1;
-        String response = this.invokeRequest(
-                Verb.POST,
-                String.format(
-                        this.getUri() + "/connexion",
-                        dresseur.getLogin(),
-                        dresseur.getMotDePasse(),
-                        REST_FORMAT),
-                itemToJson(dresseur));
-
-        if (this.isValidResponse(response) && this.isValidRequest()) {
-            try {
-                JSONObject json = new JSONObject(response);
-                if (extract(json, dresseur)) {
-                    result = 0;
-                }
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage());
-                dresseur = null;
-            }
-        }
-
-        return result;
-    }
-
-    /**
      * Retrieve one Dresseur. Uses the route : Dresseur/%id%.
      * @param dresseur : The Dresseur to retrieve (set the  ID)
      * @return -1 if an error has occurred. 0 if not.
@@ -339,6 +308,7 @@ public abstract class DresseurWebServiceClientAdapterBase
 
         return result;
     }
+
 
     /**
      * Tests if the json is a valid Dresseur Object.

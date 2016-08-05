@@ -126,6 +126,7 @@ public class TypeDePokemonEvolution  implements Serializable , Parcelable {
         this.setEstEvolueEn((TypeDePokemon) parc.readParcelable(TypeDePokemon.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

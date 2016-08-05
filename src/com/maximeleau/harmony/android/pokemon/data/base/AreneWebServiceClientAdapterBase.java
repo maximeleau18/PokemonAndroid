@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 21, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 
@@ -41,7 +41,7 @@ import com.maximeleau.harmony.android.pokemon.entity.Zone;
 /**
  *
  * <b><i>This class will be overwrited whenever you regenerate the project with Harmony.
- * You should edit CombatManagerWebServiceClientAdapter class instead of this one or you will lose all your modifications.</i></b>
+ * You should edit AreneWebServiceClientAdapter class instead of this one or you will lose all your modifications.</i></b>
  *
  */
 public abstract class AreneWebServiceClientAdapterBase

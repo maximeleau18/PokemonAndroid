@@ -1,14 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.maximeleau.harmony.android.pokemon"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="@string/app_version">
-
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="21" />
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -28,30 +26,25 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
-
     <application
         android:name=".PokemonApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
         <!-- Stack engagement -->
         <service
             android:name="com.microsoft.azure.engagement.service.EngagementService"
             android:exported="false"
             android:label="@string/app_name"
             android:process=":Engagement" />
-
         <activity
             android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Light">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
@@ -61,9 +54,7 @@
             android:theme="@android:style/Theme.Light">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.ANNOUNCEMENT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/html" />
             </intent-filter>
         </activity>
@@ -73,7 +64,6 @@
             android:theme="@android:style/Theme.Light">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.POLL" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -83,11 +73,9 @@
             android:theme="@android:style/Theme.Dialog">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <receiver
             android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
             android:exported="false">
@@ -105,14 +93,12 @@
                 <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
             </intent-filter>
         </receiver>
-
         <meta-data
             android:name="engagement:reach:notification:icon"
             android:value="engagement_close" />
         <meta-data
             android:name="engagement:gcm:sender"
             android:value="337018042586\n" />
-
         <receiver
             android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
             android:exported="false">
@@ -126,19 +112,17 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-
                 <category android:name="com.maximeleau.harmony.android.pokemon" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".util.PokemonDataPushReceiver"
+        <receiver
+            android:name=".util.PokemonDataPushReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.microsoft.azure.engagement.reach.intent.action.DATA_PUSH" />
             </intent-filter>
         </receiver>
         <!-- End stack engagement -->
-
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name" />
@@ -148,9 +132,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
             </intent-filter>
         </activity>
@@ -160,9 +142,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
             </intent-filter>
         </activity>
@@ -172,9 +152,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
             </intent-filter>
         </activity>
@@ -184,9 +162,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueur" />
             </intent-filter>
         </activity>
@@ -196,9 +172,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
             </intent-filter>
         </activity>
@@ -208,9 +182,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
             </intent-filter>
         </activity>
@@ -220,9 +192,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Badge" />
             </intent-filter>
         </activity>
@@ -232,9 +202,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Badge" />
             </intent-filter>
         </activity>
@@ -244,9 +212,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
             </intent-filter>
         </activity>
@@ -256,9 +222,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
             </intent-filter>
         </activity>
@@ -268,9 +232,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Position" />
             </intent-filter>
         </activity>
@@ -280,9 +242,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Position" />
             </intent-filter>
         </activity>
@@ -292,9 +252,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
             </intent-filter>
         </activity>
@@ -304,9 +262,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
             </intent-filter>
         </activity>
@@ -316,9 +272,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Arene" />
             </intent-filter>
         </activity>
@@ -328,9 +282,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Arene" />
             </intent-filter>
         </activity>
@@ -340,9 +292,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
             </intent-filter>
         </activity>
@@ -352,9 +302,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
             </intent-filter>
         </activity>
@@ -364,9 +312,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
             </intent-filter>
         </activity>
@@ -376,9 +322,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeAttaque" />
             </intent-filter>
         </activity>
@@ -388,9 +332,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
             </intent-filter>
         </activity>
@@ -400,9 +342,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
             </intent-filter>
         </activity>
@@ -412,9 +352,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Attaque" />
             </intent-filter>
         </activity>
@@ -424,9 +362,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Attaque" />
             </intent-filter>
         </activity>
@@ -436,9 +372,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
             </intent-filter>
         </activity>
@@ -448,9 +382,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
             </intent-filter>
         </activity>
@@ -460,9 +392,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Dresseur" />
             </intent-filter>
         </activity>
@@ -472,9 +402,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Dresseur" />
             </intent-filter>
         </activity>
@@ -484,9 +412,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
             </intent-filter>
         </activity>
@@ -496,9 +422,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
             </intent-filter>
         </activity>
@@ -508,9 +432,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeObjet" />
             </intent-filter>
         </activity>
@@ -520,9 +442,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeObjet" />
             </intent-filter>
         </activity>
@@ -532,9 +452,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
             </intent-filter>
         </activity>
@@ -544,9 +462,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
             </intent-filter>
         </activity>
@@ -556,9 +472,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Objet" />
             </intent-filter>
         </activity>
@@ -568,9 +482,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Objet" />
             </intent-filter>
         </activity>
@@ -580,9 +492,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
             </intent-filter>
         </activity>
@@ -592,9 +502,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
             </intent-filter>
         </activity>
@@ -604,9 +512,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Profession" />
             </intent-filter>
         </activity>
@@ -616,9 +522,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Profession" />
             </intent-filter>
         </activity>
@@ -628,9 +532,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
             </intent-filter>
         </activity>
@@ -640,9 +542,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
             </intent-filter>
         </activity>
@@ -652,9 +552,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Pokemon" />
             </intent-filter>
         </activity>
@@ -664,9 +562,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Pokemon" />
             </intent-filter>
         </activity>
@@ -676,9 +572,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
             </intent-filter>
         </activity>
@@ -688,9 +582,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
             </intent-filter>
         </activity>
@@ -700,9 +592,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
             </intent-filter>
         </activity>
@@ -712,9 +602,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.PersonnageNonJoueurBadge" />
             </intent-filter>
         </activity>
@@ -724,9 +612,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
             </intent-filter>
         </activity>
@@ -736,9 +622,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
             </intent-filter>
         </activity>
@@ -748,9 +632,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
             </intent-filter>
         </activity>
@@ -760,9 +642,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemon" />
             </intent-filter>
         </activity>
@@ -772,9 +652,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
             </intent-filter>
         </activity>
@@ -784,9 +662,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
             </intent-filter>
         </activity>
@@ -796,9 +672,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Zone" />
             </intent-filter>
         </activity>
@@ -808,9 +682,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Zone" />
             </intent-filter>
         </activity>
@@ -820,9 +692,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonEvolution" />
             </intent-filter>
         </activity>
@@ -832,9 +702,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonEvolution" />
             </intent-filter>
         </activity>
@@ -844,9 +712,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonEvolution" />
             </intent-filter>
         </activity>
@@ -856,9 +722,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemonEvolution" />
             </intent-filter>
         </activity>
@@ -868,9 +732,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
             </intent-filter>
         </activity>
@@ -880,9 +742,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
             </intent-filter>
         </activity>
@@ -892,9 +752,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
             </intent-filter>
         </activity>
@@ -904,9 +762,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.TypeDePokemonZone" />
             </intent-filter>
         </activity>
@@ -916,9 +772,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="INSERT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
             </intent-filter>
         </activity>
@@ -928,9 +782,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="EDIT" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
             </intent-filter>
         </activity>
@@ -940,9 +792,7 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.item/com.maximeleau.harmony.android.pokemon.Combat" />
             </intent-filter>
         </activity>
@@ -952,16 +802,13 @@
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="vnd.android.cursor.collection/com.maximeleau.harmony.android.pokemon.Combat" />
             </intent-filter>
         </activity>
         <activity android:name=".view.chooseaction.ChooseActionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -985,14 +832,17 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
         <provider
             android:name=".provider.PokemonProvider"
             android:authorities="com.maximeleau.harmony.android.pokemon.provider"
             android:description="@string/app_provider_description"
             android:exported="false"
             android:label="@string/app_provider_name" />
-
+        <provider
+            android:name="com.maximeleau.harmony.android.pokemon.provider.PokemonProvider"
+            android:authorities="com.maximeleau.harmony.android.pokemon.provider"
+            android:label="@string/app_provider_name"
+            android:description="@string/app_provider_description"
+            android:exported="false" />
     </application>
-
 </manifest>

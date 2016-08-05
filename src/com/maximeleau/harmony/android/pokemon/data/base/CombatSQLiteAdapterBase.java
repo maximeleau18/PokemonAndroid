@@ -6,7 +6,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 21, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.data.base;
@@ -96,6 +96,8 @@ public abstract class CombatSQLiteAdapterBase
          + CombatContract.COL_DRESSEUR2VAINQUEUR    + " BOOLEAN NOT NULL,"
          + CombatContract.COL_POKEMON1VAINQUEUR    + " BOOLEAN NOT NULL,"
          + CombatContract.COL_POKEMON2VAINQUEUR    + " BOOLEAN NOT NULL,"
+         + CombatContract.COL_DRESSEUR1DEVICEID    + " VARCHAR,"
+         + CombatContract.COL_DRESSEUR2DEVICEID    + " VARCHAR,"
 
         
          + "FOREIGN KEY(" + CombatContract.COL_POKEMON1_ID + ") REFERENCES " 

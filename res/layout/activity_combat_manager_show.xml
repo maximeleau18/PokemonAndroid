@@ -4,14 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="4">
 
     <fragment
-        android:id="@+id/fragment_combat_manager"
-        android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerShowFragment"
+        android:id="@+id/fragment_combat_manager_opponent"
+        android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerOpponentFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_combat_manager_show">
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        tools:layout="@layout/fragment_combat_manager_opponent">
     </fragment>
+
+    <fragment
+        android:id="@+id/fragment_combat_manager_player"
+        android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerPlayerFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.9"
+        tools:layout="@layout/fragment_combat_manager_player">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_combat_manager_console"
+        android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerConsoleFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        tools:layout="@layout/fragment_combat_manager_console">
+    </fragment>
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.4"
+            android:weightSum="2">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2">
+
+                <FrameLayout
+                    android:id="@+id/fragment_combat_manager_attack1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    tools:layout="@layout/fragment_combat_manager_attack">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment_combat_manager_attack2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    tools:layout="@layout/fragment_combat_manager_attack">
+                </FrameLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2">
+
+                <FrameLayout
+                    android:id="@+id/fragment_combat_manager_attack3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    tools:layout="@layout/fragment_combat_manager_attack">
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment_combat_manager_attack4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    tools:layout="@layout/fragment_combat_manager_attack">
+                </FrameLayout>
+
+            </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

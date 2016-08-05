@@ -126,6 +126,7 @@ public class PersonnageNonJoueurBadge  implements Serializable , Parcelable {
         this.setBadge((Badge) parc.readParcelable(Badge.class.getClassLoader()));
     }
 
+
     /**
      * Parcel Constructor.
      *

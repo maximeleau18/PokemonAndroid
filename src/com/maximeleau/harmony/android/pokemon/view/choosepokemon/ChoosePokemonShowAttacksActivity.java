@@ -53,7 +53,7 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
         fragmentAttack4.setArguments(bundle4);
         fragmentTransaction.add(R.id.fragment_attack4, fragmentAttack4);
 
-        // Commit the change
+        // Commit changes
         fragmentTransaction.commit();
 
     }

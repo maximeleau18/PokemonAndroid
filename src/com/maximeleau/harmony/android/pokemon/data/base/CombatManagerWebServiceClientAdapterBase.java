@@ -47,9 +47,9 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
     /** JSON_BADGE attributes. */
     protected static String JSON_POKEMON = "pokemon";
     /** JSON_BADGE attributes. */
-    protected static String JSON_ACTUAL_PV = "actual_pv";
+    protected static String JSON_ACTUAL_PV = "actualPv";
     /** JSON_BADGE attributes. */
-    protected static String JSON_POKEMON_ACTUAL_TURN_ID = "pokemon_actual_turn_id";
+    protected static String JSON_POKEMON_ACTUAL_TURN_ID = "pokemonActualTurnId";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -430,13 +430,13 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
 
                 if (json.has(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV)
                         && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV)) {
-                    combatManager.setActual_pv(
+                    combatManager.setActualPv(
                             json.getInt(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV));
                 }
 
                 if (json.has(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID)
                         && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID)) {
-                    combatManager.setPokemon_actual_turn_id(
+                    combatManager.setPokemonActualTurnId(
                             json.getInt(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID));
                 }
 
@@ -520,9 +520,9 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                         pokemonAdapter.itemToJson(combatManager.getPokemon()));
             }
             params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
-                    combatManager.getActual_pv());
+                    combatManager.getActualPv());
             params.put(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID,
-                    combatManager.getPokemon_actual_turn_id());
+                    combatManager.getPokemonActualTurnId());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

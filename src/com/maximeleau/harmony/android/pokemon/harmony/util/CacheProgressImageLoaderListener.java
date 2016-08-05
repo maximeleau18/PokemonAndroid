@@ -43,7 +43,7 @@ public class CacheProgressImageLoaderListener extends ProgressImageLoaderListene
 
         String path = ImageLoader.getInstance().getDiscCache().get(imageUri).getAbsolutePath();
 
-        this.container.setLocalPath(path);
+        //this.container.setLocalPath(path);
         this.container.setPath(path);
     }
 }

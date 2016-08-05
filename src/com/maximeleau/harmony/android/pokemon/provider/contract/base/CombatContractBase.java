@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 21, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.provider.contract.base;
@@ -110,6 +110,20 @@ public abstract class CombatContractBase {
     public static final String ALIASED_COL_POKEMON2VAINQUEUR =
             CombatContract.TABLE_NAME + "." + COL_POKEMON2VAINQUEUR;
 
+    /** dresseur1DeviceId. */
+    public static final String COL_DRESSEUR1DEVICEID =
+            "dresseur1DeviceId";
+    /** Alias. */
+    public static final String ALIASED_COL_DRESSEUR1DEVICEID =
+            CombatContract.TABLE_NAME + "." + COL_DRESSEUR1DEVICEID;
+
+    /** dresseur2DeviceId. */
+    public static final String COL_DRESSEUR2DEVICEID =
+            "dresseur2DeviceId";
+    /** Alias. */
+    public static final String ALIASED_COL_DRESSEUR2DEVICEID =
+            CombatContract.TABLE_NAME + "." + COL_DRESSEUR2DEVICEID;
+
 
 
 
@@ -141,7 +155,11 @@ public abstract class CombatContractBase {
         
         CombatContract.COL_POKEMON1VAINQUEUR,
         
-        CombatContract.COL_POKEMON2VAINQUEUR
+        CombatContract.COL_POKEMON2VAINQUEUR,
+        
+        CombatContract.COL_DRESSEUR1DEVICEID,
+        
+        CombatContract.COL_DRESSEUR2DEVICEID
     };
 
     /** Global Fields. */
@@ -167,7 +185,11 @@ public abstract class CombatContractBase {
         
         CombatContract.ALIASED_COL_POKEMON1VAINQUEUR,
         
-        CombatContract.ALIASED_COL_POKEMON2VAINQUEUR
+        CombatContract.ALIASED_COL_POKEMON2VAINQUEUR,
+        
+        CombatContract.ALIASED_COL_DRESSEUR1DEVICEID,
+        
+        CombatContract.ALIASED_COL_DRESSEUR2DEVICEID
     };
 
 
@@ -223,6 +245,20 @@ public abstract class CombatContractBase {
 
              result.put(CombatContract.COL_POKEMON2VAINQUEUR,
                 item.isPokemon2Vainqueur() ? 1 : 0);
+
+             if (item.getDresseur1DeviceId() != null) {
+                result.put(CombatContract.COL_DRESSEUR1DEVICEID,
+                    item.getDresseur1DeviceId());
+            } else {
+                result.put(CombatContract.COL_DRESSEUR1DEVICEID, (String) null);
+            }
+
+             if (item.getDresseur2DeviceId() != null) {
+                result.put(CombatContract.COL_DRESSEUR2DEVICEID,
+                    item.getDresseur2DeviceId());
+            } else {
+                result.put(CombatContract.COL_DRESSEUR2DEVICEID, (String) null);
+            }
 
 
         return result;
@@ -332,6 +368,20 @@ public abstract class CombatContractBase {
 
             if (index > -1) {
                 result.setPokemon2Vainqueur(cursor.getInt(index) == 1);
+            }
+            index = cursor.getColumnIndex(CombatContract.COL_DRESSEUR1DEVICEID);
+
+            if (index > -1) {
+            if (!cursor.isNull(index)) {
+                    result.setDresseur1DeviceId(cursor.getString(index));
+            }
+            }
+            index = cursor.getColumnIndex(CombatContract.COL_DRESSEUR2DEVICEID);
+
+            if (index > -1) {
+            if (!cursor.isNull(index)) {
+                    result.setDresseur2DeviceId(cursor.getString(index));
+            }
             }
 
         }

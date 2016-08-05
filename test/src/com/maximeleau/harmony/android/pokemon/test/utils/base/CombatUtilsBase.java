@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.test.utils.base;
@@ -68,6 +68,8 @@ public abstract class CombatUtilsBase {
         combat.setDresseur2Vainqueur(TestUtils.generateRandomBool());
         combat.setPokemon1Vainqueur(TestUtils.generateRandomBool());
         combat.setPokemon2Vainqueur(TestUtils.generateRandomBool());
+        combat.setDresseur1DeviceId("dresseur1DeviceId_"+TestUtils.generateRandomString(10));
+        combat.setDresseur2DeviceId("dresseur2DeviceId_"+TestUtils.generateRandomString(10));
 
         return combat;
     }
@@ -119,6 +121,8 @@ public abstract class CombatUtilsBase {
             Assert.assertEquals(combat1.isDresseur2Vainqueur(), combat2.isDresseur2Vainqueur());
             Assert.assertEquals(combat1.isPokemon1Vainqueur(), combat2.isPokemon1Vainqueur());
             Assert.assertEquals(combat1.isPokemon2Vainqueur(), combat2.isPokemon2Vainqueur());
+            Assert.assertEquals(combat1.getDresseur1DeviceId(), combat2.getDresseur1DeviceId());
+            Assert.assertEquals(combat1.getDresseur2DeviceId(), combat2.getDresseur2DeviceId());
         }
 
         return ret;

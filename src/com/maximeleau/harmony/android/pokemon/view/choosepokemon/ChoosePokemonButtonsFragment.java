@@ -69,7 +69,7 @@ public class ChoosePokemonButtonsFragment extends Fragment {
                 ChoosePokemonButtonsFragment.this.combat.setDresseur2(dresseurConnected);
                 ChoosePokemonButtonsFragment.this.combat.setPokemon2(pokemonSelected);
 
-                new SearchEmptyFightTask(ChoosePokemonButtonsFragment.this, ChoosePokemonButtonsFragment.this.combat).execute();
+                new SearchEmptyFightTask(ChoosePokemonButtonsFragment.this, ChoosePokemonButtonsFragment.this.combat, dresseurConnected).execute();
             }
         };
     }
@@ -79,20 +79,23 @@ public class ChoosePokemonButtonsFragment extends Fragment {
         private final android.content.Context ctx;
         /** Entity to update. */
         private final Combat combat;
+        /** Entity Dresseur to give to activity **/
+        private final Dresseur dresseur;
         /** Progress Dialog. */
         private ProgressDialog progress;
 
         /**
          * Constructor of the task.
-         * @param entity The entity to insert in the DB
+         * @param combat The entity to insert in the DB
          * @param fragment The parent fragment from where the aSyncTask is
          * called
          */
         public SearchEmptyFightTask(final ChoosePokemonButtonsFragment fragment,
-                             final Combat combat) {
+                             final Combat combat, final Dresseur dresseur) {
             super();
             this.ctx = fragment.getActivity();
             this.combat = combat;
+            this.dresseur = dresseur;
         }
 
         @Override
@@ -145,10 +148,11 @@ public class ChoosePokemonButtonsFragment extends Fragment {
                 CombatManager combatManager = new CombatManager();
 
                 combatManager.setCombat(this.combat);
-                combatManager.setPokemon_actual_turn_id(this.combat.getPokemon1().getId());
+                combatManager.setPokemonActualTurnId(this.combat.getPokemon1().getId());
 
                 final Intent intent = new Intent(this.ctx, CombatManagerShowActivity.class);
                 intent.putExtra("combatManager", (Serializable) combatManager);
+                intent.putExtra("dresseur", (Serializable) this.dresseur);
                 this.ctx.startActivity(intent);
             }
 

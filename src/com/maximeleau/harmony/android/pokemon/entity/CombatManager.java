@@ -12,9 +12,16 @@ public class CombatManager implements Serializable {
 
     private Pokemon pokemon;
 
-    private int actual_pv;
+    private int actualPv;
 
-    private int pokemon_actual_turn_id;
+    private int pokemonActualTurnId;
+
+    /**
+     * Default constructor.
+     */
+    public CombatManager() {
+
+    }
 
     public Combat getCombat() {
         return combat;
@@ -40,19 +47,20 @@ public class CombatManager implements Serializable {
         this.pokemon = pokemon;
     }
 
-    public int getActual_pv() {
-        return actual_pv;
+    public int getActualPv() {
+        return actualPv;
     }
 
-    public void setActual_pv(int actual_pv) {
-        this.actual_pv = actual_pv;
+    public void setActualPv(int actualPv) {
+        this.actualPv = actualPv;
     }
 
-    public int getPokemon_actual_turn_id() {
-        return pokemon_actual_turn_id;
+    public int getPokemonActualTurnId() {
+        return pokemonActualTurnId;
     }
 
-    public void setPokemon_actual_turn_id(int pokemon_actual_turn_id) {
-        this.pokemon_actual_turn_id = pokemon_actual_turn_id;
+    public void setPokemonActualTurnId(int pokemonActualTurnId) {
+        this.pokemonActualTurnId = pokemonActualTurnId;
     }
+
 }

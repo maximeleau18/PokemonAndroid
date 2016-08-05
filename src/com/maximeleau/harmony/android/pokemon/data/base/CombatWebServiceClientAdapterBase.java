@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 21, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 
@@ -73,6 +73,10 @@ public abstract class CombatWebServiceClientAdapterBase
     protected static String JSON_POKEMON1VAINQUEUR = "pokemon1Vainqueur";
     /** JSON_POKEMON2VAINQUEUR attributes. */
     protected static String JSON_POKEMON2VAINQUEUR = "pokemon2Vainqueur";
+    /** JSON_DRESSEUR1DEVICEID attributes. */
+    protected static String JSON_DRESSEUR1DEVICEID = "dresseur1DeviceId";
+    /** JSON_DRESSEUR2DEVICEID attributes. */
+    protected static String JSON_DRESSEUR2DEVICEID = "dresseur2DeviceId";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -92,7 +96,9 @@ public abstract class CombatWebServiceClientAdapterBase
             CombatContract.COL_DRESSEUR1VAINQUEUR,
             CombatContract.COL_DRESSEUR2VAINQUEUR,
             CombatContract.COL_POKEMON1VAINQUEUR,
-            CombatContract.COL_POKEMON2VAINQUEUR
+            CombatContract.COL_POKEMON2VAINQUEUR,
+            CombatContract.COL_DRESSEUR1DEVICEID,
+            CombatContract.COL_DRESSEUR2DEVICEID
         };
 
     /**
@@ -204,37 +210,6 @@ public abstract class CombatWebServiceClientAdapterBase
                         combat.getId(),
                         REST_FORMAT),
                     null);
-
-        if (this.isValidResponse(response) && this.isValidRequest()) {
-            try {
-                JSONObject json = new JSONObject(response);
-                if (extract(json, combat)) {
-                    result = 0;
-                }
-            } catch (JSONException e) {
-                Log.e(TAG, e.getMessage());
-                combat = null;
-            }
-        }
-
-        return result;
-    }
-
-    /**
-     * Retrieve one Combat. Uses the route : Combat/searchemptycombat.
-     * @param combat : The Combat to retrieve (set pokemon2 and dresseur2)
-     * @return -1 if an error has occurred. 0 if not.
-     */
-    public int searchEmptyFight(Combat combat) {
-        int result = -1;
-        String response = this.invokeRequest(
-                Verb.POST,
-                String.format(
-                        this.getUri() + "/searchemptycombat",
-                        combat.getDresseur2().getId(),
-                        combat.getPokemon2().getId(),
-                        REST_FORMAT),
-                itemToJson(combat));
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
@@ -600,6 +575,18 @@ public abstract class CombatWebServiceClientAdapterBase
                     combat.setPokemon2Vainqueur(
                             json.getBoolean(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR));
                 }
+
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID)
+                        && !json.isNull(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID)) {
+                    combat.setDresseur1DeviceId(
+                            json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID));
+                }
+
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID)
+                        && !json.isNull(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID)) {
+                    combat.setDresseur2DeviceId(
+                            json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID));
+                }
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
             }
@@ -614,7 +601,7 @@ public abstract class CombatWebServiceClientAdapterBase
         String id = json.optString(CombatWebServiceClientAdapter.JSON_ID, null);
         if (id != null) {
             try {
-                String[] row = new String[11];
+                String[] row = new String[13];
                 if (json.has(CombatWebServiceClientAdapter.JSON_ID)) {
                     row[0] = json.getString(CombatWebServiceClientAdapter.JSON_ID);
                 }
@@ -659,6 +646,12 @@ public abstract class CombatWebServiceClientAdapterBase
                 }
                 if (json.has(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR)) {
                     row[10] = json.getString(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR);
+                }
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID)) {
+                    row[11] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID);
+                }
+                if (json.has(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID)) {
+                    row[12] = json.getString(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID);
                 }
 
                 cursor.addRow(row);
@@ -728,6 +721,10 @@ public abstract class CombatWebServiceClientAdapterBase
                     combat.isPokemon1Vainqueur());
             params.put(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR,
                     combat.isPokemon2Vainqueur());
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID,
+                    combat.getDresseur1DeviceId());
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID,
+                    combat.getDresseur2DeviceId());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -797,6 +794,10 @@ public abstract class CombatWebServiceClientAdapterBase
                     values.get(CombatContract.COL_POKEMON1VAINQUEUR));
             params.put(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR,
                     values.get(CombatContract.COL_POKEMON2VAINQUEUR));
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID,
+                    values.get(CombatContract.COL_DRESSEUR1DEVICEID));
+            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID,
+                    values.get(CombatContract.COL_DRESSEUR2DEVICEID));
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

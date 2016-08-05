@@ -5,7 +5,7 @@
  * Description : 
  * Author(s)   : Harmony
  * Licence     : 
- * Last update : Jul 18, 2016
+ * Last update : Aug 5, 2016
  *
  **************************************************************************/
 package com.maximeleau.harmony.android.pokemon.menu.base;
