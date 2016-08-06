@@ -33,17 +33,18 @@ public class CombatManagerPlayerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_combat_manager_player, container, false);
         // Set context
         this.context = view.getContext();
-        // Get data from activity
-        CombatManagerShowActivity parent = (CombatManagerShowActivity) this.getActivity();
-        this.combatManager = parent.getCombatManager();
-        this.dresseurConnected = parent.getDresseurConnected();
 
         initializeComponent(view);
         return view;
 
     }
 
-    private void initializeComponent(View view) {
+    public void initializeComponent(View view) {
+        // Get data from activity
+        CombatManagerShowActivity parent = (CombatManagerShowActivity) this.getActivity();
+        this.combatManager = parent.getCombatManager();
+        this.dresseurConnected = parent.getDresseurConnected();
+
         this.pokemonImage = (ImageView) view.findViewById(R.id.combat_manager_player_pokemon_iv);
         this.pokemonTypeName = (TextView) view.findViewById(R.id.combat_manager_player_pokemon_type_name);
         this.pokemonActualPv = (TextView) view.findViewById(R.id.combat_manager_player_pokemon_actual_pv);
@@ -58,7 +59,15 @@ public class CombatManagerPlayerFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom());
 
-            this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
+            if(this.combatManager.getPokemon() == null){
+                // 1rst turn
+                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
+            }else{
+                // Other turn
+                if (this.combatManager.getPokemon().getId() == this.combatManager.getCombat().getPokemon1().getId()){
+                    this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getActualPv()));
+                }
+            }
 
             this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
         }else{
@@ -70,7 +79,15 @@ public class CombatManagerPlayerFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom());
 
-            this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
+            if(this.combatManager.getPokemon() == null){
+                // 1rst turn
+                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
+            }else{
+                // Other turn
+                if (this.combatManager.getPokemon().getId() == this.combatManager.getCombat().getPokemon2().getId()){
+                    this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getActualPv()));
+                }
+            }
 
             this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
         }

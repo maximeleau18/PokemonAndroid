@@ -1,9 +1,15 @@
 package com.maximeleau.harmony.android.pokemon.view.combatmanager;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,10 +17,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.maximeleau.harmony.android.pokemon.R;
+import com.maximeleau.harmony.android.pokemon.data.CombatManagerWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.entity.Attaque;
 import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
+import android.support.v4.app.FragmentManager;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 /**
@@ -27,6 +36,8 @@ public class CombatManagerAttackFragment extends Fragment {
     private TextView attackTypeNameText;
     private TextView attackPowerText;
     private TextView attackDammageText;
+    private CombatManager combatManager;
+    private Dresseur dresseurConnected;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,9 +48,18 @@ public class CombatManagerAttackFragment extends Fragment {
     }
 
     private void initializeComponent(View view) {
+        CombatManagerShowActivity parentActivity = (CombatManagerShowActivity) CombatManagerAttackFragment.this.getActivity();
+        this.combatManager = parentActivity.getCombatManager();
+        this.dresseurConnected = parentActivity.getDresseurConnected();
+
         this.attackContainer = (LinearLayout) view.findViewById(R.id.combat_manager_attack_ll);
         this.attackContainer.setClickable(true);
         this.attackContainer.setOnClickListener(onClickAttack());
+        if(this.combatManager.getCombat().getDresseur1().getId() == dresseurConnected.getId()){
+            this.attackContainer.setEnabled((this.combatManager.getPokemonActualTurnId() == this.combatManager.getCombat().getPokemon1().getId()));
+        }else if(this.combatManager.getCombat().getDresseur2().getId() == dresseurConnected.getId()){
+            this.attackContainer.setEnabled((this.combatManager.getPokemonActualTurnId() == this.combatManager.getCombat().getPokemon2().getId()));
+        }
 
         this.attackNameText = (TextView) view.findViewById(R.id.combat_manager_attack_name);
         this.attackTypeNameText = (TextView) view.findViewById(R.id.combat_manager_attack_type_value);
@@ -68,12 +88,102 @@ public class CombatManagerAttackFragment extends Fragment {
                     console.setText(String.format(Locale.FRANCE, "%s %s %s", combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom(),
                             ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
                             CombatManagerAttackFragment.this.attack.getNom()));
+
+                    // Update pokemon which is attacked
+                    combatManager.setPokemon(combatManager.getCombat().getPokemon2());
+                    combatManager.setAttaque(CombatManagerAttackFragment.this.attack);
+                    CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) parentActivity.getSupportFragmentManager().findFragmentById(
+                                                    R.id.fragment_combat_manager_opponent);
+                    combatManager.setActualPv(fragmentOpponent.getActualPv());
                 }else{
                     console.setText(String.format(Locale.FRANCE, "%s %s %s", combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom(),
                             ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
                             CombatManagerAttackFragment.this.attack.getNom()));
+                    // Update pokemon which is attacked
+                    combatManager.setPokemon(combatManager.getCombat().getPokemon1());
+                    combatManager.setAttaque(CombatManagerAttackFragment.this.attack);CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) parentActivity.getSupportFragmentManager().findFragmentById(
+                            R.id.fragment_combat_manager_opponent);
+                    combatManager.setActualPv(fragmentOpponent.getActualPv());
                 }
+                // Call launch attack function api
+                new LaunchAttackTask(CombatManagerAttackFragment.this, CombatManagerAttackFragment.this.combatManager).execute();
+
             }
         };
+    }
+
+    public static class LaunchAttackTask extends AsyncTask<Void, Void, Integer> {
+        /** AsyncTask's context. */
+        private final android.content.Context ctx;
+        /** Entity to update. */
+        private final CombatManager combatManager;
+        /** Progress Dialog. */
+        private ProgressDialog progress;
+
+        /**
+         * Constructor of the task.
+         * @param combatManager The entity to insert in the DB
+         * @param fragment The parent fragment from where the aSyncTask is
+         * called
+         */
+        public LaunchAttackTask(final CombatManagerAttackFragment fragment,
+                                    final CombatManager combatManager) {
+            super();
+            this.ctx = fragment.getActivity();
+            this.combatManager = combatManager;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            this.progress = ProgressDialog.show(this.ctx,
+                    this.ctx.getString(
+                            R.string.combat_manager_launch_attack_title),
+                    this.ctx.getString(
+                            R.string.combat_manager_launch_attack_message));
+        }
+
+        @Override
+        protected Integer doInBackground(Void... params) {
+            Integer result = -1;
+
+            try {
+                CombatManagerWebServiceClientAdapter webService = new CombatManagerWebServiceClientAdapter(this.ctx);
+                result = webService.launchAttack(this.combatManager);
+            } catch (Exception e) {
+                android.util.Log.e("CombatManagerAttackFragment", e.getMessage());
+            }
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            super.onPostExecute(result);
+
+            if (result < 0) {
+
+                final AlertDialog.Builder builder =
+                        new AlertDialog.Builder(this.ctx);
+                builder.setIcon(0);
+                builder.setMessage(
+                        this.ctx.getString(
+                                R.string.combat_manager_launch_attack_error_message));
+                builder.setPositiveButton(
+                        this.ctx.getString(android.R.string.yes),
+                        new Dialog.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+
+                            }
+                        });
+                builder.show();
+            } else {
+                // Waiting for databpush received
+                // To start activity with intent
+            }
+
+            this.progress.dismiss();
+        }
     }
 }

@@ -26,17 +26,18 @@ public class CombatManagerConsoleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_combat_manager_console, container, false);
+
+        initializeComponent(view);
+        return view;
+    }
+
+    public void initializeComponent(View view) {
         // Get data from activity
         CombatManagerShowActivity parent = (CombatManagerShowActivity) this.getActivity();
         this.ctx = parent;
         this.combatManager = parent.getCombatManager();
         this.dresseurConnected = parent.getDresseurConnected();
 
-        initializeComponent(view);
-        return view;
-    }
-
-    private void initializeComponent(View view) {
         this.console = (TextView) view.findViewById(R.id.combat_manager_console);
 
         if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId() &&
