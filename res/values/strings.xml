@@ -56,6 +56,8 @@
     <string name="badge_progress_save_title">Badge save progress</string>
     <string name="choose_action_button_continue_game">Continuer une partie (Online)</string>
     <string name="choose_action_button_create_game">Commencer une partie (Online)</string>
+    <string name="connected_choose_action_search_fight">Rejoindre un combat</string>
+    <string name="connected_choose_action_launch_fight">Démarrer un combat</string>
     <string name="choose_pokemon_attack_dammage_label">Dégats :</string>
     <string name="choose_pokemon_attack_power_label">Puissance :</string>
     <string name="choose_pokemon_attack_type_label">Type :</string>
@@ -278,7 +280,16 @@
     <string name="row_choose_pokemon_separator_pv">/</string>
     <string name="search_fight_error">Il n\'existe aucun combat où il manque un joueur. Réessaye dans quelques secondes...</string>
     <string name="search_fight_inprogress_message">Recherche d\'un combat en cours...</string>
-    <string name="search_fight_inprogress_title">Recherche un combat...</string>
+    <string name="search_fight_inprogress_title">Recherche</string>
+    <string name="create_fight_error">Un problème est survenu lors de la création du combat.</string>
+    <string name="create_fight_waiting_dresseur2_message">Recherche un adversaire...</string>
+    <string name="create_fight_waiting_dresseur2_title">Recherche</string>
+    <string name="create_fight_waiting_dresseur2_error">Aucun adversaire n\'a été trouvé...</string>
+    <string name="create_fight_cancel_message">Annulation du combat...</string>
+    <string name="create_fight_cancel_title">Annulation</string>
+    <string name="create_fight_cancel_error">Un problème est survenu lors de l\'annulation du combat.</string>
+    <string name="create_fight_inprogress_message">Création d\'un combat...</string>
+    <string name="create_fight_inprogress_title">Création</string>
     <string name="typeattaque_empty_list">TypeAttaque list is empty !</string>
     <string name="typeattaque_error_create">TypeAttaque creation error…</string>
     <string name="typeattaque_error_edit">TypeAttaque edition error…</string>

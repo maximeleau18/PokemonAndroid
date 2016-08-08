@@ -21,7 +21,6 @@ import com.maximeleau.harmony.android.pokemon.data.CombatManagerWebServiceClient
 import com.maximeleau.harmony.android.pokemon.entity.Attaque;
 import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
-import android.support.v4.app.FragmentManager;
 
 import java.io.Serializable;
 import java.util.Locale;
@@ -56,9 +55,9 @@ public class CombatManagerAttackFragment extends Fragment {
         this.attackContainer.setClickable(true);
         this.attackContainer.setOnClickListener(onClickAttack());
         if(this.combatManager.getCombat().getDresseur1().getId() == dresseurConnected.getId()){
-            this.attackContainer.setEnabled((this.combatManager.getPokemonActualTurnId() == this.combatManager.getCombat().getPokemon1().getId()));
+            this.attackContainer.setEnabled((this.combatManager.getDresseurActualTurnId() == this.combatManager.getCombat().getDresseur1().getId()));
         }else if(this.combatManager.getCombat().getDresseur2().getId() == dresseurConnected.getId()){
-            this.attackContainer.setEnabled((this.combatManager.getPokemonActualTurnId() == this.combatManager.getCombat().getPokemon2().getId()));
+            this.attackContainer.setEnabled((this.combatManager.getDresseurActualTurnId() == this.combatManager.getCombat().getDresseur2().getId()));
         }
 
         this.attackNameText = (TextView) view.findViewById(R.id.combat_manager_attack_name);
@@ -89,8 +88,8 @@ public class CombatManagerAttackFragment extends Fragment {
                             ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
                             CombatManagerAttackFragment.this.attack.getNom()));
 
-                    // Update pokemon which is attacked
-                    combatManager.setPokemon(combatManager.getCombat().getPokemon2());
+                    // Update dresseur which is attacked
+                    combatManager.setDresseur(combatManager.getCombat().getDresseur2());
                     combatManager.setAttaque(CombatManagerAttackFragment.this.attack);
                     CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) parentActivity.getSupportFragmentManager().findFragmentById(
                                                     R.id.fragment_combat_manager_opponent);
@@ -99,8 +98,8 @@ public class CombatManagerAttackFragment extends Fragment {
                     console.setText(String.format(Locale.FRANCE, "%s %s %s", combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom(),
                             ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
                             CombatManagerAttackFragment.this.attack.getNom()));
-                    // Update pokemon which is attacked
-                    combatManager.setPokemon(combatManager.getCombat().getPokemon1());
+                    // Update dresseur which is attacked
+                    combatManager.setDresseur(combatManager.getCombat().getDresseur1());
                     combatManager.setAttaque(CombatManagerAttackFragment.this.attack);CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) parentActivity.getSupportFragmentManager().findFragmentById(
                             R.id.fragment_combat_manager_opponent);
                     combatManager.setActualPv(fragmentOpponent.getActualPv());
@@ -108,6 +107,15 @@ public class CombatManagerAttackFragment extends Fragment {
                 // Call launch attack function api
                 new LaunchAttackTask(CombatManagerAttackFragment.this, CombatManagerAttackFragment.this.combatManager).execute();
 
+                // Disabled all attack button while datapush is not received
+                CombatManagerAttackFragment fragmentAttack1 = parentActivity.getFragmentAttack1();
+                fragmentAttack1.getAttackContainer().setEnabled(false);
+                CombatManagerAttackFragment fragmentAttack2 = parentActivity.getFragmentAttack2();
+                fragmentAttack2.getAttackContainer().setEnabled(false);
+                CombatManagerAttackFragment fragmentAttack3 = parentActivity.getFragmentAttack3();
+                fragmentAttack3.getAttackContainer().setEnabled(false);
+                CombatManagerAttackFragment fragmentAttack4 = parentActivity.getFragmentAttack4();
+                fragmentAttack4.getAttackContainer().setEnabled(false);
             }
         };
     }
@@ -185,5 +193,9 @@ public class CombatManagerAttackFragment extends Fragment {
 
             this.progress.dismiss();
         }
+    }
+
+    public LinearLayout getAttackContainer(){
+        return this.attackContainer;
     }
 }

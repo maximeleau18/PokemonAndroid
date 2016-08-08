@@ -41,7 +41,7 @@ public class CombatManagerConsoleFragment extends Fragment {
         this.console = (TextView) view.findViewById(R.id.combat_manager_console);
 
         if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId() &&
-                                    this.combatManager.getCombat().getPokemon1().getId() == this.combatManager.getPokemonActualTurnId()) {
+                                    this.combatManager.getCombat().getDresseur1().getId() == this.combatManager.getDresseurActualTurnId()) {
             this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
                                                         this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start_str),
                                                         this.combatManager.getCombat().getDresseur1().getPrenom(),
@@ -49,7 +49,7 @@ public class CombatManagerConsoleFragment extends Fragment {
                                                         this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_end_str)));
         }else{
             if (this.combatManager.getCombat().getDresseur2().getId() == this.dresseurConnected.getId() &&
-                    this.combatManager.getCombat().getPokemon2().getId() == this.combatManager.getPokemonActualTurnId()){
+                    this.combatManager.getCombat().getDresseur2().getId() == this.combatManager.getDresseurActualTurnId()){
                 this.console.setText(String.format(Locale.FRANCE, "%s %s %s %s",
                         this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start_str),
                         this.combatManager.getCombat().getDresseur2().getPrenom(),

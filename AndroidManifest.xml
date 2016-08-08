@@ -832,6 +832,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.connectedchooseaction.ConnectedChooseActionActivity">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <provider
             android:name=".provider.PokemonProvider"
             android:authorities="com.maximeleau.harmony.android.pokemon.provider"

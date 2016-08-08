@@ -24,6 +24,7 @@ import com.maximeleau.harmony.android.pokemon.data.base.DresseurWebServiceClient
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 import com.maximeleau.harmony.android.pokemon.view.chooseaction.ChooseActionActivity;
 import com.maximeleau.harmony.android.pokemon.view.choosepokemon.ChoosePokemonActivity;
+import com.maximeleau.harmony.android.pokemon.view.connectedchooseaction.ConnectedChooseActionActivity;
 
 import java.io.Serializable;
 import java.util.List;
@@ -177,7 +178,7 @@ public class ConnexionFragment extends Fragment {
                         });
                 builder.show();
             } else {
-                final Intent intent = new Intent(this.ctx, ChoosePokemonActivity.class);
+                final Intent intent = new Intent(this.ctx, ConnectedChooseActionActivity.class);
                 intent.putExtra("dresseur", (Serializable) this.entity);
                 this.ctx.startActivity(intent);
             }

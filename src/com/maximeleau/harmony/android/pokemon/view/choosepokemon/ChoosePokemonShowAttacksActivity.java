@@ -16,15 +16,18 @@ import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
 public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity {
     private Pokemon pokemon;
     private Dresseur dresseur;
+    private int choisenAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_pokemon_attacks_show);
 
         Intent intent = getIntent();
+        this.choisenAction = intent.getIntExtra("choisen_action", 0);
         this.pokemon = (Pokemon) intent.getSerializableExtra("pokemon");
         this.dresseur = (Dresseur) intent.getSerializableExtra("dresseur");
+
+        setContentView(R.layout.activity_choose_pokemon_attacks_show);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -55,7 +58,6 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
 
         // Commit changes
         fragmentTransaction.commit();
-
     }
 
     public Pokemon getPokemonChoisen(){
@@ -64,5 +66,9 @@ public class ChoosePokemonShowAttacksActivity extends EngagementFragmentActivity
 
     public Dresseur getDresseurConnected(){
         return this.dresseur;
+    }
+
+    public int getChoisenAction() {
+        return this.choisenAction;
     }
 }

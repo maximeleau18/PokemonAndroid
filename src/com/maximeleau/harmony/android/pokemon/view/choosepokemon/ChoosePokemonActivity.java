@@ -13,6 +13,7 @@ import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
  */
 public class ChoosePokemonActivity extends EngagementFragmentActivity {
     private Dresseur dresseur;
+    private String choisenAction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class ChoosePokemonActivity extends EngagementFragmentActivity {
 
         Intent intent = getIntent();
         this.dresseur = (Dresseur) intent.getSerializableExtra("dresseur");
+        this.choisenAction = intent.getStringExtra("choisenAction");
 
         setContentView(R.layout.activity_choose_pokemon);
     }
@@ -28,6 +30,12 @@ public class ChoosePokemonActivity extends EngagementFragmentActivity {
         return this.dresseur;
     }
 
-
-
+    public int getChoisenAction(){
+        if(this.choisenAction.equals("create_fight")) {
+            return 1;
+        }else if(this.choisenAction.equals("join_fight")){
+            return 2;
+        }
+        return 0;
+    }
 }

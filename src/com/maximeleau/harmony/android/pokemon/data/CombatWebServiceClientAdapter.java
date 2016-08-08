@@ -98,10 +98,67 @@ public class CombatWebServiceClientAdapter
                 RestClient.Verb.POST,
                 String.format(
                         this.getUri() + "/searchemptycombat",
-                        combat.getDresseur2().getId(),
-                        combat.getPokemon2().getId(),
+                        itemToJsonSend(combat),
                         REST_FORMAT),
-                itemToJson(combat));
+                itemToJsonSend(combat));
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                if (extract(json, combat)) {
+                    result = 0;
+                }
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combat = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Create Combat. Uses the route : Combat/.
+     * @param combat : The Combat to create
+     * @return -1 if an error has occurred. 0 if not.
+     */
+    public int createFight(Combat combat) {
+        int result = -1;
+        String response = this.invokeRequest(
+                RestClient.Verb.POST,
+                        this.getUri(),
+                itemToJsonSend(combat));
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                if (extract(json, combat)) {
+                    result = 0;
+                }
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
+                combat = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Retrieve one Combat. Uses the route : Combat/%id%.
+     * @param combat : The Combat to retrieve (set the ID)
+     * @return -1 if an error has occurred. 0 if not.
+     */
+    public int waitingForDresseur2(Combat combat) {
+        int result = -1;
+
+        String response = this.invokeRequest(
+                RestClient.Verb.GET,
+                String.format(
+                        this.getUri() + "/%s%s",
+                        combat.getId(),
+                        REST_FORMAT),
+                null);
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {

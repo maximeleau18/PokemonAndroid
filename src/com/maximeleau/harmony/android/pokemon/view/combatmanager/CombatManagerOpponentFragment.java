@@ -59,18 +59,18 @@ public class CombatManagerOpponentFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom());
 
-            if(this.combatManager.getPokemon() == null){
+            if(this.combatManager.getDresseur() == null){
                 // 1rst turn
                 this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
             }else{
                 // Other turn
-                if (this.combatManager.getPokemon().getId() == this.combatManager.getCombat().getPokemon1().getId()){
+                if (this.combatManager.getDresseur().getId() == this.combatManager.getCombat().getDresseur1().getId()){
                     this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getActualPv()));
                 }
             }
 
             this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
-        }else{
+        }else if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId()){
             int drawableResourceId = getResources().getIdentifier(
                     "pokemon_front_" + String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNumPokedex()),
                     "drawable", this.context.getPackageName());
@@ -79,12 +79,12 @@ public class CombatManagerOpponentFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom());
 
-            if(this.combatManager.getPokemon() == null){
+            if(this.combatManager.getDresseur() == null){
                 // 1rst turn
                 this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
             }else{
                 // Other turn
-                if (this.combatManager.getPokemon().getId() == this.combatManager.getCombat().getPokemon1().getId()){
+                if (this.combatManager.getDresseur().getId() == this.combatManager.getCombat().getDresseur2().getId()){
                     this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getActualPv()));
                 }
             }

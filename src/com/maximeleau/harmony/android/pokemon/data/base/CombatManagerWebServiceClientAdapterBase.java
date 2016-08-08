@@ -15,12 +15,12 @@ import com.maximeleau.harmony.android.pokemon.R;
 import com.maximeleau.harmony.android.pokemon.data.AttaqueWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.data.CombatManagerWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.data.CombatWebServiceClientAdapter;
-import com.maximeleau.harmony.android.pokemon.data.PokemonWebServiceClientAdapter;
+import com.maximeleau.harmony.android.pokemon.data.DresseurWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.data.RestClient;
 import com.maximeleau.harmony.android.pokemon.entity.Attaque;
 import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
-import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
+import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
 
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
@@ -38,18 +38,18 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
     /** AreneWebServiceClientAdapterBase TAG. */
     protected static final String TAG = "CombatManagerWSClientAdapter";
 
-    /** JSON Object Arene pattern. */
+    /** JSON Object Combat Manager pattern. */
     protected static String JSON_OBJECT_COMBAT_MANAGER = "CombatManager";
-    /** JSON_ID attributes. */
+    /** JSON_COMBAT attributes. */
     protected static String JSON_COMBAT = "combat";
-    /** JSON_MAITRE attributes. */
+    /** JSON_ATTAQUE attributes. */
         protected static String JSON_ATTAQUE = "attaque";
-    /** JSON_BADGE attributes. */
-    protected static String JSON_POKEMON = "pokemon";
-    /** JSON_BADGE attributes. */
+    /** JSON_DRESSEUR attributes. */
+    protected static String JSON_DRESSEUR = "dresseur";
+    /** JSON_ACTUAL_PV attributes. */
     protected static String JSON_ACTUAL_PV = "actualPv";
-    /** JSON_BADGE attributes. */
-    protected static String JSON_POKEMON_ACTUAL_TURN_ID = "pokemonActualTurnId";
+    /** JSON_DRESSEUR_ACTUAL_TURN_ID attributes. */
+    protected static String JSON_DRESSEUR_ACTUAL_TURN_ID = "dresseurActualTurnId";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -408,20 +408,20 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                     }
                 }
 
-                if (json.has(CombatManagerWebServiceClientAdapter.JSON_POKEMON)
-                        && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_POKEMON)) {
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR)
+                        && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR)) {
 
                     try {
-                        PokemonWebServiceClientAdapter pokemonAdapter =
-                                new PokemonWebServiceClientAdapter(this.context);
-                        Pokemon pokemon =
-                                new Pokemon();
+                        DresseurWebServiceClientAdapter dresseurAdapter =
+                                new DresseurWebServiceClientAdapter(this.context);
+                        Dresseur dresseur =
+                                new Dresseur();
 
-                        if (pokemonAdapter.extract(
+                        if (dresseurAdapter.extract(
                                 json.optJSONObject(
-                                        CombatManagerWebServiceClientAdapter.JSON_POKEMON),
-                                pokemon)) {
-                            combatManager.setPokemon(pokemon);
+                                        CombatManagerWebServiceClientAdapter.JSON_DRESSEUR),
+                                dresseur)) {
+                            combatManager.setDresseur(dresseur);
                         }
                     } catch (Exception e) {
                         Log.e(TAG, "Json doesn't contains Position data");
@@ -434,10 +434,10 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                             json.getInt(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV));
                 }
 
-                if (json.has(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID)
-                        && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID)) {
-                    combatManager.setPokemonActualTurnId(
-                            json.getInt(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID));
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID)
+                        && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID)) {
+                    combatManager.setDresseurActualTurnId(
+                            json.getInt(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID));
                 }
 
             } catch (JSONException e) {
@@ -465,17 +465,17 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                     row[1] = attaqueJson.getString(
                             AttaqueWebServiceClientAdapter.JSON_ID);
                 }
-                if (json.has(CombatManagerWebServiceClientAdapter.JSON_POKEMON)) {
-                    JSONObject pokemonJson = json.getJSONObject(
-                            CombatManagerWebServiceClientAdapter.JSON_POKEMON);
-                    row[2] = pokemonJson.getString(
-                            PokemonWebServiceClientAdapter.JSON_ID);
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR)) {
+                    JSONObject dresseurJson = json.getJSONObject(
+                            CombatManagerWebServiceClientAdapter.JSON_DRESSEUR);
+                    row[2] = dresseurJson.getString(
+                            DresseurWebServiceClientAdapter.JSON_ID);
                 }
                 if (json.has(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV)) {
                     row[3] = json.getString(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV);
                 }
-                if (json.has(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID)) {
-                    row[4] = json.getString(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID);
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID)) {
+                    row[4] = json.getString(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID);
                 }
 
                 cursor.addRow(row);
@@ -512,17 +512,17 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                         attaqueAdapter.itemToJson(combatManager.getAttaque()));
             }
 
-            if (combatManager.getPokemon() != null) {
-                PokemonWebServiceClientAdapter pokemonAdapter =
-                        new PokemonWebServiceClientAdapter(this.context);
+            if (combatManager.getDresseur() != null) {
+                DresseurWebServiceClientAdapter dresseurAdapter =
+                        new DresseurWebServiceClientAdapter(this.context);
 
-                params.put(CombatManagerWebServiceClientAdapter.JSON_POKEMON,
-                        pokemonAdapter.itemToJson(combatManager.getPokemon()));
+                params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
+                        dresseurAdapter.itemToJson(combatManager.getDresseur()));
             }
             params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
                     combatManager.getActualPv());
-            params.put(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID,
-                    combatManager.getPokemonActualTurnId());
+            params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
+                    combatManager.getDresseurActualTurnId());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -551,15 +551,15 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                         combatManager.getAttaque().getId());
             }
 
-            if (combatManager.getPokemon() != null) {
+            if (combatManager.getDresseur() != null) {
 
-                params.put(CombatManagerWebServiceClientAdapter.JSON_POKEMON,
-                        combatManager.getPokemon().getId());
+                params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
+                        combatManager.getDresseur().getId());
             }
             params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
                     combatManager.getActualPv());
-            params.put(CombatManagerWebServiceClientAdapter.JSON_POKEMON_ACTUAL_TURN_ID,
-                    combatManager.getPokemonActualTurnId());
+            params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
+                    combatManager.getDresseurActualTurnId());
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

@@ -10,11 +10,11 @@ public class CombatManager implements Serializable {
 
     private Attaque attaque;
 
-    private Pokemon pokemon;
+    private Dresseur dresseur;
 
     private int actualPv;
 
-    private int pokemonActualTurnId;
+    private int dresseurActualTurnId;
 
     /**
      * Default constructor.
@@ -39,12 +39,12 @@ public class CombatManager implements Serializable {
         this.attaque = attaque;
     }
 
-    public Pokemon getPokemon() {
-        return pokemon;
+    public Dresseur getDresseur() {
+        return dresseur;
     }
 
-    public void setPokemon(Pokemon pokemon) {
-        this.pokemon = pokemon;
+    public void setDresseur(Dresseur dresseur) {
+        this.dresseur = dresseur;
     }
 
     public int getActualPv() {
@@ -55,12 +55,11 @@ public class CombatManager implements Serializable {
         this.actualPv = actualPv;
     }
 
-    public int getPokemonActualTurnId() {
-        return pokemonActualTurnId;
+    public int getDresseurActualTurnId() {
+        return dresseurActualTurnId;
     }
 
-    public void setPokemonActualTurnId(int pokemonActualTurnId) {
-        this.pokemonActualTurnId = pokemonActualTurnId;
+    public void setDresseurActualTurnId(int dresseurActualTurnId) {
+        this.dresseurActualTurnId = dresseurActualTurnId;
     }
-
 }

@@ -16,17 +16,17 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.maximeleau.harmony.android.pokemon.R;
-import com.maximeleau.harmony.android.pokemon.data.CombatWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.data.base.CombatManagerWebServiceClientAdapterBase;
 import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
 import com.maximeleau.harmony.android.pokemon.entity.Dresseur;
-import com.maximeleau.harmony.android.pokemon.view.chooseaction.ChooseActionActivity;
+import com.maximeleau.harmony.android.pokemon.view.connectedchooseaction.ConnectedChooseActionActivity;
 import com.microsoft.azure.engagement.activity.EngagementFragmentActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.Locale;
 
 /**
@@ -39,6 +39,10 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
     private TextView console;
     private Context context;
     private BroadcastReceiver receiver;
+    private CombatManagerAttackFragment fragmentAttack1;
+    private CombatManagerAttackFragment fragmentAttack2;
+    private CombatManagerAttackFragment fragmentAttack3;
+    private CombatManagerAttackFragment fragmentAttack4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,54 +60,54 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
 
         if (this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId()){
             // Add attacks fragments binding with pokemon1
-            CombatManagerAttackFragment fragmentAttack1 = new CombatManagerAttackFragment();
+            this.fragmentAttack1 = new CombatManagerAttackFragment();
             Bundle bundle1 = new Bundle();
             bundle1.putSerializable("attaque", this.combatManager.getCombat().getPokemon1().getAttaque1());
-            fragmentAttack1.setArguments(bundle1);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack1, fragmentAttack1);
+            this.fragmentAttack1.setArguments(bundle1);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack1, this.fragmentAttack1);
 
-            CombatManagerAttackFragment fragmentAttack2 = new CombatManagerAttackFragment();
+            this.fragmentAttack2 = new CombatManagerAttackFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putSerializable("attaque", this.combatManager.getCombat().getPokemon1().getAttaque2());
-            fragmentAttack2.setArguments(bundle2);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack2, fragmentAttack2);
+            this.fragmentAttack2.setArguments(bundle2);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack2, this.fragmentAttack2);
 
-            CombatManagerAttackFragment fragmentAttack3 = new CombatManagerAttackFragment();
+            this.fragmentAttack3 = new CombatManagerAttackFragment();
             Bundle bundle3 = new Bundle();
             bundle3.putSerializable("attaque", this.combatManager.getCombat().getPokemon1().getAttaque3());
-            fragmentAttack3.setArguments(bundle3);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack3, fragmentAttack3);
+            this.fragmentAttack3.setArguments(bundle3);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack3, this.fragmentAttack3);
 
-            CombatManagerAttackFragment fragmentAttack4 = new CombatManagerAttackFragment();
+            this.fragmentAttack4 = new CombatManagerAttackFragment();
             Bundle bundle4 = new Bundle();
             bundle4.putSerializable("attaque", this.combatManager.getCombat().getPokemon1().getAttaque4());
-            fragmentAttack4.setArguments(bundle4);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack4, fragmentAttack4);
+            this.fragmentAttack4.setArguments(bundle4);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack4, this.fragmentAttack4);
         }else{
             // Add attacks fragments binding with pokemon2
-            CombatManagerAttackFragment fragmentAttack1 = new CombatManagerAttackFragment();
+            this.fragmentAttack1 = new CombatManagerAttackFragment();
             Bundle bundle1 = new Bundle();
             bundle1.putSerializable("attaque", this.combatManager.getCombat().getPokemon2().getAttaque1());
-            fragmentAttack1.setArguments(bundle1);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack1, fragmentAttack1);
+            this.fragmentAttack1.setArguments(bundle1);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack1, this.fragmentAttack1);
 
-            CombatManagerAttackFragment fragmentAttack2 = new CombatManagerAttackFragment();
+            this.fragmentAttack2 = new CombatManagerAttackFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putSerializable("attaque", this.combatManager.getCombat().getPokemon2().getAttaque2());
-            fragmentAttack2.setArguments(bundle2);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack2, fragmentAttack2);
+            this.fragmentAttack2.setArguments(bundle2);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack2, this.fragmentAttack2);
 
-            CombatManagerAttackFragment fragmentAttack3 = new CombatManagerAttackFragment();
+            this.fragmentAttack3 = new CombatManagerAttackFragment();
             Bundle bundle3 = new Bundle();
             bundle3.putSerializable("attaque", this.combatManager.getCombat().getPokemon2().getAttaque3());
-            fragmentAttack3.setArguments(bundle3);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack3, fragmentAttack3);
+            this.fragmentAttack3.setArguments(bundle3);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack3, this.fragmentAttack3);
 
-            CombatManagerAttackFragment fragmentAttack4 = new CombatManagerAttackFragment();
+            this.fragmentAttack4 = new CombatManagerAttackFragment();
             Bundle bundle4 = new Bundle();
             bundle4.putSerializable("attaque", this.combatManager.getCombat().getPokemon2().getAttaque4());
-            fragmentAttack4.setArguments(bundle4);
-            fragmentTransaction.add(R.id.fragment_combat_manager_attack4, fragmentAttack4);
+            this.fragmentAttack4.setArguments(bundle4);
+            fragmentTransaction.add(R.id.fragment_combat_manager_attack4, this.fragmentAttack4);
         }
 
         // Commit changes
@@ -121,6 +125,22 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
     public Dresseur getDresseurConnected(){ return this.dresseurConnected; }
 
     public TextView getConsole(){ return this.console; }
+
+    public CombatManagerAttackFragment getFragmentAttack1(){
+        return this.fragmentAttack1;
+    }
+
+    public CombatManagerAttackFragment getFragmentAttack2(){
+        return this.fragmentAttack2;
+    }
+
+    public CombatManagerAttackFragment getFragmentAttack3(){
+        return this.fragmentAttack3;
+    }
+
+    public CombatManagerAttackFragment getFragmentAttack4(){
+        return this.fragmentAttack4;
+    }
 
     @Override
     public void onResume() {
@@ -153,54 +173,54 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
 
                     if (CombatManagerShowActivity.this.combatManager.getCombat().getDresseur1().getId() == CombatManagerShowActivity.this.dresseurConnected.getId()) {
                         // Add attacks fragments binding with pokemon1
-                        CombatManagerAttackFragment fragmentAttack1 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack1 = new CombatManagerAttackFragment();
                         Bundle bundle1 = new Bundle();
                         bundle1.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon1().getAttaque1());
-                        fragmentAttack1.setArguments(bundle1);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack1, fragmentAttack1);
+                        CombatManagerShowActivity.this.fragmentAttack1.setArguments(bundle1);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack1, CombatManagerShowActivity.this.fragmentAttack1);
 
-                        CombatManagerAttackFragment fragmentAttack2 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack2 = new CombatManagerAttackFragment();
                         Bundle bundle2 = new Bundle();
                         bundle2.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon1().getAttaque2());
-                        fragmentAttack2.setArguments(bundle2);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack2, fragmentAttack2);
+                        CombatManagerShowActivity.this.fragmentAttack2.setArguments(bundle2);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack2, CombatManagerShowActivity.this.fragmentAttack2);
 
-                        CombatManagerAttackFragment fragmentAttack3 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack3 = new CombatManagerAttackFragment();
                         Bundle bundle3 = new Bundle();
                         bundle3.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon1().getAttaque3());
-                        fragmentAttack3.setArguments(bundle3);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack3, fragmentAttack3);
+                        CombatManagerShowActivity.this.fragmentAttack3.setArguments(bundle3);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack3, CombatManagerShowActivity.this.fragmentAttack3);
 
-                        CombatManagerAttackFragment fragmentAttack4 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack4 = new CombatManagerAttackFragment();
                         Bundle bundle4 = new Bundle();
                         bundle4.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon1().getAttaque4());
-                        fragmentAttack4.setArguments(bundle4);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack4, fragmentAttack4);
-                    } else {
+                        CombatManagerShowActivity.this.fragmentAttack4.setArguments(bundle4);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack4, CombatManagerShowActivity.this.fragmentAttack4);
+                    } else if (CombatManagerShowActivity.this.combatManager.getCombat().getDresseur2().getId() == CombatManagerShowActivity.this.dresseurConnected.getId()) {
                         // Add attacks fragments binding with pokemon2
-                        CombatManagerAttackFragment fragmentAttack1 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack1 = new CombatManagerAttackFragment();
                         Bundle bundle1 = new Bundle();
                         bundle1.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon2().getAttaque1());
-                        fragmentAttack1.setArguments(bundle1);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack1, fragmentAttack1);
+                        CombatManagerShowActivity.this.fragmentAttack1.setArguments(bundle1);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack1, CombatManagerShowActivity.this.fragmentAttack1);
 
-                        CombatManagerAttackFragment fragmentAttack2 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack2 = new CombatManagerAttackFragment();
                         Bundle bundle2 = new Bundle();
                         bundle2.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon2().getAttaque2());
-                        fragmentAttack2.setArguments(bundle2);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack2, fragmentAttack2);
+                        CombatManagerShowActivity.this.fragmentAttack2.setArguments(bundle2);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack2, CombatManagerShowActivity.this.fragmentAttack2);
 
-                        CombatManagerAttackFragment fragmentAttack3 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack3 = new CombatManagerAttackFragment();
                         Bundle bundle3 = new Bundle();
                         bundle3.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon2().getAttaque3());
-                        fragmentAttack3.setArguments(bundle3);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack3, fragmentAttack3);
+                        CombatManagerShowActivity.this.fragmentAttack3.setArguments(bundle3);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack3, CombatManagerShowActivity.this.fragmentAttack3);
 
-                        CombatManagerAttackFragment fragmentAttack4 = new CombatManagerAttackFragment();
+                        CombatManagerShowActivity.this.fragmentAttack4 = new CombatManagerAttackFragment();
                         Bundle bundle4 = new Bundle();
                         bundle4.putSerializable("attaque", CombatManagerShowActivity.this.combatManager.getCombat().getPokemon2().getAttaque4());
-                        fragmentAttack4.setArguments(bundle4);
-                        fragmentTransaction.add(R.id.fragment_combat_manager_attack4, fragmentAttack4);
+                        CombatManagerShowActivity.this.fragmentAttack4.setArguments(bundle4);
+                        fragmentTransaction.add(R.id.fragment_combat_manager_attack4, CombatManagerShowActivity.this.fragmentAttack4);
                     }
 
                     // Commit changes
@@ -237,7 +257,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         /** Entity to update. */
         private final Combat combat;
         /** Dresseur winner **/
-        private final Dresseur winner;
+        private final Dresseur dresseurConnected;
         /** Progress Dialog. */
         private ProgressDialog progress;
 
@@ -248,11 +268,11 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
          * called
          */
         public FinishFightTask(final Context context,
-                                final Combat combat, final Dresseur winner) {
+                                final Combat combat, final Dresseur dresseurConnected) {
             super();
             this.ctx = context;
             this.combat = combat;
-            this.winner = winner;
+            this.dresseurConnected = dresseurConnected;
         }
 
         @Override
@@ -292,7 +312,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                         });
                 builder.show();
             } else {
-                if(this.winner.getId() == this.combat.getDresseur1().getId()){
+                if(this.dresseurConnected.getId() == this.combat.getDresseur1().getId()){
                     if (this.combat.isDresseur1Vainqueur()){
                         // You Win
                         final AlertDialog.Builder builder =
@@ -306,7 +326,8 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                                 new Dialog.OnClickListener() {
                                     public void onClick(DialogInterface dialog,
                                                         int which) {
-                                        Intent myIntent = new Intent(((Dialog) dialog).getContext(), ChooseActionActivity.class);
+                                        Intent myIntent = new Intent(((Dialog) dialog).getContext(), ConnectedChooseActionActivity.class);
+                                        myIntent.putExtra("dresseur", (Serializable) FinishFightTask.this.dresseurConnected);
                                         ((Dialog) dialog).getContext().startActivity(myIntent);
                                         return;
                                     }
@@ -325,7 +346,8 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                                 new Dialog.OnClickListener() {
                                     public void onClick(DialogInterface dialog,
                                                         int which) {
-                                        Intent myIntent = new Intent(((Dialog) dialog).getContext(), ChooseActionActivity.class);
+                                        Intent myIntent = new Intent(((Dialog) dialog).getContext(), ConnectedChooseActionActivity.class);
+                                        myIntent.putExtra("dresseur", (Serializable) FinishFightTask.this.dresseurConnected);
                                         ((Dialog) dialog).getContext().startActivity(myIntent);
                                         return;
                                     }
@@ -345,7 +367,8 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                             new Dialog.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
                                                     int which) {
-                                    Intent myIntent = new Intent(((Dialog) dialog).getContext(), ChooseActionActivity.class);
+                                    Intent myIntent = new Intent(((Dialog) dialog).getContext(), ConnectedChooseActionActivity.class);
+                                    myIntent.putExtra("dresseur", (Serializable) FinishFightTask.this.dresseurConnected);
                                     ((Dialog) dialog).getContext().startActivity(myIntent);
                                     return;
                                 }
@@ -364,7 +387,8 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                             new Dialog.OnClickListener() {
                                 public void onClick(DialogInterface dialog,
                                                     int which) {
-                                    Intent myIntent = new Intent(((Dialog) dialog).getContext(), ChooseActionActivity.class);
+                                    Intent myIntent = new Intent(((Dialog) dialog).getContext(), ConnectedChooseActionActivity.class);
+                                    myIntent.putExtra("dresseur", (Serializable) FinishFightTask.this.dresseurConnected);
                                     ((Dialog) dialog).getContext().startActivity(myIntent);
                                     return;
                                 }

@@ -31,6 +31,8 @@ public class ChoosePokemonListFragment extends Fragment {
     private ChoosePokemonListAdapter mAdapter;
     private TextView textViewEmptyList;
     private ListView listViewPokemons;
+    private int choisenAction;
+    private Dresseur dresseurConnected;
 
     @Override
     public View onCreateView(
@@ -43,15 +45,16 @@ public class ChoosePokemonListFragment extends Fragment {
                         null);
 
         // Get data from activity
-        ChoosePokemonActivity activity = (ChoosePokemonActivity) this.getActivity();
-        Dresseur dresseur = activity.getDresseur();
+        ChoosePokemonActivity parentActivity = (ChoosePokemonActivity) this.getActivity();
+        this.dresseurConnected = parentActivity.getDresseur();
+        this.choisenAction = parentActivity.getChoisenAction();
         // Get ui elements
         this.textViewEmptyList = (TextView) view.findViewById(R.id.choose_pokemon_list_empty);
         this.listViewPokemons = (ListView) view.findViewById(R.id.choose_pokemon_list_view);
 
-        if (dresseur.getPersonnageNonJoueur().getPokemons().size() > 0){
+        if (this.dresseurConnected.getPersonnageNonJoueur().getPokemons().size() > 0){
             // Create the adapter that will receive pokemons
-            this.mAdapter = new ChoosePokemonListAdapter(this.getActivity(), R.layout.row_choose_pokemon, dresseur.getPersonnageNonJoueur().getPokemons());
+            this.mAdapter = new ChoosePokemonListAdapter(this.getActivity(), R.layout.row_choose_pokemon, this.dresseurConnected.getPersonnageNonJoueur().getPokemons());
             this.listViewPokemons.setAdapter(this.mAdapter);
             // Set on click item list event
             this.listViewPokemons.setOnItemClickListener(OnPokemonItemClick());
@@ -70,13 +73,11 @@ public class ChoosePokemonListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Pokemon pokemonClicked = (Pokemon)parent.getItemAtPosition(position);
-                // Get dresseur connected
-                ChoosePokemonActivity parentActivity = (ChoosePokemonActivity) getActivity();
-                Dresseur dresseurConnected = parentActivity.getDresseur();
 
                 final Intent intent = new Intent(view.getContext(), ChoosePokemonShowAttacksActivity.class);
+                intent.putExtra("choisen_action", ChoosePokemonListFragment.this.choisenAction);
                 intent.putExtra("pokemon", (Serializable) pokemonClicked);
-                intent.putExtra("dresseur", (Serializable) dresseurConnected);
+                intent.putExtra("dresseur", (Serializable) ChoosePokemonListFragment.this.dresseurConnected);
                 view.getContext().startActivity(intent);
             }
         };
