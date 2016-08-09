@@ -99,6 +99,8 @@
     <string name="combat_manager_finish_fight_winner">Bravo ! Tu as gagné !</string>
     <string name="combat_manager_finish_fight_looser">Dommage ! Tu as perdu !</string>
     <string name="combat_manager_finish_fight_error_message">Un problème est survenu lors de l\'enregistrement du résultat.</string>
+    <string name="combat_manager_desertion_fight_title">Confirmation</string>
+    <string name="combat_manager_desertion_fight_message">Es-tu certain de vouloir quitter le combat ? Tu seras considéré comme perdant.</string>
     <string name="combat_not_found">No Combat found to display…</string>
     <string name="combat_pokemon1_dialog_title">Select pokemon1</string>
     <string name="combat_pokemon1_invalid_field_error">Field Pokemon1 is invalid.</string>

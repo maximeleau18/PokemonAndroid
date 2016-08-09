@@ -267,7 +267,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         this.getUri() + "/%s%s",
                         combat.getId(),
                         REST_FORMAT),
-                    null);
+                    itemToJsonSend(combat));
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {

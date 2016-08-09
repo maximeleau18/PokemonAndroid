@@ -16,6 +16,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.maximeleau.harmony.android.pokemon.R;
+import com.maximeleau.harmony.android.pokemon.data.CombatWebServiceClientAdapter;
 import com.maximeleau.harmony.android.pokemon.data.base.CombatManagerWebServiceClientAdapterBase;
 import com.maximeleau.harmony.android.pokemon.entity.Combat;
 import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
@@ -250,6 +251,49 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         this.context.unregisterReceiver(this.receiver);
     }
 
+    @Override
+    public void onBackPressed() {
+        // Display a message to user that explain he can not perform this action without loose fight
+        final AlertDialog.Builder builder =
+                new AlertDialog.Builder(this);
+        builder.setIcon(0);
+        builder.setTitle(R.string.combat_manager_desertion_fight_title);
+        builder.setMessage(
+                this.getString(
+                        R.string.combat_manager_desertion_fight_message));
+        builder.setPositiveButton(
+                this.getString(android.R.string.yes),
+                new Dialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // Updated the fight
+                        if (CombatManagerShowActivity.this.combatManager.getCombat().getDresseur1().getId() == CombatManagerShowActivity.this.dresseurConnected.getId()){
+                            CombatManagerShowActivity.this.combatManager.getCombat().setDresseur2Vainqueur(true);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setPokemon2Vainqueur(true);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setDresseur1Vainqueur(false);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setPokemon1Vainqueur(false);
+                        }else if (CombatManagerShowActivity.this.combatManager.getCombat().getDresseur2().getId() == CombatManagerShowActivity.this.dresseurConnected.getId()){
+                            CombatManagerShowActivity.this.combatManager.getCombat().setDresseur2Vainqueur(false);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setPokemon2Vainqueur(false);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setDresseur1Vainqueur(true);
+                            CombatManagerShowActivity.this.combatManager.getCombat().setPokemon1Vainqueur(true);
+                        }
+
+                        // Finish fight
+                        new DesertionFightTask(((Dialog) dialog).getContext(), CombatManagerShowActivity.this.combatManager.getCombat(),
+                                CombatManagerShowActivity.this.dresseurConnected).execute();
+                        return;
+                    }
+                });
+        builder.setNegativeButton(
+                this.getString(android.R.string.no),
+                new Dialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                    }
+                });
+        builder.show();
+    }
 
     public static class FinishFightTask extends AsyncTask<Void, Void, Integer> {
         /** AsyncTask's context. */
@@ -288,7 +332,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         @Override
         protected Integer doInBackground(Void... params) {
             Integer result = 0;
-            // Fight is still saved and campaign updated from windowsdevice
+            // Finish task is launched on api when launch attack
             return result;
         }
 
@@ -395,6 +439,84 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                             });
                     builder.show();
                 }
+            }
+
+            this.progress.dismiss();
+
+        }
+    }
+
+    public static class DesertionFightTask extends AsyncTask<Void, Void, Integer> {
+        /** AsyncTask's context. */
+        private final android.content.Context ctx;
+        /** Entity to update. */
+        private final Combat combat;
+        /** Dresseur winner **/
+        private final Dresseur dresseurConnected;
+        /** Progress Dialog. */
+        private ProgressDialog progress;
+
+        /**
+         * Constructor of the task.
+         * @param combat The entity to insert in the DB
+         * @param context The context from where the aSyncTask is
+         * called
+         */
+        public DesertionFightTask(final Context context,
+                               final Combat combat, final Dresseur dresseurConnected) {
+            super();
+            this.ctx = context;
+            this.combat = combat;
+            this.dresseurConnected = dresseurConnected;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            this.progress = ProgressDialog.show(this.ctx,
+                    this.ctx.getString(
+                            R.string.combat_manager_finish_fight_title),
+                    this.ctx.getString(
+                            R.string.combat_manager_finish_fight_message));
+        }
+
+        @Override
+        protected Integer doInBackground(Void... params) {
+            Integer result = -1;
+
+            try {
+                CombatWebServiceClientAdapter webService = new CombatWebServiceClientAdapter(this.ctx);
+                result = webService.update(this.combat);
+            } catch (Exception e) {
+                android.util.Log.e("CombatManagerShowActivity", e.getMessage());
+            }
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            super.onPostExecute(result);
+
+            if (result < 0) {
+                final AlertDialog.Builder builder =
+                        new AlertDialog.Builder(this.ctx);
+                builder.setIcon(0);
+                builder.setMessage(
+                        this.ctx.getString(
+                                R.string.combat_manager_finish_fight_error_message));
+                builder.setPositiveButton(
+                        this.ctx.getString(android.R.string.yes),
+                        new Dialog.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+                            }
+                        });
+                builder.show();
+            } else {
+                Intent intent = new Intent(this.ctx, ConnectedChooseActionActivity.class);
+                intent.putExtra("dresseur", (Serializable) this.dresseurConnected);
+                this.ctx.startActivity(intent);
             }
 
             this.progress.dismiss();
