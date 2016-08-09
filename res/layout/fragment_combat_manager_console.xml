@@ -4,14 +4,26 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center_vertical">
+    android:layout_gravity="center_vertical"
+    style="@style/textview_console_combat_manager">
 
-    <TextView
-        android:id="@+id/combat_manager_console"
+    <ScrollView
+        android:id="@+id/combat_manager_console_sv"
+        android:scrollbars="vertical"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_margin="15dp"
-        style="@style/textview_console_combat_manager"/>
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/combat_manager_console"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"/>
+
+    </ScrollView>
 
 </LinearLayout>

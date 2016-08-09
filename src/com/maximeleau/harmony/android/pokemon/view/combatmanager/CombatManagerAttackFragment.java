@@ -83,11 +83,10 @@ public class CombatManagerAttackFragment extends Fragment {
                 CombatManager combatManager = parentActivity.getCombatManager();
                 Dresseur dresseurConnected = parentActivity.getDresseurConnected();
 
-                if (dresseurConnected.getId() == combatManager.getCombat().getDresseur1().getId()){
-                    console.setText(String.format(Locale.FRANCE, "%s %s %s", combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom(),
-                            ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
-                            CombatManagerAttackFragment.this.attack.getNom()));
+                // Update console messages
+                console.setText(combatManager.getConsole());
 
+                if (dresseurConnected.getId() == combatManager.getCombat().getDresseur1().getId()){
                     // Update dresseur which is attacked
                     combatManager.setDresseur(combatManager.getCombat().getDresseur2());
                     combatManager.setAttaque(CombatManagerAttackFragment.this.attack);
@@ -95,9 +94,6 @@ public class CombatManagerAttackFragment extends Fragment {
                                                     R.id.fragment_combat_manager_opponent);
                     combatManager.setActualPv(fragmentOpponent.getActualPv());
                 }else{
-                    console.setText(String.format(Locale.FRANCE, "%s %s %s", combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom(),
-                            ctx.getResources().getString(R.string.combat_manager_console_launch_attack),
-                            CombatManagerAttackFragment.this.attack.getNom()));
                     // Update dresseur which is attacked
                     combatManager.setDresseur(combatManager.getCombat().getDresseur1());
                     combatManager.setAttaque(CombatManagerAttackFragment.this.attack);CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) parentActivity.getSupportFragmentManager().findFragmentById(

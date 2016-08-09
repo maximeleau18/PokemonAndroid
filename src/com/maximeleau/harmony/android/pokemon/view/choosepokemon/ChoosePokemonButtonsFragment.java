@@ -31,6 +31,7 @@ import com.microsoft.azure.engagement.EngagementAgent;
 import org.joda.time.DateTime;
 
 import java.io.Serializable;
+import java.util.Locale;
 
 /**
  * Created by Maxime Léau on 03/08/2016.
@@ -191,6 +192,9 @@ public class ChoosePokemonButtonsFragment extends Fragment {
 
                 combatManager.setCombat(this.combat);
                 combatManager.setDresseurActualTurnId(this.combat.getDresseur1().getId());
+                combatManager.setConsole(String.format(Locale.FRANCE, "%s %s %s", this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start),
+                        this.combat.getDresseur1().getPrenom(),
+                        this.combat.getDresseur1().getNom()));
 
                 final Intent intent = new Intent(this.ctx, CombatManagerShowActivity.class);
                 intent.putExtra("combatManager", (Serializable) combatManager);
@@ -439,6 +443,9 @@ public class ChoosePokemonButtonsFragment extends Fragment {
                 CombatManager combatManager = new CombatManager();
 
                 combatManager.setCombat(this.combat);
+                combatManager.setConsole(String.format(Locale.FRANCE, "%s %s %s", this.ctx.getResources().getString(R.string.combat_manager_console_your_turn_start),
+                                                                        this.combat.getDresseur1().getPrenom(),
+                                                                        this.combat.getDresseur1().getNom()));
                 combatManager.setDresseurActualTurnId(this.combat.getDresseur1().getId());
 
                 final Intent intent = new Intent(this.ctx, CombatManagerShowActivity.class);

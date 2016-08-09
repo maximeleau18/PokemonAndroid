@@ -16,6 +16,8 @@ public class CombatManager implements Serializable {
 
     private int dresseurActualTurnId;
 
+    private String console;
+
     /**
      * Default constructor.
      */
@@ -61,5 +63,13 @@ public class CombatManager implements Serializable {
 
     public void setDresseurActualTurnId(int dresseurActualTurnId) {
         this.dresseurActualTurnId = dresseurActualTurnId;
+    }
+
+    public String getConsole() {
+        return console;
+    }
+
+    public void setConsole(String console) {
+        this.console = console;
     }
 }

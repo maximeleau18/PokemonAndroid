@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.maximeleau.harmony.android.pokemon.R;
@@ -38,6 +39,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
     private CombatManager combatManager;
     private Dresseur dresseurConnected;
     private TextView console;
+    private ScrollView consoleSV;
     private Context context;
     private BroadcastReceiver receiver;
     private CombatManagerAttackFragment fragmentAttack1;
@@ -117,6 +119,16 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         // Get console fragment
         CombatManagerConsoleFragment fragmentConsole = (CombatManagerConsoleFragment)fragmentManager.findFragmentById(R.id.fragment_combat_manager_console);
         this.console = fragmentConsole.getConsole();
+        this.consoleSV = fragmentConsole.getConsoleSV();
+
+        // Update messages in console
+        this.console.setText(this.combatManager.getConsole());
+        this.consoleSV.post(new Runnable() {
+            @Override
+            public void run() {
+                CombatManagerShowActivity.this.consoleSV.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
     }
 
     public CombatManager getCombatManager(){
@@ -162,8 +174,29 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                 } catch (JSONException e) {
                     Log.e("Error", "Not be able to parse" + intent.getStringExtra("combatManagerJson") + " to combatManager.");
                 }
+                // Update messages in console
+                CombatManagerShowActivity.this.console.setText(combatManager.getConsole());
+                CombatManagerShowActivity.this.consoleSV.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        CombatManagerShowActivity.this.consoleSV.fullScroll(ScrollView.FOCUS_DOWN);
+                    }
+                });
 
                 if (combatManager.getCombat().isDresseur1Vainqueur() || combatManager.getCombat().isDresseur2Vainqueur()) {
+                    CombatManagerShowActivity.this.fragmentAttack1.getAttackContainer().setEnabled(false);
+                    CombatManagerShowActivity.this.fragmentAttack2.getAttackContainer().setEnabled(false);
+                    CombatManagerShowActivity.this.fragmentAttack3.getAttackContainer().setEnabled(false);
+                    CombatManagerShowActivity.this.fragmentAttack4.getAttackContainer().setEnabled(false);
+
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    // Set opponent view
+                    CombatManagerOpponentFragment fragmentOpponent = (CombatManagerOpponentFragment) fragmentManager.findFragmentById(R.id.fragment_combat_manager_opponent);
+                    fragmentOpponent.initializeComponent(fragmentOpponent.getView());
+                    // Set player view
+                    CombatManagerPlayerFragment fragmentPlayer = (CombatManagerPlayerFragment) fragmentManager.findFragmentById(R.id.fragment_combat_manager_player);
+                    fragmentPlayer.initializeComponent(fragmentPlayer.getView());
+
                     new FinishFightTask(CombatManagerShowActivity.this, combatManager.getCombat(), dresseurConnected).execute();
                 }else{
                     CombatManagerShowActivity.this.combatManager = combatManager;
@@ -240,7 +273,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
             }
         };
 
-        //registering our receiver
+        // Register receiver
         this.registerReceiver(this.receiver, intentFilter);
     }
 
@@ -280,7 +313,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                         }
 
                         // Finish fight
-                        new DesertionFightTask(((Dialog) dialog).getContext(), CombatManagerShowActivity.this.combatManager.getCombat(),
+                        new DesertionFightTask(((Dialog) dialog).getContext(), CombatManagerShowActivity.this.combatManager,
                                 CombatManagerShowActivity.this.dresseurConnected).execute();
                         return;
                     }
@@ -322,11 +355,11 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            this.progress = ProgressDialog.show(this.ctx,
-                    this.ctx.getString(
-                            R.string.combat_manager_finish_fight_title),
-                    this.ctx.getString(
-                            R.string.combat_manager_finish_fight_message));
+            //this.progress = ProgressDialog.show(this.ctx,
+             //       this.ctx.getString(
+             //               R.string.combat_manager_finish_fight_title),
+             //       this.ctx.getString(
+              //              R.string.combat_manager_finish_fight_message));
         }
 
         @Override
@@ -441,7 +474,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                 }
             }
 
-            this.progress.dismiss();
+            //this.progress.dismiss();
 
         }
     }
@@ -450,7 +483,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         /** AsyncTask's context. */
         private final android.content.Context ctx;
         /** Entity to update. */
-        private final Combat combat;
+        private final CombatManager combatManager;
         /** Dresseur winner **/
         private final Dresseur dresseurConnected;
         /** Progress Dialog. */
@@ -458,15 +491,15 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
 
         /**
          * Constructor of the task.
-         * @param combat The entity to insert in the DB
+         * @param combatManager The entity which contains an entity to insert in the DB
          * @param context The context from where the aSyncTask is
          * called
          */
         public DesertionFightTask(final Context context,
-                               final Combat combat, final Dresseur dresseurConnected) {
+                               final CombatManager combatManager, final Dresseur dresseurConnected) {
             super();
             this.ctx = context;
-            this.combat = combat;
+            this.combatManager = combatManager;
             this.dresseurConnected = dresseurConnected;
         }
 
@@ -486,7 +519,7 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
 
             try {
                 CombatWebServiceClientAdapter webService = new CombatWebServiceClientAdapter(this.ctx);
-                result = webService.update(this.combat);
+                result = webService.updateFromCombatManager(this.combatManager);
             } catch (Exception e) {
                 android.util.Log.e("CombatManagerShowActivity", e.getMessage());
             }

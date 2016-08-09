@@ -50,6 +50,8 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
     protected static String JSON_ACTUAL_PV = "actualPv";
     /** JSON_DRESSEUR_ACTUAL_TURN_ID attributes. */
     protected static String JSON_DRESSEUR_ACTUAL_TURN_ID = "dresseurActualTurnId";
+    /** JSON_CONSOLE attributes. */
+    protected static String JSON_CONSOLE = "console";
 
     /** Rest Date Format pattern. */
     public static final String REST_UPDATE_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
@@ -440,6 +442,12 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                             json.getInt(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID));
                 }
 
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_CONSOLE)
+                        && !json.isNull(CombatManagerWebServiceClientAdapter.JSON_CONSOLE)) {
+                    combatManager.setConsole(
+                            json.getString(CombatManagerWebServiceClientAdapter.JSON_CONSOLE));
+                }
+
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
             }
@@ -476,6 +484,9 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                 }
                 if (json.has(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID)) {
                     row[4] = json.getString(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID);
+                }
+                if (json.has(CombatManagerWebServiceClientAdapter.JSON_CONSOLE)) {
+                    row[5] = json.getString(CombatManagerWebServiceClientAdapter.JSON_CONSOLE);
                 }
 
                 cursor.addRow(row);
@@ -521,8 +532,13 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
             }
             params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
                     combatManager.getActualPv());
+
             params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
                     combatManager.getDresseurActualTurnId());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_CONSOLE,
+                    combatManager.getConsole());
+
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }
@@ -556,10 +572,16 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
                 params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
                         combatManager.getDresseur().getId());
             }
+
             params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
                     combatManager.getActualPv());
+
             params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
                     combatManager.getDresseurActualTurnId());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_CONSOLE,
+                    combatManager.getConsole());
+
         } catch (JSONException e) {
             Log.e(TAG, e.getMessage());
         }

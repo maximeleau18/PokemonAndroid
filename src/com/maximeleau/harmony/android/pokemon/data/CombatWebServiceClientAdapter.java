@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.maximeleau.harmony.android.pokemon.data.base.CombatWebServiceClientAdapterBase;
 import com.maximeleau.harmony.android.pokemon.entity.Combat;
+import com.maximeleau.harmony.android.pokemon.entity.CombatManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -169,6 +170,35 @@ public class CombatWebServiceClientAdapter
             } catch (JSONException e) {
                 Log.e(TAG, e.getMessage());
                 combat = null;
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Update a Combat. Uses the route : Combat/%id%.
+     * @param combatManager : The CombatManager with combat to update
+     * @return -1 if an error has occurred. 0 if not.
+     */
+    public int updateFromCombatManager(CombatManager combatManager) {
+        int result = -1;
+        CombatManagerWebServiceClientAdapter combatManagerWebServiceClientAdapter = new CombatManagerWebServiceClientAdapter(this.context);
+        String response = this.invokeRequest(
+                RestClient.Verb.PUT,
+                String.format(
+                        this.getUri() + "/%s%s",
+                        combatManager.getCombat().getId(),
+                        REST_FORMAT),
+                combatManagerWebServiceClientAdapter.itemToJsonSend(combatManager));
+
+        if (this.isValidResponse(response) && this.isValidRequest()) {
+            try {
+                JSONObject json = new JSONObject(response);
+                this.extract(json, combatManager.getCombat());
+                result = 0;
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
             }
         }
 

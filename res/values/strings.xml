@@ -88,9 +88,7 @@
     <string name="combat_lancele_time_title">Select lanceLe time</string>
     <string name="combat_manager_console_launch_attack">attaque</string>
     <string name="combat_manager_console_your_turn_end_str">Choisi une attaque.</string>
-    <string name="combat_manager_console_your_turn_start_str">A ton tour</string>
-    <string name="combat_manager_console_waiting_for_attack_start_str">Attends que</string>
-    <string name="combat_manager_console_waiting_for_attack_end_str">ait joué.</string>
+    <string name="combat_manager_console_your_turn_start">A toi de commencer</string>
     <string name="combat_manager_launch_attack_title">Lancement de l\'attaque</string>
     <string name="combat_manager_launch_attack_message">En attente du serveur...</string>
     <string name="combat_manager_launch_attack_error_message">Un problème est survenu lors de l\'envoi de la requête au serveur.</string>
