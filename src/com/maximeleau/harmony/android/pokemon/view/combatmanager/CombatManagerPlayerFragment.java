@@ -61,7 +61,7 @@ public class CombatManagerPlayerFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom());
 
-            this.pokemonLevel.setText(this.combatManager.getCombat().getPokemon1().getNiveau());
+            this.pokemonLevel.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getNiveau()));
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn
@@ -83,7 +83,7 @@ public class CombatManagerPlayerFragment extends Fragment {
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom());
 
-            this.pokemonLevel.setText(this.combatManager.getCombat().getPokemon2().getNiveau());
+            this.pokemonLevel.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getNiveau()));
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn

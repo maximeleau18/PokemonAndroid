@@ -27,4 +27,9 @@ public class ConnectedChooseActionActivity extends EngagementFragmentActivity {
     public Dresseur getDresseurConnected(){
         return this.dresseurConnected;
     }
+
+    @Override
+    public void onBackPressed() {
+       // Forbit return at this moment
+    }
 }
