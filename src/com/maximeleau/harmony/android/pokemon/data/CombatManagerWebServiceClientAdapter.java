@@ -103,4 +103,93 @@ public class CombatManagerWebServiceClientAdapter extends CombatManagerWebServic
 
         return result;
     }
+
+    /**
+     * Convert a CombatManager to a JSONObject.
+     * @param combatManager The CombatManager to convert
+     * @return The converted CombatManager
+     */
+    public JSONObject itemToJsonSend(CombatManager combatManager) {
+        JSONObject params = new JSONObject();
+        try {
+
+            if (combatManager.getCombat() != null) {
+
+                params.put(CombatManagerWebServiceClientAdapter.JSON_COMBAT,
+                        combatManager.getCombat().getId());
+            }
+
+            if (combatManager.getAttaque() != null) {
+
+                params.put(CombatManagerWebServiceClientAdapter.JSON_ATTAQUE,
+                        combatManager.getAttaque().getId());
+            }
+
+            if (combatManager.getDresseur() != null) {
+
+                params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
+                        combatManager.getDresseur().getId());
+            }
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
+                    combatManager.getActualPv());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
+                    combatManager.getDresseurActualTurnId());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_CONSOLE,
+                    combatManager.getConsole());
+
+        } catch (JSONException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        return params;
+    }
+
+    /**
+     * Convert a CombatManager to a JSONObject.
+     * @param combatManager The CombatManager to convert
+     * @return The converted CombatManager
+     */
+    public JSONObject itemToJsonFull(CombatManager combatManager) {
+        JSONObject params = new JSONObject();
+        try {
+
+            if (combatManager.getCombat() != null) {
+                CombatWebServiceClientAdapter combatAdapter =
+                        new CombatWebServiceClientAdapter(this.context);
+
+                params.put("Combat",
+                        combatAdapter.itemToJsonSend(combatManager.getCombat()));
+            }
+
+            if (combatManager.getAttaque() != null) {
+
+                params.put(CombatManagerWebServiceClientAdapter.JSON_ATTAQUE,
+                        combatManager.getAttaque().getId());
+            }
+
+            if (combatManager.getDresseur() != null) {
+
+                params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
+                        combatManager.getDresseur().getId());
+            }
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
+                    combatManager.getActualPv());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
+                    combatManager.getDresseurActualTurnId());
+
+            params.put(CombatManagerWebServiceClientAdapter.JSON_CONSOLE,
+                    combatManager.getConsole());
+
+        } catch (JSONException e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        return params;
+    }
+
 }

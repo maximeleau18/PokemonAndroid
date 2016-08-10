@@ -86,6 +86,7 @@
     <string name="combat_lancele_invalid_field_error">Field LanceLe is invalid.</string>
     <string name="combat_lancele_label">LanceLe</string>
     <string name="combat_lancele_time_title">Select lanceLe time</string>
+    <string name="combat_manager_pokemon_niveau">Niv. </string>
     <string name="combat_manager_console_launch_attack">attaque</string>
     <string name="combat_manager_console_your_turn_end_str">Choisi une attaque.</string>
     <string name="combat_manager_console_your_turn_start">A toi de commencer</string>

@@ -547,49 +547,6 @@ public abstract class CombatManagerWebServiceClientAdapterBase {
     }
 
     /**
-     * Convert a CombatManager to a JSONObject.
-     * @param combatManager The CombatManager to convert
-     * @return The converted CombatManager
-     */
-    public JSONObject itemToJsonSend(CombatManager combatManager) {
-        JSONObject params = new JSONObject();
-        try {
-
-            if (combatManager.getCombat() != null) {
-
-                params.put(CombatManagerWebServiceClientAdapter.JSON_COMBAT,
-                        combatManager.getCombat().getId());
-            }
-
-            if (combatManager.getAttaque() != null) {
-
-                params.put(CombatManagerWebServiceClientAdapter.JSON_ATTAQUE,
-                        combatManager.getAttaque().getId());
-            }
-
-            if (combatManager.getDresseur() != null) {
-
-                params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR,
-                        combatManager.getDresseur().getId());
-            }
-
-            params.put(CombatManagerWebServiceClientAdapter.JSON_ACTUAL_PV,
-                    combatManager.getActualPv());
-
-            params.put(CombatManagerWebServiceClientAdapter.JSON_DRESSEUR_ACTUAL_TURN_ID,
-                    combatManager.getDresseurActualTurnId());
-
-            params.put(CombatManagerWebServiceClientAdapter.JSON_CONSOLE,
-                    combatManager.getConsole());
-
-        } catch (JSONException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        return params;
-    }
-
-    /**
      * Checks network connection.
      * @return true if available
      */

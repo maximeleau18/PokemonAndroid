@@ -267,7 +267,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         this.getUri() + "/%s%s",
                         combat.getId(),
                         REST_FORMAT),
-                    itemToJsonSend(combat));
+                    itemToJson(combat));
 
         if (this.isValidResponse(response) && this.isValidRequest()) {
             try {
@@ -687,7 +687,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new PokemonWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_POKEMON1,
-                        pokemon1Adapter.itemToJson(combat.getPokemon1()));
+                        pokemon1Adapter.itemIdToJson(combat.getPokemon1()));
             }
 
             if (combat.getPokemon2() != null) {
@@ -695,7 +695,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new PokemonWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_POKEMON2,
-                        pokemon2Adapter.itemToJson(combat.getPokemon2()));
+                        pokemon2Adapter.itemIdToJson(combat.getPokemon2()));
             }
 
             if (combat.getDresseur1() != null) {
@@ -703,7 +703,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new DresseurWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1,
-                        dresseur1Adapter.itemToJson(combat.getDresseur1()));
+                        dresseur1Adapter.itemIdToJson(combat.getDresseur1()));
             }
 
             if (combat.getDresseur2() != null) {
@@ -711,64 +711,7 @@ public abstract class CombatWebServiceClientAdapterBase
                         new DresseurWebServiceClientAdapter(this.context);
 
                 params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2,
-                        dresseur2Adapter.itemToJson(combat.getDresseur2()));
-            }
-            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR,
-                    combat.isDresseur1Vainqueur());
-            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2VAINQUEUR,
-                    combat.isDresseur2Vainqueur());
-            params.put(CombatWebServiceClientAdapter.JSON_POKEMON1VAINQUEUR,
-                    combat.isPokemon1Vainqueur());
-            params.put(CombatWebServiceClientAdapter.JSON_POKEMON2VAINQUEUR,
-                    combat.isPokemon2Vainqueur());
-            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1DEVICEID,
-                    combat.getDresseur1DeviceId());
-            params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2DEVICEID,
-                    combat.getDresseur2DeviceId());
-        } catch (JSONException e) {
-            Log.e(TAG, e.getMessage());
-        }
-
-        return params;
-    }
-
-
-    /**
-     * Convert a Combat to a JSONObject.
-     * @param combat The Combat to convert
-     * @return The converted Combat
-     */
-    public JSONObject itemToJsonSend(Combat combat) {
-        JSONObject params = new JSONObject();
-        try {
-            params.put(CombatWebServiceClientAdapter.JSON_ID,
-                    combat.getId());
-
-            if (combat.getLanceLe() != null) {
-                params.put(CombatWebServiceClientAdapter.JSON_LANCELE,
-                        combat.getLanceLe().toString(REST_UPDATE_DATE_FORMAT));
-            }
-            params.put(CombatWebServiceClientAdapter.JSON_DUREE,
-                    combat.getDuree());
-
-            if (combat.getPokemon1() != null) {
-                params.put(CombatWebServiceClientAdapter.JSON_POKEMON1,
-                        combat.getPokemon1().getId());
-            }
-
-            if (combat.getPokemon2() != null) {
-                params.put(CombatWebServiceClientAdapter.JSON_POKEMON2,
-                        combat.getPokemon2().getId());
-            }
-
-            if (combat.getDresseur1() != null) {
-                params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1,
-                        combat.getDresseur1().getId());
-            }
-
-            if (combat.getDresseur2() != null) {
-                params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR2,
-                        combat.getDresseur2().getId());
+                        dresseur2Adapter.itemIdToJson(combat.getDresseur2()));
             }
             params.put(CombatWebServiceClientAdapter.JSON_DRESSEUR1VAINQUEUR,
                     combat.isDresseur1Vainqueur());

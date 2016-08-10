@@ -27,6 +27,7 @@ public class CombatManagerOpponentFragment extends Fragment {
     private TextView pokemonTypeName;
     private TextView pokemonActualPv;
     private TextView pokemonMaxPv;
+    private TextView pokemonLevel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,6 +50,7 @@ public class CombatManagerOpponentFragment extends Fragment {
         this.pokemonTypeName = (TextView) view.findViewById(R.id.combat_manager_opponent_pokemon_type_name);
         this.pokemonActualPv = (TextView) view.findViewById(R.id.combat_manager_opponent_pokemon_actual_pv);
         this.pokemonMaxPv = (TextView) view.findViewById(R.id.combat_manager_opponent_pokemon_max_pv);
+        this.pokemonLevel = (TextView) view.findViewById(R.id.combat_manager_opponent_pokemon_niveau_value);
 
         if(this.combatManager.getCombat().getDresseur2().getId() == this.dresseurConnected.getId()) {
             int drawableResourceId = getResources().getIdentifier(
@@ -58,6 +60,8 @@ public class CombatManagerOpponentFragment extends Fragment {
             this.pokemonImage.setImageResource(drawableResourceId);
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getNom());
+
+            this.pokemonLevel.setText(this.combatManager.getCombat().getPokemon1().getNiveau());
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn
@@ -78,6 +82,8 @@ public class CombatManagerOpponentFragment extends Fragment {
             this.pokemonImage.setImageResource(drawableResourceId);
 
             this.pokemonTypeName.setText(this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNom());
+
+            this.pokemonLevel.setText(this.combatManager.getCombat().getPokemon2().getNiveau());
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn

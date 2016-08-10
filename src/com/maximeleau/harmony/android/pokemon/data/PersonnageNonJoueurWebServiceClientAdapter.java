@@ -11,9 +11,13 @@
 package com.maximeleau.harmony.android.pokemon.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.maximeleau.harmony.android.pokemon.data.base.PersonnageNonJoueurWebServiceClientAdapterBase;
 import com.maximeleau.harmony.android.pokemon.entity.PersonnageNonJoueur;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Rest class for {@link PersonnageNonJoueur} WebServiceClient adapters.
@@ -80,4 +84,5 @@ public class PersonnageNonJoueurWebServiceClientAdapter
             String host, Integer port, String scheme, String prefix) {
         super(context, host, port, scheme, prefix);
     }
+
 }

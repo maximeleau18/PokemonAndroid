@@ -11,9 +11,17 @@
 package com.maximeleau.harmony.android.pokemon.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.maximeleau.harmony.android.pokemon.data.base.PokemonWebServiceClientAdapterBase;
+import com.maximeleau.harmony.android.pokemon.entity.Objet;
 import com.maximeleau.harmony.android.pokemon.entity.Pokemon;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.List;
 
 /**
  * Rest class for {@link Pokemon} WebServiceClient adapters.
@@ -80,4 +88,5 @@ public class PokemonWebServiceClientAdapter
             String host, Integer port, String scheme, String prefix) {
         super(context, host, port, scheme, prefix);
     }
+
 }

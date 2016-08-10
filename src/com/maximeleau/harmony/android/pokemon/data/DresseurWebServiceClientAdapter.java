@@ -115,4 +115,5 @@ public class DresseurWebServiceClientAdapter
 
         return result;
     }
+
 }

@@ -22,6 +22,32 @@
             android:gravity="center"/>
 
         <LinearLayout
+            android:id="@+id/combat_manager_opponent_pokemon_niveau_ll"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/combat_manager_opponent_pokemon_niveau"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/combat_manager_pokemon_niveau"
+                android:gravity="right"/>
+
+
+            <TextView
+                android:id="@+id/combat_manager_opponent_pokemon_niveau_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/combat_manager_opponent_pokemon_details_ll"
             android:orientation="horizontal"
             android:layout_width="match_parent"
