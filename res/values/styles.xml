@@ -7,12 +7,66 @@
         <item name="android:textSize">18sp</item>
         <item name="android:paddingRight">12dp</item>
     </style>
+    <style name="theme_dark">
+        <item name="android:background">@color/background_color_dark</item>
+    </style>
     <style name="textview_console_combat_manager">
         <item name="android:background">@drawable/textview_console</item>
     </style>
     <style name="button_attack_combat_manager">
         <item name="android:background">@drawable/attack_button_background</item>
         <item name="android:textColor">@color/attack_button_text_color</item>
+        <item name="android:layout_margin">5dp</item>
         <item name="android:padding">5dp</item>
+    </style>
+    <style name="combat_manager_player_text_view">
+        <item name="android:textColor">@color/combat_manager_player_text_view_color</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="combat_manager_opponent_text_view">
+        <item name="android:textColor">@color/combat_manager_opponent_text_view_color</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="button_parameter">
+        <item name="android:background">@drawable/parameter_button_background</item>
+        <item name="android:textColor">@color/parameter_button_text_color</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+    <style name="edit_text">
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:textColor">@color/edit_text_color</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+    <style name="text_view_label_medium">
+        <item name="android:textColor">@color/text_view_color</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+    <style name="text_view_title">
+        <item name="android:textColor">@color/text_view_color</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">7dp</item>
+    </style>
+    <style name="list_view_choose_pokemon_text_view">
+        <item name="android:textColor">@color/text_view_color</item>
+        <item name="android:textSize">15dp</item>
+    </style>
+    <style name="list_view_choose_pokemon_item">
+        <item name="android:background">@drawable/choose_pokemon_list_item</item>
+    </style>
+    <style name="show_attack_background">
+        <item name="android:background">@drawable/show_attack_background</item>
+        <item name="android:padding">15dp</item>
+    </style>
+    <style name="show_attack_text_view">
+        <item name="android:textColor">@color/show_attack_text_view_color</item>
+        <item name="android:textSize">15dp</item>
     </style>
 </resources>

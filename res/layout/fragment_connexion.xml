@@ -9,25 +9,29 @@
         android:id="@+id/connexion_login_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/connexion_login_label"/>
+        android:text="@string/connexion_login_label"
+        style="@style/text_view_label_medium"/>
 
     <EditText
         android:id="@+id/connexion_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="text" />
+        android:inputType="text"
+        style="@style/edit_text"/>
 
     <TextView
         android:id="@+id/connexion_password_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/connexion_password_label"/>
+        android:text="@string/connexion_password_label"
+        style="@style/text_view_label_medium"/>
 
     <EditText
         android:id="@+id/connexion_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        style="@style/edit_text"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,6 +44,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/connexion_back_button"
+            style="@style/button_parameter"
             android:layout_weight="1"/>
 
         <Button
@@ -47,6 +52,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:text="@string/connexion_button"
+            style="@style/button_parameter"
             android:layout_weight="1"/>
 
     </LinearLayout>

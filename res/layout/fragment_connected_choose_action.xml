@@ -9,12 +9,14 @@
         android:id="@+id/connected_choose_action_search_fight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/connected_choose_action_search_fight"/>
+        android:text="@string/connected_choose_action_search_fight"
+        style="@style/button_parameter"/>
 
     <Button
         android:id="@+id/connected_choose_action_launch_fight"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/connected_choose_action_launch_fight"/>
+        android:text="@string/connected_choose_action_launch_fight"
+        style="@style/button_parameter"/>
 
 </LinearLayout>

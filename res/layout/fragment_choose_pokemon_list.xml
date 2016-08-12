@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:background="@color/list_background_color"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent">
 
     <RelativeLayout
         android:id="@+id/choose_pokemon_list_container"
@@ -17,7 +17,8 @@
             android:layout_height="match_parent"
             android:padding="10dp"
             android:gravity="center"
-            android:text="@string/choose_pokemon_empty_list" />
+            android:text="@string/choose_pokemon_empty_list"
+            style="@style/text_view_label_medium"/>
 
         <ListView
             android:id="@+id/choose_pokemon_list_view"
@@ -29,7 +30,7 @@
             android:drawSelectorOnTop="false"
             android:fadingEdge="none"
             android:divider="@android:color/transparent"
-            android:choiceMode="singleChoice" />
+            android:choiceMode="singleChoice"/>
     </RelativeLayout>
 
 </LinearLayout>

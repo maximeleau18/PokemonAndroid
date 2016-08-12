@@ -38,7 +38,13 @@ public class ConnectedChooseActionFragment extends Fragment {
         this.btnJoinFight = (Button) view.findViewById(R.id.connected_choose_action_search_fight);
 
         // Binding click
-        this.btnCreateFight.setOnClickListener(new View.OnClickListener() {
+        this.btnCreateFight.setOnClickListener(createFightOnClick());
+
+        this.btnJoinFight.setOnClickListener(joinFightOnClick());
+    }
+
+    public View.OnClickListener createFightOnClick(){
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent(ConnectedChooseActionFragment.this.getActivity(), ChoosePokemonActivity.class);
@@ -46,9 +52,11 @@ public class ConnectedChooseActionFragment extends Fragment {
                 intent.putExtra("choisenAction", "create_fight");
                 ConnectedChooseActionFragment.this.getActivity().startActivity(intent);
             }
-        });
+        };
+    }
 
-        this.btnJoinFight.setOnClickListener(new View.OnClickListener() {
+    public View.OnClickListener joinFightOnClick(){
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent(ConnectedChooseActionFragment.this.getActivity(), ChoosePokemonActivity.class);
@@ -56,6 +64,6 @@ public class ConnectedChooseActionFragment extends Fragment {
                 intent.putExtra("choisenAction", "join_fight");
                 ConnectedChooseActionFragment.this.getActivity().startActivity(intent);
             }
-        });
+        };
     }
 }

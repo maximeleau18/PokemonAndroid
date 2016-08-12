@@ -812,8 +812,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.connexion.ConnexionActivity">
+        <activity android:name=".view.connexion.ConnexionActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize">
             <intent-filter>
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

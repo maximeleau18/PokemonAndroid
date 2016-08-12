@@ -88,23 +88,24 @@ public class ConnexionFragment extends Fragment {
      * @return true if valid
      */
     public boolean validateData() {
-        int error = 0;
+        int errorLogin = 0;
+        int errorPassword = 0;
 
         if (Strings.isNullOrEmpty(
                 this.loginTxt.getText().toString().trim())) {
-            error = R.string.connexion_login_invalid_field;
+            errorLogin = R.string.connexion_login_invalid_field;
         }
         if (Strings.isNullOrEmpty(
                 this.passwordTxt.getText().toString().trim())) {
-            error = R.string.connexion_password_invalid_field;
+            errorPassword = R.string.connexion_password_invalid_field;
         }
 
-        if (error > 0) {
+        if (errorLogin > 0 || errorPassword > 0) {
             Toast.makeText(this.getActivity(),
-                    this.getActivity().getString(error),
+                    this.getActivity().getString(errorLogin) + "\n" + this.getActivity().getString(errorPassword),
                     Toast.LENGTH_SHORT).show();
         }
-        return error == 0;
+        return (errorLogin == 0 && errorPassword == 0);
     }
 
     /**

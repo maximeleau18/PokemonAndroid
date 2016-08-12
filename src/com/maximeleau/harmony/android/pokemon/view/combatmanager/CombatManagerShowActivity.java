@@ -355,11 +355,6 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            //this.progress = ProgressDialog.show(this.ctx,
-             //       this.ctx.getString(
-             //               R.string.combat_manager_finish_fight_title),
-             //       this.ctx.getString(
-              //              R.string.combat_manager_finish_fight_message));
         }
 
         @Override
@@ -546,10 +541,6 @@ public class CombatManagerShowActivity extends EngagementFragmentActivity {
                             }
                         });
                 builder.show();
-            } else {
-                Intent intent = new Intent(this.ctx, ConnectedChooseActionActivity.class);
-                intent.putExtra("dresseur", (Serializable) this.dresseurConnected);
-                this.ctx.startActivity(intent);
             }
 
             this.progress.dismiss();

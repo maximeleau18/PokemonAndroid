@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/show_attack_background">
 
     <TextView
         android:id="@+id/choose_pokemon_attack_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"/>
+        android:gravity="center"
+        style="@style/show_attack_text_view"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,14 +22,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="@string/choose_pokemon_attack_type_label" />
+            android:text="@string/choose_pokemon_attack_type_label"
+            style="@style/show_attack_text_view"/>
 
         <TextView
             android:id="@+id/choose_pokemon_attack_type_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="left"/>
+            android:gravity="left"
+            style="@style/show_attack_text_view"/>
 
     </LinearLayout>
 
@@ -42,14 +46,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="@string/choose_pokemon_attack_power_label" />
+            android:text="@string/choose_pokemon_attack_power_label"
+            style="@style/show_attack_text_view" />
 
         <TextView
             android:id="@+id/choose_pokemon_attack_power_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="left"/>
+            android:gravity="left"
+            style="@style/show_attack_text_view"/>
 
     </LinearLayout>
 
@@ -64,14 +70,16 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="@string/choose_pokemon_attack_dammage_label" />
+            android:text="@string/choose_pokemon_attack_dammage_label"
+            style="@style/show_attack_text_view"/>
 
         <TextView
             android:id="@+id/choose_pokemon_attack_dammage_value"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="left"/>
+            android:gravity="left"
+            style="@style/show_attack_text_view"/>
 
     </LinearLayout>
 

@@ -1,66 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    style="@style/list_view_choose_pokemon_item">
 
-    <TextView
-        android:id="@+id/row_choose_pokemon_type_de_pokemon_nom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2">
-
-        <TextView
-            android:id="@+id/row_choose_pokemon_level_label"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="@string/row_choose_pokemon_level"/>
-
-        <TextView
-            android:id="@+id/row_choose_pokemon_level_value"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="left"/>
-
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/row_choose_pokemon_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:layout_gravity="center_vertical"/>
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2.2">
+        android:id="@+id/row_choose_pokemon_ll"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1.2"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/row_choose_pokemon_actual_pv_value"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="right" />
-
-        <TextView
-            android:id="@+id/row_choose_pokemon_separator_pv"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:id="@+id/row_choose_pokemon_type_de_pokemon_nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/row_choose_pokemon_separator_pv"/>
+            style="@style/list_view_choose_pokemon_text_view"/>
 
-        <TextView
-            android:id="@+id/row_choose_pokemon_max_pv_value"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="left" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/row_choose_pokemon_level_label"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="@string/row_choose_pokemon_level"
+                style="@style/list_view_choose_pokemon_text_view"/>
+
+            <TextView
+                android:id="@+id/row_choose_pokemon_level_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left"
+                style="@style/list_view_choose_pokemon_text_view"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2.2">
+
+            <TextView
+                android:id="@+id/row_choose_pokemon_actual_pv_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="right"
+                style="@style/list_view_choose_pokemon_text_view"/>
+
+            <TextView
+                android:id="@+id/row_choose_pokemon_separator_pv"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="@string/row_choose_pokemon_separator_pv"
+                style="@style/list_view_choose_pokemon_text_view"/>
+
+            <TextView
+                android:id="@+id/row_choose_pokemon_max_pv_value"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left"
+                style="@style/list_view_choose_pokemon_text_view"/>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

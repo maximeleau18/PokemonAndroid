@@ -65,7 +65,8 @@ public class CombatManagerOpponentFragment extends Fragment {
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn
-                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
+                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d",
+                        (this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv() * this.combatManager.getCombat().getPokemon1().getNiveau())));
             }else{
                 // Other turn
                 if (this.combatManager.getDresseur().getId() == this.combatManager.getCombat().getDresseur1().getId()){
@@ -73,7 +74,8 @@ public class CombatManagerOpponentFragment extends Fragment {
                 }
             }
 
-            this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv()));
+            this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d",
+                    (this.combatManager.getCombat().getPokemon1().getTypeDePokemon().getPv() * this.combatManager.getCombat().getPokemon1().getNiveau())));
         }else if(this.combatManager.getCombat().getDresseur1().getId() == this.dresseurConnected.getId()){
             int drawableResourceId = getResources().getIdentifier(
                     "pokemon_front_" + String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getNumPokedex()),
@@ -87,7 +89,8 @@ public class CombatManagerOpponentFragment extends Fragment {
 
             if(this.combatManager.getDresseur() == null){
                 // 1rst turn
-                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
+                this.pokemonActualPv.setText(String.format(Locale.FRANCE, "%d",
+                        (this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv() * this.combatManager.getCombat().getPokemon2().getNiveau())));
             }else{
                 // Other turn
                 if (this.combatManager.getDresseur().getId() == this.combatManager.getCombat().getDresseur2().getId()){
@@ -95,7 +98,8 @@ public class CombatManagerOpponentFragment extends Fragment {
                 }
             }
 
-            this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d", this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv()));
+            this.pokemonMaxPv.setText(String.format(Locale.FRANCE, "%d",
+                    (this.combatManager.getCombat().getPokemon2().getTypeDePokemon().getPv() * this.combatManager.getCombat().getPokemon2().getNiveau())));
         }
     }
 

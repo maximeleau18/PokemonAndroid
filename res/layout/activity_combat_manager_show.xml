@@ -5,23 +5,33 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="4">
+    android:weightSum="4"
+    style="@style/theme_dark">
 
     <fragment
         android:id="@+id/fragment_combat_manager_opponent"
         android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerOpponentFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
+        android:layout_weight="0.885"
         tools:layout="@layout/fragment_combat_manager_opponent">
     </fragment>
+
+    <LinearLayout
+        android:id="@+id/fragment_combat_manager_separator"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.03"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+    </LinearLayout>
 
     <fragment
         android:id="@+id/fragment_combat_manager_player"
         android:name="com.maximeleau.harmony.android.pokemon.view.combatmanager.CombatManagerPlayerFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.9"
+        android:layout_weight="0.885"
         tools:layout="@layout/fragment_combat_manager_player">
     </fragment>
 
@@ -38,7 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.4"
-            android:weightSum="2">
+            android:weightSum="2"
+        android:background="@android:color/transparent">
 
             <TableRow
                 android:layout_width="match_parent"

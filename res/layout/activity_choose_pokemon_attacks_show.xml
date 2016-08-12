@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/theme_dark"
+    android:gravity="center">
 
     <ScrollView
+        android:id="@+id/show_attack_sv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/show_attack_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -19,25 +23,25 @@
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fragment_attack1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <FrameLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fragment_attack2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <FrameLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fragment_attack3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
             <FrameLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:id="@+id/fragment_attack4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
 
@@ -48,7 +52,8 @@
         android:name="com.maximeleau.harmony.android.pokemon.view.choosepokemon.ChoosePokemonButtonsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_choose_pokemon_buttons">
+        tools:layout="@layout/fragment_choose_pokemon_buttons"
+        android:layout_margin="7dp">
     </fragment>
 
 </LinearLayout>

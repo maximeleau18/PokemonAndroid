@@ -19,7 +19,8 @@
             android:id="@+id/combat_manager_opponent_pokemon_type_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"/>
+            android:gravity="center"
+            style="@style/combat_manager_opponent_text_view"/>
 
         <LinearLayout
             android:id="@+id/combat_manager_opponent_pokemon_niveau_ll"
@@ -35,7 +36,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/combat_manager_pokemon_niveau"
-                android:gravity="right"/>
+                android:gravity="right"
+                style="@style/combat_manager_opponent_text_view"/>
 
 
             <TextView
@@ -43,7 +45,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left"/>
+                android:gravity="left"
+                style="@style/combat_manager_opponent_text_view"/>
 
         </LinearLayout>
 
@@ -59,7 +62,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.4"
-                android:gravity="right"/>
+                android:gravity="right"
+                style="@style/combat_manager_opponent_text_view"/>
 
             <TextView
                 android:id="@+id/combat_manager_opponent_pokemon_details_separator"
@@ -67,14 +71,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.2"
                 android:text="@string/row_choose_pokemon_separator_pv"
-                android:gravity="center"/>
+                android:gravity="center"
+                style="@style/combat_manager_opponent_text_view"/>
 
             <TextView
                 android:id="@+id/combat_manager_opponent_pokemon_max_pv"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.4"
-                android:gravity="left"/>
+                android:gravity="left"
+                style="@style/combat_manager_opponent_text_view"/>
 
         </LinearLayout>
 

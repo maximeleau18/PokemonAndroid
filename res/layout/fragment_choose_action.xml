@@ -4,16 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/choose_action_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/choose_action_create_game_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/choose_action_button_create_game"/>
+        android:text="@string/choose_action_button_create_game"
+        style="@style/button_parameter"/>
 
     <Button
         android:id="@+id/choose_action_continue_game_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/choose_action_button_continue_game"/>
+        android:text="@string/choose_action_button_continue_game"
+        style="@style/button_parameter"/>
 
 </LinearLayout>

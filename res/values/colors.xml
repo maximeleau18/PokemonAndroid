@@ -4,11 +4,38 @@
     <color name="primary_color">#259b24</color>
     <color name="primary_color_dark">#0d5302</color>
     <color name="accent_color">#795548</color>
+    <!-- Main style -->
+    <color name="label_text_oolor">#ffffff</color>
+    <color name="edit_text_color">#000000</color>
+    <color name="edit_text_background_color">#ffffff</color>
+    <color name="edit_border_color">#ffffff</color>
+    <color name="background_color_dark">#000000</color>
+    <color name="text_view_color">#ffffff</color>
+    <!-- Console -->
     <color name="border_color_console">#000000</color>
     <color name="textview_background_console">#ffffff</color>
+    <!-- Combat manager -->
     <color name="attack_button_text_color">#000000</color>
     <color name="attack_button_background_color">#ff0000</color>
     <color name="attack_button_background_color_pressed">#b50000</color>
     <color name="attack_button_background_color_disabled">#808080</color>
     <color name="attack_button_border_color">#ffffff</color>
+    <color name="combat_manager_player_text_view_color">#ffffff</color>
+    <color name="combat_manager_opponent_text_view_color">#ffffff</color>
+    <!-- Parameter button -->
+    <color name="parameter_button_text_color">#ffffff</color>
+    <color name="parameter_button_border_color">#ffffff</color>
+    <color name="parameter_button_background_color">#ff009900</color>
+    <color name="parameter_button_background_color_pressed">#015801</color>
+    <!-- Choose Pokemon list -->
+    <color name="choose_pokemon_text_view_color">#ffffff</color>
+    <color name="choose_pokemon_background_standard">#808080</color>
+    <color name="choose_pokemon_background_color_focus">#000000</color>
+    <color name="choose_pokemon_background_color_pressed">#015801</color>
+    <color name="choose_pokemon_border_color">#ffffff</color>
+    <color name="choose_pokemon_border_color_pressed">#ff009900</color>
+    <!-- Show attacks pokemon -->
+    <color name="show_attack_background_color">#ff0000</color>
+    <color name="show_attack_border_color">#b50000</color>
+    <color name="show_attack_text_view_color">#ffffff</color>
 </resources>

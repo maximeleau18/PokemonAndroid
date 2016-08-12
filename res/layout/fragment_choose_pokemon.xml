@@ -9,6 +9,7 @@
         android:id="@+id/choose_pokemon_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/choose_pokemon_label"/>
+        android:text="@string/choose_pokemon_label"
+        style="@style/text_view_title"/>
 
 </LinearLayout>
