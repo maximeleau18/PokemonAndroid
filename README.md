@@ -9,8 +9,7 @@ Aussi, il vous sera impossible de lancer un combat contre vous-même.
 
 Une fois connecté, vous retrouverez votre personnage avec ses pokémons.
 
-Pour débuter un combat il suffira de cliquer sur lancer "" ou sur "". Vous choisirez alors le pokémon que vous souhaitez utiliser 
-pour le combat parmi les 3 pokémons que possède le personnage que vous avez choisi d'incarner.
+Pour débuter un combat il suffira de cliquer sur "Commencer un combat" ou sur "Rejoindre un combat". Vous choisirez alors le pokémon que vous souhaitez utiliser pour le combat parmi les 3 pokémons que possède le personnage que vous avez choisi d'incarner.
 Dans le premier cas on cherchera un combat où il manque un joueur durant 30 secondes. Si aucun adversaire n'est trouvé le combat
 sera annulé et vous devrez lancer une nouvelle recherche. Dans le deuxième cas l'application cherchera un combat incomplet et 
 si un combat est trouvé alors le combat commencera.
