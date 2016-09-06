@@ -1,8 +1,6 @@
 package com.maximeleau.harmony.android.pokemon.view.chooseaction;
 
 import android.os.Bundle;
-import android.util.Log;
-
 import com.maximeleau.harmony.android.pokemon.R;
 import com.microsoft.azure.engagement.EngagementAgent;
 import com.microsoft.azure.engagement.EngagementConfiguration;
