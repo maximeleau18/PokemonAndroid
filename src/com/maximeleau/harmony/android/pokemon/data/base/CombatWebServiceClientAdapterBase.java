@@ -11,7 +11,10 @@
 
 package com.maximeleau.harmony.android.pokemon.data.base;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 
 import org.joda.time.format.DateTimeFormatter;
@@ -457,10 +460,17 @@ public abstract class CombatWebServiceClientAdapterBase
                     DateTimeFormatter lanceLeFormatter = DateTimeFormat.forPattern(
                             CombatWebServiceClientAdapter.REST_UPDATE_DATE_FORMAT);
                     try {
-                        combat.setLanceLe(
+                        Log.d(TAG, json.getString(
+                                CombatWebServiceClientAdapter.JSON_LANCELE));
+
+                        combat.setLanceLe(ISODateTimeFormat.dateTimeParser().parseDateTime(json.getString(
+                                CombatWebServiceClientAdapter.JSON_LANCELE)));
+
+                        /*combat.setLanceLe(
                                 lanceLeFormatter.withOffsetParsed().parseDateTime(
                                         json.getString(
-                                        CombatWebServiceClientAdapter.JSON_LANCELE)));
+                                        CombatWebServiceClientAdapter.JSON_LANCELE)));*/
+
                     } catch (IllegalArgumentException e) {
                         Log.e(TAG, e.getMessage());
                     }

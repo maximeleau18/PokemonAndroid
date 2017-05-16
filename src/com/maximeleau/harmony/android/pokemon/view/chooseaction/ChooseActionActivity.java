@@ -15,7 +15,7 @@ public class ChooseActionActivity extends EngagementFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_action);
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
-        engagementConfiguration.setConnectionString("Endpoint=PokemonAPIPush.device.mobileengagement.windows.net;SdkKey=0e430a57ffd2d7ff4cd75382f707f085;AppId=nep000127");
+        engagementConfiguration.setConnectionString("Endpoint=PokemonAPIPush.device.mobileengagement.windows.net;SdkKey=cf62c7530a90a65edfd96ecf9064b879;AppId=nep000127");
         EngagementAgent.getInstance(this).init(engagementConfiguration);
     }
 }

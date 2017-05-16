@@ -23,6 +23,7 @@ dependencies {
     androidTestCompile fileTree(include: '*.jar', dir: 'test/libs')
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:support-v4:21.0.3'
+    compile files('libs/mobile-engagement-4.2.4.jar')
 }
 
 android {
@@ -33,7 +34,7 @@ android {
         //multiDexEnabled true 
 
         applicationId "com.maximeleau.harmony.android.pokemon"
-        minSdkVersion 8
+        minSdkVersion 15
         targetSdkVersion 21
 
         //Default test project is set with projectName.test 
